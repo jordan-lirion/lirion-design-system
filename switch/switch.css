@@ -1,0 +1,37 @@
+/* ==========================================================================
+   SWITCH
+   ========================================================================== */
+
+.switch {
+  appearance: none;
+  margin: 0;
+  position: relative;
+  width: 2.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background-color: var(--input);
+  border: 1px solid transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.switch::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: var(--background);
+  box-shadow: var(--shadow-sm);
+  transition: left 0.15s ease;
+}
+
+.switch:checked { background-color: oklch(0.145 0 0); }
+.switch:checked::before { left: calc(100% - 1rem - 2px); background-color: var(--background); }
+
+.switch:disabled { background-color: oklch(0.985 0 0); cursor: not-allowed; }
+.switch:disabled::before { background-color: oklch(0.87 0 0); }

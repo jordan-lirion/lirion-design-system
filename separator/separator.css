@@ -1,0 +1,6 @@
+/* ==========================================================================
+   SEPARATOR
+   ========================================================================== */
+
+.separator { border: none; border-top: 1px solid var(--border); margin: 0; width: 100%; }
+.separator--vertical { border-top: none; border-left: 1px solid var(--border); height: 1.25rem; width: 0; }

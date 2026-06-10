@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form — Design System</title>
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="form.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">Design System <span>/ Form</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Input</h2>
+      <div class="stack">
+        <div class="field">
+          <label class="label" for="input-default">Label</label>
+          <input class="input" type="text" id="input-default" placeholder="Placeholder…" />
+        </div>
+        <div class="field">
+          <label class="label" for="input-hint">With hint</label>
+          <input class="input" type="email" id="input-hint" placeholder="name@example.com" />
+          <p class="hint">We'll never send you spam.</p>
+        </div>
+        <div class="field">
+          <label class="label" for="input-disabled">Disabled</label>
+          <input class="input" type="text" id="input-disabled" placeholder="Read-only" disabled />
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Textarea</h2>
+      <div class="stack">
+        <div class="field">
+          <label class="label" for="textarea-default">Message</label>
+          <textarea class="textarea" id="textarea-default" placeholder="Write your message…"></textarea>
+        </div>
+        <div class="field">
+          <label class="label" for="textarea-disabled">Disabled</label>
+          <textarea class="textarea" id="textarea-disabled" placeholder="Read-only" disabled></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Select</h2>
+      <div class="stack">
+        <div class="field">
+          <label class="label" for="select-default">Role</label>
+          <select class="select" id="select-default">
+            <option>Product Designer</option>
+            <option>Developer</option>
+            <option>Speech therapist</option>
+            <option>Parent</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="label" for="select-disabled">Disabled</label>
+          <select class="select" id="select-disabled" disabled>
+            <option>Read-only</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Inline icon</h2>
+      <div class="stack">
+        <div class="field">
+          <label class="label" for="ig-search">Search</label>
+          <div class="input-group input-group--icon-start">
+            <input class="input" type="search" id="ig-search" placeholder="Search…" />
+            <span class="input-group__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="ig-email">Email</label>
+          <div class="input-group input-group--icon-start">
+            <input class="input" type="email" id="ig-email" placeholder="name@example.com" />
+            <span class="input-group__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="ig-password">Password</label>
+          <div class="input-group input-group--icon-end">
+            <input class="input" type="password" id="ig-password" placeholder="Enter password" />
+            <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" id="toggle-password" aria-label="Toggle password visibility">
+              <svg id="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              <svg id="icon-eye" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const toggle = document.getElementById('toggle-password');
+    const input  = document.getElementById('ig-password');
+    const eyeOff = document.getElementById('icon-eye-off');
+    const eye    = document.getElementById('icon-eye');
+    toggle.addEventListener('click', () => {
+      const show = input.type === 'password';
+      input.type        = show ? 'text' : 'password';
+      eyeOff.style.display = show ? 'none' : '';
+      eye.style.display    = show ? ''     : 'none';
+    });
+  </script>
+</body>
+</html>

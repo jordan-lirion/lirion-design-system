@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accordion — Design System</title>
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="accordion.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">Design System <span>/ Accordion</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">FAQ</h2>
+      <div class="accordion">
+        <details class="accordion__item" open>
+          <summary class="accordion__trigger">Is the theme customizable?</summary>
+          <div class="accordion__content">Yes. Replace the variables in the <code>:root</code> and <code>.dark</code> blocks in theme.css with the export from your shadcn/create preset.</div>
+        </details>
+        <details class="accordion__item">
+          <summary class="accordion__trigger">Are the components accessible?</summary>
+          <div class="accordion__content">Components use native elements (dialog, details, inputs) with appropriate ARIA attributes and visible focus.</div>
+        </details>
+        <details class="accordion__item">
+          <summary class="accordion__trigger">Is JavaScript required?</summary>
+          <div class="accordion__content">No. The only JavaScript is minimal and inline — tabs, dialog, dropdown, and slider. The accordion relies entirely on the native &lt;details&gt; element.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Help</h2>
+      <div class="accordion">
+        <details class="accordion__item">
+          <summary class="accordion__trigger">How to change the font?</summary>
+          <div class="accordion__content">Update the <code>--font-sans</code> variable in the <code>:root</code> block of theme.css.</div>
+        </details>
+        <details class="accordion__item" open>
+          <summary class="accordion__trigger">How to add a new component?</summary>
+          <div class="accordion__content">Create a new CSS file in its own folder, then add the corresponding <code>@import</code> in main.css.</div>
+        </details>
+        <details class="accordion__item">
+          <summary class="accordion__trigger">Is dark mode included?</summary>
+          <div class="accordion__content">Yes. Add the <code>.dark</code> class to the <code>&lt;html&gt;</code> element to enable dark mode.</div>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagination — Design System</title>
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="pagination.css" />
+  <link rel="stylesheet" href="../button/button.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">Design System <span>/ Pagination</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Page 1 active</h2>
+      <nav aria-label="Pagination">
+        <ul class="pagination">
+          <li><button class="btn btn--ghost btn--sm">Previous</button></li>
+          <li><button class="btn btn--ghost btn--icon is-active" aria-current="page">1</button></li>
+          <li><button class="btn btn--ghost btn--icon">2</button></li>
+          <li><button class="btn btn--ghost btn--icon">3</button></li>
+          <li><button class="btn btn--ghost btn--sm">Next</button></li>
+        </ul>
+      </nav>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Page 3 active</h2>
+      <nav aria-label="Pagination">
+        <ul class="pagination">
+          <li><button class="btn btn--ghost btn--sm">Previous</button></li>
+          <li><button class="btn btn--ghost btn--icon">1</button></li>
+          <li><button class="btn btn--ghost btn--icon">2</button></li>
+          <li><button class="btn btn--ghost btn--icon is-active" aria-current="page">3</button></li>
+          <li><button class="btn btn--ghost btn--icon">4</button></li>
+          <li><button class="btn btn--ghost btn--icon">5</button></li>
+          <li><button class="btn btn--ghost btn--sm">Next</button></li>
+        </ul>
+      </nav>
+    </section>
+
+  </main>
+
+</body>
+</html>

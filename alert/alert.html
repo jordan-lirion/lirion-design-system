@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alert — Design System</title>
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="alert.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">Design System <span>/ Alert</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Info</h2>
+      <div class="alert">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <p class="alert__title">Update available</p>
+        <p class="alert__description">A new version of the design system is ready to install.</p>
+      </div>
+    </section>
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Destructive</h2>
+      <div class="alert alert--destructive">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <p class="alert__title">Sync failed</p>
+        <p class="alert__description">Check your connection and try syncing again.</p>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">More examples</h2>
+      <div class="stack">
+        <div class="alert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <p class="alert__title">Saved successfully</p>
+          <p class="alert__description">Your changes have been saved.</p>
+        </div>
+        <div class="alert alert--destructive">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p class="alert__title">Access denied</p>
+          <p class="alert__description">You don't have permission to perform this action.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

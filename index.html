@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview — Design System</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">Design System <span>/ Components preview</span></div>
+    <div class="row">
+      <button class="btn btn--outline btn--sm" id="theme-toggle" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        Dark mode
+      </button>
+    </div>
+  </header>
+
+  <main class="preview-main">
+
+    <!-- ============ BUTTONS ============ -->
+    <section class="preview-section">
+      <h2 class="preview-section__title">Buttons</h2>
+      <div class="row">
+        <button class="btn btn--default">Default</button>
+        <button class="btn btn--secondary">Secondary</button>
+        <button class="btn btn--destructive">Delete</button>
+        <button class="btn btn--outline">Outline</button>
+        <button class="btn btn--ghost">Ghost</button>
+        <button class="btn btn--link">Link</button>
+        <button class="btn btn--default" disabled>Disabled</button>
+      </div>
+      <div class="row">
+        <button class="btn btn--default btn--sm">Small</button>
+        <button class="btn btn--default">Default</button>
+        <button class="btn btn--default btn--lg">Large</button>
+        <button class="btn btn--outline btn--icon" data-tooltip="Settings" aria-label="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8 7 17M17 7l2.8-2.8"/></svg>
+        </button>
+        <button class="btn btn--default">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Continue
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ BADGES ============ -->
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Badges</h2>
+      <div class="row">
+        <span class="badge badge--default">New</span>
+        <span class="badge badge--secondary">Draft</span>
+        <span class="badge badge--destructive">Error</span>
+        <span class="badge badge--outline">v2.4.0</span>
+      </div>
+    </section>
+
+    <!-- ============ AVATARS ============ -->
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Avatars</h2>
+      <div class="row">
+        <span class="avatar">JD</span>
+        <span class="avatar avatar--sm">ML</span>
+        <div class="avatar-group">
+          <span class="avatar avatar--sm">AB</span>
+          <span class="avatar avatar--sm">CD</span>
+          <span class="avatar avatar--sm">+3</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CARD / FORM ============ -->
+    <section class="preview-section preview-section--6" style="padding:0;border:none;background:transparent;">
+      <div class="card">
+        <div class="card__header">
+          <h3 class="card__title">Create an account</h3>
+          <p class="card__description">Enter your information to get started.</p>
+        </div>
+        <div class="card__content">
+          <div class="field">
+            <label class="label" for="email">Email address</label>
+            <input class="input" type="email" id="email" placeholder="name@example.com" />
+          </div>
+          <div class="field">
+            <label class="label" for="password">Password</label>
+            <input class="input" type="password" id="password" placeholder="••••••••" />
+            <p class="hint">8 characters minimum.</p>
+          </div>
+          <div class="field">
+            <label class="label" for="role">Role</label>
+            <select class="select" id="role">
+              <option>Product Designer</option>
+              <option>Developer</option>
+              <option>Speech therapist</option>
+              <option>Parent</option>
+            </select>
+          </div>
+          <label class="choice">
+            <input type="checkbox" class="checkbox" checked />
+            I agree to the terms of service
+          </label>
+        </div>
+        <div class="card__footer">
+          <button class="btn btn--default" style="flex:1;">Create account</button>
+          <button class="btn btn--outline">Cancel</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTROLS ============ -->
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Controls</h2>
+
+      <div class="stack">
+        <label class="choice"><input type="checkbox" class="checkbox" checked /> Email notifications</label>
+        <label class="choice"><input type="checkbox" class="checkbox" /> Weekly newsletter</label>
+      </div>
+
+      <hr class="separator" />
+
+      <div class="stack" role="radiogroup" aria-label="Plan">
+        <label class="choice"><input type="radio" name="plan" class="radio" checked /> Free plan</label>
+        <label class="choice"><input type="radio" name="plan" class="radio" /> Pro plan</label>
+      </div>
+
+      <hr class="separator" />
+
+      <label class="choice"><input type="checkbox" class="switch" checked /> Airplane mode</label>
+      <label class="choice"><input type="checkbox" class="switch" /> Auto-sync</label>
+
+      <hr class="separator" />
+
+      <div class="field">
+        <label class="label" for="volume">Volume — <span id="volume-value">50</span>%</label>
+        <input type="range" class="slider" id="volume" min="0" max="100" value="50" />
+      </div>
+
+      <div class="field">
+        <label class="label">Download progress</label>
+        <div class="progress" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress__bar" style="width:66%;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TABS ============ -->
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Tabs</h2>
+      <div class="tabs" data-tabs>
+        <div class="tabs__list" role="tablist">
+          <button class="tabs__trigger" role="tab" aria-selected="true" data-tab="account">Account</button>
+          <button class="tabs__trigger" role="tab" aria-selected="false" data-tab="security">Security</button>
+          <button class="tabs__trigger" role="tab" aria-selected="false" data-tab="billing">Billing</button>
+        </div>
+        <div class="tabs__panel" role="tabpanel" data-panel="account">
+          <p style="color:var(--muted-foreground);">Manage your profile, display name, and profile photo.</p>
+        </div>
+        <div class="tabs__panel" role="tabpanel" data-panel="security" hidden>
+          <p style="color:var(--muted-foreground);">Change your password and enable two-factor authentication.</p>
+        </div>
+        <div class="tabs__panel" role="tabpanel" data-panel="billing" hidden>
+          <p style="color:var(--muted-foreground);">View your invoices and manage your payment method.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ALERTS ============ -->
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Alerts</h2>
+      <div class="alert">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <p class="alert__title">Update available</p>
+        <p class="alert__description">A new version of the design system is ready to install.</p>
+      </div>
+      <div class="alert alert--destructive">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <p class="alert__title">Sync failed</p>
+        <p class="alert__description">Check your connection and try syncing again.</p>
+      </div>
+    </section>
+
+    <!-- ============ DIALOG & DROPDOWN ============ -->
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Dialog &amp; Dropdown</h2>
+      <div class="row">
+        <button class="btn btn--outline" id="open-dialog">Open dialog</button>
+
+        <div class="dropdown" data-dropdown>
+          <button class="btn btn--outline" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false">
+            Options
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown__menu" role="menu">
+            <p class="dropdown__label">My account</p>
+            <button class="dropdown__item" role="menuitem">Profile</button>
+            <button class="dropdown__item" role="menuitem">Settings</button>
+            <button class="dropdown__item" role="menuitem">Keyboard shortcuts</button>
+            <hr class="dropdown__separator" />
+            <button class="dropdown__item dropdown__item--destructive" role="menuitem">Sign out</button>
+          </div>
+        </div>
+      </div>
+
+      <dialog class="dialog" id="demo-dialog">
+        <div class="dialog__header">
+          <h3 class="dialog__title">Delete project?</h3>
+          <p class="dialog__description">This action is permanent. The project and all its data will be deleted.</p>
+        </div>
+        <div class="dialog__footer">
+          <button class="btn btn--outline" data-close-dialog>Cancel</button>
+          <button class="btn btn--destructive" data-close-dialog>Delete</button>
+        </div>
+      </dialog>
+    </section>
+
+    <!-- ============ SKELETON ============ -->
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Skeleton</h2>
+      <div class="row">
+        <div class="skeleton" style="width:2.5rem;height:2.5rem;border-radius:50%;"></div>
+        <div class="stack" style="flex:1;gap:0.5rem;">
+          <div class="skeleton" style="height:0.875rem;width:60%;"></div>
+          <div class="skeleton" style="height:0.875rem;width:40%;"></div>
+        </div>
+      </div>
+      <div class="skeleton" style="height:6rem;"></div>
+    </section>
+
+    <!-- ============ BREADCRUMB & PAGINATION ============ -->
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Breadcrumb &amp; Pagination</h2>
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true">/</li>
+          <li><a href="#">Components</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true">/</li>
+          <li aria-current="page">Preview</li>
+        </ol>
+      </nav>
+      <hr class="separator" />
+      <nav aria-label="Pagination">
+        <ul class="pagination">
+          <li><button class="btn btn--ghost btn--sm">Previous</button></li>
+          <li><button class="btn btn--ghost btn--icon is-active" aria-current="page">1</button></li>
+          <li><button class="btn btn--ghost btn--icon">2</button></li>
+          <li><button class="btn btn--ghost btn--icon">3</button></li>
+          <li><button class="btn btn--ghost btn--sm">Next</button></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- ============ TABLE ============ -->
+    <section class="preview-section">
+      <h2 class="preview-section__title">Table</h2>
+      <div class="table-wrapper">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Invoice</th>
+              <th>Status</th>
+              <th>Method</th>
+              <th class="num">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>INV-001</td>
+              <td><span class="badge badge--default">Paid</span></td>
+              <td>Credit card</td>
+              <td class="num">$250.00</td>
+            </tr>
+            <tr>
+              <td>INV-002</td>
+              <td><span class="badge badge--secondary">Pending</span></td>
+              <td>Bank transfer</td>
+              <td class="num">$150.00</td>
+            </tr>
+            <tr>
+              <td>INV-003</td>
+              <td><span class="badge badge--destructive">Overdue</span></td>
+              <td>Direct debit</td>
+              <td class="num">$350.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ ACCORDION ============ -->
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Accordion</h2>
+      <div class="accordion">
+        <details class="accordion__item" open>
+          <summary class="accordion__trigger">Is the theme customizable?</summary>
+          <div class="accordion__content">Yes. Replace the variables in the <code>:root</code> and <code>.dark</code> blocks in theme.css with the export from your shadcn/create preset.</div>
+        </details>
+        <details class="accordion__item">
+          <summary class="accordion__trigger">Are the components accessible?</summary>
+          <div class="accordion__content">Components use native elements (dialog, details, inputs) with appropriate ARIA attributes and visible focus.</div>
+        </details>
+        <details class="accordion__item">
+          <summary class="accordion__trigger">Is JavaScript required?</summary>
+          <div class="accordion__content">No. The only JavaScript is minimal and inline — tabs, dialog, dropdown, and slider. The accordion relies entirely on the native &lt;details&gt; element.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ TOAST ============ -->
+    <section class="preview-section">
+      <h2 class="preview-section__title">Toast</h2>
+      <div class="row">
+        <button class="btn btn--outline btn--sm" onclick="showToast('default', 'Event created', 'Tuesday, January 14 at 9:00 AM')">Default</button>
+        <button class="btn btn--outline btn--sm" onclick="showToast('success', 'Changes saved', 'Your profile has been updated.')">Success</button>
+        <button class="btn btn--outline btn--sm" onclick="showToast('warning', 'Storage almost full', 'You have used 90% of your quota.')">Warning</button>
+        <button class="btn btn--outline btn--sm" onclick="showToast('error', 'Upload failed', 'Please try again later.')">Error</button>
+        <button class="btn btn--outline btn--sm" onclick="showToast('info', 'Update available', 'Version 2.5.0 is ready.')">Info</button>
+      </div>
+    </section>
+
+    <!-- ============ CHART ============ -->
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Chart</h2>
+      <div class="minichart" aria-hidden="true">
+        <div class="minichart__bar" style="height:45%;"></div>
+        <div class="minichart__bar" style="height:70%;"></div>
+        <div class="minichart__bar" style="height:55%;"></div>
+        <div class="minichart__bar" style="height:90%;"></div>
+        <div class="minichart__bar" style="height:65%;"></div>
+        <div class="minichart__bar" style="height:80%;"></div>
+        <div class="minichart__bar" style="height:50%;"></div>
+        <div class="minichart__bar" style="height:95%;"></div>
+      </div>
+      <div class="legend">
+        <span><span class="legend__dot" style="background:var(--chart-1);"></span>Sessions</span>
+        <span><span class="legend__dot" style="background:var(--chart-2);"></span>Completed exercises</span>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="toaster" id="toaster" aria-live="polite" aria-atomic="false"></div>
+
+  <script>
+    const ICONS = {
+      default: '<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',
+      success: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+      warning: '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
+      error:   '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>',
+      info:    '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',
+    };
+    const CLOSE_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+    function showToast(variant, title, description) {
+      const toaster = document.getElementById('toaster');
+      const el = document.createElement('div');
+      el.className = `toast toast--${variant}`;
+      el.innerHTML = `<svg class="toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[variant]}</svg><div class="toast__body"><p class="toast__title">${title}</p><p class="toast__description">${description}</p></div><button class="toast__close" aria-label="Close">${CLOSE_SVG}</button>`;
+      const dismiss = () => { el.classList.add('is-dismissing'); el.addEventListener('animationend', () => el.remove(), { once: true }); };
+      el.querySelector('.toast__close').addEventListener('click', dismiss);
+      toaster.appendChild(el);
+      setTimeout(dismiss, 4000);
+    }
+  </script>
+
+  <script>
+    // Dark mode toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.lastChild.textContent = isDark ? " Light mode" : " Dark mode";
+    });
+
+    // Tabs
+    document.querySelectorAll("[data-tabs]").forEach((tabs) => {
+      tabs.querySelectorAll("[data-tab]").forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          tabs.querySelectorAll("[data-tab]").forEach((t) =>
+            t.setAttribute("aria-selected", String(t === trigger))
+          );
+          tabs.querySelectorAll("[data-panel]").forEach((p) => {
+            p.hidden = p.dataset.panel !== trigger.dataset.tab;
+          });
+        });
+      });
+    });
+
+    // Dialog
+    const dialog = document.getElementById("demo-dialog");
+    document.getElementById("open-dialog").addEventListener("click", () => dialog.showModal());
+    dialog.querySelectorAll("[data-close-dialog]").forEach((btn) =>
+      btn.addEventListener("click", () => dialog.close())
+    );
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+
+    // Dropdown
+    document.querySelectorAll("[data-dropdown]").forEach((dd) => {
+      const trigger = dd.querySelector("[data-dropdown-trigger]");
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const open = dd.classList.toggle("is-open");
+        trigger.setAttribute("aria-expanded", String(open));
+      });
+    });
+    document.addEventListener("click", () => {
+      document.querySelectorAll("[data-dropdown].is-open").forEach((dd) => {
+        dd.classList.remove("is-open");
+        dd.querySelector("[data-dropdown-trigger]").setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Slider
+    const slider = document.getElementById("volume");
+    const sliderValue = document.getElementById("volume-value");
+    const updateSlider = () => {
+      slider.style.setProperty("--slider-progress", slider.value + "%");
+      sliderValue.textContent = slider.value;
+    };
+    slider.addEventListener("input", updateSlider);
+    updateSlider();
+  </script>
+</body>
+</html>

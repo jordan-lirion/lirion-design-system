@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dropdown — Design System</title>
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="dropdown.css" />
+  <link rel="stylesheet" href="../button/button.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">Design System <span>/ Dropdown</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">User menu</h2>
+      <div class="row">
+        <div class="dropdown" data-dropdown>
+          <button class="btn btn--outline" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false">
+            My account
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown__menu" role="menu">
+            <p class="dropdown__label">My account</p>
+            <button class="dropdown__item" role="menuitem">Profile</button>
+            <button class="dropdown__item" role="menuitem">Settings</button>
+            <button class="dropdown__item" role="menuitem">Keyboard shortcuts</button>
+            <hr class="dropdown__separator" />
+            <button class="dropdown__item dropdown__item--destructive" role="menuitem">Sign out</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Actions menu</h2>
+      <div class="row">
+        <div class="dropdown" data-dropdown>
+          <button class="btn btn--outline btn--icon" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false" aria-label="More actions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+          </button>
+          <div class="dropdown__menu" role="menu">
+            <button class="dropdown__item" role="menuitem">Edit</button>
+            <button class="dropdown__item" role="menuitem">Duplicate</button>
+            <button class="dropdown__item" role="menuitem">Share</button>
+            <hr class="dropdown__separator" />
+            <button class="dropdown__item dropdown__item--destructive" role="menuitem">Delete</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.querySelectorAll("[data-dropdown]").forEach((dd) => {
+      const trigger = dd.querySelector("[data-dropdown-trigger]");
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const open = dd.classList.toggle("is-open");
+        trigger.setAttribute("aria-expanded", String(open));
+      });
+    });
+    document.addEventListener("click", () => {
+      document.querySelectorAll("[data-dropdown].is-open").forEach((dd) => {
+        dd.classList.remove("is-open");
+        dd.querySelector("[data-dropdown-trigger]").setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+
+</body>
+</html>

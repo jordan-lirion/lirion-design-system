@@ -1,0 +1,23 @@
+/* ==========================================================================
+   BADGE
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: calc(var(--radius) * 10);
+  border: 1px solid transparent;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  width: fit-content;
+}
+
+.badge--default { background-color: var(--primary); color: var(--primary-foreground); }
+.badge--secondary { background-color: var(--secondary); color: var(--secondary-foreground); }
+.badge--destructive { background-color: oklch(0.936 0.032 17.717); color: oklch(0.505 0.213 27.518); } /* red-100 / red-700 */
+.badge--outline { border-color: var(--border); color: var(--foreground); }
+.badge--success { background-color: oklch(0.962 0.063 149.558); color: oklch(0.548 0.166 150.069); } /* green-100 / green-700 */
+.badge--warning { background-color: oklch(0.962 0.059 95.617);  color: oklch(0.555 0.163 48.998);  } /* amber-100 / amber-700 */
