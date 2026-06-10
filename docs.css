@@ -52,6 +52,7 @@
   margin-left: var(--ds-sidebar);
   padding: 2.5rem 3rem 6rem;
   min-height: calc(100vh - var(--ds-header));
+  background-color: var(--secondary);
 }
 
 /* ===== NAV ===== */
@@ -186,6 +187,7 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 0.8125rem;
+  background-color: var(--background);
 }
 
 .ds-props th {
