@@ -35,3 +35,9 @@
 
 .switch:disabled { background-color: oklch(0.985 0 0); cursor: not-allowed; }
 .switch:disabled::before { background-color: oklch(0.87 0 0); }
+
+.dark .switch:checked { background-color: oklch(0.985 0 0); }
+.dark .switch:checked::before { background-color: oklch(0.145 0 0); }
+
+.dark .switch:disabled { background-color: oklch(0.205 0 0); }
+.dark .switch:disabled::before { background-color: oklch(0.439 0 0); }

@@ -49,6 +49,21 @@
   cursor: not-allowed;
 }
 
+.dark .checkbox:disabled,
+.dark .radio:disabled {
+  background-color: oklch(0.205 0 0);
+  border-color: oklch(0.269 0 0);
+}
+
+.dark .checkbox:checked,
+.dark .radio:checked {
+  background-color: oklch(0.985 0 0);
+  border-color: oklch(0.985 0 0);
+}
+
+.dark .checkbox:checked::before { background-color: oklch(0.145 0 0); }
+.dark .radio:checked::before    { background-color: oklch(0.145 0 0); }
+
 .choice {
   display: flex;
   align-items: center;

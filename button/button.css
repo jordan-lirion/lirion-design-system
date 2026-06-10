@@ -27,6 +27,11 @@
   border-color: transparent;
 }
 
+.dark .btn:disabled {
+  background-color: oklch(0.205 0 0);
+  color: oklch(0.439 0 0);
+}
+
 .btn svg {
   width: 1rem;
   height: 1rem;

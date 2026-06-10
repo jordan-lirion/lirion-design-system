@@ -28,3 +28,8 @@
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+.dark [data-tooltip]::after {
+  background-color: oklch(0.985 0 0);
+  color: oklch(0.145 0 0);
+}
