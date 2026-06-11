@@ -46,6 +46,7 @@
       </div>
       <div class="ds-nav-group">
         <p class="ds-nav-label">Layout</p>
+        <a href="#header" class="ds-nav-item">Header</a>
         <a href="#card" class="ds-nav-item">Card</a>
         <a href="#table" class="ds-nav-item">Table</a>
         <a href="#chart" class="ds-nav-item">Chart</a>
@@ -675,6 +676,41 @@
               <tr><td><code>.separator</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Horizontal rule, 1px border-top, full width.</td></tr>
               <tr><td><code>.separator--vertical</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Vertical rule, 1px border-left, height 1.25rem.</td></tr>
               <tr><td><code>--border</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Line color.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== HEADER ======== -->
+    <section data-page="header">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Header</h1>
+        <p class="ds-page-desc">Fixed top navigation bar with blurred background. Use <code>.header</code> as the root element.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview</h2>
+        <div class="ds-preview">
+          <div class="header" style="position:relative;height:var(--ds-header);width:100%;">
+            <div class="ds-brand">
+              <span>Lirion</span>
+              <span class="ds-brand__sep">/</span>
+              <span class="ds-brand__sub">Design System</span>
+            </div>
+            <button class="btn btn--outline btn--sm">Dark mode</button>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class / Variable</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>.header</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Fixed top bar — flex row, space-between, blurred background.</td></tr>
+              <tr><td><code>--header</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Header height (default 3.375rem).</td></tr>
+              <tr><td><code>--border</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Bottom border color.</td></tr>
+              <tr><td><code>--background</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Base color used for the blurred fill (85% opacity).</td></tr>
             </tbody>
           </table>
         </div>

@@ -1,0 +1,22 @@
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+:root {
+  --header: 3.375rem;
+}
+
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background-color: color-mix(in oklab, var(--background) 85%, transparent);
+  backdrop-filter: blur(8px);
+}
