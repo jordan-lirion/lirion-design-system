@@ -22,8 +22,8 @@
 
 .checkbox:checked,
 .radio:checked {
-  background-color: oklch(0.145 0 0);
-  border-color: oklch(0.145 0 0);
+  background-color: var(--foreground);
+  border-color: var(--foreground);
 }
 
 .checkbox:checked::before {
@@ -44,25 +44,10 @@
 
 .checkbox:disabled,
 .radio:disabled {
-  background-color: oklch(0.985 0 0);
-  border-color: oklch(0.87 0 0);
+  background-color: var(--disabled-bg);
+  border-color: var(--disabled-fg);
   cursor: not-allowed;
 }
-
-.dark .checkbox:disabled,
-.dark .radio:disabled {
-  background-color: oklch(0.205 0 0);
-  border-color: oklch(0.269 0 0);
-}
-
-.dark .checkbox:checked,
-.dark .radio:checked {
-  background-color: oklch(0.985 0 0);
-  border-color: oklch(0.985 0 0);
-}
-
-.dark .checkbox:checked::before { background-color: oklch(0.145 0 0); }
-.dark .radio:checked::before    { background-color: oklch(0.145 0 0); }
 
 .choice {
   display: flex;

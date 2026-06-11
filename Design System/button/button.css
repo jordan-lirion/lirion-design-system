@@ -22,14 +22,9 @@
 
 .btn:disabled {
   pointer-events: none;
-  background-color: oklch(0.985 0 0);
-  color: oklch(0.87 0 0);
+  background-color: var(--disabled-bg);
+  color: var(--disabled-fg);
   border-color: transparent;
-}
-
-.dark .btn:disabled {
-  background-color: oklch(0.205 0 0);
-  color: oklch(0.439 0 0);
 }
 
 .btn svg {
@@ -77,14 +72,15 @@
 
 .btn--link {
   background-color: transparent;
-  color: oklch(0.556 0 0);
+  color: var(--muted-foreground);
   text-decoration: underline;
   text-underline-offset: 4px;
   padding: 0;
   height: auto;
 }
-.btn--link:hover { color: oklch(0.145 0 0); }
+.btn--link:hover { color: var(--foreground); }
 
 .btn--sm { height: 2rem; padding: 0 0.75rem; border-radius: var(--radius-sm); font-size: 0.8125rem; }
 .btn--lg { height: 2.5rem; padding: 0 1.5rem; }
 .btn--icon { width: 2.25rem; padding: 0; }
+.btn--full { width: 100%; }

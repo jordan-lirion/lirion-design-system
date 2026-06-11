@@ -13,7 +13,7 @@
 }
 
 .dialog::backdrop {
-  background-color: oklch(0 0 0 / 0.5);
+  background-color: var(--overlay);
 }
 
 .dialog__header { display: flex; flex-direction: column; gap: 0.375rem; margin-bottom: 1rem; }

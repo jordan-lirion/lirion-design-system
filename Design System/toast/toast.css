@@ -119,7 +119,7 @@
 
 /* Variant icon colors */
 .toast--default .toast__icon { color: var(--muted-foreground); }
-.toast--success .toast__icon { color: oklch(0.548 0.166 150.069); } /* green-700 */
-.toast--warning .toast__icon { color: oklch(0.555 0.163 48.998);  } /* amber-700 */
-.toast--error   .toast__icon { color: oklch(0.505 0.213 27.518);  } /* red-700 */
-.toast--info    .toast__icon { color: oklch(0.488 0.243 264.376); } /* blue-700 */
+.toast--success .toast__icon { color: var(--success-foreground); }
+.toast--warning .toast__icon { color: var(--warning-foreground); }
+.toast--error   .toast__icon { color: var(--destructive-surface-foreground); }
+.toast--info    .toast__icon { color: var(--chart-3); }

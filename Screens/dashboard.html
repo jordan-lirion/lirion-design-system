@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../Design System/main.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header__start">
+      <img src="../Design System/_assets/logo.svg" alt="Lirion" class="header__logo" />
+    </div>
+    <div class="header__end">
+      <button class="btn btn--outline btn--sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Mon compte
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== APP LAYOUT ===== -->
+  <div class="page-app">
+
+    <!-- Sub-header: breadcrumb + actions
+    <div class="page-app__bar">
+      <div class="page-app__bar-start">
+        <span class="separator separator--vertical" role="separator"></span>
+        <ol class="breadcrumb">
+          <li>Liste des patients</li>
+        </ol>
+      </div>
+    </div>
+
+  -->
+
+    <!-- Main content -->
+    <div class="page-app__content">
+      <div class="page-app__section--muted">
+        <div class="section-row">
+          <h1>Liste des patients</h1>
+          <button class="btn btn--default">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            Ajouter un patient
+          </button>
+        </div>
+      </div>
+      <div class="page-app__section--muted">
+        <div class="filter-row">
+          <div class="input-group input-group--icon-start">
+            <input class="input" type="search" id="ig-search" placeholder="Rechercher ..." />
+            <span class="input-group__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </span>
+          </div>
+          <div class="dropdown" data-dropdown>
+            <button class="btn btn--outline" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-filter-icon lucide-list-filter"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
+              Filtrer par praticien
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="dropdown__menu" role="menu">
+              <p class="dropdown__label">Praticien</p>
+              <button class="dropdown__item" role="menuitem">Karine Eskinazi</button>
+              <button class="dropdown__item" role="menuitem">Eugen Gossen</button>
+              <button class="dropdown__item" role="menuitem">Jordan Gerard</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-app__section--bg">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Statut</th>
+              <th>Patient</th>
+              <th>Àge</th>
+              <th>Suivi par</th>
+              <th>Actif depuis</th>
+              <th>Nb séances</th>
+              <th class="num">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-href="patient.html">
+              <td><span class="badge badge--default">Nouveau</span></td>
+              <td>
+                <div>Guy Hawkins</div>
+                <div class="text-muted">jessica.hanson@example.com</div>
+              </td>
+              <td>8</td>
+              <td><span class="avatar avatar--sm">ML</span></td>
+              <td>--</td>
+              <td>--</td>
+              <td class="num"><button class="btn btn--default btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg> Créer une séance</button></td>
+            </tr>
+            <tr data-href="patient.html">
+              <td><span class="badge badge--default">Nouveau</span></td>
+              <td>
+                <div>Esther Howard</div>
+                <div class="text-muted">michael.mitc@example.com</div>
+              </td>
+              <td>10</td>
+              <td><span class="avatar avatar--sm">PA</span></td>
+              <td>--</td>
+              <td>--</td>
+              <td class="num"><button class="btn btn--default btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg> Envoyer une invitation</button></td>
+            </tr>
+            <tr data-href="patient.html">
+              <td><span class="badge badge--secondary">En attente</span></td>
+              <td>
+                <div>Devon Lane</div>
+                <div class="text-muted">curtis.weaver@example.com</div>
+              </td>
+              <td>12</td>
+              <td><span class="avatar avatar--sm">KE</span></td>
+              <td>--</td>
+              <td>--</td>
+              <td class="num"><button class="btn btn--secondary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg> Renvoyer l’invitation</button></td>
+            </tr>
+            <tr data-href="patient.html">
+              <td><span class="badge badge--secondary">Inactif</span></td>
+              <td>
+                <div>Eleanor Pena</div>
+                <div class="text-muted">jackson.graham@example.com</div>
+              </td>
+              <td>7</td>
+              <td><span class="avatar avatar--sm">GI</span></td>
+              <td>--</td>
+              <td>--</td>
+              <td class="num"><button class="btn btn--secondary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-euro-icon lucide-euro"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg> Renvoyer le paiement</button></td>
+            </tr>
+            <tr data-href="patient.html">
+              <td>
+                <div><span class="badge badge--success">Actif</span></div>
+                <div class="text-muted">Paiement le 06/08/26</div>
+              </td>
+              <td>
+                <div>Jacob Jones</div>
+                <div class="text-muted">debra.holt@example.com</div>
+              </td>
+              <td>46</td>
+              <td><span class="avatar avatar--sm">JG</span></td>
+              <td>2 semaines</td>
+              <td>10</td>
+              <td class="num"></td>
+            </tr>
+            <tr data-href="patient.html">
+              <td>
+                <div><span class="badge badge--success">Actif</span></div>
+                <div class="text-muted">Résilié le 06/03/26</div>
+              </td>
+              <td>
+                <div>Kathryn Murphy</div>
+                <div class="text-muted">sara.cruz@example.com</div>
+              </td>
+              <td>8</td>
+              <td><span class="avatar avatar--sm">EG</span></td>
+              <td>77 semaines</td>
+              <td>6</td>
+              <td class="num"></td>
+            </tr>
+            <tr data-href="patient.html">
+              <td>
+                <div><span class="badge badge--success">Actif</span></div>
+                <div class="text-muted">Contentieux</div>
+              </td>
+              <td>
+                <div>Jane Cooper</div>
+                <div class="text-muted">felicia.reid@example.com</div>
+              </td>
+              <td>9</td>
+              <td><span class="avatar avatar--sm">CA</span></td>
+              <td>15 semaines</td>
+              <td>2</td>
+              <td class="num"></td>
+            </tr>
+            <tr data-href="patient.html">
+              <td><span class="badge badge--secondary">Résilié</span></td>
+              <td>
+                <div>Silvy Nguyen</div>
+                <div class="text-muted">kenzi.lawson@example.com</div>
+              </td>
+              <td>10</td>
+              <td><span class="avatar avatar--sm">KE</span></td>
+              <td>25 semaines</td>
+              <td>0</td>
+              <td class="num"><button class="btn btn--secondary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-euro-icon lucide-euro"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg> Renvoyer le paiement</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-app__section--muted">
+        <nav aria-label="Pagination" class="flex-center">
+          <ul class="pagination">
+            <li><button class="btn btn--secondary btn--icon">1</button></li>
+            <li><button class="btn btn--secondary btn--icon">2</button></li>
+            <li><button class="btn btn--secondary btn--icon is-active" aria-current="page">3</button></li>
+            <li><button class="btn btn--secondary btn--icon">4</button></li>
+            <li><button class="btn btn--secondary btn--icon">5</button></li>
+            <li>...</li>
+            <li><button class="btn btn--secondary btn--icon">42</button></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll("tbody tr[data-href]").forEach((tr) => {
+      tr.addEventListener("click", (e) => {
+        if (!e.target.closest("button, a")) location.href = tr.dataset.href;
+      });
+    });
+
+    document.querySelectorAll("[data-dropdown]").forEach((dd) => {
+      const trigger = dd.querySelector("[data-dropdown-trigger]");
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const open = dd.classList.toggle("is-open");
+        trigger.setAttribute("aria-expanded", String(open));
+      });
+    });
+    document.addEventListener("click", () => {
+      document.querySelectorAll("[data-dropdown].is-open").forEach((dd) => {
+        dd.classList.remove("is-open");
+        dd.querySelector("[data-dropdown-trigger]").setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -10,13 +10,36 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--header);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 0 1.5rem;
   border-bottom: 1px solid var(--border);
   background-color: color-mix(in oklab, var(--background) 85%, transparent);
   backdrop-filter: blur(8px);
 }
+
+.header__start { display: flex; align-items: center; gap: 1rem; }
+.header__end   { display: flex; align-items: center; gap: 0.5rem; }
+
+.header__logo { height: 1.75rem; display: block; }
+
+.header__nav { display: flex; align-items: center; gap: 0.125rem; }
+
+.header__nav-link {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.header__nav-link:hover {
+  color: var(--foreground);
+  background-color: var(--accent);
+}
+
+.header__nav-link.is-active { color: var(--foreground); font-weight: 500; }

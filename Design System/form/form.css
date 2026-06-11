@@ -18,7 +18,7 @@
   width: 100%;
   border: 1px solid var(--input);
   border-radius: var(--radius-md);
-  background-color: transparent;
+  background-color: var(--background);
   color: var(--foreground);
   font-family: inherit;
   font-size: 0.875rem;
@@ -43,18 +43,10 @@
 .input:disabled,
 .textarea:disabled,
 .select:disabled {
-  background-color: oklch(0.985 0 0);
-  color: oklch(0.87 0 0);
-  border-color: oklch(0.87 0 0);
+  background-color: var(--disabled-bg);
+  color: var(--disabled-fg);
+  border-color: var(--disabled-fg);
   cursor: not-allowed;
-}
-
-.dark .input:disabled,
-.dark .textarea:disabled,
-.dark .select:disabled {
-  background-color: oklch(0.205 0 0);
-  color: oklch(0.439 0 0);
-  border-color: oklch(0.269 0 0);
 }
 
 .select {

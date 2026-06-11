@@ -10,8 +10,8 @@
   bottom: calc(100% + 0.5rem);
   left: 50%;
   transform: translateX(-50%) translateY(2px);
-  background-color: oklch(0.145 0 0);
-  color: oklch(0.985 0 0);
+  background-color: var(--foreground);
+  color: var(--background);
   font-size: 0.75rem;
   font-weight: 500;
   padding: 0.25rem 0.625rem;
@@ -29,7 +29,3 @@
   transform: translateX(-50%) translateY(0);
 }
 
-.dark [data-tooltip]::after {
-  background-color: oklch(0.985 0 0);
-  color: oklch(0.145 0 0);
-}
