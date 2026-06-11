@@ -152,6 +152,7 @@
 /* ===== PREVIEW FRAME ===== */
 
 .ds-preview {
+  position: relative;
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   padding: 2.5rem 2rem;
@@ -161,6 +162,40 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.75rem;
+}
+
+/* Copy button — appears on preview hover */
+.ds-copy {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  height: 1.75rem;
+  padding: 0 0.625rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+  z-index: 2;
+}
+.ds-copy svg { flex-shrink: 0; }
+.ds-preview:hover .ds-copy { opacity: 1; }
+.ds-copy:hover { color: var(--foreground); background-color: var(--accent); }
+.ds-copy:focus-visible { opacity: 1; }
+
+.ds-copy--copied {
+  color: var(--success-foreground) !important;
+  border-color: var(--success-foreground) !important;
+  opacity: 1 !important;
 }
 
 .ds-preview--stack {
