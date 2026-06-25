@@ -20,7 +20,7 @@
     <section class="preview-section preview-section--6">
       <h2 class="preview-section__title">Destructive confirmation</h2>
       <div class="row">
-        <button class="btn btn--outline" id="open-confirm">Delete project</button>
+        <button class="btn btn--outline" data-dialog-open="dialog-confirm">Delete project</button>
       </div>
       <dialog class="dialog" id="dialog-confirm">
         <div class="dialog__header">
@@ -28,8 +28,8 @@
           <p class="dialog__description">This action is permanent. The project and all its data will be deleted.</p>
         </div>
         <div class="dialog__footer">
-          <button class="btn btn--outline" data-close>Cancel</button>
-          <button class="btn btn--destructive" data-close>Delete</button>
+          <button class="btn btn--outline" data-dialog-close>Cancel</button>
+          <button class="btn btn--destructive" data-dialog-close>Delete</button>
         </div>
       </dialog>
     </section>
@@ -37,7 +37,7 @@
     <section class="preview-section preview-section--6">
       <h2 class="preview-section__title">Form in a dialog</h2>
       <div class="row">
-        <button class="btn btn--default" id="open-form">Invite a member</button>
+        <button class="btn btn--default" data-dialog-open="dialog-form">Invite a member</button>
       </div>
       <dialog class="dialog" id="dialog-form">
         <div class="dialog__header">
@@ -49,29 +49,15 @@
           <input class="input" type="email" id="invite-email" placeholder="name@example.com" />
         </div>
         <div class="dialog__footer">
-          <button class="btn btn--outline" data-close>Cancel</button>
-          <button class="btn btn--default" data-close>Send invitation</button>
+          <button class="btn btn--outline" data-dialog-close>Cancel</button>
+          <button class="btn btn--default" data-dialog-close>Send invitation</button>
         </div>
       </dialog>
     </section>
 
   </main>
 
-  <script>
-    function initDialog(triggerId, dialogId) {
-      const trigger = document.getElementById(triggerId);
-      const dialog = document.getElementById(dialogId);
-      trigger.addEventListener("click", () => dialog.showModal());
-      dialog.querySelectorAll("[data-close]").forEach((btn) =>
-        btn.addEventListener("click", () => dialog.close())
-      );
-      dialog.addEventListener("click", (e) => {
-        if (e.target === dialog) dialog.close();
-      });
-    }
-    initDialog("open-confirm", "dialog-confirm");
-    initDialog("open-form", "dialog-form");
-  </script>
+  <script src="../dialog/dialog.js" defer></script>
 
 </body>
 </html>

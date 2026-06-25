@@ -175,32 +175,8 @@
 
   </main>
 
-  <script>
-    document.querySelectorAll("[data-dropdown]").forEach((dd) => {
-      const trigger = dd.querySelector("[data-dropdown-trigger]");
-      trigger.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const open = dd.classList.toggle("is-open");
-        trigger.setAttribute("aria-expanded", String(open));
-      });
-    });
-    document.addEventListener("click", () => {
-      document.querySelectorAll("[data-dropdown].is-open").forEach((dd) => {
-        dd.classList.remove("is-open");
-        dd.querySelector("[data-dropdown-trigger]").setAttribute("aria-expanded", "false");
-      });
-    });
-
-    const themeToggle = document.createElement("button");
-    themeToggle.className = "btn btn--outline btn--sm";
-    themeToggle.style.cssText = "position:fixed;bottom:1.5rem;right:1.5rem;";
-    themeToggle.textContent = "Dark mode";
-    themeToggle.addEventListener("click", () => {
-      const isDark = document.documentElement.classList.toggle("dark");
-      themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
-    });
-    document.body.appendChild(themeToggle);
-  </script>
+  <script src="../dropdown/dropdown.js" defer></script>
+  <script src="../program/program.js" defer></script>
 
 </body>
 </html>
