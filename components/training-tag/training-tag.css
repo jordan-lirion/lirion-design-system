@@ -13,7 +13,7 @@
   border-radius: var(--radius-md);
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #fff;
+  color: oklch(1 0 0);
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: oklch(1 0 0);
   font-size: 0.75rem;
   font-weight: 700;
   flex-shrink: 0;
@@ -107,5 +107,5 @@
 }
 
 .chip-checkbox[aria-pressed="true"] .chip-checkbox__box svg {
-  stroke: #fff;
+  stroke: oklch(1 0 0);
 }

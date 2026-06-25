@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stat — design-system</title>
+  <link rel="stylesheet" href="../main.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">design-system <span>/ Stat</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Individual stat</h2>
+      <div class="row">
+        <div class="stat">
+          <div class="stat__top">
+            <span class="stat__value">24</span>
+          </div>
+          <span class="stat__label">Séances réalisées</span>
+        </div>
+        <div class="stat">
+          <div class="stat__top">
+            <span class="stat__value">87%</span>
+          </div>
+          <span class="stat__label">Taux de complétion</span>
+        </div>
+        <div class="stat">
+          <div class="stat__top">
+            <span class="stat__value">12h</span>
+          </div>
+          <span class="stat__label">Temps total</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Stat group (card)</h2>
+      <div class="stat-group card" style="gap:0;padding:0;">
+        <div class="stat">
+          <div class="stat__top">
+            <span class="stat__value">24</span>
+          </div>
+          <span class="stat__label">Séances réalisées</span>
+        </div>
+        <div class="stat">
+          <div class="stat__top">
+            <span class="stat__value">87%</span>
+          </div>
+          <span class="stat__label">Taux de complétion</span>
+        </div>
+        <div class="stat">
+          <div class="stat__top">
+            <span class="stat__value">12h</span>
+          </div>
+          <span class="stat__label">Temps total</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const themeToggle = document.createElement("button");
+    themeToggle.className = "btn btn--outline btn--sm";
+    themeToggle.style.cssText = "position:fixed;bottom:1.5rem;right:1.5rem;";
+    themeToggle.textContent = "Dark mode";
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+    });
+    document.body.appendChild(themeToggle);
+  </script>
+
+</body>
+</html>

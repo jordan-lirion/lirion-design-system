@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training Tag — design-system</title>
+  <link rel="stylesheet" href="../main.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">design-system <span>/ Training Tag</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Training tags — all variants</h2>
+      <div class="row" style="flex-wrap:wrap;">
+        <span class="training-tag training-tag--larma">Larma</span>
+        <span class="training-tag training-tag--graphogame">Graphogame</span>
+        <span class="training-tag training-tag--memoson">Memoson</span>
+        <span class="training-tag training-tag--fusSeg">FusSeg</span>
+        <span class="training-tag training-tag--phonemix">Phonemix</span>
+        <span class="training-tag training-tag--ran">RAN</span>
+        <span class="training-tag training-tag--loh">LOH</span>
+        <span class="training-tag training-tag--maeva">Maeva</span>
+        <span class="training-tag training-tag--switchipido">Switchipido</span>
+        <span class="training-tag training-tag--elor">Elor</span>
+        <span class="training-tag training-tag--rechVisuelle">Rech. Visuelle</span>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Training icons — all variants</h2>
+      <div class="row" style="flex-wrap:wrap;">
+        <div class="training-icon training-icon--larma" title="Larma">La</div>
+        <div class="training-icon training-icon--graphogame" title="Graphogame">Gg</div>
+        <div class="training-icon training-icon--memoson" title="Memoson">Ms</div>
+        <div class="training-icon training-icon--fusSeg" title="FusSeg">Fs</div>
+        <div class="training-icon training-icon--phonemix" title="Phonemix">Pm</div>
+        <div class="training-icon training-icon--ran" title="RAN">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="training-icon training-icon--loh" title="LOH">Lo</div>
+        <div class="training-icon training-icon--maeva" title="Maeva">Ma</div>
+        <div class="training-icon training-icon--switchipido" title="Switchipido">Sw</div>
+        <div class="training-icon training-icon--elor" title="Elor">El</div>
+        <div class="training-icon training-icon--rechVisuelle" title="Rech. Visuelle">Rv</div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Chip checkbox</h2>
+      <div class="row" style="flex-wrap:wrap;">
+        <!-- Unchecked -->
+        <button class="chip-checkbox" aria-pressed="false">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 11 11" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1.5 5.5 4.5 8.5 9.5 2.5"/>
+            </svg>
+          </span>
+          Phonemix
+        </button>
+
+        <!-- Checked -->
+        <button class="chip-checkbox" aria-pressed="true">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 11 11" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1.5 5.5 4.5 8.5 9.5 2.5"/>
+            </svg>
+          </span>
+          Larma
+        </button>
+
+        <button class="chip-checkbox" aria-pressed="false">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 11 11" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1.5 5.5 4.5 8.5 9.5 2.5"/>
+            </svg>
+          </span>
+          Graphogame
+        </button>
+
+        <button class="chip-checkbox" aria-pressed="true">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 11 11" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1.5 5.5 4.5 8.5 9.5 2.5"/>
+            </svg>
+          </span>
+          Memoson
+        </button>
+
+        <button class="chip-checkbox" aria-pressed="false">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 11 11" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1.5 5.5 4.5 8.5 9.5 2.5"/>
+            </svg>
+          </span>
+          RAN
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Chip toggle
+    document.querySelectorAll(".chip-checkbox").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const pressed = chip.getAttribute("aria-pressed") === "true";
+        chip.setAttribute("aria-pressed", String(!pressed));
+      });
+    });
+
+    const themeToggle = document.createElement("button");
+    themeToggle.className = "btn btn--outline btn--sm";
+    themeToggle.style.cssText = "position:fixed;bottom:1.5rem;right:1.5rem;";
+    themeToggle.textContent = "Dark mode";
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+    });
+    document.body.appendChild(themeToggle);
+  </script>
+
+</body>
+</html>

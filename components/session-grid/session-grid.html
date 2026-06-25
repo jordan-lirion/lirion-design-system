@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session Grid — design-system</title>
+  <link rel="stylesheet" href="../main.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">design-system <span>/ Session Grid</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">5-column session grid</h2>
+      <div class="session-grid">
+        <div class="session-grid__head">
+          <div class="session-grid__col-title">Séance 1</div>
+          <div class="session-grid__col-title">Séance 2</div>
+          <div class="session-grid__col-title">Séance 3</div>
+          <div class="session-grid__col-title">Séance 4</div>
+          <div class="session-grid__col-title">Séance 5</div>
+        </div>
+        <div class="session-grid__body">
+          <!-- Row 1 -->
+          <div class="session-grid__row">
+            <div class="session-cell">
+              <div class="session-cell__day">Lun 2</div>
+              <span class="badge badge--success">Terminée</span>
+              <div class="session-cell__duration">45 min</div>
+              <div class="session-cell__modules">
+                <div class="session-module-bar" style="background-color:var(--training-phonemix-200);"></div>
+                <div class="session-module-bar" style="background-color:var(--training-larma-200);"></div>
+              </div>
+            </div>
+            <div class="session-cell">
+              <div class="session-cell__day">Mer 4</div>
+              <span class="badge badge--success">Terminée</span>
+              <div class="session-cell__duration">30 min</div>
+              <div class="session-cell__modules">
+                <div class="session-module-bar" style="background-color:var(--training-graphogame-200);"></div>
+              </div>
+            </div>
+            <div class="session-cell">
+              <div class="session-cell__day">Ven 6</div>
+              <span class="badge badge--destructive">Partielle</span>
+              <div class="session-cell__duration">20 min</div>
+              <div class="session-cell__modules">
+                <div class="session-module-bar" style="background-color:var(--training-memoson-200);"></div>
+                <div class="session-module-bar"></div>
+              </div>
+            </div>
+            <div class="session-cell session-cell--empty">
+            </div>
+            <div class="session-cell session-cell--empty">
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div class="session-grid__row">
+            <div class="session-cell">
+              <div class="session-cell__day">Lun 9</div>
+              <span class="badge badge--success">Terminée</span>
+              <div class="session-cell__duration">45 min</div>
+              <div class="session-cell__modules">
+                <div class="session-module-bar" style="background-color:var(--training-ran-200);"></div>
+                <div class="session-module-bar" style="background-color:var(--training-fusSeg-200);"></div>
+              </div>
+            </div>
+            <div class="session-cell session-cell--empty">
+            </div>
+            <div class="session-cell">
+              <div class="session-cell__day">Ven 13</div>
+              <span class="badge badge--success">Terminée</span>
+              <div class="session-cell__duration">30 min</div>
+              <div class="session-cell__modules">
+                <div class="session-module-bar" style="background-color:var(--training-loh-200);"></div>
+              </div>
+            </div>
+            <div class="session-cell session-cell--empty">
+            </div>
+            <div class="session-cell session-cell--empty">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const themeToggle = document.createElement("button");
+    themeToggle.className = "btn btn--outline btn--sm";
+    themeToggle.style.cssText = "position:fixed;bottom:1.5rem;right:1.5rem;";
+    themeToggle.textContent = "Dark mode";
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+    });
+    document.body.appendChild(themeToggle);
+  </script>
+
+</body>
+</html>

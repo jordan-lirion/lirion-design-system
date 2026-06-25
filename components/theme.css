@@ -64,50 +64,53 @@
   --shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.08), 0 2px 4px -2px oklch(0 0 0 / 0.08);
   --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
 
+  /* Application layout */
+  --header: 3.375rem;
+
   /* Training colors */
-  --training-larma-100: #FF9A72;
-  --training-larma-200: #FF7A45;
-  --training-larma-300: #EB703F;
+  --training-larma-100: oklch(0.782 0.133 42.140);
+  --training-larma-200: oklch(0.727 0.176 41.204);
+  --training-larma-300: oklch(0.683 0.165 41.206);
 
-  --training-graphogame-100: #FFC93D;
-  --training-graphogame-200: #FFB800;
-  --training-graphogame-300: #EBA900;
+  --training-graphogame-100: oklch(0.861 0.159 86.336);
+  --training-graphogame-200: oklch(0.827 0.171 80.526);
+  --training-graphogame-300: oklch(0.777 0.161 80.372);
 
-  --training-memoson-100: #3DDEB5;
-  --training-memoson-200: #00D39E;
-  --training-memoson-300: #00C291;
+  --training-memoson-100: oklch(0.809 0.143 171.443);
+  --training-memoson-200: oklch(0.769 0.158 166.764);
+  --training-memoson-300: oklch(0.722 0.148 166.762);
 
-  --training-fusSeg-100: #3DD5D5;
-  --training-fusSeg-200: #00C8C8;
-  --training-fusSeg-300: #00B8B8;
+  --training-fusSeg-100: oklch(0.797 0.123 194.973);
+  --training-fusSeg-200: oklch(0.754 0.129 194.769);
+  --training-fusSeg-300: oklch(0.709 0.121 194.769);
 
-  --training-phonemix-100: #3DC5FF;
-  --training-phonemix-200: #00B3FF;
-  --training-phonemix-300: #00A5EB;
+  --training-phonemix-100: oklch(0.776 0.140 231.404);
+  --training-phonemix-200: oklch(0.728 0.161 237.847);
+  --training-phonemix-300: oklch(0.685 0.151 237.661);
 
-  --training-ran-100: #78A8FF;
-  --training-ran-200: #4E8DFF;
-  --training-ran-300: #4882EB;
+  --training-ran-100: oklch(0.734 0.137 261.618);
+  --training-ran-200: oklch(0.659 0.182 261.172);
+  --training-ran-300: oklch(0.621 0.170 261.184);
 
-  --training-loh-100: #B790FF;
-  --training-loh-200: #A06DFF;
-  --training-loh-300: #9364EB;
+  --training-loh-100: oklch(0.734 0.160 298.604);
+  --training-loh-200: oklch(0.657 0.208 296.303);
+  --training-loh-300: oklch(0.617 0.196 296.252);
 
-  --training-maeva-100: #E08FFF;
-  --training-maeva-200: #D66BFF;
-  --training-maeva-300: #C562EB;
+  --training-maeva-100: oklch(0.773 0.174 316.126);
+  --training-maeva-200: oklch(0.712 0.225 315.592);
+  --training-maeva-300: oklch(0.669 0.212 315.576);
 
-  --training-switchipido-100: #FF94DD;
-  --training-switchipido-200: #FF72D2;
-  --training-switchipido-300: #EB69C1;
+  --training-switchipido-100: oklch(0.801 0.155 340.094);
+  --training-switchipido-200: oklch(0.750 0.201 341.583);
+  --training-switchipido-300: oklch(0.706 0.188 341.757);
 
-  --training-elor-100: #FF9DB5;
-  --training-elor-200: #FF7E9D;
-  --training-elor-300: #EB7490;
+  --training-elor-100: oklch(0.802 0.120 4.274);
+  --training-elor-200: oklch(0.749 0.159 6.528);
+  --training-elor-300: oklch(0.704 0.149 6.816);
 
-  --training-rechVisuelle-100: #918FFF;
-  --training-rechVisuelle-200: #6E6BFF;
-  --training-rechVisuelle-300: #6562EB;
+  --training-rechVisuelle-100: oklch(0.701 0.161 282.227);
+  --training-rechVisuelle-200: oklch(0.612 0.214 278.911);
+  --training-rechVisuelle-300: oklch(0.575 0.201 278.988);
 }
 
 .dark {
@@ -130,6 +133,17 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
+
+  /* Semantic colors — tinted surfaces (dark) */
+  --success:                        oklch(0.205 0.056 151);   /* dark green surface */
+  --success-foreground:             oklch(0.74 0.155 150);    /* bright green text */
+  --warning:                        oklch(0.205 0.05 90);     /* dark amber surface */
+  --warning-foreground:             oklch(0.83 0.14 85);      /* bright amber text */
+  --destructive-surface:            oklch(0.205 0.035 17);    /* dark red surface */
+  --destructive-surface-foreground: oklch(0.77 0.17 22);      /* bright red text */
+  --badge-default:                  oklch(0.205 0.05 90);     /* same as warning surface */
+  --badge-default-foreground:       oklch(0.83 0.14 58);      /* bright amber text */
+  --overlay:                        oklch(0 0 0 / 0.7);
 
   /* State */
   --disabled-bg: oklch(0.205 0 0);
@@ -369,3 +383,9 @@ tbody tr[data-href] { cursor: pointer; }
 
 .filter-row .input-group { flex: 1; min-width: 0; }
 .filter-row .select      { width: auto; flex-shrink: 0; }
+
+.page-back {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banner — design-system</title>
+  <link rel="stylesheet" href="../main.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">design-system <span>/ Banner</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Variants</h2>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;width:100%;">
+        <div class="banner banner--success">Votre séance a bien été enregistrée.</div>
+        <div class="banner banner--warning">Attention — certaines séances sont incomplètes.</div>
+        <div class="banner banner--info">Mise à jour disponible. Rechargez la page pour en bénéficier.</div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Usage examples</h2>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;width:100%;">
+        <div class="banner banner--success">Programme enregistré avec succès.</div>
+        <div class="banner banner--warning">3 modules n'ont pas encore de séances planifiées.</div>
+        <div class="banner banner--info">Mode lecture seule — modifications désactivées.</div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const themeToggle = document.createElement("button");
+    themeToggle.className = "btn btn--outline btn--sm";
+    themeToggle.style.cssText = "position:fixed;bottom:1.5rem;right:1.5rem;";
+    themeToggle.textContent = "Dark mode";
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+    });
+    document.body.appendChild(themeToggle);
+  </script>
+
+</body>
+</html>
