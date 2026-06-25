@@ -1,0 +1,32 @@
+/* ==========================================================================
+   APP BAR
+   ========================================================================== */
+.page-app__bar {
+    display: flex;
+    align-items: center;
+    height: 3.5rem;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--background);
+  }
+  
+  .page-app__bar-start {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 0.75rem;
+  }
+  
+  .page-app__bar-end {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0 0.75rem;
+  }
+
+  .page-back {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }

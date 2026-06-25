@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Button — design-system</title>
+  <link rel="stylesheet" href="../main.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">design-system <span>/ Button</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Variants</h2>
+      <div class="row">
+        <button class="btn btn--default">Default</button>
+        <button class="btn btn--secondary">Secondary</button>
+        <button class="btn btn--destructive">Delete</button>
+        <button class="btn btn--outline">Outline</button>
+        <button class="btn btn--ghost">Ghost</button>
+        <button class="btn btn--link">Link</button>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Sizes</h2>
+      <div class="row">
+        <button class="btn btn--default btn--sm">Small</button>
+        <button class="btn btn--default">Default</button>
+        <button class="btn btn--default btn--lg">Large</button>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">With icon</h2>
+      <div class="row">
+        <button class="btn btn--default">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Continue
+        </button>
+        <button class="btn btn--outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </button>
+        <button class="btn btn--outline btn--icon" aria-label="Settings" data-tooltip="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8 7 17M17 7l2.8-2.8"/></svg>
+        </button>
+        <button class="btn btn--ghost btn--icon" aria-label="More options">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Disabled state</h2>
+      <div class="row">
+        <button class="btn btn--default" disabled>Default</button>
+        <button class="btn btn--secondary" disabled>Secondary</button>
+        <button class="btn btn--destructive" disabled>Delete</button>
+        <button class="btn btn--outline" disabled>Outline</button>
+        <button class="btn btn--ghost" disabled>Ghost</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const themeToggle = document.createElement("button");
+    themeToggle.className = "btn btn--outline btn--sm";
+    themeToggle.style.cssText = "position:fixed;bottom:1.5rem;right:1.5rem;";
+    themeToggle.textContent = "Dark mode";
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+    });
+    document.body.appendChild(themeToggle);
+  </script>
+
+</body>
+</html>

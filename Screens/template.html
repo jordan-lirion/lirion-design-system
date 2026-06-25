@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Template — Lirion</title>
+  <link rel="stylesheet" href="../components/main.css" />
+</head>
+<body>
+
+  <!-- ===================================================
+       HEADER
+       .header__start  : logo + nav links
+       .header__end    : right-side actions (account, etc.)
+  =================================================== -->
+  <header class="header">
+    <div class="header__start">
+      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+    </div>
+    <div class="header__end">
+      <button class="btn btn--outline btn--sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Mon compte
+      </button>
+    </div>
+  </header>
+
+  <div class="page-app">
+
+    <!-- ===================================================
+         SUB-HEADER BAR
+         .page-app__bar       : optional sticky sub-header (3.5rem)
+         .page-app__bar-start : breadcrumb / title
+         .page-app__bar-end   : right-side quick actions
+    =================================================== -->
+    <div class="page-app__bar">
+      <div class="page-app__bar-start">
+        <button class="btn btn--ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>          Retour
+        </button>
+      </div>
+    </div>
+
+    <div class="page-app__content">
+
+      <!-- ===================================================
+           SECTION 1 — Page title + primary action
+           Use .section-row to space title and action
+      =================================================== -->
+      <div class="page-app__section--muted">
+        <div class="section-row">
+          <div class="stack" style="gap:0.25rem;">
+            <h1>Liste des patients</h1>
+            <p class="text-muted">Gérez l'ensemble de vos patients et de leur suivi.</p>
+          </div>
+          <div class="row">
+            <button class="btn btn--outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Exporter
+            </button>
+            <button class="btn btn--default" onclick="document.getElementById('dialog-new').showModal()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+              Ajouter un patient
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           SECTION 2 — Stat / KPI cards
+           .row wraps cards side-by-side; each is a .card
+      =================================================== -->
+      <div class="page-app__section--muted">
+        <div class="row" style="align-items:stretch;">
+          <div class="card" style="flex:1;">
+            <div class="card__header">
+              <p class="card__description">Total patients</p>
+              <h2 class="card__title" style="font-size:2rem;">142</h2>
+            </div>
+            <div class="card__content">
+              <span class="badge badge--success">+12 ce mois</span>
+            </div>
+          </div>
+          <div class="card" style="flex:1;">
+            <div class="card__header">
+              <p class="card__description">Patients actifs</p>
+              <h2 class="card__title" style="font-size:2rem;">98</h2>
+            </div>
+            <div class="card__content">
+              <div class="progress" role="progressbar" aria-valuenow="69">
+                <div class="progress__bar" style="width:69%;"></div>
+              </div>
+              <p class="text-muted" style="margin-top:0.375rem;">69 % du total</p>
+            </div>
+          </div>
+          <div class="card" style="flex:1;">
+            <div class="card__header">
+              <p class="card__description">Séances ce mois</p>
+              <h2 class="card__title" style="font-size:2rem;">34</h2>
+            </div>
+            <div class="card__content">
+              <span class="badge badge--warning">3 à planifier</span>
+            </div>
+          </div>
+          <div class="card" style="flex:1;">
+            <div class="card__header">
+              <p class="card__description">Paiements en attente</p>
+              <h2 class="card__title" style="font-size:2rem;">7</h2>
+            </div>
+            <div class="card__content">
+              <span class="badge badge--destructive">Action requise</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           SECTION 3 — Alerts / notifications
+           .alert for informational, warning, or error banners
+      =================================================== -->
+      <div class="page-app__section--muted">
+        <div class="stack">
+          <div class="alert" role="alert">
+            <p class="alert__title">Mise à jour disponible</p>
+            <p class="alert__description">Une nouvelle version de Lirion est disponible. Rechargez la page pour en bénéficier.</p>
+          </div>
+          <div class="alert alert--destructive" role="alert">
+            <p class="alert__title">Paiement échoué</p>
+            <p class="alert__description">Le prélèvement du patient Jacob Jones a échoué. Vérifiez ses informations de paiement.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           SECTION 4 — Filter toolbar
+           .filter-row : search + dropdowns + selects in one line
+      =================================================== -->
+      <div class="page-app__section--muted">
+        <div class="filter-row">
+          <div class="input-group input-group--icon-start" style="flex:1;max-width:24rem;">
+            <input class="input" type="search" placeholder="Rechercher un patient..." />
+            <span class="input-group__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </span>
+          </div>
+          <select class="select">
+            <option value="">Tous les praticiens</option>
+            <option>Karine Eskinazi</option>
+            <option>Eugen Gossen</option>
+            <option>Jordan Gerard</option>
+          </select>
+          <select class="select">
+            <option value="">Tous les statuts</option>
+            <option>Actif</option>
+            <option>Inactif</option>
+            <option>Nouveau</option>
+            <option>Résilié</option>
+          </select>
+          <div class="dropdown" data-dropdown>
+            <button class="btn btn--outline" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
+              Plus de filtres
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="dropdown__menu" role="menu">
+              <p class="dropdown__label">Tranche d'âge</p>
+              <button class="dropdown__item" role="menuitem">0 – 12 ans</button>
+              <button class="dropdown__item" role="menuitem">13 – 17 ans</button>
+              <button class="dropdown__item" role="menuitem">18 ans et plus</button>
+              <hr class="dropdown__separator" />
+              <button class="dropdown__item dropdown__item--destructive" role="menuitem">Réinitialiser les filtres</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           SECTION 5 — Table in a white card background
+           .page-app__section--bg for white surface
+           Use .table-wrapper if the table can overflow
+      =================================================== -->
+      <div class="page-app__section--bg">
+        <div class="section-row">
+          <h2 style="font-size:1rem;font-weight:600;">Patients</h2>
+          <span class="badge badge--secondary">8 résultats</span>
+        </div>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Statut</th>
+                <th>Patient</th>
+                <th>Âge</th>
+                <th>Suivi par</th>
+                <th>Nb séances</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-href="patient.html">
+                <td><span class="badge badge--default">Nouveau</span></td>
+                <td>
+                  <div>Guy Hawkins</div>
+                  <div class="text-muted">jessica.hanson@example.com</div>
+                </td>
+                <td>8</td>
+                <td><span class="avatar avatar--sm">ML</span></td>
+                <td>--</td>
+                <td>
+                  <button class="btn btn--default btn--sm">Créer une séance</button>
+                </td>
+              </tr>
+              <tr data-href="patient.html">
+                <td><span class="badge badge--success">Actif</span></td>
+                <td>
+                  <div>Jacob Jones</div>
+                  <div class="text-muted">debra.holt@example.com</div>
+                </td>
+                <td>46</td>
+                <td><span class="avatar avatar--sm">JG</span></td>
+                <td>10</td>
+                <td>
+                  <div class="dropdown" data-dropdown>
+                    <button class="btn btn--outline btn--sm btn--icon" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false" aria-label="Actions">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                    </button>
+                    <div class="dropdown__menu" role="menu">
+                      <button class="dropdown__item" role="menuitem">Voir le dossier</button>
+                      <button class="dropdown__item" role="menuitem">Créer une séance</button>
+                      <hr class="dropdown__separator" />
+                      <button class="dropdown__item dropdown__item--destructive" role="menuitem">Archiver</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr data-href="patient.html">
+                <td><span class="badge badge--secondary">Résilié</span></td>
+                <td>
+                  <div>Silvy Nguyen</div>
+                  <div class="text-muted">kenzi.lawson@example.com</div>
+                </td>
+                <td>10</td>
+                <td><span class="avatar avatar--sm">KE</span></td>
+                <td>0</td>
+                <td>
+                  <button class="btn btn--secondary btn--sm">Renvoyer le paiement</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           SECTION 6 — Tabs + form inside a white card
+           Tabs switch between panels via JS
+      =================================================== -->
+      <div class="page-app__section--bg">
+        <div class="section-row">
+          <h2 style="font-size:1rem;font-weight:600;">Fiche patient</h2>
+          <button class="btn btn--outline btn--sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Modifier
+          </button>
+        </div>
+
+        <div role="tablist" class="tabs__list">
+          <button role="tab" class="tabs__trigger is-active" aria-selected="true" data-tab="informations">Informations</button>
+          <button role="tab" class="tabs__trigger" aria-selected="false" data-tab="sessions">Séances</button>
+          <button role="tab" class="tabs__trigger" aria-selected="false" data-tab="documents">Documents</button>
+          <button role="tab" class="tabs__trigger" aria-selected="false" data-tab="facturation">Facturation</button>
+        </div>
+
+        <div role="tabpanel" class="tabs__panel" data-panel="informations">
+          <div class="row" style="align-items:flex-start;gap:2rem;">
+            <div class="stack" style="flex:1;">
+              <div class="field">
+                <label class="label" for="tpl-firstname">Prénom</label>
+                <input class="input" type="text" id="tpl-firstname" value="Jacob" />
+              </div>
+              <div class="field">
+                <label class="label" for="tpl-lastname">Nom</label>
+                <input class="input" type="text" id="tpl-lastname" value="Jones" />
+              </div>
+              <div class="field">
+                <label class="label" for="tpl-email">Email</label>
+                <input class="input" type="email" id="tpl-email" value="debra.holt@example.com" />
+              </div>
+            </div>
+            <div class="stack" style="flex:1;">
+              <div class="field">
+                <label class="label" for="tpl-age">Âge</label>
+                <input class="input" type="number" id="tpl-age" value="46" />
+              </div>
+              <div class="field">
+                <label class="label" for="tpl-practitioner">Praticien référent</label>
+                <select class="select" id="tpl-practitioner">
+                  <option>Jordan Gerard</option>
+                  <option>Karine Eskinazi</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="label" for="tpl-notes">Notes internes</label>
+                <textarea class="textarea" id="tpl-notes" rows="3" placeholder="Observations, contexte..."></textarea>
+                <span class="hint">Visible uniquement par les praticiens.</span>
+              </div>
+            </div>
+          </div>
+          <div class="stack" style="margin-top:1rem;">
+            <label class="choice">
+              <input type="checkbox" class="checkbox" checked />
+              Envoyer les rappels de séance par email
+            </label>
+            <label class="choice">
+              <input type="checkbox" class="checkbox" />
+              Désactiver les notifications SMS
+            </label>
+          </div>
+          <div style="margin-top:1.5rem;display:flex;gap:0.5rem;">
+            <button class="btn btn--default">Enregistrer</button>
+            <button class="btn btn--outline">Annuler</button>
+          </div>
+        </div>
+
+        <div role="tabpanel" class="tabs__panel" data-panel="sessions" hidden>
+          <p class="text-muted">Aucune séance enregistrée pour ce patient.</p>
+        </div>
+
+        <div role="tabpanel" class="tabs__panel" data-panel="documents" hidden>
+          <p class="text-muted">Aucun document attaché.</p>
+        </div>
+
+        <div role="tabpanel" class="tabs__panel" data-panel="facturation" hidden>
+          <p class="text-muted">Aucun historique de facturation.</p>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           SECTION 7 — Accordion (FAQ / expandable content)
+      =================================================== -->
+      <div class="page-app__section--bg">
+        <div class="section-row">
+          <h2 style="font-size:1rem;font-weight:600;">Questions fréquentes</h2>
+        </div>
+        <div class="accordion">
+          <details class="accordion__item">
+            <summary class="accordion__trigger">Comment créer une nouvelle séance ?</summary>
+            <div class="accordion__content">
+              Depuis la fiche patient, cliquez sur « Créer une séance » en haut à droite. Vous pouvez également utiliser le bouton dans la liste des patients.
+            </div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">Comment exporter les données d'un patient ?</summary>
+            <div class="accordion__content">
+              Rendez-vous sur la fiche du patient, puis utilisez le bouton « Exporter » en haut de la page. Les données sont exportées au format CSV.
+            </div>
+          </details>
+          <details class="accordion__item" open>
+            <summary class="accordion__trigger">Que faire en cas de paiement échoué ?</summary>
+            <div class="accordion__content">
+              Un badge « Action requise » apparaît dans le tableau de bord. Cliquez sur « Renvoyer le paiement » dans la ligne du patient concerné pour envoyer un nouveau lien de paiement.
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           SECTION 8 — Skeleton loading state
+           Use .skeleton for content not yet loaded
+      =================================================== -->
+      <div class="page-app__section--bg">
+        <div class="section-row">
+          <h2 style="font-size:1rem;font-weight:600;">Chargement en cours (skeleton)</h2>
+        </div>
+        <div class="stack">
+          <div class="skeleton" style="height:1rem;width:40%;"></div>
+          <div class="skeleton" style="height:1rem;width:65%;"></div>
+          <div class="skeleton" style="height:1rem;width:55%;"></div>
+          <div style="display:flex;gap:0.75rem;margin-top:0.5rem;">
+            <div class="skeleton" style="height:2rem;width:6rem;border-radius:var(--radius-lg);"></div>
+            <div class="skeleton" style="height:2rem;width:8rem;border-radius:var(--radius-lg);"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           SECTION 9 — Avatar group + inline badges + separators
+      =================================================== -->
+      <div class="page-app__section--muted">
+        <div class="row" style="justify-content:flex-start;gap:2rem;flex-wrap:wrap;">
+          <div class="stack" style="gap:0.375rem;">
+            <p class="text-muted">Équipe soignante</p>
+            <div class="avatar-group">
+              <span class="avatar avatar--sm">KE</span>
+              <span class="avatar avatar--sm">EG</span>
+              <span class="avatar avatar--sm">JG</span>
+              <span class="avatar avatar--sm">ML</span>
+            </div>
+          </div>
+          <span class="separator separator--vertical" role="separator"></span>
+          <div class="stack" style="gap:0.375rem;">
+            <p class="text-muted">Badges statuts</p>
+            <div class="row" style="gap:0.5rem;">
+              <span class="badge badge--default">Nouveau</span>
+              <span class="badge badge--secondary">Inactif</span>
+              <span class="badge badge--success">Actif</span>
+              <span class="badge badge--warning">En attente</span>
+              <span class="badge badge--destructive">Erreur</span>
+              <span class="badge badge--outline">Résilié</span>
+            </div>
+          </div>
+          <span class="separator separator--vertical" role="separator"></span>
+          <div class="stack" style="gap:0.375rem;">
+            <p class="text-muted">Progression</p>
+            <div style="width:16rem;">
+              <div class="progress" role="progressbar" aria-valuenow="42">
+                <div class="progress__bar" style="width:42%;"></div>
+              </div>
+              <p class="text-muted" style="margin-top:0.25rem;">42 % complété</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           SECTION 10 — Pagination
+      =================================================== -->
+      <div class="page-app__section--muted">
+        <nav aria-label="Pagination" class="flex-center">
+          <ul class="pagination">
+            <li><button class="btn btn--secondary btn--icon">1</button></li>
+            <li><button class="btn btn--secondary btn--icon is-active" aria-current="page">2</button></li>
+            <li><button class="btn btn--secondary btn--icon">3</button></li>
+            <li><button class="btn btn--secondary btn--icon">4</button></li>
+            <li><button class="btn btn--secondary btn--icon">5</button></li>
+            <li>...</li>
+            <li><button class="btn btn--secondary btn--icon">42</button></li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================
+       DIALOG — triggered by "Ajouter un patient" button
+  =================================================== -->
+  <dialog class="dialog" id="dialog-new">
+    <div class="dialog__header">
+      <h2 class="dialog__title">Nouveau patient</h2>
+      <p class="dialog__description">Remplissez les informations de base. Vous pourrez compléter le dossier ensuite.</p>
+    </div>
+    <div class="stack">
+      <div class="field">
+        <label class="label" for="dlg-firstname">Prénom</label>
+        <input class="input" type="text" id="dlg-firstname" placeholder="Marie" />
+      </div>
+      <div class="field">
+        <label class="label" for="dlg-lastname">Nom</label>
+        <input class="input" type="text" id="dlg-lastname" placeholder="Dupont" />
+      </div>
+      <div class="field">
+        <label class="label" for="dlg-email">Email</label>
+        <input class="input" type="email" id="dlg-email" placeholder="marie.dupont@example.com" />
+      </div>
+    </div>
+    <div class="dialog__footer">
+      <button class="btn btn--outline" onclick="document.getElementById('dialog-new').close()">Annuler</button>
+      <button class="btn btn--default" onclick="document.getElementById('dialog-new').close();showToast('Patient créé avec succès.','success')">Créer</button>
+    </div>
+  </dialog>
+
+  <!-- ===================================================
+       TOASTER — place once, near </body>
+  =================================================== -->
+  <div class="toaster" id="toaster" aria-live="polite" aria-atomic="false"></div>
+
+  <script>
+    /* ----- Clickable table rows ----- */
+    document.querySelectorAll("tbody tr[data-href]").forEach((tr) => {
+      tr.addEventListener("click", (e) => {
+        if (!e.target.closest("button, a")) location.href = tr.dataset.href;
+      });
+    });
+
+    /* ----- Dropdowns ----- */
+    document.querySelectorAll("[data-dropdown]").forEach((dd) => {
+      const trigger = dd.querySelector("[data-dropdown-trigger]");
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const open = dd.classList.toggle("is-open");
+        trigger.setAttribute("aria-expanded", String(open));
+      });
+    });
+    document.addEventListener("click", () => {
+      document.querySelectorAll("[data-dropdown].is-open").forEach((dd) => {
+        dd.classList.remove("is-open");
+        dd.querySelector("[data-dropdown-trigger]").setAttribute("aria-expanded", "false");
+      });
+    });
+
+    /* ----- Tabs ----- */
+    document.querySelectorAll("[role='tablist']").forEach((list) => {
+      list.querySelectorAll("[role='tab']").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          list.querySelectorAll("[role='tab']").forEach((t) => {
+            t.classList.remove("is-active");
+            t.setAttribute("aria-selected", "false");
+          });
+          tab.classList.add("is-active");
+          tab.setAttribute("aria-selected", "true");
+          const panelId = tab.dataset.tab;
+          document.querySelectorAll("[data-panel]").forEach((p) => {
+            p.hidden = p.dataset.panel !== panelId;
+          });
+        });
+      });
+    });
+
+    /* ----- Toast ----- */
+    function showToast(message, variant = "default") {
+      const toaster = document.getElementById("toaster");
+      const toast = document.createElement("div");
+      toast.className = "toast toast--" + variant;
+      toast.setAttribute("role", "status");
+      toast.textContent = message;
+      toaster.appendChild(toast);
+      setTimeout(() => toast.classList.add("is-visible"), 10);
+      setTimeout(() => {
+        toast.classList.remove("is-visible");
+        toast.addEventListener("transitionend", () => toast.remove(), { once: true });
+      }, 3500);
+    }
+  </script>
+
+</body>
+</html>

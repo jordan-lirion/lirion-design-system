@@ -1,0 +1,78 @@
+/* ==========================================================================
+   CALENDAR
+   Monthly grid — 7 columns (Mon→Sun). Each cell holds date + status + duration.
+   ========================================================================== */
+
+.calendar {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--card);
+}
+
+/* Column headers */
+.calendar__head {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--border);
+  background: var(--muted);
+}
+
+.calendar__day-name {
+  padding: 0.625rem 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+/* Rows */
+.calendar__body { display: flex; flex-direction: column; }
+
+.calendar__week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+
+.calendar__week:last-child { border-bottom: none; }
+
+/* Day cells */
+.calendar__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem;
+  border-right: 1px solid var(--border);
+  min-height: 4.5rem;
+}
+
+.calendar__cell:last-child { border-right: none; }
+
+.calendar__date {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--foreground);
+  line-height: 1;
+  padding-left: 0.25rem;
+}
+
+/* Badge overrides for compact cells */
+.calendar__cell .badge {
+  font-size: 0.6875rem;
+  padding: 0.0625rem 0.375rem;
+}
+
+.calendar__status {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+
+.calendar__duration {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin-top: auto;
+}

@@ -1,6 +1,6 @@
 /* ==========================================================================
    AUTH — Shared styles for authentication screens
-   Generic layout utilities live in Design System/theme.css
+   Generic layout utilities live in design-system/theme.css
    ========================================================================== */
 
 .auth-brand { display: flex; align-items: center; gap: 0.5rem; }

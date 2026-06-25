@@ -1,0 +1,86 @@
+/* ==========================================================================
+   SESSION GRID — "Calendrier des séances" view
+   5-column grid showing sessions by slot number × week
+   ========================================================================== */
+
+.session-grid {
+  width: 100%;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+}
+
+.session-grid__head {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  overflow: hidden;
+}
+
+.session-grid__col-title {
+  padding: 0.75rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.session-grid__body { display: flex; flex-direction: column; }
+
+.session-grid__row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+
+.session-grid__row:last-child { border-bottom: none; border-radius: 0 0 var(--radius-xl) var(--radius-xl); overflow: hidden; }
+
+.session-cell {
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border-right: 1px solid var(--border);
+  text-align: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.session-cell:last-child { border-right: none; }
+
+.session-cell--empty { background-color: var(--muted); }
+
+.session-cell__day {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.session-cell__status {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.session-cell__duration {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.session-cell__modules {
+  display: flex;
+  gap: 0.1875rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.125rem;
+}
+
+.session-module-bar {
+  height: 0.5rem;
+  width: 1.5rem;
+  border-radius: 100px;
+  background-color: var(--border);
+}

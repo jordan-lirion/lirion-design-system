@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chart — design-system</title>
+  <link rel="stylesheet" href="../main.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">design-system <span>/ Chart</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Sessions per day</h2>
+      <div class="minichart" aria-hidden="true">
+        <div class="minichart__bar" style="height:45%;"></div>
+        <div class="minichart__bar" style="height:70%;"></div>
+        <div class="minichart__bar" style="height:55%;"></div>
+        <div class="minichart__bar" style="height:90%;"></div>
+        <div class="minichart__bar" style="height:65%;"></div>
+        <div class="minichart__bar" style="height:80%;"></div>
+        <div class="minichart__bar" style="height:50%;"></div>
+        <div class="minichart__bar" style="height:95%;"></div>
+      </div>
+      <div class="legend">
+        <span><span class="legend__dot" style="background:var(--chart-1);"></span>Sessions</span>
+        <span><span class="legend__dot" style="background:var(--chart-2);"></span>Completed exercises</span>
+      </div>
+    </section>
+
+    <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Completed exercises</h2>
+      <div class="minichart" aria-hidden="true">
+        <div class="minichart__bar" style="height:30%;"></div>
+        <div class="minichart__bar" style="height:55%;"></div>
+        <div class="minichart__bar" style="height:40%;"></div>
+        <div class="minichart__bar" style="height:75%;"></div>
+        <div class="minichart__bar" style="height:60%;"></div>
+        <div class="minichart__bar" style="height:85%;"></div>
+        <div class="minichart__bar" style="height:70%;"></div>
+        <div class="minichart__bar" style="height:100%;"></div>
+      </div>
+      <div class="legend">
+        <span><span class="legend__dot" style="background:var(--chart-1);"></span>Monday – Sunday</span>
+        <span><span class="legend__dot" style="background:var(--chart-2);"></span>Previous week</span>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Monthly comparison</h2>
+      <div class="minichart" aria-hidden="true" style="height:10rem;">
+        <div class="minichart__bar" style="height:40%;"></div>
+        <div class="minichart__bar" style="height:55%;"></div>
+        <div class="minichart__bar" style="height:35%;"></div>
+        <div class="minichart__bar" style="height:70%;"></div>
+        <div class="minichart__bar" style="height:50%;"></div>
+        <div class="minichart__bar" style="height:80%;"></div>
+        <div class="minichart__bar" style="height:65%;"></div>
+        <div class="minichart__bar" style="height:90%;"></div>
+        <div class="minichart__bar" style="height:45%;"></div>
+        <div class="minichart__bar" style="height:75%;"></div>
+        <div class="minichart__bar" style="height:60%;"></div>
+        <div class="minichart__bar" style="height:100%;"></div>
+      </div>
+      <div class="legend">
+        <span><span class="legend__dot" style="background:var(--chart-1);"></span>Jan</span>
+        <span><span class="legend__dot" style="background:var(--chart-2);"></span>Feb</span>
+        <span><span class="legend__dot" style="background:var(--chart-3);"></span>Mar</span>
+        <span><span class="legend__dot" style="background:var(--chart-4);"></span>Apr</span>
+        <span><span class="legend__dot" style="background:var(--chart-5);"></span>May</span>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

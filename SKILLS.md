@@ -8,9 +8,9 @@
 
 ## 0 · Absolute Rules
 
-1. **Never write a hardcoded color value.** All colors go through CSS custom properties (`var(--...)`). Variables are defined in `Design System/theme.css`.
+1. **Never write a hardcoded color value.** All colors go through CSS custom properties (`var(--...)`). Variables are defined in `components/theme.css`.
 2. **Never create a new component without first verifying it doesn't already exist** in the existing library (see §4).
-3. **Never duplicate CSS.** If a class is reusable, it belongs in `theme.css`. Per-screen CSS files (`Screens/auth.css`, etc.) only contain overrides specific to that screen.
+3. **Never duplicate CSS.** If a class is reusable, it belongs in `theme.css`. Per-screen CSS files (`screens/auth.css`) only contain overrides specific to that screen.
 4. **Never invent a class name.** Naming follows the BEM-shadcn convention (see §6).
 5. **Ask for functional requirements before any development.** If the request is vague or incomplete, ask the questions listed in §7 before writing a single line of code.
 
@@ -20,7 +20,7 @@
 
 ```
 /
-├── Design System/          ← component library
+├── components/             ← component library
 │   ├── main.css            ← single entry point (imports everything)
 │   ├── theme.css           ← CSS variables + base styles + layout utilities
 │   ├── docs.css            ← SPA documentation shell (index.html only)
@@ -30,20 +30,23 @@
 │       ├── {component}.css ← component styles
 │       └── {component}.html← standalone preview page
 │
-└── Screens/                ← application screens
+└── screens/                ← application screens
     ├── auth.css            ← shared overrides for auth screens
     ├── login.html
+    ├── firstLogin.html
     ├── password.html
     ├── forgotPassword.html
-    └── dashboard.html
+    ├── dashboard.html
+    ├── patient.html        ← patient detail view (Kanban + session grid)
+    └── template.html
 ```
 
 ### Import rules
 
 | File | Imports |
 |------|---------|
-| Application screen | `../Design System/main.css` |
-| Auth screen | `../Design System/main.css` + `auth.css` |
+| Application screen | `../components/main.css` |
+| Auth screen | `../components/main.css` + `auth.css` |
 | Component preview page | `../main.css` |
 | index.html (docs SPA) | `main.css` + `docs.css` |
 
@@ -53,7 +56,7 @@
 
 ## 2 · Design Tokens (CSS Variables)
 
-All tokens live in `Design System/theme.css`, available in light mode (`:root`) and dark mode (`.dark`).
+All tokens live in `components/theme.css`, available in light mode (`:root`) and dark mode (`.dark`).
 
 ### 2.1 Base palette
 
@@ -124,6 +127,12 @@ All tokens live in `Design System/theme.css`, available in light mode (`:root`) 
 
 `--chart-1` (blue-500) · `--chart-2` (blue-300) · `--chart-3` (blue-700) · `--chart-4` (blue-200) · `--chart-5` (blue-900)
 
+### 2.7 Training colors
+
+Each training type has a dedicated color token used by training tags, icons, and session bars:
+
+`--training-phonemix-200` · `--training-fusSeg-200` · `--training-memoson-200` · `--training-ran-200` · `--training-loh-200` · `--training-maeva-200` · `--training-switchipido-200` · `--training-elor-200` · `--training-rechVisuelle-200` · `--training-larma-200` · `--training-graphogame-200`
+
 ---
 
 ## 3 · Layout Utilities (`theme.css`)
@@ -153,15 +162,11 @@ These classes are global and reusable across all screens.
 <body>
   <header class="header">...</header>
   <div class="page-app">
-    <div class="page-app__bar">            <!-- optional sub-header -->
-      <div class="page-app__bar-start">...</div>
-      <div class="page-app__bar-end">...</div>
-    </div>
     <div class="page-app__content">
-      <div class="page-app__section--muted">  <!-- section without background -->
+      <div class="page-app__section--muted">  <!-- transparent background -->
         ...
       </div>
-      <div class="page-app__section--bg">     <!-- section with white card background -->
+      <div class="page-app__section--bg">     <!-- white card background -->
         ...
       </div>
     </div>
@@ -172,10 +177,7 @@ These classes are global and reusable across all screens.
 | Class | Description |
 |-------|-------------|
 | `.page-app` | Main wrapper below the fixed header |
-| `.page-app__bar` | Sub-header with breadcrumb/actions (height `3.5rem`) |
-| `.page-app__bar-start` | Left slot of the sub-header |
-| `.page-app__bar-end` | Right slot of the sub-header |
-| `.page-app__content` | Content area, flex column, padding `2.5rem 1rem` |
+| `.page-app__content` | Content area, flex column |
 | `.page-app__section--muted` | Section `max-width: 64rem`, transparent background |
 | `.page-app__section--bg` | Section `max-width: 64rem`, white background, `border-radius-xl` |
 | `.page-app__section--sm` | Fixed height `6rem` |
@@ -199,15 +201,15 @@ These classes are global and reusable across all screens.
 
 ## 4 · Available Components
 
-> **For each component**, an interactive preview page is available at `Design System/{component}/{component}.html`.
+> **For each component**, an interactive preview page is available at `components/{component}/{component}.html`.
 > Open these pages (via a local server) to see all states before using a component.
 
 ### Button — `.btn`
 
 ```html
 <button class="btn btn--default">Label</button>
-<button class="btn btn--default btn--sm">Small</button>
-<button class="btn btn--outline btn--icon" aria-label="...">
+<button class="btn btn--outline btn--sm">Small</button>
+<button class="btn btn--ghost btn--icon" aria-label="...">
   <svg .../>
 </button>
 ```
@@ -221,6 +223,7 @@ These classes are global and reusable across all screens.
 | `btn--ghost` | Transparent, no border |
 | `btn--link` | Underlined text link |
 | `btn--sm` | Small size |
+| `btn--md` | Medium size (default) |
 | `btn--lg` | Large size |
 | `btn--icon` | Square icon button (`aria-label` required) |
 | `btn--full` | `width: 100%` |
@@ -265,8 +268,8 @@ These classes are global and reusable across all screens.
 
 <!-- Input with leading icon -->
 <div class="input-group input-group--icon-start">
-  <input class="input" type="search" placeholder="Search..." />
   <span class="input-group__icon"><svg .../></span>
+  <input class="input" type="search" placeholder="Search..." />
 </div>
 
 <!-- Input with trailing button -->
@@ -336,14 +339,40 @@ These classes are global and reusable across all screens.
 </div>
 ```
 
-### Tabs — `.tabs__list` / `.tabs__trigger` / `.tabs__panel`
+### Tabs (pill) — `.tabs__list` / `.tabs__trigger`
+
+Segmented pill style — tabs inside a muted container.
 
 ```html
 <div role="tablist" class="tabs__list">
-  <button role="tab" class="tabs__trigger is-active" aria-selected="true">Tab 1</button>
-  <button role="tab" class="tabs__trigger">Tab 2</button>
+  <button role="tab" class="tabs__trigger" aria-selected="true" data-panel="panel-a">Tab 1</button>
+  <button role="tab" class="tabs__trigger" aria-selected="false" data-panel="panel-b">Tab 2</button>
 </div>
-<div role="tabpanel" class="tabs__panel">Active content</div>
+<div id="panel-a" class="tab-panel">Content A</div>
+<div id="panel-b" class="tab-panel" hidden>Content B</div>
+```
+
+### Tabs (underline) — `.tabs-line` / `.tabs-line__trigger`
+
+Minimal underline style — active tab bold with a 2px bottom bar. Preferred for application-level navigation.
+
+```html
+<div role="tablist" class="tabs-line">
+  <button role="tab" class="tabs-line__trigger" aria-selected="true" data-panel="panel-a">Tab 1</button>
+  <button role="tab" class="tabs-line__trigger" aria-selected="false" data-panel="panel-b">Tab 2</button>
+</div>
+```
+
+**Required JavaScript** (shared between both tab variants — adjust selector as needed):
+```js
+document.querySelectorAll('.tabs-line__trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    document.querySelectorAll('.tabs-line__trigger').forEach(t => t.setAttribute('aria-selected', 'false'));
+    trigger.setAttribute('aria-selected', 'true');
+    document.querySelectorAll('.tab-panel').forEach(p => p.hidden = true);
+    document.getElementById(trigger.dataset.panel).hidden = false;
+  });
+});
 ```
 
 ### Alert — `.alert`
@@ -359,7 +388,7 @@ These classes are global and reusable across all screens.
 ### Avatar — `.avatar`
 
 ```html
-<span class="avatar">JD</span>           <!-- initials -->
+<span class="avatar">JD</span>
 <span class="avatar avatar--sm">JD</span>
 <div class="avatar-group">
   <span class="avatar avatar--sm">A</span>
@@ -387,7 +416,6 @@ These classes are global and reusable across all screens.
   <table class="table">
     <thead><tr><th>Column</th></tr></thead>
     <tbody>
-      <!-- Clickable row: add data-href="..." and the navigation JS snippet -->
       <tr data-href="page.html"><td>...</td></tr>
     </tbody>
   </table>
@@ -396,9 +424,9 @@ These classes are global and reusable across all screens.
 
 **Making rows clickable** (add to `<script>`):
 ```js
-document.querySelectorAll("tbody tr[data-href]").forEach((tr) => {
-  tr.addEventListener("click", (e) => {
-    if (!e.target.closest("button, a")) location.href = tr.dataset.href;
+document.querySelectorAll('tbody tr[data-href]').forEach(tr => {
+  tr.addEventListener('click', e => {
+    if (!e.target.closest('button, a')) location.href = tr.dataset.href;
   });
 });
 ```
@@ -424,39 +452,66 @@ document.querySelectorAll("tbody tr[data-href]").forEach((tr) => {
 
 Pure CSS tooltip via the `data-tooltip` attribute. No JavaScript required.
 
+#### Tooltip icon — `.tooltip-icon`
+
+```html
+<span class="tooltip-icon" data-tooltip="Information">
+  <svg .../>
+</span>
+<span class="tooltip-icon tooltip-icon--destructive" data-tooltip="Irreversible">
+  <svg .../>
+</span>
+```
+
+| Modifier | Color |
+|----------|-------|
+| _(none)_ | `--muted-foreground` |
+| `tooltip-icon--destructive` | `--destructive` |
+| `tooltip-icon--success` | `--success-foreground` |
+| `tooltip-icon--warning` | `--warning-foreground` |
+
 ### Dropdown — `.dropdown`
 
 ```html
-<div class="dropdown" data-dropdown>
-  <button class="btn btn--outline" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false">
-    Filter <svg .../>
+<div class="dropdown" data-dropdown="">
+  <button class="btn btn--outline" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
+    Options <svg .../>
   </button>
   <div class="dropdown__menu" role="menu">
-    <p class="dropdown__label">Group title</p>
-    <button class="dropdown__item" role="menuitem">Option 1</button>
+    <p class="dropdown__label">Group</p>
+    <button class="dropdown__item" role="menuitem">Action</button>
     <hr class="dropdown__separator" />
     <button class="dropdown__item dropdown__item--destructive" role="menuitem">Delete</button>
   </div>
 </div>
 ```
 
-**Required JavaScript** for open/close:
+Use `dropdown__menu--end` to right-align the menu.
+
+**Required JavaScript**:
 ```js
-document.querySelectorAll("[data-dropdown]").forEach((dd) => {
-  const trigger = dd.querySelector("[data-dropdown-trigger]");
-  trigger.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const open = dd.classList.toggle("is-open");
-    trigger.setAttribute("aria-expanded", String(open));
+function initDropdowns(root) {
+  root.querySelectorAll('[data-dropdown]').forEach(dd => {
+    const trigger = dd.querySelector('[data-dropdown-trigger]');
+    if (!trigger) return;
+    trigger.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = dd.classList.toggle('is-open');
+      trigger.setAttribute('aria-expanded', String(open));
+    });
   });
-});
-document.addEventListener("click", () => {
-  document.querySelectorAll("[data-dropdown].is-open").forEach((dd) => {
-    dd.classList.remove("is-open");
-    dd.querySelector("[data-dropdown-trigger]").setAttribute("aria-expanded", "false");
+}
+initDropdowns(document);
+document.addEventListener('click', () => {
+  document.querySelectorAll('[data-dropdown].is-open').forEach(dd => {
+    dd.classList.remove('is-open');
+    const t = dd.querySelector('[data-dropdown-trigger]');
+    if (t) t.setAttribute('aria-expanded', 'false');
   });
 });
 ```
+
+> Call `initDropdowns(newElement)` on any dynamically injected HTML that contains dropdowns.
 
 ### Dialog — `.dialog`
 
@@ -468,12 +523,14 @@ document.addEventListener("click", () => {
   </div>
   <div><!-- content --></div>
   <div class="dialog__footer">
-    <button class="btn btn--secondary" onclick="document.getElementById('my-dialog').close()">Cancel</button>
-    <button class="btn btn--default">Confirm</button>
+    <button class="btn btn--outline" onclick="document.getElementById('my-dialog').close()">Annuler</button>
+    <button class="btn btn--default">Confirmer</button>
   </div>
 </dialog>
 <button onclick="document.getElementById('my-dialog').showModal()">Open</button>
 ```
+
+Use `dialog--lg` for a wider dialog.
 
 ### Breadcrumb — `.breadcrumb`
 
@@ -500,30 +557,277 @@ document.addEventListener("click", () => {
 ### Toast — `.toast` / `.toaster`
 
 ```html
-<!-- Single container, place before </body> -->
 <div class="toaster" id="toaster" aria-live="polite" aria-atomic="false"></div>
 ```
 
 Variants: `toast--default` · `toast--success` · `toast--warning` · `toast--error` · `toast--info`
 
-Call via JS (see `Design System/toast/toast.html` for the full `showToast()` script).
+Call via JS (see `components/toast/toast.html` for the full `showToast()` script).
 
 ### Header — `.header`
 
 ```html
 <header class="header">
   <div class="header__start">
-    <img src="../Design System/_assets/logo.svg" alt="Lirion" class="header__logo" />
+    <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
     <nav class="header__nav">
       <a href="..." class="header__nav-link is-active">Patients</a>
-      <a href="..." class="header__nav-link">Sessions</a>
     </nav>
   </div>
   <div class="header__end">
-    <button class="btn btn--outline btn--sm">My account</button>
+    <button class="btn btn--outline btn--sm">Mon Compte</button>
   </div>
 </header>
 ```
+
+### App Bar — `.page-app__bar`
+
+Sub-header bar placed directly below `.header`, inside `.page-app`. Used for back navigation and contextual actions.
+
+```html
+<div class="page-app__bar">
+  <div class="page-app__bar-start">
+    <button class="btn btn--ghost">← Retour</button>
+  </div>
+  <div class="page-app__bar-end">
+    <button class="btn btn--default btn--sm">Action</button>
+  </div>
+</div>
+```
+
+### Stat — `.stat`
+
+Key metric display with a large value and a supporting label.
+
+```html
+<div class="stat">
+  <div class="stat__top">
+    <span class="stat__value">128</span>
+  </div>
+  <span class="stat__label">Patients actifs</span>
+</div>
+```
+
+Group multiple stats in a horizontal row with separators:
+
+```html
+<div class="stat-group card">
+  <div class="stat">
+    <span class="stat__value">42</span>
+    <span class="stat__label">Sessions ce mois</span>
+  </div>
+  <div class="stat">
+    <span class="stat__value">96%</span>
+    <span class="stat__label">Taux de complétion</span>
+  </div>
+</div>
+```
+
+### Sortable — `.sortable`
+
+Drag-and-drop reorderable list. Items with `draggable="true"` can be reordered; items without are static rows.
+
+```html
+<ul class="sortable">
+  <li class="sortable__item" draggable="true">
+    <button class="sortable__handle" type="button" aria-label="Réordonner">
+      <svg .../>
+    </button>
+    <div class="sortable__body">
+      <span class="sortable__title">Item title</span>
+      <span class="sortable__sub">Subtitle</span>
+    </div>
+    <span class="sortable__meta">Meta info</span>
+    <div class="sortable__actions">
+      <button class="btn btn--outline btn--sm">Modifier</button>
+    </div>
+  </li>
+</ul>
+```
+
+Use `sortable__item--sm` for compact items (e.g. inside a modal).
+
+| Class | Description |
+|-------|-------------|
+| `.sortable` | List container (`flex-column`, `gap: 0.5rem`) |
+| `.sortable__item` | Row with card styling |
+| `.sortable__item--sm` | Compact padding variant |
+| `.sortable__handle` | Grip icon button (sets `cursor: grab`) |
+| `.sortable__body` | Flex column: title + subtitle |
+| `.sortable__title` | Primary text |
+| `.sortable__sub` | Secondary muted text |
+| `.sortable__meta` | Right-aligned muted metadata |
+| `.sortable__actions` | Flex row of action buttons |
+| `.is-dragging` | Applied during drag (`opacity: 0.35`) |
+| `.is-over` | Drop target highlight (`ring` outline) |
+
+### Banner — `.banner`
+
+Full-width contextual strip, typically sticky below the header.
+
+```html
+<div class="banner banner--success" style="position:sticky; top:var(--header); z-index:90;">
+  Patient Actif • Prochain paiement le 06/08/26
+</div>
+```
+
+| Modifier | Colors |
+|----------|--------|
+| `banner--success` | `--success` / `--success-foreground` |
+| `banner--warning` | `--warning` / `--warning-foreground` |
+| `banner--info` | `--muted` / `--muted-foreground` |
+
+### Training Tag — `.training-tag`
+
+Colored pill label identifying a training type.
+
+```html
+<span class="training-tag training-tag--phonemix">Phonemix - Identification</span>
+<span class="training-tag training-tag--fusSeg">Fusion</span>
+```
+
+Available modifiers: `training-tag--phonemix` · `training-tag--fusSeg` · `training-tag--memoson` · `training-tag--ran` · `training-tag--loh` · `training-tag--maeva` · `training-tag--switchipido` · `training-tag--elor` · `training-tag--rechVisuelle` · `training-tag--larma` · `training-tag--graphogame`
+
+### Training Icon — `.training-icon`
+
+Circular avatar for training items in lists and modals. Same color modifiers as training-tag.
+
+```html
+<span class="training-icon training-icon--phonemix">P</span>
+```
+
+### Chip Checkbox — `.chip-checkbox`
+
+Toggle chip with a visual checkbox indicator. Used for multi-select UIs. Toggle `aria-pressed` via JS.
+
+```html
+<button class="chip-checkbox" aria-pressed="false" type="button">
+  <span class="chip-checkbox__box">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 6 9 17l-5-5"/>
+    </svg>
+  </span>
+  <span>Phonémix - Identification</span>
+</button>
+```
+
+```js
+chip.addEventListener('click', () =>
+  chip.setAttribute('aria-pressed', chip.getAttribute('aria-pressed') === 'true' ? 'false' : 'true')
+);
+```
+
+### Program — Kanban boards with modules
+
+Used in `screens/patient.html` for the therapeutic project view.
+
+```html
+<div class="boards">           <!-- horizontal scroll container -->
+
+  <div class="board">
+    <div class="board__header">
+      <span class="board__title">Audio-phonologique</span>
+      <!-- dropdown ... -->
+    </div>
+    <div class="board__content">
+
+      <div class="module">
+        <div class="module__header">
+          <div class="module__tags">
+            <span class="training-tag training-tag--phonemix">Phonemix</span>
+          </div>
+          <!-- dropdown with data-action="edit-module" | "complete-module" | "delete-module" -->
+        </div>
+        <hr class="separator">
+        <p class="module__meta">10 séances</p>
+        <div class="module__dots">
+          <span class="session-dot session-dot--success">01/03</span>
+          <span class="session-dot session-dot--pending"></span>
+        </div>
+      </div>
+
+    </div>
+    <div class="board__footer">
+      <button class="btn btn--outline btn--full" data-action="add-module">
+        + Nouveau
+      </button>
+    </div>
+  </div>
+
+</div>
+```
+
+| Class | Description |
+|-------|-------------|
+| `.boards` | Horizontal scroll container for boards |
+| `.board` | Kanban column (`width: 20rem`, card styling) |
+| `.board--disabled` | Faded, non-interactive board |
+| `.board__header` | Title + options dropdown |
+| `.board__content` | Flex column of module cards |
+| `.board__footer` | "Nouveau" action button area |
+| `.module` | Individual module card |
+| `.module--disabled` | Faded module |
+| `.module__header` | Training tags + options dropdown |
+| `.module__tags` | Flex wrap of `.training-tag` elements |
+| `.module__meta` | Session count label |
+| `.module__dots` | 5-column grid of session dots |
+| `.session-dot` | Single session indicator cell |
+| `.session-dot--success` | Green — completed |
+| `.session-dot--partial` | Amber — partially done |
+| `.session-dot--pending` | Grey — not started |
+| `.session-dot--test` | Yellow — level test |
+
+**Board drag & drop**: modules support drag-and-drop reordering within and across boards via the HTML5 Drag-and-Drop API. See `screens/patient.html` for the full JS implementation.
+
+**Board actions** (`data-action` on buttons):
+- `add-module` — opens the add/edit module dialog
+- `edit-module` — reopens the dialog pre-populated for editing
+- `complete-module` — toggles `module--disabled`
+- `delete-module` — opens the delete confirmation dialog
+- `complete-board` — toggles `board--disabled`
+- `delete-board` — opens the delete confirmation dialog
+- `add-module` on board footer — opens add-module dialog for that board
+
+### Session Grid — `.session-grid`
+
+Weekly session calendar for the "Calendrier des séances" tab.
+
+```html
+<div class="session-grid">
+  <div class="session-grid__head">
+    <div class="session-grid__col-title">Séance 1</div>
+    <!-- × 5 -->
+  </div>
+  <div class="session-grid__body">
+    <div class="session-grid__row">
+      <div class="session-cell">
+        <span class="session-cell__day">Lun 01</span>
+        <span class="badge badge--success">Complété</span>
+        <span class="session-cell__duration">15min</span>
+        <div class="session-cell__modules">
+          <span class="session-module-bar" style="background-color:var(--training-phonemix-200)"></span>
+        </div>
+      </div>
+      <!-- × 5 cells per row -->
+    </div>
+  </div>
+</div>
+```
+
+| Class | Description |
+|-------|-------------|
+| `.session-grid` | Outer container with border and radius |
+| `.session-grid__head` | 5-column header row |
+| `.session-grid__col-title` | Column header label |
+| `.session-grid__body` | Flex column of rows |
+| `.session-grid__row` | 5-column grid row |
+| `.session-cell` | Individual day cell (aspect-ratio 1:1) |
+| `.session-cell--empty` | Empty cell with muted background |
+| `.session-cell__day` | Day label |
+| `.session-cell__status` | Status text for non-completed cells |
+| `.session-cell__duration` | Duration display |
+| `.session-cell__modules` | Row of colored module bars |
+| `.session-module-bar` | Thin colored pill per module (`height: 0.5rem`, `width: 1.5rem`) |
 
 ---
 
@@ -540,18 +844,18 @@ Call via JS (see `Design System/toast/toast.html` for the full `showToast()` scr
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Title</title>
-  <link rel="stylesheet" href="../Design System/main.css" />
+  <link rel="stylesheet" href="../components/main.css" />
   <link rel="stylesheet" href="auth.css" />
 </head>
 <body class="bg-muted">
   <main class="page-centered">
     <div class="auth-brand">
-      <img src="../Design System/_assets/logo.svg" alt="Lirion" />
+      <img src="../components/_assets/logo.svg" alt="Lirion" />
     </div>
     <div class="card auth-card">
       <div class="card__header">
@@ -571,20 +875,20 @@ Call via JS (see `Design System/toast/toast.html` for the full `showToast()` scr
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Title</title>
-  <link rel="stylesheet" href="../Design System/main.css" />
+  <link rel="stylesheet" href="../components/main.css" />
 </head>
 <body>
   <header class="header">
     <div class="header__start">
-      <img src="../Design System/_assets/logo.svg" alt="Lirion" class="header__logo" />
+      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
     </div>
     <div class="header__end">
-      <button class="btn btn--outline btn--sm">My account</button>
+      <button class="btn btn--outline btn--sm">Mon Compte</button>
     </div>
   </header>
 
@@ -594,7 +898,7 @@ Call via JS (see `Design System/toast/toast.html` for the full `showToast()` scr
       <div class="page-app__section--muted">
         <div class="section-row">
           <h1>Page title</h1>
-          <button class="btn btn--default">Primary action</button>
+          <button class="btn btn--default">Action</button>
         </div>
       </div>
 
@@ -637,8 +941,6 @@ The system follows a **lightweight BEM** convention, inspired by shadcn/ui.
 
 ### 7.1 Functional questions to ask first
 
-Before developing any new component, collect:
-
 1. **Name and role**: What is the component called? What problem does it solve?
 2. **Variants**: What visual variants exist? (sizes, states, colors)
 3. **Interactive states**: Hover, focus, disabled, loading, error, checked, selected?
@@ -652,11 +954,12 @@ Before developing any new component, collect:
 Once all information has been gathered:
 
 ```
-1. Create  Design System/{component}/{component}.css
-2. Create  Design System/{component}/{component}.html   (preview page)
-3. Add     @import './{component}/{component}.css';     to main.css
-4. Add a link in Design System/index.html              (SPA navigation)
-5. Add a   [data-page="{component}"]  section          in index.html
+1. Create  components/{component}/{component}.css
+2. Create  components/{component}/{component}.html   (preview page)
+3. Add     @import './{component}/{component}.css';  to components/main.css
+4. Add a link in components/index.html               (SPA navigation)
+5. Add a   [data-page="{component}"]  section        in index.html
+6. Document the component in SKILLS.md               (§4)
 ```
 
 #### Template — `{component}.css`
@@ -674,46 +977,6 @@ Once all information has been gathered:
 .component__element  { }
 ```
 
-#### Template — `{component}.html`
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Component — Design System</title>
-  <link rel="stylesheet" href="../main.css" />
-</head>
-<body>
-  <header class="preview-header">
-    <div class="preview-header__title">Design System <span>/ Component</span></div>
-    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
-  </header>
-  <main class="preview-main">
-    <section class="preview-section">
-      <h2 class="preview-section__title">Variants</h2>
-      <div class="row">
-        <!-- examples -->
-      </div>
-    </section>
-  </main>
-  <script>
-    /* dark mode toggle for testing */
-    const t = document.createElement("button");
-    t.className = "btn btn--outline btn--sm";
-    t.style.cssText = "position:fixed;bottom:1.5rem;right:1.5rem;";
-    t.textContent = "Dark mode";
-    t.addEventListener("click", () => {
-      const d = document.documentElement.classList.toggle("dark");
-      t.textContent = d ? "Light mode" : "Dark mode";
-    });
-    document.body.appendChild(t);
-  </script>
-</body>
-</html>
-```
-
 ---
 
 ## 8 · Anti-patterns — What to Never Do
@@ -722,7 +985,6 @@ Once all information has been gathered:
 /* ❌ Hardcoded color */
 color: #333333;
 background-color: rgb(245, 245, 245);
-background-color: oklch(0.145 0 0);     /* even in oklch */
 
 /* ✅ CSS variable */
 color: var(--foreground);
@@ -730,28 +992,13 @@ background-color: var(--muted);
 ```
 
 ```html
-<!-- ❌ Inline style for colors -->
-<p style="color: #888;">Text</p>
+<!-- ❌ Old path -->
+<link rel="stylesheet" href="../design-system/main.css" />
+<img src="../design-system/_assets/logo.svg" />
 
-<!-- ✅ Utility class -->
-<p class="text-muted">Text</p>
-```
-
-```html
-<!-- ❌ Importing theme.css directly in a screen -->
-<link rel="stylesheet" href="../Design System/theme.css" />
-<link rel="stylesheet" href="../Design System/button/button.css" />
-
-<!-- ✅ Single import -->
-<link rel="stylesheet" href="../Design System/main.css" />
-```
-
-```css
-/* ❌ Generic layout CSS in a screen file */
-/* Screens/dashboard.css */
-.content-row { display: flex; justify-content: space-between; }
-
-/* ✅ Belongs in theme.css (already available: .section-row) */
+<!-- ✅ Correct path -->
+<link rel="stylesheet" href="../components/main.css" />
+<img src="../components/_assets/logo.svg" />
 ```
 
 ```css
@@ -774,14 +1021,17 @@ Badges       : badge badge--success | badge--warning | badge--destructive | badg
 Forms        : field > label + input/select/textarea + hint
                input-group input-group--icon-start | --icon-end
 Cards        : card > card__header > card__title + card__description
-                      card__content
-                      card__footer
 App layout   : page-app > page-app__content > page-app__section--muted | --bg
 Auth layout  : page-centered + auth-brand + auth-card
 Helpers      : section-row | filter-row | flex-center | text-muted | bg-muted | row | stack
-JS states    : is-active (tabs, nav, pagination) | is-open (dropdown)
+Tabs         : tabs-line + tabs-line__trigger (underline)
+               tabs__list + tabs__trigger (pill)
+Kanban       : boards > board > board__content > module > module__dots > session-dot
+Calendar     : session-grid > session-grid__row > session-cell > session-module-bar
+Training     : training-tag--{type} | training-icon--{type}
+JS states    : is-active (tabs, nav) | is-open (dropdown) | is-dragging | is-over
 ```
 
 ---
 
-*Last updated: June 2026 — 24 components, 5 screens*
+*Last updated: June 2026 — 32 components, 7 screens*

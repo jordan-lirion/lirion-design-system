@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Louna Harrar — Lirion</title>
+  <link rel="stylesheet" href="../components/main.css" />
+</head>
+<body>
+
+  <!-- ======== HEADER ======== -->
+  <header class="header">
+    <div class="header__start">
+      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+    </div>
+    <div class="header__end">
+      <button class="btn btn--outline btn--sm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Mon Compte
+      </button>
+    </div>
+  </header>
+
+  <!-- ======== PAGE ======== -->
+  <div class="page-app">
+
+    <!-- Banner -->
+    <div class="banner banner--success" style="position:sticky; top:var(--header); z-index:90;">
+      Patient Actif • Prochain paiement le 06/08/26
+    </div>
+
+    <div class="page-app__content">
+
+      <!-- Back + Patient card -->
+      <div class="page-app__section--muted" style="padding-top:1.5rem;">
+        <a href="dashboard.html" class="btn btn--ghost btn--sm" style="margin-bottom:0.5rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Retour
+        </a>
+        <div class="card">
+          <div class="section-row">
+            <div style="flex:1; min-width:0;">
+              <div class="stack" style="gap:0.5rem;">
+                <h1>Louna Harrar</h1>
+                <div class="row" style="gap:0.5rem; flex-wrap:wrap;">
+                  <span class="text-muted">louna.harrar@gmail.com</span>
+                  <span class="text-muted">•</span>
+                  <span class="text-muted">Née le 05/01/2008</span>
+                  <span class="text-muted">•</span>
+                  <span class="text-muted">CE1</span>
+                  <span class="text-muted">•</span>
+                  <span class="text-muted">Suivi par <strong>Karine Eskinazi</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown" data-dropdown="">
+              <button class="btn btn--ghost btn--icon" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du patient">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </button>
+              <div class="dropdown__menu dropdown__menu--end" role="menu">
+                <button class="dropdown__item" role="menuitem">Modifier</button>
+                <hr class="dropdown__separator">
+                <button class="dropdown__item dropdown__item--destructive" role="menuitem">Archiver</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== TABS + TOOLBAR ======== -->
+      <div class="page-app__section--muted" style="padding-top:3rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:2rem;">
+          <div class="tabs-line" role="tablist">
+            <button class="tabs-line__trigger" role="tab" aria-selected="true" data-panel="panel-projet">
+              Projet thérapeutique
+            </button>
+            <button class="tabs-line__trigger" role="tab" aria-selected="false" data-panel="panel-calendrier">
+              Calendrier des séances
+            </button>
+          </div>
+        </div>
+        <div id="toolbar-projet">
+          <div class="dropdown" data-dropdown="" id="dd-new-program">
+            <button class="btn btn--default" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+              Nouveau programme
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="dropdown__menu" role="menu">
+              <button class="dropdown__item" role="menuitem" data-add-program="Audio-phonologique">Audio-phonologique</button>
+              <button class="dropdown__item" role="menuitem" data-add-program="Visuo-attentionnel">Visuo-attentionnel</button>
+              <button class="dropdown__item" role="menuitem" data-add-program="Audio-visuel">Audio-visuel</button>
+            </div>
+          </div>
+        </div>
+        <div id="toolbar-calendrier" hidden>
+          <div class="dropdown" data-dropdown="" id="dd-month">
+            <button class="btn btn--outline" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+              Mars 2026
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="dropdown__menu" role="menu">
+              <button class="dropdown__item" role="menuitem">Mars 2026</button>
+              <button class="dropdown__item" role="menuitem">Février 2026</button>
+              <button class="dropdown__item" role="menuitem">Janvier 2026</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== TAB PANEL : PROJET THÉRAPEUTIQUE ======== -->
+      <div id="panel-projet" class="tab-panel page-app__section--muted" style="padding-top:0.5rem;">
+        <div class="boards">
+
+          <!-- ---- BOARD : Audio-phonologique ---- -->
+          <div class="board">
+            <div class="board__header">
+              <span class="board__title">Audio-phonologique</span>
+              <div class="dropdown" data-dropdown="">
+                <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du programme">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                </button>
+                <div class="dropdown__menu dropdown__menu--end" role="menu">
+                  <button class="dropdown__item" role="menuitem" data-action="complete-board">Marqué comme complété</button>
+                  <hr class="dropdown__separator">
+                  <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-board">Supprimer</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="board__content">
+
+              <!-- Module 1 -->
+              <div class="module">
+                <div class="module__header">
+                  <div class="module__tags">
+                    <span class="training-tag training-tag--phonemix">Phonemix - Identification</span>
+                    <span class="training-tag training-tag--fusSeg">Fusion</span>
+                  </div>
+                  <div class="dropdown" data-dropdown="">
+                    <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                    </button>
+                    <div class="dropdown__menu dropdown__menu--end" role="menu">
+                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+                <hr class="separator">
+                <p class="module__meta">5 séances</p>
+                <div class="module__dots">
+                  <span class="session-dot session-dot--success">01/03</span>
+                  <span class="session-dot session-dot--success">02/03</span>
+                  <span class="session-dot session-dot--success">04/03</span>
+                  <span class="session-dot session-dot--partial">06/03</span>
+                  <span class="session-dot session-dot--success">07/03</span>
+                </div>
+              </div>
+
+              <!-- Module 2 -->
+              <div class="module">
+                <div class="module__header">
+                  <div class="module__tags">
+                    <span class="training-tag training-tag--memoson">Memoson - Différences</span>
+                    <span class="training-tag training-tag--fusSeg">Fusion</span>
+                    <span class="training-tag training-tag--fusSeg">Segmentation</span>
+                  </div>
+                  <div class="dropdown" data-dropdown="">
+                    <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                    </button>
+                    <div class="dropdown__menu dropdown__menu--end" role="menu">
+                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+                <hr class="separator">
+                <p class="module__meta">20 séances</p>
+                <div class="module__dots">
+                  <span class="session-dot session-dot--success">10/03</span>
+                  <span class="session-dot session-dot--success">11/03</span>
+                  <span class="session-dot session-dot--success">12/03</span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--success">15/03</span>
+                  <span class="session-dot session-dot--success">17/03</span>
+                  <span class="session-dot session-dot--partial">18/03</span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--success">20/03</span>
+                  <span class="session-dot session-dot--success">21/03</span>
+                  <span class="session-dot session-dot--success">23/03</span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                </div>
+              </div>
+
+              <!-- Module 3 -->
+              <div class="module">
+                <div class="module__header">
+                  <div class="module__tags">
+                    <span class="training-tag training-tag--ran">RAN</span>
+                    <span class="training-tag training-tag--fusSeg">Segmentation</span>
+                  </div>
+                  <div class="dropdown" data-dropdown="">
+                    <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                    </button>
+                    <div class="dropdown__menu dropdown__menu--end" role="menu">
+                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+                <hr class="separator">
+                <p class="module__meta">5 séances</p>
+                <div class="module__dots">
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="board__footer">
+              <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                Nouveau
+              </button>
+            </div>
+          </div>
+
+          <!-- ---- BOARD : Visuo-attentionnel ---- -->
+          <div class="board">
+            <div class="board__header">
+              <span class="board__title">Visuo-attentionnel</span>
+              <div class="dropdown" data-dropdown="">
+                <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du programme">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                </button>
+                <div class="dropdown__menu dropdown__menu--end" role="menu">
+                  <button class="dropdown__item" role="menuitem" data-action="complete-board">Marqué comme complété</button>
+                  <hr class="dropdown__separator">
+                  <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-board">Supprimer</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="board__content">
+
+              <!-- Module 1 -->
+              <div class="module">
+                <div class="module__header">
+                  <div class="module__tags">
+                    <span class="training-tag training-tag--loh">LOH</span>
+                    <span class="training-tag training-tag--elor">ELOR</span>
+                  </div>
+                  <div class="dropdown" data-dropdown="">
+                    <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                    </button>
+                    <div class="dropdown__menu dropdown__menu--end" role="menu">
+                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+                <hr class="separator">
+                <p class="module__meta">20 séances</p>
+                <div class="module__dots">
+                  <span class="session-dot session-dot--success">01/03</span>
+                  <span class="session-dot session-dot--success">02/03</span>
+                  <span class="session-dot session-dot--success">04/03</span>
+                  <span class="session-dot session-dot--success">05/03</span>
+                  <span class="session-dot session-dot--success">07/03</span>
+                  <span class="session-dot session-dot--success">08/03</span>
+                  <span class="session-dot session-dot--success">09/03</span>
+                  <span class="session-dot session-dot--test">10/03</span>
+                  <span class="session-dot session-dot--success">12/03</span>
+                  <span class="session-dot session-dot--success">15/03</span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                </div>
+              </div>
+
+              <!-- Module 2 -->
+              <div class="module">
+                <div class="module__header">
+                  <div class="module__tags">
+                    <span class="training-tag training-tag--switchipido">Switchpido</span>
+                    <span class="training-tag training-tag--elor">ELOR</span>
+                  </div>
+                  <div class="dropdown" data-dropdown="">
+                    <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                    </button>
+                    <div class="dropdown__menu dropdown__menu--end" role="menu">
+                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+                <hr class="separator">
+                <p class="module__meta">15 séances</p>
+                <div class="module__dots">
+                  <span class="session-dot session-dot--success">01/03</span>
+                  <span class="session-dot session-dot--success">02/03</span>
+                  <span class="session-dot session-dot--success">04/03</span>
+                  <span class="session-dot session-dot--success">05/03</span>
+                  <span class="session-dot session-dot--partial">07/03</span>
+                  <span class="session-dot session-dot--success">08/03</span>
+                  <span class="session-dot session-dot--success">09/03</span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                </div>
+              </div>
+
+              <!-- Module 3 -->
+              <div class="module">
+                <div class="module__header">
+                  <div class="module__tags">
+                    <span class="training-tag training-tag--maeva">Maeva</span>
+                    <span class="training-tag training-tag--elor">ELOR</span>
+                  </div>
+                  <div class="dropdown" data-dropdown="">
+                    <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                    </button>
+                    <div class="dropdown__menu dropdown__menu--end" role="menu">
+                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+                <hr class="separator">
+                <p class="module__meta">20 séances</p>
+                <div class="module__dots">
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="board__footer">
+              <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                Nouveau
+              </button>
+            </div>
+          </div>
+
+          <!-- ---- BOARD : Audio-visuel ---- -->
+          <div class="board">
+            <div class="board__header">
+              <span class="board__title">Audio-visuel</span>
+              <div class="dropdown" data-dropdown="">
+                <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du programme">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                </button>
+                <div class="dropdown__menu dropdown__menu--end" role="menu">
+                  <button class="dropdown__item" role="menuitem" data-action="complete-board">Marqué comme complété</button>
+                  <hr class="dropdown__separator">
+                  <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-board">Supprimer</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="board__content">
+
+              <!-- Module 1 -->
+              <div class="module">
+                <div class="module__header">
+                  <div class="module__tags">
+                    <span class="training-tag training-tag--rechVisuelle">Rech. Visuelle</span>
+                    <span class="training-tag training-tag--loh">LOH</span>
+                  </div>
+                  <div class="dropdown" data-dropdown="">
+                    <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                    </button>
+                    <div class="dropdown__menu dropdown__menu--end" role="menu">
+                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+                <hr class="separator">
+                <p class="module__meta">20 séances</p>
+                <div class="module__dots">
+                  <span class="session-dot session-dot--success">01/03</span>
+                  <span class="session-dot session-dot--success">02/03</span>
+                  <span class="session-dot session-dot--success">04/03</span>
+                  <span class="session-dot session-dot--success">05/03</span>
+                  <span class="session-dot session-dot--success">07/03</span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                </div>
+              </div>
+
+              <!-- Module 2 -->
+              <div class="module">
+                <div class="module__header">
+                  <div class="module__tags">
+                    <span class="training-tag training-tag--graphogame">GRAPHOGAME</span>
+                  </div>
+                  <div class="dropdown" data-dropdown="">
+                    <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                    </button>
+                    <div class="dropdown__menu dropdown__menu--end" role="menu">
+                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
+                      <hr class="dropdown__separator">
+                      <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+                <hr class="separator">
+                <p class="module__meta">20 séances</p>
+                <div class="module__dots">
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--pending"></span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="board__footer">
+              <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                Nouveau
+              </button>
+            </div>
+          </div>
+
+        </div><!-- /.boards -->
+      </div><!-- /#panel-projet -->
+
+
+      <!-- ======== TAB PANEL : CALENDRIER DES SÉANCES ======== -->
+      <div id="panel-calendrier" class="tab-panel page-app__section--muted" hidden>
+
+        <!-- Session grid -->
+        <div class="session-grid">
+          <div class="session-grid__head">
+            <div class="session-grid__col-title">Séance 1</div>
+            <div class="session-grid__col-title">Séance 2</div>
+            <div class="session-grid__col-title">Séance 3</div>
+            <div class="session-grid__col-title">Séance 4</div>
+            <div class="session-grid__col-title">Séance 5</div>
+          </div>
+          <div class="session-grid__body">
+
+            <!-- Row 1 -->
+            <div class="session-grid__row">
+              <div class="session-cell">
+                <span class="session-cell__day">Lun 01</span>
+                <span class="badge badge--success">Complété</span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Fusion / Seg." style="background-color:var(--training-fusSeg-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Memoson" style="background-color:var(--training-memoson-200)"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day">Mar 02</span>
+                <span class="badge badge--success">Complété</span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Fusion / Seg." style="background-color:var(--training-fusSeg-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Memoson" style="background-color:var(--training-memoson-200)"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day">Mer 03</span>
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day">Jeu 04</span>
+                <span class="badge badge--success">Complété</span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Fusion / Seg." style="background-color:var(--training-fusSeg-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Memoson" style="background-color:var(--training-memoson-200)"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day">Ven 05</span>
+                <span class="badge badge--success">Complété</span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Fusion / Seg." style="background-color:var(--training-fusSeg-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Memoson" style="background-color:var(--training-memoson-200)"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="session-grid__row">
+              <div class="session-cell">
+                <span class="session-cell__day">Lun 08</span>
+                <span class="badge badge--success">Complété</span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Fusion / Seg." style="background-color:var(--training-fusSeg-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Memoson" style="background-color:var(--training-memoson-200)"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day">Mar 09</span>
+                <span class="badge badge--success">Complété</span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Fusion / Seg." style="background-color:var(--training-fusSeg-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Memoson" style="background-color:var(--training-memoson-200)"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day">Mer 10</span>
+                <span class="badge badge--default">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  Test de niveau
+                </span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar" data-tooltip="Memoson" style="background-color:var(--training-memoson-200)"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day">Jeu 11</span>
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day">Sam 12</span>
+                <span class="badge badge--success">Complété</span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Fusion / Seg." style="background-color:var(--training-fusSeg-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Memoson" style="background-color:var(--training-memoson-200)"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="session-grid__row">
+              <div class="session-cell">
+                <span class="session-cell__day">Lun 15</span>
+                <span class="badge badge--success">Complété</span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Fusion / Seg." style="background-color:var(--training-fusSeg-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Memoson" style="background-color:var(--training-memoson-200)"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day">Mar 16</span>
+                <span class="badge badge--destructive">Abandon</span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day">Jeu 17</span>
+                <span class="badge badge--success">Complété</span>
+                <span class="session-cell__duration">15min</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar" data-tooltip="Phonemix" style="background-color:var(--training-phonemix-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Fusion / Seg." style="background-color:var(--training-fusSeg-200)"></span>
+                  <span class="session-module-bar" data-tooltip="Memoson" style="background-color:var(--training-memoson-200)"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day"></span>
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__day"></span>
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="session-grid__row">
+              <div class="session-cell">
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="session-grid__row">
+              <div class="session-cell">
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell">
+                <span class="session-cell__status">Non commencé</span>
+                <span class="session-cell__duration">--</span>
+                <div class="session-cell__modules">
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                  <span class="session-module-bar"></span>
+                </div>
+              </div>
+              <div class="session-cell session-cell--empty"></div>
+              <div class="session-cell session-cell--empty"></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /#panel-calendrier -->
+
+    </div><!-- /.page-app__content -->
+  </div><!-- /.page-app -->
+
+
+  <!-- ======== DIALOG : Delete confirmation ======== -->
+  <dialog class="dialog" id="dialog-delete">
+    <div class="dialog__header">
+      <h2 class="dialog__title">Supprimer cet élément ?</h2>
+      <p class="dialog__description">Cette action est irréversible. L'élément sera définitivement supprimé.</p>
+    </div>
+    <div class="dialog__footer">
+      <button class="btn btn--outline" id="btn-cancel-delete">Annuler</button>
+      <button class="btn btn--destructive" id="btn-confirm-delete">Supprimer</button>
+    </div>
+  </dialog>
+
+
+  <!-- ======== DIALOG : Add module ======== -->
+  <dialog class="dialog dialog--lg" id="dialog-add-module">
+
+    <!-- Header -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.25rem;">
+      <h2 class="dialog__title" style="margin:0;">Ajouter un module</h2>
+      <button class="btn btn--ghost btn--icon btn--sm" id="btn-close-add-module" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Autocomplete search -->
+    <div style="position:relative;">
+      <div class="input-group input-group--icon-start">
+        <span class="input-group__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </span>
+        <input type="text" class="input" id="training-search" placeholder="Chercher un entrainement ..." autocomplete="off">
+      </div>
+      <div id="training-dropdown" style="position:absolute; top:calc(100% + 0.375rem); left:0; right:0; background-color:var(--popover); color:var(--popover-foreground); border:1px solid var(--border); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); padding:0.25rem; z-index:50; display:none; max-height:15rem; overflow-y:auto;"></div>
+    </div>
+
+    <!-- Selected trainings list (populated by JS) -->
+    <ul class="sortable" id="modal-sortable" style="margin-top:0.75rem; min-height:0;"></ul>
+
+    <!-- Separator always visible between training area and test-niveau -->
+    <hr class="dropdown__separator" style="margin:0.75rem 0;">
+
+    <!-- Test de niveau -->
+    <div style="margin-bottom:1rem;">
+      <button class="btn btn--outline btn--full" id="btn-add-test-niveau" type="button" style="justify-content:flex-start; gap:0.5rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+        Ajouter un test de niveau
+      </button>
+      <div id="test-niveau-expanded" hidden>
+        <div class="card" style="padding:1rem; display:flex; flex-direction:column; gap:1rem; position:relative;">
+          <button class="btn btn--ghost btn--icon btn--sm" id="btn-remove-test-niveau" type="button" style="position:absolute; top:0.625rem; right:0.625rem;" aria-label="Supprimer le test de niveau">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+          </button>
+          <div>
+            <p class="label" style="margin-bottom:0.5rem;">Test de niveau</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+              <button class="chip-checkbox" aria-pressed="false" type="button">
+                <span class="chip-checkbox__box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span>Phonémix - Identification</span>
+              </button>
+              <button class="chip-checkbox" aria-pressed="false" type="button">
+                <span class="chip-checkbox__box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span>Phonémix - Discrimination</span>
+              </button>
+            </div>
+          </div>
+          <div>
+            <p class="label" style="margin-bottom:0.375rem;">Date du test</p>
+            <div style="position:relative;">
+              <button class="btn btn--outline btn--full" type="button" id="date-trigger" style="justify-content:flex-start;gap:0.5rem;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1rem;height:1rem;flex-shrink:0;"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                <span id="date-display" style="color:var(--foreground);">6 mars 2026</span>
+              </button>
+              <div id="date-cal" style="display:none;position:fixed;top:0;left:0;width:17rem;background-color:var(--popover);color:var(--popover-foreground);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:0.75rem;z-index:200;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+                  <button class="btn btn--ghost btn--icon btn--sm" type="button" id="date-prev">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                  </button>
+                  <span style="font-size:0.875rem;font-weight:600;" id="date-month-label">mars 2026</span>
+                  <button class="btn btn--ghost btn--icon btn--sm" type="button" id="date-next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  </button>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(7,1fr);text-align:center;margin-bottom:0.125rem;">
+                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Lu</span>
+                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Ma</span>
+                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Me</span>
+                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Je</span>
+                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Ve</span>
+                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Sa</span>
+                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Di</span>
+                </div>
+                <div id="date-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:0.125rem;"></div>
+              </div>
+            </div>
+          </div>
+          <select class="select" id="select-repetition">
+            <option value="never" selected>Ne se répète pas</option>
+            <option value="weekly">Chaque semaine</option>
+            <option value="biweekly">Toutes les 2 semaines</option>
+            <option value="monthly">Chaque mois</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dropdown__separator" style="margin:0 0 1.25rem;">
+
+    <!-- Nombre de séances -->
+    <div style="margin-bottom:1.5rem;">
+      <p class="label">Nombre de séances</p>
+      <select class="select" id="modal-seances">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+      </select>
+    </div>
+
+    <!-- Footer -->
+    <div style="display:flex; justify-content:flex-end;">
+      <button class="btn btn--default" id="btn-create-module">Créer</button>
+    </div>
+
+  </dialog>
+
+
+  <!-- ======== SCRIPTS ======== -->
+  <script>
+    /* ---- DROPDOWN ---- */
+    function initDropdowns(root) {
+      root.querySelectorAll('[data-dropdown]').forEach(dd => {
+        const trigger = dd.querySelector('[data-dropdown-trigger]');
+        if (!trigger) return;
+        trigger.addEventListener('click', e => {
+          e.stopPropagation();
+          const open = dd.classList.toggle('is-open');
+          trigger.setAttribute('aria-expanded', String(open));
+        });
+      });
+    }
+    initDropdowns(document);
+    document.addEventListener('click', () => {
+      document.querySelectorAll('[data-dropdown].is-open').forEach(dd => {
+        dd.classList.remove('is-open');
+        const t = dd.querySelector('[data-dropdown-trigger]');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ---- TABS ---- */
+    const toolbarProjet = document.getElementById('toolbar-projet');
+    const toolbarCalendrier = document.getElementById('toolbar-calendrier');
+    document.querySelectorAll('.tabs-line__trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        document.querySelectorAll('.tabs-line__trigger').forEach(t => t.setAttribute('aria-selected', 'false'));
+        trigger.setAttribute('aria-selected', 'true');
+        document.querySelectorAll('.tab-panel').forEach(p => p.hidden = true);
+        document.getElementById(trigger.dataset.panel).hidden = false;
+        const isCalendrier = trigger.dataset.panel === 'panel-calendrier';
+        toolbarProjet.hidden = isCalendrier;
+        toolbarCalendrier.hidden = !isCalendrier;
+      });
+    });
+
+    /* ---- BOARD & MODULE ACTIONS (event delegation) ---- */
+    let deleteTarget = null;
+    let currentBoard  = null;
+    const deleteDialog = document.getElementById('dialog-delete');
+    const addModuleDialog = document.getElementById('dialog-add-module');
+
+    document.addEventListener('click', e => {
+      const btn = e.target.closest('[data-action]');
+      if (!btn) return;
+      const action = btn.dataset.action;
+
+      if (action === 'complete-board') {
+        const board = btn.closest('.board');
+        board.classList.toggle('board--disabled');
+      }
+
+      if (action === 'delete-board') {
+        deleteTarget = btn.closest('.board');
+        deleteDialog.showModal();
+      }
+
+      if (action === 'complete-module') {
+        const module = btn.closest('.module');
+        module.classList.toggle('module--disabled');
+      }
+
+      if (action === 'delete-module') {
+        deleteTarget = btn.closest('.module');
+        deleteDialog.showModal();
+      }
+
+      if (action === 'add-module') {
+        currentBoard = btn.closest('.board');
+        addModuleDialog.showModal();
+      }
+
+      if (action === 'edit-module') {
+        const mod = btn.closest('.module');
+        editingModule = mod;
+        currentBoard = mod.closest('.board');
+        // Re-populate from data-training-id spans (only works for dynamically created modules)
+        selectedIds = [];
+        modalSortable.innerHTML = '';
+        mod.querySelectorAll('[data-training-id]').forEach(tag => {
+          const id = tag.dataset.trainingId;
+          const t = CATALOG.find(x => x.id === id);
+          if (!t || selectedIds.includes(id)) return;
+          selectedIds.push(id);
+          const li = document.createElement('li');
+          li.className = 'sortable__item sortable__item--sm';
+          li.draggable = true;
+          li.dataset.trainingId = id;
+          li.dataset.min = '5';
+          li.dataset.sec = '0';
+          li.dataset.niveau = '';
+          li.style.cssText = 'flex-wrap:wrap;align-items:center;cursor:pointer;';
+          li.innerHTML = collapsedHTML(t, 5, 0, '');
+          modalSortable.appendChild(li);
+          setupModalDrag(li);
+        });
+        // Pre-select session count
+        const metaEl = mod.querySelector('.module__meta');
+        if (metaEl) {
+          const n = parseInt(metaEl.textContent);
+          if (!isNaN(n)) [...document.getElementById('modal-seances').options].forEach(o => { o.selected = +o.value === n; });
+        }
+        document.getElementById('btn-create-module').textContent = 'Modifier';
+        document.querySelector('#dialog-add-module .dialog__title').textContent = 'Modifier le module';
+        addModuleDialog.showModal();
+      }
+
+      if (action === 'remove-training') {
+        btn.closest('.sortable__item').remove();
+      }
+    });
+
+    /* ---- DELETE DIALOG ---- */
+    document.getElementById('btn-cancel-delete').addEventListener('click', () => {
+      deleteDialog.close();
+      deleteTarget = null;
+    });
+    document.getElementById('btn-confirm-delete').addEventListener('click', () => {
+      if (deleteTarget) {
+        deleteTarget.remove();
+        deleteTarget = null;
+      }
+      deleteDialog.close();
+    });
+    deleteDialog.addEventListener('click', e => {
+      if (e.target === deleteDialog) deleteDialog.close();
+    });
+
+    /* ---- ADD MODULE DIALOG ---- */
+
+    const CATALOG = [
+      { id: 'phonemix-id',   name: 'Phonemix - Identification', cls: 'training-icon--phonemix', tagCls: 'training-tag--phonemix', letter: 'P' },
+      { id: 'phonemix-disc', name: 'Phonemix - Discrimination', cls: 'training-icon--phonemix', tagCls: 'training-tag--phonemix', letter: 'P' },
+      { id: 'fusion',        name: 'Fusion',                    cls: 'training-icon--fusSeg',   tagCls: 'training-tag--fusSeg',   letter: 'F' },
+      { id: 'segmentation',  name: 'Segmentation',              cls: 'training-icon--fusSeg',   tagCls: 'training-tag--fusSeg',   letter: 'S' },
+      { id: 'memoson-diff',  name: 'Mémoson - Différents',      cls: 'training-icon--memoson',  tagCls: 'training-tag--memoson',  letter: 'M' },
+      { id: 'memoson-cache', name: 'Mémoson - Cache Cache',     cls: 'training-icon--memoson',  tagCls: 'training-tag--memoson',  letter: 'M' },
+      { id: 'ran',           name: 'RAN',                       cls: 'training-icon--ran',      tagCls: 'training-tag--ran',      letter: 'R' },
+    ];
+
+    const trainingSearch = document.getElementById('training-search');
+    const trainingDrop   = document.getElementById('training-dropdown');
+    const modalSortable  = document.getElementById('modal-sortable');
+    const testNiveauBtn  = document.getElementById('btn-add-test-niveau');
+    const testNiveauExp  = document.getElementById('test-niveau-expanded');
+
+    let selectedIds  = [];
+    let expandedId   = null;
+    let modalDragSrc = null;
+    let dropPending  = false;
+    let editingModule = null;
+    let calOpen = false;
+    let selYear = 2026, selMonth = 2, selDay = 6;
+    let calYear = selYear, calMonth = selMonth;
+
+    const dateTrigger    = document.getElementById('date-trigger');
+    const dateCal        = document.getElementById('date-cal');
+    const dateGrid       = document.getElementById('date-grid');
+    const dateMonthLabel = document.getElementById('date-month-label');
+    const dateDisplay    = document.getElementById('date-display');
+    const datePrev       = document.getElementById('date-prev');
+    const dateNext       = document.getElementById('date-next');
+
+    const _HANDLE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>`;
+    const _TRASH  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>`;
+    const _DOTS   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>`;
+
+    function subLabel(min, sec, niveau) {
+      let s = `${min} min`;
+      if (+sec > 0) s += ` ${sec} s`;
+      if (niveau) s += ` • ${niveau.split('•')[0].trim()}`;
+      return s;
+    }
+
+    function collapsedHTML(t, min, sec, niveau) {
+      return `
+        <button class="sortable__handle" type="button" aria-label="Réordonner">${_HANDLE}</button>
+        <span class="training-icon ${t.cls}" style="width:1.5rem;height:1.5rem;font-size:0.6875rem;">${t.letter}</span>
+        <div class="sortable__body" style="flex:1;min-width:0;">
+          <span class="sortable__title">${t.name}</span>
+          <span class="sortable__sub">${subLabel(min, sec, niveau)}</span>
+        </div>
+        <button class="btn btn--ghost btn--icon btn--sm" type="button" aria-label="Supprimer" data-action="remove-training">${_TRASH}</button>`;
+    }
+
+    function expandedHTML(t, min, sec, niveau) {
+      const minOpts = [0,1,2,3,4,5,10,15,20,30].map(v => `<option${+v===+min?' selected':''}>${v}</option>`).join('');
+      const secOpts = [0,10,15,20,30,45].map(v => `<option${+v===+sec?' selected':''}>${v}</option>`).join('');
+      const levels  = ['','Niveau 1','Niveau 2','Niveau 3 • /bu pu/ • BOT -30','Niveau 4','Niveau 5'];
+      const nivOpts = levels.map(n => `<option value="${n}"${n===niveau?' selected':''}>${n||'— Aucun niveau —'}</option>`).join('');
+      return `
+        <div style="display:flex;align-items:center;gap:0.5rem;width:100%;">
+          <button class="sortable__handle" type="button" aria-label="Réordonner">${_HANDLE}</button>
+          <span class="training-icon ${t.cls}" style="width:1.5rem;height:1.5rem;font-size:0.6875rem;">${t.letter}</span>
+          <div style="flex:1;min-width:0;"><span class="sortable__title">${t.name}</span></div>
+          <button class="btn btn--ghost btn--icon btn--sm" type="button" aria-label="Supprimer" data-action="remove-training">${_TRASH}</button>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;width:100%;margin-top:0.625rem;">
+          <div>
+            <p class="label" style="margin-bottom:0.25rem;">Durée (minutes)</p>
+            <select class="select" data-field="min">${minOpts}</select>
+          </div>
+          <div>
+            <p class="label" style="margin-bottom:0.25rem;">Durée (secondes)</p>
+            <select class="select" data-field="sec">${secOpts}</select>
+          </div>
+          <div style="grid-column:1/-1;">
+            <p class="label" style="margin-bottom:0.25rem;">Niveau</p>
+            <select class="select" data-field="niveau">${nivOpts}</select>
+          </div>
+        </div>`;
+    }
+
+    /* Autocomplete dropdown */
+    function renderDrop() {
+      const q = trainingSearch.value.toLowerCase();
+      const avail = CATALOG.filter(t => !selectedIds.includes(t.id) && t.name.toLowerCase().includes(q));
+      trainingDrop.innerHTML = avail.length
+        ? avail.map(t => `<button type="button" class="dropdown__item" data-add-training="${t.id}" style="display:flex;align-items:center;gap:0.5rem;"><span class="training-icon ${t.cls}" style="width:1.5rem;height:1.5rem;font-size:0.6875rem;">${t.letter}</span>${t.name}</button>`).join('')
+        : `<p style="padding:0.4375rem 0.625rem;font-size:0.875rem;color:var(--muted-foreground);margin:0;">Aucun résultat</p>`;
+      trainingDrop.style.display = 'block';
+    }
+
+    trainingSearch.addEventListener('focus', renderDrop);
+    trainingSearch.addEventListener('input', renderDrop);
+    trainingSearch.addEventListener('blur', () => {
+      if (dropPending) return;
+      setTimeout(() => { trainingDrop.style.display = 'none'; }, 200);
+    });
+
+    trainingDrop.addEventListener('mousedown', e => {
+      if (e.target.closest('[data-add-training]')) { dropPending = true; e.preventDefault(); }
+    });
+    trainingDrop.addEventListener('click', e => {
+      const btn = e.target.closest('[data-add-training]');
+      if (!btn) return;
+      e.stopPropagation();
+      dropPending = false;
+      if (expandedId) {
+        const expLi = modalSortable.querySelector(`[data-training-id="${expandedId}"]`);
+        if (expLi) collapseTraining(expLi);
+      }
+      addTrainingToModal(btn.dataset.addTraining);
+      trainingSearch.value = '';
+      trainingDrop.style.display = 'none'; // fermer le dropdown après sélection
+      trainingSearch.focus();
+    });
+
+    /* Training list management */
+    function addTrainingToModal(id) {
+      const t = CATALOG.find(x => x.id === id);
+      if (!t || selectedIds.includes(id)) return;
+      selectedIds.push(id);
+      const li = document.createElement('li');
+      li.className = 'sortable__item sortable__item--sm';
+      li.draggable = true;
+      li.dataset.trainingId = id;
+      li.dataset.min = '5';
+      li.dataset.sec = '0';
+      li.dataset.niveau = '';
+      li.style.cssText = 'flex-wrap:wrap;align-items:center;cursor:pointer;';
+      li.innerHTML = collapsedHTML(t, 5, 0, '');
+      modalSortable.appendChild(li);
+      setupModalDrag(li);
+    }
+
+    function expandTraining(li) {
+      const t = CATALOG.find(x => x.id === li.dataset.trainingId);
+      if (!t) return;
+      expandedId = li.dataset.trainingId;
+      li.innerHTML = expandedHTML(t, +li.dataset.min, +li.dataset.sec, li.dataset.niveau);
+      li.draggable = false;
+      li.style.cursor = 'default';
+      li.style.backgroundColor = 'var(--secondary)';
+    }
+
+    function collapseTraining(li) {
+      const t = CATALOG.find(x => x.id === li.dataset.trainingId);
+      if (!t) return;
+      const minSel = li.querySelector('[data-field="min"]');
+      const secSel = li.querySelector('[data-field="sec"]');
+      const nivSel = li.querySelector('[data-field="niveau"]');
+      if (minSel) li.dataset.min = minSel.value;
+      if (secSel) li.dataset.sec = secSel.value;
+      if (nivSel) li.dataset.niveau = nivSel.value;
+      if (expandedId === li.dataset.trainingId) expandedId = null;
+      li.innerHTML = collapsedHTML(t, +li.dataset.min, +li.dataset.sec, li.dataset.niveau);
+      li.draggable = true;
+      li.style.cursor = 'pointer';
+      li.style.backgroundColor = '';
+    }
+
+    /* Event delegation: clicks inside the sortable */
+    modalSortable.addEventListener('click', e => {
+      if (e.target.closest('[data-action="remove-training"]')) {
+        const li = e.target.closest('[data-training-id]');
+        const id = li.dataset.trainingId;
+        selectedIds = selectedIds.filter(x => x !== id);
+        if (expandedId === id) expandedId = null;
+        li.remove();
+        if (trainingDrop.style.display !== 'none') renderDrop();
+        return;
+      }
+      const li = e.target.closest('[data-training-id]');
+      if (!li) return;
+      // Stop propagation for button/select clicks inside an expanded card so the dialog handler
+      // doesn't collapse it — selects and the handle button need to remain usable
+      if (e.target.closest('button, select')) { e.stopPropagation(); return; }
+      // stopPropagation empêche addModuleDialog.click de re-effondrer juste après expansion
+      e.stopPropagation();
+      const id = li.dataset.trainingId;
+      if (expandedId === id) {
+        collapseTraining(li);
+      } else {
+        if (expandedId) {
+          const prev = modalSortable.querySelector(`[data-training-id="${expandedId}"]`);
+          if (prev) collapseTraining(prev);
+        }
+        expandTraining(li);
+      }
+    });
+
+    /* Fermer datepicker / effondrer training sur clic en dehors (dans le dialog) */
+    addModuleDialog.addEventListener('click', e => {
+      if (calOpen) { dateCal.style.display = 'none'; calOpen = false; }
+      if (expandedId) {
+        const expLi = modalSortable.querySelector(`[data-training-id="${expandedId}"]`);
+        if (expLi) collapseTraining(expLi);
+      }
+    });
+
+    /* Test de niveau */
+    testNiveauBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      testNiveauBtn.style.display = 'none';
+      testNiveauExp.hidden = false;
+    });
+
+    document.getElementById('btn-remove-test-niveau').addEventListener('click', () => {
+      testNiveauBtn.style.display = '';
+      testNiveauExp.hidden = true;
+      testNiveauExp.querySelectorAll('.chip-checkbox').forEach(c => c.setAttribute('aria-pressed', 'false'));
+    });
+
+    testNiveauExp.querySelectorAll('.chip-checkbox').forEach(chip =>
+      chip.addEventListener('click', () =>
+        chip.setAttribute('aria-pressed', chip.getAttribute('aria-pressed') === 'true' ? 'false' : 'true')
+      )
+    );
+
+    /* ---- DATEPICKER ---- */
+
+    const MONTHS_FR = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+
+    function formatDateFr(y, m, d) {
+      return `${d} ${MONTHS_FR[m]} ${y}`;
+    }
+
+    function renderCalGrid() {
+      dateMonthLabel.textContent = `${MONTHS_FR[calMonth]} ${calYear}`;
+      const firstDay = new Date(calYear, calMonth, 1).getDay();
+      const offset = (firstDay + 6) % 7;
+      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      let html = '';
+      for (let i = 0; i < offset; i++) html += `<span></span>`;
+      for (let d = 1; d <= daysInMonth; d++) {
+        const isSel = d === selDay && calMonth === selMonth && calYear === selYear;
+        const cls = isSel ? 'btn btn--default btn--sm' : 'btn btn--ghost btn--sm';
+        html += `<button type="button" class="${cls}" data-day="${d}" style="width:100%;aspect-ratio:1;font-size:0.8125rem;padding:0;justify-content:center;">${d}</button>`;
+      }
+      dateGrid.innerHTML = html;
+    }
+
+    dateTrigger.addEventListener('click', e => {
+      e.stopPropagation();
+      calOpen = !calOpen;
+      if (calOpen) {
+        calYear = selYear; calMonth = selMonth; renderCalGrid();
+        const r = dateTrigger.getBoundingClientRect();
+        dateCal.style.top  = (r.bottom + 6) + 'px';
+        dateCal.style.left = r.left + 'px';
+      }
+      dateCal.style.display = calOpen ? 'block' : 'none';
+    });
+
+    dateCal.addEventListener('click', e => {
+      e.stopPropagation();
+      const dayBtn = e.target.closest('[data-day]');
+      if (!dayBtn) return;
+      selDay = +dayBtn.dataset.day;
+      selMonth = calMonth;
+      selYear = calYear;
+      dateDisplay.textContent = formatDateFr(selYear, selMonth, selDay);
+      dateCal.style.display = 'none';
+      calOpen = false;
+      renderCalGrid();
+    });
+
+    datePrev.addEventListener('click', e => {
+      e.stopPropagation();
+      if (--calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalGrid();
+    });
+
+    dateNext.addEventListener('click', e => {
+      e.stopPropagation();
+      if (++calMonth > 11) { calMonth = 0; calYear++; }
+      renderCalGrid();
+    });
+
+    /* Créer — build module and append to current board */
+    const _MODULE_DOTS_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>`;
+
+    function buildModuleHTML() {
+      const count = +document.getElementById('modal-seances').value;
+      const tags = selectedIds.map(id => {
+        const t = CATALOG.find(x => x.id === id);
+        return t ? `<span class="training-tag ${t.tagCls}" data-training-id="${id}">${t.name}</span>` : '';
+      }).join('');
+      const dots = Array.from({length: count}, () => `<span class="session-dot session-dot--pending"></span>`).join('');
+      return `
+        <div class="module__header">
+          <div class="module__tags">${tags}</div>
+          <div class="dropdown" data-dropdown="">
+            <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">${_MODULE_DOTS_SVG}</button>
+            <div class="dropdown__menu dropdown__menu--end" role="menu">
+              <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
+              <hr class="dropdown__separator">
+              <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
+              <hr class="dropdown__separator">
+              <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
+            </div>
+          </div>
+        </div>
+        <hr class="separator">
+        <p class="module__meta">${count} séances</p>
+        <div class="module__dots">${dots}</div>`;
+    }
+
+    document.getElementById('btn-create-module').addEventListener('click', () => {
+      if (editingModule) {
+        editingModule.innerHTML = buildModuleHTML();
+        initDropdowns(editingModule);
+      } else if (currentBoard) {
+        const moduleDiv = document.createElement('div');
+        moduleDiv.className = 'module';
+        moduleDiv.innerHTML = buildModuleHTML();
+        const boardContent = currentBoard.querySelector('.board__content');
+        boardContent.appendChild(moduleDiv);
+        initDropdowns(moduleDiv);
+        setupModuleDrag(moduleDiv);
+      }
+      addModuleDialog.close();
+      resetModal();
+      currentBoard = null;
+    });
+
+    document.getElementById('btn-close-add-module').addEventListener('click', () => {
+      addModuleDialog.close(); resetModal(); currentBoard = null;
+    });
+    addModuleDialog.addEventListener('cancel', () => { resetModal(); currentBoard = null; });
+
+    function resetModal() {
+      selectedIds = []; expandedId = null; modalDragSrc = null; dropPending = false;
+      editingModule = null;
+      modalSortable.innerHTML = '';
+      trainingSearch.value = '';
+      trainingDrop.style.display = 'none';
+      testNiveauBtn.style.display = '';
+      testNiveauExp.hidden = true;
+      testNiveauExp.querySelectorAll('.chip-checkbox').forEach(c => c.setAttribute('aria-pressed', 'false'));
+      calOpen = false;
+      dateCal.style.display = 'none';
+      document.getElementById('btn-create-module').textContent = 'Créer';
+      document.querySelector('#dialog-add-module .dialog__title').textContent = 'Ajouter un module';
+    }
+
+    /* ---- ADD PROGRAM ---- */
+    document.querySelectorAll('[data-add-program]').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const title = btn.dataset.addProgram;
+        const board = document.createElement('div');
+        board.className = 'board';
+        board.innerHTML = `
+          <div class="board__header">
+            <span class="board__title">${title}</span>
+            <div class="dropdown" data-dropdown="">
+              <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du programme">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </button>
+              <div class="dropdown__menu dropdown__menu--end" role="menu">
+                <button class="dropdown__item" role="menuitem" data-action="complete-board">Marqué comme complété</button>
+                <hr class="dropdown__separator">
+                <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-board">Supprimer</button>
+              </div>
+            </div>
+          </div>
+          <div class="board__content"></div>
+          <div class="board__footer">
+            <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+              Nouveau
+            </button>
+          </div>
+        `;
+        document.querySelector('.boards').appendChild(board);
+        initDropdowns(board);
+        setupBoardDrop(board.querySelector('.board__content'));
+        document.getElementById('dd-new-program').classList.remove('is-open');
+        document.querySelector('#dd-new-program [data-dropdown-trigger]').setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ---- MODULE DRAG & DROP ---- */
+    let dragSrcMod = null;
+
+    function clearModDragStates() {
+      document.querySelectorAll('.module').forEach(m => m.classList.remove('drag-over-top', 'drag-over-bottom'));
+    }
+
+    function setupModuleDrag(mod) {
+      mod.draggable = true;
+
+      mod.addEventListener('dragstart', e => {
+        if (e.target !== mod && e.target.closest('button, a, [data-dropdown-trigger]')) { e.preventDefault(); return; }
+        dragSrcMod = mod;
+        e.dataTransfer.effectAllowed = 'move';
+        setTimeout(() => mod.classList.add('is-dragging'), 0);
+      });
+
+      mod.addEventListener('dragend', () => {
+        mod.classList.remove('is-dragging');
+        clearModDragStates();
+        dragSrcMod = null;
+      });
+
+      mod.addEventListener('dragover', e => {
+        if (!dragSrcMod || dragSrcMod === mod) return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        clearModDragStates();
+        const rect = mod.getBoundingClientRect();
+        mod.classList.add(e.clientY < rect.top + rect.height / 2 ? 'drag-over-top' : 'drag-over-bottom');
+      });
+
+      mod.addEventListener('dragleave', e => {
+        if (!mod.contains(e.relatedTarget)) mod.classList.remove('drag-over-top', 'drag-over-bottom');
+      });
+
+      mod.addEventListener('drop', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!dragSrcMod || dragSrcMod === mod) return;
+        const rect = mod.getBoundingClientRect();
+        const before = e.clientY < rect.top + rect.height / 2;
+        mod.parentNode.insertBefore(dragSrcMod, before ? mod : mod.nextSibling);
+        clearModDragStates();
+        dragSrcMod = null;
+      });
+    }
+
+    function setupBoardDrop(content) {
+      content.addEventListener('dragover', e => {
+        if (e.target.closest('.module') || !dragSrcMod) return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        clearModDragStates();
+      });
+
+      content.addEventListener('drop', e => {
+        if (e.target.closest('.module') || !dragSrcMod) return;
+        e.preventDefault();
+        content.appendChild(dragSrcMod);
+        setupModuleDrag(dragSrcMod);
+        clearModDragStates();
+        dragSrcMod = null;
+      });
+    }
+
+    document.querySelectorAll('.board__content .module').forEach(setupModuleDrag);
+    document.querySelectorAll('.board__content').forEach(setupBoardDrop);
+
+    /* ---- SORTABLE DRAG & DROP (modal) ---- */
+
+    function clearModalOver() {
+      modalSortable.querySelectorAll('.is-over').forEach(i => i.classList.remove('is-over'));
+    }
+
+    function setupModalDrag(li) {
+      li.addEventListener('dragstart', e => {
+        if (!li.draggable) { e.preventDefault(); return; }
+        modalDragSrc = li;
+        li.classList.add('is-dragging');
+        e.dataTransfer.effectAllowed = 'move';
+      });
+      li.addEventListener('dragend', () => {
+        li.classList.remove('is-dragging');
+        clearModalOver();
+        modalDragSrc = null;
+      });
+      li.addEventListener('dragover', e => {
+        if (!modalDragSrc || modalDragSrc === li) return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        clearModalOver();
+        li.classList.add('is-over');
+      });
+      li.addEventListener('dragleave', e => {
+        if (!li.contains(e.relatedTarget)) li.classList.remove('is-over');
+      });
+      li.addEventListener('drop', e => {
+        e.preventDefault();
+        clearModalOver();
+        if (!modalDragSrc || modalDragSrc === li) return;
+        const items = [...modalSortable.querySelectorAll('.sortable__item')];
+        const si = items.indexOf(modalDragSrc);
+        const ti = items.indexOf(li);
+        const [moved] = selectedIds.splice(si, 1);
+        selectedIds.splice(ti, 0, moved);
+        if (si < ti) modalSortable.insertBefore(modalDragSrc, li.nextSibling);
+        else modalSortable.insertBefore(modalDragSrc, li);
+      });
+    }
+  </script>
+
+</body>
+</html>
