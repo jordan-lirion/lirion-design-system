@@ -19,6 +19,9 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.852 0.199 91.936);
   --primary-foreground: oklch(0.286 0.066 53.813);
+  /* secondary / muted / accent share the same value intentionally — each has a distinct
+     semantic role (interactive surface / quiet background / highlight) and must remain
+     independently overridable when switching to a custom shadcn preset. */
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -314,8 +317,6 @@ button { font-family: inherit; }
 .text-muted  { color: var(--muted-foreground);}
 .flex-center { display: flex; justify-content: center; }
 
-tbody tr[data-href] { cursor: pointer; }
-
 .field-row {
   display: flex;
   align-items: center;
@@ -343,9 +344,6 @@ tbody tr[data-href] { cursor: pointer; }
   gap: 1rem;
   padding: 2.5rem 1rem;
 }
-
-.page-app__section-start { flex: 1; min-width: 0; }
-.page-app__section-end   { flex-shrink: 0; }
 
 .page-app__section--muted {
   width: 100%;
@@ -381,8 +379,8 @@ tbody tr[data-href] { cursor: pointer; }
   gap: 0.75rem;
 }
 
-.filter-row .input-group { flex: 1; min-width: 0; }
-.filter-row .select      { width: auto; flex-shrink: 0; }
+.filter-row > .input-group { flex: 1; min-width: 0; }
+.filter-row > .select      { width: auto; flex-shrink: 0; }
 
 .page-back {
   position: absolute;

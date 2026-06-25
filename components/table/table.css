@@ -26,3 +26,5 @@
 .table tbody tr:hover { background-color: color-mix(in oklab, var(--muted) 50%, transparent); }
 .table tbody tr:last-child td { border-bottom: none; }
 .table .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.table tbody tr[data-href] { cursor: pointer; }
