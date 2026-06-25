@@ -105,25 +105,7 @@
 
   </main>
 
-  <script>
-    // Chip toggle
-    document.querySelectorAll(".chip-checkbox").forEach((chip) => {
-      chip.addEventListener("click", () => {
-        const pressed = chip.getAttribute("aria-pressed") === "true";
-        chip.setAttribute("aria-pressed", String(!pressed));
-      });
-    });
-
-    const themeToggle = document.createElement("button");
-    themeToggle.className = "btn btn--outline btn--sm";
-    themeToggle.style.cssText = "position:fixed;bottom:1.5rem;right:1.5rem;";
-    themeToggle.textContent = "Dark mode";
-    themeToggle.addEventListener("click", () => {
-      const isDark = document.documentElement.classList.toggle("dark");
-      themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
-    });
-    document.body.appendChild(themeToggle);
-  </script>
+  <script src="../chip-checkbox/chip-checkbox.js" defer></script>
 
 </body>
 </html>

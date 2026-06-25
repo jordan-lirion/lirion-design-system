@@ -1,7 +1,6 @@
 /* ==========================================================================
    TRAINING TAG — colored pill label identifying a training type
    TRAINING ICON — circular avatar for training items in lists/modals
-   CHIP CHECKBOX  — toggle chip with checkbox visual, for multi-select UIs
    ========================================================================== */
 
 /* ----- Training tag ----- */
@@ -59,53 +58,4 @@
 .training-icon--elor         { background-color: var(--training-elor-200); }
 .training-icon--rechVisuelle { background-color: var(--training-rechVisuelle-200); }
 
-/* ----- Chip checkbox ----- */
 
-.chip-checkbox {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.375rem 0.875rem 0.375rem 0.625rem;
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--border);
-  background-color: var(--background);
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  user-select: none;
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-}
-
-.chip-checkbox__box {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 0.25rem;
-  border: 1.5px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-}
-
-.chip-checkbox__box svg {
-  width: 0.6875rem;
-  height: 0.6875rem;
-  stroke: transparent;
-  transition: stroke 0.1s ease;
-}
-
-.chip-checkbox[aria-pressed="true"] {
-  background-color: var(--badge-default);
-  border-color: var(--badge-default-foreground);
-  color: var(--badge-default-foreground);
-}
-
-.chip-checkbox[aria-pressed="true"] .chip-checkbox__box {
-  background-color: var(--badge-default-foreground);
-  border-color: var(--badge-default-foreground);
-}
-
-.chip-checkbox[aria-pressed="true"] .chip-checkbox__box svg {
-  stroke: oklch(1 0 0);
-}

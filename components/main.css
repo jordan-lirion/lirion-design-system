@@ -36,5 +36,6 @@
 @import './calendar/calendar.css';
 @import './banner/banner.css';
 @import './training-tag/training-tag.css';
+@import './chip-checkbox/chip-checkbox.css';
 @import './program/program.css';
 @import './session-grid/session-grid.css';

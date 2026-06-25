@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chip Checkbox — design-system</title>
+  <link rel="stylesheet" href="../main.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">design-system <span>/ Chip Checkbox</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Default</h2>
+      <div class="row" style="flex-wrap:wrap;">
+        <button class="chip-checkbox" aria-pressed="false" type="button">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <span>Non sélectionné</span>
+        </button>
+        <button class="chip-checkbox" aria-pressed="true" type="button">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <span>Sélectionné</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Multi-select group</h2>
+      <div class="row" style="flex-wrap:wrap;">
+        <button class="chip-checkbox" aria-pressed="true" type="button">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <span>Phonemix - Identification</span>
+        </button>
+        <button class="chip-checkbox" aria-pressed="false" type="button">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <span>Phonemix - Discrimination</span>
+        </button>
+        <button class="chip-checkbox" aria-pressed="false" type="button">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <span>Larma</span>
+        </button>
+        <button class="chip-checkbox" aria-pressed="true" type="button">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <span>Graphogame</span>
+        </button>
+        <button class="chip-checkbox" aria-pressed="false" type="button">
+          <span class="chip-checkbox__box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <span>RAN</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../chip-checkbox/chip-checkbox.js" defer></script>
+
+</body>
+</html>
