@@ -936,43 +936,10 @@
 
 
   <!-- ======== SCRIPTS ======== -->
+  <script src="../components/dropdown/dropdown.js" defer></script>
+  <script src="../components/tabs-line/tabs-line.js" defer></script>
+  <script src="../components/chip-checkbox/chip-checkbox.js" defer></script>
   <script>
-    /* ---- DROPDOWN ---- */
-    function initDropdowns(root) {
-      root.querySelectorAll('[data-dropdown]').forEach(dd => {
-        const trigger = dd.querySelector('[data-dropdown-trigger]');
-        if (!trigger) return;
-        trigger.addEventListener('click', e => {
-          e.stopPropagation();
-          const open = dd.classList.toggle('is-open');
-          trigger.setAttribute('aria-expanded', String(open));
-        });
-      });
-    }
-    initDropdowns(document);
-    document.addEventListener('click', () => {
-      document.querySelectorAll('[data-dropdown].is-open').forEach(dd => {
-        dd.classList.remove('is-open');
-        const t = dd.querySelector('[data-dropdown-trigger]');
-        if (t) t.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    /* ---- TABS ---- */
-    document.querySelectorAll('[data-tabs]').forEach(tabs => {
-      tabs.querySelectorAll('.tabs-line__trigger[data-value]').forEach(trigger => {
-        trigger.addEventListener('click', () => {
-          const val = trigger.dataset.value;
-          tabs.querySelectorAll('.tabs-line__trigger').forEach(t =>
-            t.setAttribute('aria-selected', String(t === trigger))
-          );
-          tabs.querySelectorAll('[data-value]:not(.tabs-line__trigger)').forEach(el => {
-            el.hidden = el.dataset.value !== val;
-          });
-        });
-      });
-    });
-
     /* ---- BOARD & MODULE ACTIONS (event delegation) ---- */
     let deleteTarget = null;
     let currentBoard  = null;
@@ -1280,12 +1247,6 @@
       testNiveauExp.hidden = true;
       testNiveauExp.querySelectorAll('.chip-checkbox').forEach(c => c.setAttribute('aria-pressed', 'false'));
     });
-
-    testNiveauExp.querySelectorAll('.chip-checkbox').forEach(chip =>
-      chip.addEventListener('click', () =>
-        chip.setAttribute('aria-pressed', chip.getAttribute('aria-pressed') === 'true' ? 'false' : 'true')
-      )
-    );
 
     /* ---- DATEPICKER ---- */
 

@@ -58,7 +58,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Exporter
             </button>
-            <button class="btn btn--default" onclick="document.getElementById('dialog-new').showModal()">
+            <button class="btn btn--default" data-dialog-open="dialog-new">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
               Ajouter un patient
             </button>
@@ -461,8 +461,8 @@
       </div>
     </div>
     <div class="dialog__footer">
-      <button class="btn btn--outline" onclick="document.getElementById('dialog-new').close()">Annuler</button>
-      <button class="btn btn--default" onclick="document.getElementById('dialog-new').close();showToast('Patient créé avec succès.','success')">Créer</button>
+      <button class="btn btn--outline" data-dialog-close>Annuler</button>
+      <button class="btn btn--default" data-dialog-close onclick="showToast('success', 'Patient créé avec succès.')">Créer</button>
     </div>
   </dialog>
 
@@ -471,60 +471,11 @@
   =================================================== -->
   <div class="toaster" id="toaster" aria-live="polite" aria-atomic="false"></div>
 
-  <script>
-    /* ----- Clickable table rows ----- */
-    document.querySelectorAll("tbody tr[data-href]").forEach((tr) => {
-      tr.addEventListener("click", (e) => {
-        if (!e.target.closest("button, a")) location.href = tr.dataset.href;
-      });
-    });
-
-    /* ----- Dropdowns ----- */
-    document.querySelectorAll("[data-dropdown]").forEach((dd) => {
-      const trigger = dd.querySelector("[data-dropdown-trigger]");
-      trigger.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const open = dd.classList.toggle("is-open");
-        trigger.setAttribute("aria-expanded", String(open));
-      });
-    });
-    document.addEventListener("click", () => {
-      document.querySelectorAll("[data-dropdown].is-open").forEach((dd) => {
-        dd.classList.remove("is-open");
-        dd.querySelector("[data-dropdown-trigger]").setAttribute("aria-expanded", "false");
-      });
-    });
-
-    /* ----- Tabs ----- */
-    document.querySelectorAll("[data-tabs]").forEach((tabs) => {
-      tabs.querySelectorAll("[data-value][role='tab']").forEach((tab) => {
-        tab.addEventListener("click", () => {
-          const val = tab.dataset.value;
-          tabs.querySelectorAll("[role='tab']").forEach((t) =>
-            t.setAttribute("aria-selected", String(t === tab))
-          );
-          tabs.querySelectorAll("[data-value]:not([role='tab'])").forEach((p) => {
-            p.hidden = p.dataset.value !== val;
-          });
-        });
-      });
-    });
-
-    /* ----- Toast ----- */
-    function showToast(message, variant = "default") {
-      const toaster = document.getElementById("toaster");
-      const toast = document.createElement("div");
-      toast.className = "toast toast--" + variant;
-      toast.setAttribute("role", "status");
-      toast.textContent = message;
-      toaster.appendChild(toast);
-      setTimeout(() => toast.classList.add("is-visible"), 10);
-      setTimeout(() => {
-        toast.classList.remove("is-visible");
-        toast.addEventListener("transitionend", () => toast.remove(), { once: true });
-      }, 3500);
-    }
-  </script>
+  <script src="../components/table/table.js" defer></script>
+  <script src="../components/dropdown/dropdown.js" defer></script>
+  <script src="../components/tabs/tabs.js" defer></script>
+  <script src="../components/dialog/dialog.js" defer></script>
+  <script src="../components/toast/toast.js" defer></script>
 
 </body>
 </html>
