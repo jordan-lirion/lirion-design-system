@@ -65,6 +65,18 @@
         <a href="#dialog" class="ds-nav-item">Dialog</a>
         <a href="#tooltip" class="ds-nav-item">Tooltip</a>
       </div>
+      <div class="ds-nav-group">
+        <p class="ds-nav-label">Application</p>
+        <a href="#stat" class="ds-nav-item">Stat</a>
+        <a href="#tabs-line" class="ds-nav-item">Tabs Line</a>
+        <a href="#banner" class="ds-nav-item">Banner</a>
+        <a href="#training-tag" class="ds-nav-item">Training Tag</a>
+        <a href="#chip-checkbox" class="ds-nav-item">Chip Checkbox</a>
+        <a href="#program" class="ds-nav-item">Program</a>
+        <a href="#session-grid" class="ds-nav-item">Session Grid</a>
+        <a href="#sortable" class="ds-nav-item">Sortable</a>
+        <a href="#calendar" class="ds-nav-item">Calendar</a>
+      </div>
     </nav>
   </aside>
 
@@ -1446,6 +1458,344 @@
               <tr><td><code>.tooltip-icon--success</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Icon color: <code>--success-foreground</code>.</td></tr>
               <tr><td><code>.tooltip-icon--warning</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Icon color: <code>--warning-foreground</code>.</td></tr>
               <tr><td><code>--radius-sm</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Tooltip bubble border radius.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== STAT ======== -->
+    <section data-page="stat">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Stat</h1>
+        <p class="ds-page-desc">KPI display card. Use <code>.stat-group.card</code> to group multiple stats in a horizontal bordered row.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview — individual</h2>
+        <div class="ds-preview" style="gap:2rem;">
+          <div class="stat">
+            <div class="stat__top"><span class="stat__value">142</span></div>
+            <span class="stat__label">Total patients</span>
+          </div>
+          <div class="stat">
+            <div class="stat__top"><span class="stat__value">87%</span></div>
+            <span class="stat__label">Taux de complétion</span>
+          </div>
+          <div class="stat">
+            <div class="stat__top"><span class="stat__value">12h</span></div>
+            <span class="stat__label">Temps total</span>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview — group card</h2>
+        <div class="ds-preview ds-preview--stack" style="padding:0;">
+          <div class="stat-group card" style="gap:0;padding:0;width:100%;">
+            <div class="stat">
+              <div class="stat__top"><span class="stat__value">142</span></div>
+              <span class="stat__label">Total patients</span>
+            </div>
+            <div class="stat">
+              <div class="stat__top"><span class="stat__value">98</span></div>
+              <span class="stat__label">Patients actifs</span>
+            </div>
+            <div class="stat">
+              <div class="stat__top"><span class="stat__value">34</span></div>
+              <span class="stat__label">Séances ce mois</span>
+            </div>
+            <div class="stat">
+              <div class="stat__top"><span class="stat__value">7</span></div>
+              <span class="stat__label">Paiements en attente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>.stat</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Flex column container for a single metric.</td></tr>
+              <tr><td><code>.stat__top</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Row holding the value and optional icon.</td></tr>
+              <tr><td><code>.stat__value</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>2rem bold number, tight line-height.</td></tr>
+              <tr><td><code>.stat__label</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>0.8125rem muted label below the value.</td></tr>
+              <tr><td><code>.stat-group</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Horizontal flex row; combine with <code>.card</code> for bordered card.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== TABS LINE ======== -->
+    <section data-page="tabs-line">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Tabs Line</h1>
+        <p class="ds-page-desc">Underline-style tab navigation. Scoped to a <code>[data-tabs]</code> ancestor; triggers and panels share <code>data-value</code>.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview</h2>
+        <div class="ds-preview ds-preview--stack" style="padding:1.5rem;align-items:flex-start;">
+          <div data-tabs style="width:100%;display:flex;flex-direction:column;gap:1rem;">
+            <div class="tabs-line" role="tablist">
+              <button class="tabs-line__trigger" role="tab" aria-selected="true" data-value="programme">Programme</button>
+              <button class="tabs-line__trigger" role="tab" aria-selected="false" data-value="seances">Séances</button>
+              <button class="tabs-line__trigger" role="tab" aria-selected="false" data-value="bilan">Bilan</button>
+            </div>
+            <div data-value="programme" class="card" role="tabpanel" style="font-size:0.875rem;color:var(--muted-foreground);">Contenu Programme</div>
+            <div data-value="seances" class="card" role="tabpanel" style="font-size:0.875rem;color:var(--muted-foreground);" hidden>Contenu Séances</div>
+            <div data-value="bilan" class="card" role="tabpanel" style="font-size:0.875rem;color:var(--muted-foreground);" hidden>Contenu Bilan</div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class / Attribute</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>[data-tabs]</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Scope container — JS finds triggers and panels within it.</td></tr>
+              <tr><td><code>.tabs-line</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Trigger row container, <code>role="tablist"</code>.</td></tr>
+              <tr><td><code>.tabs-line__trigger</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Individual tab button. Add <code>aria-selected="true"</code> for default active.</td></tr>
+              <tr><td><code>data-value="x"</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Shared key between trigger and panel. JS toggles panels based on this.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== BANNER ======== -->
+    <section data-page="banner">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Banner</h1>
+        <p class="ds-page-desc">Full-width contextual strip for page-level alerts. Supports success, warning, destructive, and default variants.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview</h2>
+        <a href="banner/banner.html" class="btn btn--outline btn--sm" style="margin-bottom:1rem;">Open full preview →</a>
+        <div class="ds-preview ds-preview--stack" style="padding:0;gap:0.5rem;align-items:stretch;">
+          <div class="banner banner--success">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Votre abonnement a été renouvelé avec succès.
+          </div>
+          <div class="banner banner--warning">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg>
+            Votre abonnement expire dans 7 jours.
+          </div>
+          <div class="banner banner--destructive">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+            Paiement échoué — veuillez mettre à jour vos informations.
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>.banner</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Full-width flex strip, default (muted) variant.</td></tr>
+              <tr><td><code>.banner--success</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Green tinted background + foreground.</td></tr>
+              <tr><td><code>.banner--warning</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Amber tinted background + foreground.</td></tr>
+              <tr><td><code>.banner--destructive</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Red tinted background + foreground.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== TRAINING TAG ======== -->
+    <section data-page="training-tag">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Training Tag</h1>
+        <p class="ds-page-desc">Colored pill label identifying a training module. Companion <code>.training-icon</code> is a circular avatar for lists and modals.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview — Tags</h2>
+        <div class="ds-preview" style="flex-wrap:wrap;">
+          <span class="training-tag training-tag--larma">Larma</span>
+          <span class="training-tag training-tag--graphogame">Graphogame</span>
+          <span class="training-tag training-tag--memoson">Memoson</span>
+          <span class="training-tag training-tag--fusSeg">FusSeg</span>
+          <span class="training-tag training-tag--phonemix">Phonemix</span>
+          <span class="training-tag training-tag--ran">RAN</span>
+          <span class="training-tag training-tag--loh">LOH</span>
+          <span class="training-tag training-tag--maeva">Maeva</span>
+          <span class="training-tag training-tag--switchipido">Switchipido</span>
+          <span class="training-tag training-tag--elor">Elor</span>
+          <span class="training-tag training-tag--rechVisuelle">Rech. Visuelle</span>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview — Icons</h2>
+        <div class="ds-preview" style="flex-wrap:wrap;">
+          <div class="training-icon training-icon--larma" title="Larma">La</div>
+          <div class="training-icon training-icon--graphogame" title="Graphogame">Gg</div>
+          <div class="training-icon training-icon--memoson" title="Memoson">Ms</div>
+          <div class="training-icon training-icon--fusSeg" title="FusSeg">Fs</div>
+          <div class="training-icon training-icon--phonemix" title="Phonemix">Pm</div>
+          <div class="training-icon training-icon--ran" title="RAN">Rn</div>
+          <div class="training-icon training-icon--loh" title="LOH">Lo</div>
+          <div class="training-icon training-icon--maeva" title="Maeva">Ma</div>
+          <div class="training-icon training-icon--switchipido" title="Switchipido">Sw</div>
+          <div class="training-icon training-icon--elor" title="Elor">El</div>
+          <div class="training-icon training-icon--rechVisuelle" title="Rech. Visuelle">Rv</div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>.training-tag</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Colored pill, 0.8125rem, bold, white text. Requires a variant modifier.</td></tr>
+              <tr><td><code>.training-tag--{name}</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Sets background to <code>--training-{name}-200</code>. 11 variants.</td></tr>
+              <tr><td><code>.training-icon</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>2rem circular avatar, white text. Requires a variant modifier.</td></tr>
+              <tr><td><code>.training-icon--{name}</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Sets background to <code>--training-{name}-200</code>. 11 variants.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== CHIP CHECKBOX ======== -->
+    <section data-page="chip-checkbox">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Chip Checkbox</h1>
+        <p class="ds-page-desc">Toggle chip with checkbox visual for multi-select UIs. Uses <code>aria-pressed</code> for state. JS auto-inits from <code>chip-checkbox.js</code>.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview</h2>
+        <div class="ds-preview" style="flex-wrap:wrap;">
+          <button class="chip-checkbox" aria-pressed="false" type="button">
+            <span class="chip-checkbox__box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>Non sélectionné</span>
+          </button>
+          <button class="chip-checkbox" aria-pressed="true" type="button">
+            <span class="chip-checkbox__box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>Sélectionné</span>
+          </button>
+          <button class="chip-checkbox" aria-pressed="false" type="button">
+            <span class="chip-checkbox__box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>Larma</span>
+          </button>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class / Attribute</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>.chip-checkbox</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Inline-flex toggle chip. Use a <code>&lt;button type="button"&gt;</code>.</td></tr>
+              <tr><td><code>.chip-checkbox__box</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>1rem square checkbox visual with check SVG inside.</td></tr>
+              <tr><td><code>aria-pressed="true"</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Active / checked state — amber fill + foreground color.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== PROGRAM ======== -->
+    <section data-page="program">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Program</h1>
+        <p class="ds-page-desc">Therapeutic programme board — a kanban-style layout of training modules and sessions.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview</h2>
+        <a href="program/program.html" class="btn btn--outline btn--sm">Open full preview →</a>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>.boards</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Horizontal scrollable container for board columns.</td></tr>
+              <tr><td><code>.board</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Individual kanban column — card with header and item list.</td></tr>
+              <tr><td><code>.board__header</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Column header row with title and actions.</td></tr>
+              <tr><td><code>.board__items</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Vertical stack of program items.</td></tr>
+              <tr><td><code>.program-item</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Individual draggable training module card.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== SESSION GRID ======== -->
+    <section data-page="session-grid">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Session Grid</h1>
+        <p class="ds-page-desc">5-column calendar grid showing sessions by slot × week. Module bars use <code>data-training="x"</code> for color.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview</h2>
+        <a href="session-grid/session-grid.html" class="btn btn--outline btn--sm">Open full preview →</a>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class / Attribute</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>.session-grid</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Grid wrapper — card with border and radius.</td></tr>
+              <tr><td><code>.session-cell</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Square cell with aspect-ratio 1, holds day + modules.</td></tr>
+              <tr><td><code>.session-cell--empty</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Muted background for placeholder cells.</td></tr>
+              <tr><td><code>.session-module-bar</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>0.5rem tall pill inside a cell. Color via <code>data-training="x"</code>.</td></tr>
+              <tr><td><code>data-training="x"</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Maps to <code>--training-{x}-200</code> background. 11 training names.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== SORTABLE ======== -->
+    <section data-page="sortable">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Sortable</h1>
+        <p class="ds-page-desc">Drag-and-drop reorderable list. JS handles <code>dragstart</code> / <code>dragover</code> / <code>drop</code> events on <code>[data-sortable]</code> containers.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview</h2>
+        <a href="sortable/sortable.html" class="btn btn--outline btn--sm">Open full preview →</a>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class / Attribute</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>.sortable-list</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Ordered list container. Add <code>data-sortable</code> to activate drag.</td></tr>
+              <tr><td><code>.sortable-item</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Draggable row — card style with handle.</td></tr>
+              <tr><td><code>.sortable-item.is-dragging</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Applied during drag — reduces opacity.</td></tr>
+              <tr><td><code>[data-sortable]</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Hook for sortable.js auto-init.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== CALENDAR ======== -->
+    <section data-page="calendar">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Calendar</h1>
+        <p class="ds-page-desc">Monthly view calendar grid. Decorative only — no date-picker JS. Cells can carry badges or dots.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview</h2>
+        <a href="calendar/calendar.html" class="btn btn--outline btn--sm">Open full preview →</a>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>.calendar</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Grid container, 7 columns, full width.</td></tr>
+              <tr><td><code>.calendar__head</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Day-of-week header row.</td></tr>
+              <tr><td><code>.calendar__cell</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Individual day cell. Add <code>.is-today</code> or <code>.is-selected</code>.</td></tr>
+              <tr><td><code>.calendar__cell--outside</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Muted text for days outside the current month.</td></tr>
             </tbody>
           </table>
         </div>
