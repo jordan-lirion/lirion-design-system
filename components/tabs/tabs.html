@@ -19,17 +19,17 @@
       <h2 class="preview-section__title">Tabs — 3 panels</h2>
       <div class="tabs" data-tabs>
         <div class="tabs__list" role="tablist">
-          <button class="tabs__trigger" role="tab" aria-selected="true" data-tab="account">Account</button>
-          <button class="tabs__trigger" role="tab" aria-selected="false" data-tab="security">Security</button>
-          <button class="tabs__trigger" role="tab" aria-selected="false" data-tab="billing">Billing</button>
+          <button class="tabs__trigger" role="tab" aria-selected="true" data-value="account">Account</button>
+          <button class="tabs__trigger" role="tab" aria-selected="false" data-value="security">Security</button>
+          <button class="tabs__trigger" role="tab" aria-selected="false" data-value="billing">Billing</button>
         </div>
-        <div class="tabs__panel" role="tabpanel" data-panel="account">
+        <div class="tabs__panel" role="tabpanel" data-value="account">
           <p style="color:var(--muted-foreground);">Manage your profile, display name, and profile photo.</p>
         </div>
-        <div class="tabs__panel" role="tabpanel" data-panel="security" hidden>
+        <div class="tabs__panel" role="tabpanel" data-value="security" hidden>
           <p style="color:var(--muted-foreground);">Change your password and enable two-factor authentication.</p>
         </div>
-        <div class="tabs__panel" role="tabpanel" data-panel="billing" hidden>
+        <div class="tabs__panel" role="tabpanel" data-value="billing" hidden>
           <p style="color:var(--muted-foreground);">View your invoices and manage your payment method.</p>
         </div>
       </div>
@@ -39,13 +39,13 @@
       <h2 class="preview-section__title">Tabs — 2 panels</h2>
       <div class="tabs" data-tabs>
         <div class="tabs__list" role="tablist">
-          <button class="tabs__trigger" role="tab" aria-selected="true" data-tab="preview">Preview</button>
-          <button class="tabs__trigger" role="tab" aria-selected="false" data-tab="code">Code</button>
+          <button class="tabs__trigger" role="tab" aria-selected="true" data-value="preview">Preview</button>
+          <button class="tabs__trigger" role="tab" aria-selected="false" data-value="code">Code</button>
         </div>
-        <div class="tabs__panel" role="tabpanel" data-panel="preview">
+        <div class="tabs__panel" role="tabpanel" data-value="preview">
           <p style="color:var(--muted-foreground);">Visual rendering of the component with all its variants.</p>
         </div>
-        <div class="tabs__panel" role="tabpanel" data-panel="code" hidden>
+        <div class="tabs__panel" role="tabpanel" data-value="code" hidden>
           <p style="color:var(--muted-foreground);font-family:monospace;">&lt;div class="tabs"&gt;…&lt;/div&gt;</p>
         </div>
       </div>
@@ -53,20 +53,7 @@
 
   </main>
 
-  <script>
-    document.querySelectorAll("[data-tabs]").forEach((tabs) => {
-      tabs.querySelectorAll("[data-tab]").forEach((trigger) => {
-        trigger.addEventListener("click", () => {
-          tabs.querySelectorAll("[data-tab]").forEach((t) =>
-            t.setAttribute("aria-selected", String(t === trigger))
-          );
-          tabs.querySelectorAll("[data-panel]").forEach((p) => {
-            p.hidden = p.dataset.panel !== trigger.dataset.tab;
-          });
-        });
-      });
-    });
-  </script>
+  <script src="../tabs/tabs.js" defer></script>
 
 </body>
 </html>

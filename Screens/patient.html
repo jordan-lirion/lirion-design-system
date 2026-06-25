@@ -68,18 +68,19 @@
       </div>
 
       <!-- ======== TABS + TOOLBAR ======== -->
+      <div data-tabs>
       <div class="page-app__section--muted" style="padding-top:3rem;">
         <div style="display:flex; justify-content:center; margin-bottom:2rem;">
           <div class="tabs-line" role="tablist">
-            <button class="tabs-line__trigger" role="tab" aria-selected="true" data-panel="panel-projet">
+            <button class="tabs-line__trigger" role="tab" aria-selected="true" data-value="projet">
               Projet thérapeutique
             </button>
-            <button class="tabs-line__trigger" role="tab" aria-selected="false" data-panel="panel-calendrier">
+            <button class="tabs-line__trigger" role="tab" aria-selected="false" data-value="calendrier">
               Calendrier des séances
             </button>
           </div>
         </div>
-        <div id="toolbar-projet">
+        <div data-value="projet">
           <div class="dropdown" data-dropdown="" id="dd-new-program">
             <button class="btn btn--default" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
@@ -93,7 +94,7 @@
             </div>
           </div>
         </div>
-        <div id="toolbar-calendrier" hidden>
+        <div data-value="calendrier" hidden>
           <div class="dropdown" data-dropdown="" id="dd-month">
             <button class="btn btn--outline" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
@@ -110,7 +111,7 @@
       </div>
 
       <!-- ======== TAB PANEL : PROJET THÉRAPEUTIQUE ======== -->
-      <div id="panel-projet" class="tab-panel page-app__section--muted" style="padding-top:0.5rem;">
+      <div data-value="projet" class="tab-panel page-app__section--muted" style="padding-top:0.5rem;">
         <div class="boards">
 
           <!-- ---- BOARD : Audio-phonologique ---- -->
@@ -531,11 +532,11 @@
           </div>
 
         </div><!-- /.boards -->
-      </div><!-- /#panel-projet -->
+      </div><!-- /[data-value="projet"] -->
 
 
       <!-- ======== TAB PANEL : CALENDRIER DES SÉANCES ======== -->
-      <div id="panel-calendrier" class="tab-panel page-app__section--muted" hidden>
+      <div data-value="calendrier" class="tab-panel page-app__section--muted" hidden>
 
         <!-- Session grid -->
         <div class="session-grid">
@@ -798,7 +799,9 @@
           </div>
         </div>
 
-      </div><!-- /#panel-calendrier -->
+      </div><!-- /[data-value="calendrier"] -->
+
+      </div><!-- /[data-tabs] -->
 
     </div><!-- /.page-app__content -->
   </div><!-- /.page-app -->
@@ -956,17 +959,17 @@
     });
 
     /* ---- TABS ---- */
-    const toolbarProjet = document.getElementById('toolbar-projet');
-    const toolbarCalendrier = document.getElementById('toolbar-calendrier');
-    document.querySelectorAll('.tabs-line__trigger').forEach(trigger => {
-      trigger.addEventListener('click', () => {
-        document.querySelectorAll('.tabs-line__trigger').forEach(t => t.setAttribute('aria-selected', 'false'));
-        trigger.setAttribute('aria-selected', 'true');
-        document.querySelectorAll('.tab-panel').forEach(p => p.hidden = true);
-        document.getElementById(trigger.dataset.panel).hidden = false;
-        const isCalendrier = trigger.dataset.panel === 'panel-calendrier';
-        toolbarProjet.hidden = isCalendrier;
-        toolbarCalendrier.hidden = !isCalendrier;
+    document.querySelectorAll('[data-tabs]').forEach(tabs => {
+      tabs.querySelectorAll('.tabs-line__trigger[data-value]').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const val = trigger.dataset.value;
+          tabs.querySelectorAll('.tabs-line__trigger').forEach(t =>
+            t.setAttribute('aria-selected', String(t === trigger))
+          );
+          tabs.querySelectorAll('[data-value]:not(.tabs-line__trigger)').forEach(el => {
+            el.hidden = el.dataset.value !== val;
+          });
+        });
       });
     });
 

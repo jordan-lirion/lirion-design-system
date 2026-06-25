@@ -258,14 +258,15 @@
           </button>
         </div>
 
+        <div class="tabs" data-tabs>
         <div role="tablist" class="tabs__list">
-          <button role="tab" class="tabs__trigger is-active" aria-selected="true" data-tab="informations">Informations</button>
-          <button role="tab" class="tabs__trigger" aria-selected="false" data-tab="sessions">Séances</button>
-          <button role="tab" class="tabs__trigger" aria-selected="false" data-tab="documents">Documents</button>
-          <button role="tab" class="tabs__trigger" aria-selected="false" data-tab="facturation">Facturation</button>
+          <button role="tab" class="tabs__trigger" aria-selected="true" data-value="informations">Informations</button>
+          <button role="tab" class="tabs__trigger" aria-selected="false" data-value="sessions">Séances</button>
+          <button role="tab" class="tabs__trigger" aria-selected="false" data-value="documents">Documents</button>
+          <button role="tab" class="tabs__trigger" aria-selected="false" data-value="facturation">Facturation</button>
         </div>
 
-        <div role="tabpanel" class="tabs__panel" data-panel="informations">
+        <div role="tabpanel" class="tabs__panel" data-value="informations">
           <div class="row" style="align-items:flex-start;gap:2rem;">
             <div class="stack" style="flex:1;">
               <div class="field">
@@ -316,17 +317,18 @@
           </div>
         </div>
 
-        <div role="tabpanel" class="tabs__panel" data-panel="sessions" hidden>
+        <div role="tabpanel" class="tabs__panel" data-value="sessions" hidden>
           <p class="text-muted">Aucune séance enregistrée pour ce patient.</p>
         </div>
 
-        <div role="tabpanel" class="tabs__panel" data-panel="documents" hidden>
+        <div role="tabpanel" class="tabs__panel" data-value="documents" hidden>
           <p class="text-muted">Aucun document attaché.</p>
         </div>
 
-        <div role="tabpanel" class="tabs__panel" data-panel="facturation" hidden>
+        <div role="tabpanel" class="tabs__panel" data-value="facturation" hidden>
           <p class="text-muted">Aucun historique de facturation.</p>
         </div>
+        </div><!-- /[data-tabs] -->
       </div>
 
       <!-- ===================================================
@@ -494,18 +496,15 @@
     });
 
     /* ----- Tabs ----- */
-    document.querySelectorAll("[role='tablist']").forEach((list) => {
-      list.querySelectorAll("[role='tab']").forEach((tab) => {
+    document.querySelectorAll("[data-tabs]").forEach((tabs) => {
+      tabs.querySelectorAll("[data-value][role='tab']").forEach((tab) => {
         tab.addEventListener("click", () => {
-          list.querySelectorAll("[role='tab']").forEach((t) => {
-            t.classList.remove("is-active");
-            t.setAttribute("aria-selected", "false");
-          });
-          tab.classList.add("is-active");
-          tab.setAttribute("aria-selected", "true");
-          const panelId = tab.dataset.tab;
-          document.querySelectorAll("[data-panel]").forEach((p) => {
-            p.hidden = p.dataset.panel !== panelId;
+          const val = tab.dataset.value;
+          tabs.querySelectorAll("[role='tab']").forEach((t) =>
+            t.setAttribute("aria-selected", String(t === tab))
+          );
+          tabs.querySelectorAll("[data-value]:not([role='tab'])").forEach((p) => {
+            p.hidden = p.dataset.value !== val;
           });
         });
       });

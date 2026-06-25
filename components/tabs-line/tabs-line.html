@@ -17,35 +17,35 @@
 
     <section class="preview-section">
       <h2 class="preview-section__title">Underline tabs</h2>
-      <div style="display:flex;flex-direction:column;gap:1.5rem;width:100%;">
+      <div data-tabs style="display:flex;flex-direction:column;gap:1.5rem;width:100%;">
         <div class="tabs-line" role="tablist">
           <button
             class="tabs-line__trigger"
             role="tab"
             aria-selected="true"
-            data-panel="panel-programme"
+            data-value="programme"
           >Programme</button>
           <button
             class="tabs-line__trigger"
             role="tab"
             aria-selected="false"
-            data-panel="panel-seances"
+            data-value="seances"
           >Séances</button>
           <button
             class="tabs-line__trigger"
             role="tab"
             aria-selected="false"
-            data-panel="panel-bilan"
+            data-value="bilan"
           >Bilan</button>
         </div>
 
-        <div id="panel-programme" class="tab-panel card" role="tabpanel">
+        <div data-value="programme" class="tab-panel card" role="tabpanel">
           <p style="color:var(--muted-foreground);font-size:0.875rem;">Contenu de l'onglet <strong>Programme</strong> — modules, boards, planification.</p>
         </div>
-        <div id="panel-seances" class="tab-panel card" role="tabpanel" hidden>
+        <div data-value="seances" class="tab-panel card" role="tabpanel" hidden>
           <p style="color:var(--muted-foreground);font-size:0.875rem;">Contenu de l'onglet <strong>Séances</strong> — calendrier, grille, historique.</p>
         </div>
-        <div id="panel-bilan" class="tab-panel card" role="tabpanel" hidden>
+        <div data-value="bilan" class="tab-panel card" role="tabpanel" hidden>
           <p style="color:var(--muted-foreground);font-size:0.875rem;">Contenu de l'onglet <strong>Bilan</strong> — statistiques, progression.</p>
         </div>
       </div>
@@ -53,37 +53,7 @@
 
   </main>
 
-  <script>
-    document.querySelectorAll(".tabs-line").forEach((tablist) => {
-      const triggers = tablist.querySelectorAll(".tabs-line__trigger");
-      triggers.forEach((trigger) => {
-        trigger.addEventListener("click", () => {
-          // Update aria-selected on all triggers
-          triggers.forEach((t) => t.setAttribute("aria-selected", "false"));
-          trigger.setAttribute("aria-selected", "true");
-
-          // Show matching panel, hide others
-          triggers.forEach((t) => {
-            const panelId = t.getAttribute("data-panel");
-            const panel = document.getElementById(panelId);
-            if (panel) panel.hidden = true;
-          });
-          const activePanel = document.getElementById(trigger.getAttribute("data-panel"));
-          if (activePanel) activePanel.hidden = false;
-        });
-      });
-    });
-
-    const themeToggle = document.createElement("button");
-    themeToggle.className = "btn btn--outline btn--sm";
-    themeToggle.style.cssText = "position:fixed;bottom:1.5rem;right:1.5rem;";
-    themeToggle.textContent = "Dark mode";
-    themeToggle.addEventListener("click", () => {
-      const isDark = document.documentElement.classList.toggle("dark");
-      themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
-    });
-    document.body.appendChild(themeToggle);
-  </script>
+  <script src="../tabs-line/tabs-line.js" defer></script>
 
 </body>
 </html>
