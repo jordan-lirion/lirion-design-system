@@ -69,42 +69,42 @@
 
       <!-- ======== TABS + TOOLBAR ======== -->
       <div data-tabs>
-      <div class="page-app__section--muted" style="padding-top:3rem;">
-        <div style="display:flex; justify-content:center; margin-bottom:2rem;">
-          <div class="tabs-line" role="tablist">
-            <button class="tabs-line__trigger" role="tab" aria-selected="true" data-value="projet">
+      <div class="page-app__section--muted" style="padding-top:5rem;">
+        <div class="section-row">
+          <div class="tabs__list" role="tablist">
+            <button class="tabs__trigger" role="tab" aria-selected="true" data-value="projet">
               Projet thérapeutique
             </button>
-            <button class="tabs-line__trigger" role="tab" aria-selected="false" data-value="calendrier">
+            <button class="tabs__trigger" role="tab" aria-selected="false" data-value="calendrier">
               Calendrier des séances
             </button>
           </div>
-        </div>
-        <div data-value="projet">
-          <div class="dropdown" data-dropdown="" id="dd-new-program">
-            <button class="btn btn--default" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-              Nouveau programme
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="dropdown__menu" role="menu">
-              <button class="dropdown__item" role="menuitem" data-add-program="Audio-phonologique">Audio-phonologique</button>
-              <button class="dropdown__item" role="menuitem" data-add-program="Visuo-attentionnel">Visuo-attentionnel</button>
-              <button class="dropdown__item" role="menuitem" data-add-program="Audio-visuel">Audio-visuel</button>
+          <div data-value="projet">
+            <div class="dropdown" data-dropdown="" id="dd-new-program">
+              <button class="btn btn--default" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                Nouveau programme
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="dropdown__menu dropdown__menu--end" role="menu">
+                <button class="dropdown__item" role="menuitem" data-add-program="Audio-phonologique">Audio-phonologique</button>
+                <button class="dropdown__item" role="menuitem" data-add-program="Visuo-attentionnel">Visuo-attentionnel</button>
+                <button class="dropdown__item" role="menuitem" data-add-program="Audio-visuel">Audio-visuel</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div data-value="calendrier" hidden>
-          <div class="dropdown" data-dropdown="" id="dd-month">
-            <button class="btn btn--outline" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-              Mars 2026
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="dropdown__menu" role="menu">
-              <button class="dropdown__item" role="menuitem">Mars 2026</button>
-              <button class="dropdown__item" role="menuitem">Février 2026</button>
-              <button class="dropdown__item" role="menuitem">Janvier 2026</button>
+          <div data-value="calendrier" hidden>
+            <div class="dropdown" data-dropdown="" id="dd-month">
+              <button class="btn btn--outline" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                Mars 2026
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="dropdown__menu dropdown__menu--end" role="menu">
+                <button class="dropdown__item" role="menuitem">Mars 2026</button>
+                <button class="dropdown__item" role="menuitem">Février 2026</button>
+                <button class="dropdown__item" role="menuitem">Janvier 2026</button>
+              </div>
             </div>
           </div>
         </div>
@@ -144,8 +144,6 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
-                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
-                      <hr class="dropdown__separator">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
                       <hr class="dropdown__separator">
                       <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
@@ -176,8 +174,6 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
-                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
-                      <hr class="dropdown__separator">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
                       <hr class="dropdown__separator">
                       <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
@@ -190,7 +186,7 @@
                   <span class="session-dot session-dot--success">10/03</span>
                   <span class="session-dot session-dot--success">11/03</span>
                   <span class="session-dot session-dot--success">12/03</span>
-                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--test">13/03</span>
                   <span class="session-dot session-dot--success">15/03</span>
                   <span class="session-dot session-dot--success">17/03</span>
                   <span class="session-dot session-dot--partial">18/03</span>
@@ -198,15 +194,15 @@
                   <span class="session-dot session-dot--success">20/03</span>
                   <span class="session-dot session-dot--success">21/03</span>
                   <span class="session-dot session-dot--success">23/03</span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
                 </div>
               </div>
 
@@ -222,8 +218,6 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
-                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
-                      <hr class="dropdown__separator">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
                       <hr class="dropdown__separator">
                       <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
@@ -233,11 +227,11 @@
                 <hr class="separator">
                 <p class="module__meta">5 séances</p>
                 <div class="module__dots">
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
                 </div>
               </div>
 
@@ -246,7 +240,7 @@
             <div class="board__footer">
               <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-                Nouveau
+                Nouveau module
               </button>
             </div>
           </div>
@@ -281,8 +275,6 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
-                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
-                      <hr class="dropdown__separator">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
                       <hr class="dropdown__separator">
                       <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
@@ -292,26 +284,26 @@
                 <hr class="separator">
                 <p class="module__meta">20 séances</p>
                 <div class="module__dots">
-                  <span class="session-dot session-dot--success">01/03</span>
-                  <span class="session-dot session-dot--success">02/03</span>
-                  <span class="session-dot session-dot--success">04/03</span>
-                  <span class="session-dot session-dot--success">05/03</span>
-                  <span class="session-dot session-dot--success">07/03</span>
-                  <span class="session-dot session-dot--success">08/03</span>
-                  <span class="session-dot session-dot--success">09/03</span>
-                  <span class="session-dot session-dot--test">10/03</span>
-                  <span class="session-dot session-dot--success">12/03</span>
-                  <span class="session-dot session-dot--success">15/03</span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
                 </div>
               </div>
 
@@ -327,8 +319,6 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
-                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
-                      <hr class="dropdown__separator">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
                       <hr class="dropdown__separator">
                       <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
@@ -338,21 +328,21 @@
                 <hr class="separator">
                 <p class="module__meta">15 séances</p>
                 <div class="module__dots">
-                  <span class="session-dot session-dot--success">01/03</span>
-                  <span class="session-dot session-dot--success">02/03</span>
-                  <span class="session-dot session-dot--success">04/03</span>
-                  <span class="session-dot session-dot--success">05/03</span>
-                  <span class="session-dot session-dot--partial">07/03</span>
-                  <span class="session-dot session-dot--success">08/03</span>
-                  <span class="session-dot session-dot--success">09/03</span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
                 </div>
               </div>
 
@@ -368,8 +358,6 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
-                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
-                      <hr class="dropdown__separator">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
                       <hr class="dropdown__separator">
                       <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
@@ -379,26 +367,26 @@
                 <hr class="separator">
                 <p class="module__meta">20 séances</p>
                 <div class="module__dots">
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
                 </div>
               </div>
 
@@ -407,7 +395,7 @@
             <div class="board__footer">
               <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-                Nouveau
+                Nouveau module
               </button>
             </div>
           </div>
@@ -442,8 +430,6 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
-                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
-                      <hr class="dropdown__separator">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
                       <hr class="dropdown__separator">
                       <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
@@ -453,26 +439,26 @@
                 <hr class="separator">
                 <p class="module__meta">20 séances</p>
                 <div class="module__dots">
-                  <span class="session-dot session-dot--success">01/03</span>
-                  <span class="session-dot session-dot--success">02/03</span>
-                  <span class="session-dot session-dot--success">04/03</span>
-                  <span class="session-dot session-dot--success">05/03</span>
-                  <span class="session-dot session-dot--success">07/03</span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
                 </div>
               </div>
 
@@ -487,8 +473,6 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
-                      <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
-                      <hr class="dropdown__separator">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
                       <hr class="dropdown__separator">
                       <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
@@ -498,26 +482,26 @@
                 <hr class="separator">
                 <p class="module__meta">20 séances</p>
                 <div class="module__dots">
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <span class="session-dot session-dot--pending"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
                 </div>
               </div>
 
@@ -526,7 +510,7 @@
             <div class="board__footer">
               <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-                Nouveau
+                Nouveau module
               </button>
             </div>
           </div>
@@ -825,7 +809,7 @@
 
     <!-- Header -->
     <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.25rem;">
-      <h2 class="dialog__title" style="margin:0;">Ajouter un module</h2>
+      <h2 class="dialog__title" style="margin:0;">Nouveau module</h2>
       <button class="btn btn--ghost btn--icon btn--sm" id="btn-close-add-module" aria-label="Fermer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
@@ -839,78 +823,11 @@
         </span>
         <input type="text" class="input" id="training-search" placeholder="Chercher un entrainement ..." autocomplete="off">
       </div>
-      <div id="training-dropdown" style="position:absolute; top:calc(100% + 0.375rem); left:0; right:0; background-color:var(--popover); color:var(--popover-foreground); border:1px solid var(--border); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); padding:0.25rem; z-index:50; display:none; max-height:15rem; overflow-y:auto;"></div>
+      <div id="training-dropdown" style="position:fixed; background-color:var(--popover); color:var(--popover-foreground); border:1px solid var(--border); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); padding:0.25rem; z-index:200; display:none; max-height:15rem; overflow-y:auto;"></div>
     </div>
 
     <!-- Selected trainings list (populated by JS) -->
     <ul class="sortable" id="modal-sortable" style="margin-top:0.75rem; min-height:0;"></ul>
-
-    <!-- Separator always visible between training area and test-niveau -->
-    <hr class="dropdown__separator" style="margin:0.75rem 0;">
-
-    <!-- Test de niveau -->
-    <div style="margin-bottom:1rem;">
-      <button class="btn btn--outline btn--full" id="btn-add-test-niveau" type="button" style="justify-content:flex-start; gap:0.5rem;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-        Ajouter un test de niveau
-      </button>
-      <div id="test-niveau-expanded" hidden>
-        <div class="card" style="padding:1rem; display:flex; flex-direction:column; gap:1rem; position:relative;">
-          <button class="btn btn--ghost btn--icon btn--sm" id="btn-remove-test-niveau" type="button" style="position:absolute; top:0.625rem; right:0.625rem;" aria-label="Supprimer le test de niveau">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
-          </button>
-          <div>
-            <p class="label" style="margin-bottom:0.5rem;">Test de niveau</p>
-            <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
-              <button class="chip-checkbox" aria-pressed="false" type="button">
-                <span class="chip-checkbox__box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-                <span>Phonémix - Identification</span>
-              </button>
-              <button class="chip-checkbox" aria-pressed="false" type="button">
-                <span class="chip-checkbox__box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-                <span>Phonémix - Discrimination</span>
-              </button>
-            </div>
-          </div>
-          <div>
-            <p class="label" style="margin-bottom:0.375rem;">Date du test</p>
-            <div style="position:relative;">
-              <button class="btn btn--outline btn--full" type="button" id="date-trigger" style="justify-content:flex-start;gap:0.5rem;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1rem;height:1rem;flex-shrink:0;"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-                <span id="date-display" style="color:var(--foreground);">6 mars 2026</span>
-              </button>
-              <div id="date-cal" style="display:none;position:fixed;top:0;left:0;width:17rem;background-color:var(--popover);color:var(--popover-foreground);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:0.75rem;z-index:200;">
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
-                  <button class="btn btn--ghost btn--icon btn--sm" type="button" id="date-prev">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                  </button>
-                  <span style="font-size:0.875rem;font-weight:600;" id="date-month-label">mars 2026</span>
-                  <button class="btn btn--ghost btn--icon btn--sm" type="button" id="date-next">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                  </button>
-                </div>
-                <div style="display:grid;grid-template-columns:repeat(7,1fr);text-align:center;margin-bottom:0.125rem;">
-                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Lu</span>
-                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Ma</span>
-                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Me</span>
-                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Je</span>
-                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Ve</span>
-                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Sa</span>
-                  <span style="font-size:0.6875rem;font-weight:500;color:var(--muted-foreground);padding:0.25rem 0;">Di</span>
-                </div>
-                <div id="date-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:0.125rem;"></div>
-              </div>
-            </div>
-          </div>
-          <select class="select" id="select-repetition">
-            <option value="never" selected>Ne se répète pas</option>
-            <option value="weekly">Chaque semaine</option>
-            <option value="biweekly">Toutes les 2 semaines</option>
-            <option value="monthly">Chaque mois</option>
-          </select>
-        </div>
-      </div>
-    </div>
 
     <hr class="dropdown__separator" style="margin:0 0 1.25rem;">
 
@@ -937,8 +854,9 @@
 
   <!-- ======== SCRIPTS ======== -->
   <script src="../components/dropdown/dropdown.js" defer></script>
-  <script src="../components/tabs-line/tabs-line.js" defer></script>
+  <script src="../components/tabs/tabs.js" defer></script>
   <script src="../components/chip-checkbox/chip-checkbox.js" defer></script>
+  <script src="../components/program/program.js" defer></script>
   <script>
     /* ---- BOARD & MODULE ACTIONS (event delegation) ---- */
     let deleteTarget = null;
@@ -973,41 +891,6 @@
 
       if (action === 'add-module') {
         currentBoard = btn.closest('.board');
-        addModuleDialog.showModal();
-      }
-
-      if (action === 'edit-module') {
-        const mod = btn.closest('.module');
-        editingModule = mod;
-        currentBoard = mod.closest('.board');
-        // Re-populate from data-training-id spans (only works for dynamically created modules)
-        selectedIds = [];
-        modalSortable.innerHTML = '';
-        mod.querySelectorAll('[data-training-id]').forEach(tag => {
-          const id = tag.dataset.trainingId;
-          const t = CATALOG.find(x => x.id === id);
-          if (!t || selectedIds.includes(id)) return;
-          selectedIds.push(id);
-          const li = document.createElement('li');
-          li.className = 'sortable__item sortable__item--sm';
-          li.draggable = true;
-          li.dataset.trainingId = id;
-          li.dataset.min = '5';
-          li.dataset.sec = '0';
-          li.dataset.niveau = '';
-          li.style.cssText = 'flex-wrap:wrap;align-items:center;cursor:pointer;';
-          li.innerHTML = collapsedHTML(t, 5, 0, '');
-          modalSortable.appendChild(li);
-          setupModalDrag(li);
-        });
-        // Pre-select session count
-        const metaEl = mod.querySelector('.module__meta');
-        if (metaEl) {
-          const n = parseInt(metaEl.textContent);
-          if (!isNaN(n)) [...document.getElementById('modal-seances').options].forEach(o => { o.selected = +o.value === n; });
-        }
-        document.getElementById('btn-create-module').textContent = 'Modifier';
-        document.querySelector('#dialog-add-module .dialog__title').textContent = 'Modifier le module';
         addModuleDialog.showModal();
       }
 
@@ -1047,25 +930,10 @@
     const trainingSearch = document.getElementById('training-search');
     const trainingDrop   = document.getElementById('training-dropdown');
     const modalSortable  = document.getElementById('modal-sortable');
-    const testNiveauBtn  = document.getElementById('btn-add-test-niveau');
-    const testNiveauExp  = document.getElementById('test-niveau-expanded');
-
     let selectedIds  = [];
     let expandedId   = null;
     let modalDragSrc = null;
     let dropPending  = false;
-    let editingModule = null;
-    let calOpen = false;
-    let selYear = 2026, selMonth = 2, selDay = 6;
-    let calYear = selYear, calMonth = selMonth;
-
-    const dateTrigger    = document.getElementById('date-trigger');
-    const dateCal        = document.getElementById('date-cal');
-    const dateGrid       = document.getElementById('date-grid');
-    const dateMonthLabel = document.getElementById('date-month-label');
-    const dateDisplay    = document.getElementById('date-display');
-    const datePrev       = document.getElementById('date-prev');
-    const dateNext       = document.getElementById('date-next');
 
     const _HANDLE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>`;
     const _TRASH  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>`;
@@ -1124,6 +992,10 @@
       trainingDrop.innerHTML = avail.length
         ? avail.map(t => `<button type="button" class="dropdown__item" data-add-training="${t.id}" style="display:flex;align-items:center;gap:0.5rem;"><span class="training-icon ${t.cls}" style="width:1.5rem;height:1.5rem;font-size:0.6875rem;">${t.letter}</span>${t.name}</button>`).join('')
         : `<p style="padding:0.4375rem 0.625rem;font-size:0.875rem;color:var(--muted-foreground);margin:0;">Aucun résultat</p>`;
+      const r = trainingSearch.getBoundingClientRect();
+      trainingDrop.style.top   = (r.bottom + 6) + 'px';
+      trainingDrop.style.left  = r.left + 'px';
+      trainingDrop.style.width = r.width + 'px';
       trainingDrop.style.display = 'block';
     }
 
@@ -1226,90 +1098,17 @@
       }
     });
 
-    /* Fermer datepicker / effondrer training sur clic en dehors (dans le dialog) */
+    /* Effondrer training sur clic en dehors (dans le dialog) */
     addModuleDialog.addEventListener('click', e => {
-      if (calOpen) { dateCal.style.display = 'none'; calOpen = false; }
       if (expandedId) {
         const expLi = modalSortable.querySelector(`[data-training-id="${expandedId}"]`);
         if (expLi) collapseTraining(expLi);
       }
     });
 
-    /* Test de niveau */
-    testNiveauBtn.addEventListener('click', e => {
-      e.stopPropagation();
-      testNiveauBtn.style.display = 'none';
-      testNiveauExp.hidden = false;
-    });
-
-    document.getElementById('btn-remove-test-niveau').addEventListener('click', () => {
-      testNiveauBtn.style.display = '';
-      testNiveauExp.hidden = true;
-      testNiveauExp.querySelectorAll('.chip-checkbox').forEach(c => c.setAttribute('aria-pressed', 'false'));
-    });
-
-    /* ---- DATEPICKER ---- */
-
-    const MONTHS_FR = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
-
-    function formatDateFr(y, m, d) {
-      return `${d} ${MONTHS_FR[m]} ${y}`;
-    }
-
-    function renderCalGrid() {
-      dateMonthLabel.textContent = `${MONTHS_FR[calMonth]} ${calYear}`;
-      const firstDay = new Date(calYear, calMonth, 1).getDay();
-      const offset = (firstDay + 6) % 7;
-      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      let html = '';
-      for (let i = 0; i < offset; i++) html += `<span></span>`;
-      for (let d = 1; d <= daysInMonth; d++) {
-        const isSel = d === selDay && calMonth === selMonth && calYear === selYear;
-        const cls = isSel ? 'btn btn--default btn--sm' : 'btn btn--ghost btn--sm';
-        html += `<button type="button" class="${cls}" data-day="${d}" style="width:100%;aspect-ratio:1;font-size:0.8125rem;padding:0;justify-content:center;">${d}</button>`;
-      }
-      dateGrid.innerHTML = html;
-    }
-
-    dateTrigger.addEventListener('click', e => {
-      e.stopPropagation();
-      calOpen = !calOpen;
-      if (calOpen) {
-        calYear = selYear; calMonth = selMonth; renderCalGrid();
-        const r = dateTrigger.getBoundingClientRect();
-        dateCal.style.top  = (r.bottom + 6) + 'px';
-        dateCal.style.left = r.left + 'px';
-      }
-      dateCal.style.display = calOpen ? 'block' : 'none';
-    });
-
-    dateCal.addEventListener('click', e => {
-      e.stopPropagation();
-      const dayBtn = e.target.closest('[data-day]');
-      if (!dayBtn) return;
-      selDay = +dayBtn.dataset.day;
-      selMonth = calMonth;
-      selYear = calYear;
-      dateDisplay.textContent = formatDateFr(selYear, selMonth, selDay);
-      dateCal.style.display = 'none';
-      calOpen = false;
-      renderCalGrid();
-    });
-
-    datePrev.addEventListener('click', e => {
-      e.stopPropagation();
-      if (--calMonth < 0) { calMonth = 11; calYear--; }
-      renderCalGrid();
-    });
-
-    dateNext.addEventListener('click', e => {
-      e.stopPropagation();
-      if (++calMonth > 11) { calMonth = 0; calYear++; }
-      renderCalGrid();
-    });
-
     /* Créer — build module and append to current board */
     const _MODULE_DOTS_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>`;
+    const _PLUS_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>`;
 
     function buildModuleHTML() {
       const count = +document.getElementById('modal-seances').value;
@@ -1324,8 +1123,6 @@
           <div class="dropdown" data-dropdown="">
             <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">${_MODULE_DOTS_SVG}</button>
             <div class="dropdown__menu dropdown__menu--end" role="menu">
-              <button class="dropdown__item" role="menuitem" data-action="edit-module">Modifier</button>
-              <hr class="dropdown__separator">
               <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
               <hr class="dropdown__separator">
               <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
@@ -1334,20 +1131,17 @@
         </div>
         <hr class="separator">
         <p class="module__meta">${count} séances</p>
-        <div class="module__dots">${dots}</div>`;
+        <div class="module__dots">${dots}</div>
+        <button type="button" class="btn btn--dash btn--full btn--sm" data-action="add-session" style="justify-content:flex-start;">${_PLUS_SVG} Ajouter une séance</button>`;
     }
 
     document.getElementById('btn-create-module').addEventListener('click', () => {
-      if (editingModule) {
-        editingModule.innerHTML = buildModuleHTML();
-        initDropdowns(editingModule);
-      } else if (currentBoard) {
+      if (currentBoard) {
         const moduleDiv = document.createElement('div');
         moduleDiv.className = 'module';
         moduleDiv.innerHTML = buildModuleHTML();
         const boardContent = currentBoard.querySelector('.board__content');
         boardContent.appendChild(moduleDiv);
-        initDropdowns(moduleDiv);
         setupModuleDrag(moduleDiv);
       }
       addModuleDialog.close();
@@ -1362,17 +1156,9 @@
 
     function resetModal() {
       selectedIds = []; expandedId = null; modalDragSrc = null; dropPending = false;
-      editingModule = null;
       modalSortable.innerHTML = '';
       trainingSearch.value = '';
       trainingDrop.style.display = 'none';
-      testNiveauBtn.style.display = '';
-      testNiveauExp.hidden = true;
-      testNiveauExp.querySelectorAll('.chip-checkbox').forEach(c => c.setAttribute('aria-pressed', 'false'));
-      calOpen = false;
-      dateCal.style.display = 'none';
-      document.getElementById('btn-create-module').textContent = 'Créer';
-      document.querySelector('#dialog-add-module .dialog__title').textContent = 'Ajouter un module';
     }
 
     /* ---- ADD PROGRAM ---- */
@@ -1400,12 +1186,11 @@
           <div class="board__footer">
             <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-              Nouveau
+              Nouveau module
             </button>
           </div>
         `;
         document.querySelector('.boards').appendChild(board);
-        initDropdowns(board);
         setupBoardDrop(board.querySelector('.board__content'));
         document.getElementById('dd-new-program').classList.remove('is-open');
         document.querySelector('#dd-new-program [data-dropdown-trigger]').setAttribute('aria-expanded', 'false');

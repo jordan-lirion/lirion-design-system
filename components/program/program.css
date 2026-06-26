@@ -149,3 +149,49 @@
   background-color: var(--warning);
   color: var(--warning-foreground);
 }
+
+.session-dot--todo {
+  background-color: var(--muted);
+  border-color: var(--border);
+  border-style: dashed;
+  cursor: pointer;
+}
+
+/* Tooltips — CSS-only, no data-tooltip attribute needed */
+.session-dot--success,
+.session-dot--partial,
+.session-dot--test,
+.session-dot--pending { position: relative; }
+
+:is(.session-dot--success, .session-dot--partial, .session-dot--test, .session-dot--pending)::after {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(2px);
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 50;
+}
+
+.session-dot--success::after { content: "Complété"; }
+.session-dot--partial::after { content: "Abandon"; }
+.session-dot--test::after    { content: "Test de niveau"; }
+.session-dot--pending::after { content: "Non commencé"; }
+
+:is(.session-dot--success, .session-dot--partial, .session-dot--test, .session-dot--pending):hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --todo wrapper in the grid */
+[data-todo-wrapper] { min-width: 0; }
+[data-todo-wrapper] .session-dot--todo { width: 100%; }
