@@ -3,11 +3,24 @@
    Generic layout utilities live in components/theme.css
    ========================================================================== */
 
-.auth-brand { display: flex; align-items: center; gap: 0.5rem; }
-.auth-brand img { height: 1.75rem; }
+/* Account for fixed header on centered auth pages */
+.page-centered { padding-top: calc(var(--header) + 1.5rem); }
 
-.auth-card { width: 100%; max-width: 24rem; }
+.auth-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 28rem;
+  align-items: flex-start;
+}
+
+.auth-card { width: 100%; max-width: 28rem; padding: 3rem; }
 .auth-card .card__header { text-align: left; }
 .auth-card .card__title { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.025em; }
 
 .auth-footer { font-size: 0.875rem; text-align: center; color: var(--muted-foreground); }
+
+/* Hide native browser password reveal/clear buttons (Edge, IE) */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear { display: none; }

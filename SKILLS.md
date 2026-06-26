@@ -30,15 +30,14 @@
 │       ├── {component}.css ← component styles
 │       └── {component}.html← standalone preview page
 │
-└── screens/                ← application screens
+└── Screens/                ← application screens
     ├── auth.css            ← shared overrides for auth screens
     ├── login.html
     ├── firstLogin.html
     ├── password.html
     ├── forgotPassword.html
     ├── dashboard.html
-    ├── patient.html        ← patient detail view (Kanban + session grid)
-    └── template.html
+    └── patient.html        ← patient detail view (Kanban + session grid)
 ```
 
 ### Import rules
@@ -141,20 +140,41 @@ These classes are global and reusable across all screens.
 
 ### Centered pages (auth, onboarding)
 
+Auth pages now use the standard app header (no "Mon compte" button) combined with `.page-centered`. The `auth.css` file overrides `padding-top` to account for the fixed header.
+
 ```html
 <body class="bg-muted">
+  <header class="header">
+    <div class="header__start">
+      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+    </div>
+  </header>
+
   <main class="page-centered">
-    <a href="..." class="btn btn--ghost btn--sm page-back">← Back</a>
-    <!-- vertically centered content -->
+    <div class="card auth-card">...</div>
   </main>
 </body>
+```
+
+For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap the button and card together in `.auth-stack`:
+
+```html
+<main class="page-centered">
+  <div class="auth-stack">
+    <a href="login.html" class="btn btn--ghost btn--sm">← Retour</a>
+    <div class="card auth-card">...</div>
+  </div>
+</main>
 ```
 
 | Class | Description |
 |-------|-------------|
 | `.bg-muted` | `background-color: var(--muted)` on `<body>` |
 | `.page-centered` | Flex column, vertically centered, `min-height: 100vh` |
-| `.page-back` | Back button absolutely positioned top-left |
+| `.auth-stack` | Flex column `max-width: 28rem`, `align-items: flex-start` — stacks back button above card |
+| `.auth-card` | `width: 100%`, `max-width: 28rem`, `padding: 3rem` |
+
+> **Note:** `auth.css` overrides `.page-centered { padding-top: calc(var(--header) + 1.5rem) }` to push content below the fixed header. It also hides the native browser password reveal button via `input[type="password"]::-ms-reveal`.
 
 ### Application pages (with header)
 
@@ -220,10 +240,10 @@ These classes are global and reusable across all screens.
 | `btn--secondary` | Light grey background |
 | `btn--destructive` | Red |
 | `btn--outline` | Border, transparent background |
+| `btn--dash` | Dashed border, transparent background (same hover as `btn--outline`) |
 | `btn--ghost` | Transparent, no border |
 | `btn--link` | Underlined text link |
 | `btn--sm` | Small size |
-| `btn--md` | Medium size (default) |
 | `btn--lg` | Large size |
 | `btn--icon` | Square icon button (`aria-label` required) |
 | `btn--full` | `width: 100%` |
@@ -272,11 +292,12 @@ These classes are global and reusable across all screens.
   <input class="input" type="search" placeholder="Search..." />
 </div>
 
-<!-- Input with trailing button -->
+<!-- Input with trailing toggle (password) -->
 <div class="input-group input-group--icon-end">
-  <input class="input" type="password" />
-  <button class="input-group__icon input-group__icon--end input-group__icon--btn">
-    <svg .../>
+  <input class="input" type="password" id="pwd" />
+  <button class="input-group__icon input-group__icon--end input-group__icon--btn" id="toggle-pwd">
+    <svg id="icon-eye-off" .../>
+    <svg id="icon-eye" style="display:none" .../>
   </button>
 </div>
 
@@ -287,6 +308,16 @@ These classes are global and reusable across all screens.
 
 <!-- Textarea -->
 <textarea class="textarea"></textarea>
+```
+
+Password toggle JS — use `style.display` (not the `hidden` attribute, which can be overridden by CSS):
+```js
+toggle.addEventListener('click', () => {
+  const show = input.type === 'password';
+  input.type           = show ? 'text' : 'password';
+  eyeOff.style.display = show ? 'none' : '';
+  eye.style.display    = show ? '' : 'none';
+});
 ```
 
 | Class | Description |
@@ -344,36 +375,36 @@ These classes are global and reusable across all screens.
 Segmented pill style — tabs inside a muted container.
 
 ```html
-<div role="tablist" class="tabs__list">
-  <button role="tab" class="tabs__trigger" aria-selected="true" data-panel="panel-a">Tab 1</button>
-  <button role="tab" class="tabs__trigger" aria-selected="false" data-panel="panel-b">Tab 2</button>
+<div data-tabs>
+  <div role="tablist" class="tabs__list">
+    <button role="tab" class="tabs__trigger" aria-selected="true" data-value="a">Tab 1</button>
+    <button role="tab" class="tabs__trigger" aria-selected="false" data-value="b">Tab 2</button>
+  </div>
+  <div data-value="a">Content A</div>
+  <div data-value="b" hidden>Content B</div>
 </div>
-<div id="panel-a" class="tab-panel">Content A</div>
-<div id="panel-b" class="tab-panel" hidden>Content B</div>
 ```
 
-### Tabs (underline) — `.tabs-line` / `.tabs-line__trigger`
+**Required JS:** `<script src="../components/tabs/tabs.js" defer></script>`
 
-Minimal underline style — active tab bold with a 2px bottom bar. Preferred for application-level navigation.
+### Tabs (underline) — `.tabs-line`
+
+Minimal underline style. Preferred for application-level navigation.
 
 ```html
-<div role="tablist" class="tabs-line">
-  <button role="tab" class="tabs-line__trigger" aria-selected="true" data-panel="panel-a">Tab 1</button>
-  <button role="tab" class="tabs-line__trigger" aria-selected="false" data-panel="panel-b">Tab 2</button>
+<div data-tabs>
+  <div role="tablist" class="tabs-line">
+    <button role="tab" class="tabs-line__trigger" aria-selected="true" data-value="a">Tab 1</button>
+    <button role="tab" class="tabs-line__trigger" aria-selected="false" data-value="b">Tab 2</button>
+  </div>
+  <div data-value="a">Content A</div>
+  <div data-value="b" hidden>Content B</div>
 </div>
 ```
 
-**Required JavaScript** (shared between both tab variants — adjust selector as needed):
-```js
-document.querySelectorAll('.tabs-line__trigger').forEach(trigger => {
-  trigger.addEventListener('click', () => {
-    document.querySelectorAll('.tabs-line__trigger').forEach(t => t.setAttribute('aria-selected', 'false'));
-    trigger.setAttribute('aria-selected', 'true');
-    document.querySelectorAll('.tab-panel').forEach(p => p.hidden = true);
-    document.getElementById(trigger.dataset.panel).hidden = false;
-  });
-});
-```
+**Required JS:** `<script src="../components/tabs-line/tabs-line.js" defer></script>`
+
+> Both tab variants use `data-value` on triggers and panels (not `data-panel` / `id`). Wrap in `[data-tabs]` to scope multiple instances on the same page. Use `display: contents` on `[data-tabs]` if it must be transparent to flex/grid layout.
 
 ### Alert — `.alert`
 
@@ -414,7 +445,17 @@ document.querySelectorAll('.tabs-line__trigger').forEach(trigger => {
 ```html
 <div class="table-wrapper">
   <table class="table">
-    <thead><tr><th>Column</th></tr></thead>
+    <thead>
+      <tr>
+        <th>
+          <button class="table__sort-btn" data-sort="none">
+            Column
+            <span class="table__sort-icon"><svg ...arrow-up-down.../></span>
+          </button>
+        </th>
+        <th class="num">Actions</th>  <!-- non-sortable -->
+      </tr>
+    </thead>
     <tbody>
       <tr data-href="page.html"><td>...</td></tr>
     </tbody>
@@ -422,14 +463,17 @@ document.querySelectorAll('.tabs-line__trigger').forEach(trigger => {
 </div>
 ```
 
-**Making rows clickable** (add to `<script>`):
-```js
-document.querySelectorAll('tbody tr[data-href]').forEach(tr => {
-  tr.addEventListener('click', e => {
-    if (!e.target.closest('button, a')) location.href = tr.dataset.href;
-  });
-});
-```
+**Required JS:** `<script src="../components/table/table.js" defer></script>`
+
+`table.js` handles two behaviors:
+1. **Clickable rows** — `data-href` on `<tr>` navigates to the URL unless a `<button>` or `<a>` was clicked
+2. **Sortable columns** — `.table__sort-btn` with `data-sort` cycles `none → asc → desc → none`; sorts numerically or alphabetically (French locale); restores original order on reset
+
+| Class | Description |
+|-------|-------------|
+| `.table__sort-btn` | Sortable header button (inherits `th` styles) |
+| `.table__sort-icon` | Icon wrapper inside the sort button |
+| `data-sort="none\|asc\|desc"` | Current sort state; controls icon opacity and `th` color |
 
 ### Accordion — `.accordion`
 
@@ -473,8 +517,8 @@ Pure CSS tooltip via the `data-tooltip` attribute. No JavaScript required.
 ### Dropdown — `.dropdown`
 
 ```html
-<div class="dropdown" data-dropdown="">
-  <button class="btn btn--outline" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
+<div class="dropdown" data-dropdown>
+  <button class="btn btn--outline" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false">
     Options <svg .../>
   </button>
   <div class="dropdown__menu" role="menu">
@@ -488,30 +532,11 @@ Pure CSS tooltip via the `data-tooltip` attribute. No JavaScript required.
 
 Use `dropdown__menu--end` to right-align the menu.
 
-**Required JavaScript**:
-```js
-function initDropdowns(root) {
-  root.querySelectorAll('[data-dropdown]').forEach(dd => {
-    const trigger = dd.querySelector('[data-dropdown-trigger]');
-    if (!trigger) return;
-    trigger.addEventListener('click', e => {
-      e.stopPropagation();
-      const open = dd.classList.toggle('is-open');
-      trigger.setAttribute('aria-expanded', String(open));
-    });
-  });
-}
-initDropdowns(document);
-document.addEventListener('click', () => {
-  document.querySelectorAll('[data-dropdown].is-open').forEach(dd => {
-    dd.classList.remove('is-open');
-    const t = dd.querySelector('[data-dropdown-trigger]');
-    if (t) t.setAttribute('aria-expanded', 'false');
-  });
-});
-```
+**Required JS:** `<script src="../components/dropdown/dropdown.js" defer></script>`
 
-> Call `initDropdowns(newElement)` on any dynamically injected HTML that contains dropdowns.
+`dropdown.js` uses **event delegation** — works for both static and dynamically injected dropdowns. No `initDropdowns()` call needed.
+
+> **Overflow clipping warning:** If the dropdown is inside a container with `overflow: auto/hidden` (e.g. `.boards`), the menu will be clipped. In that case, use a shared `position:fixed` menu appended to `<body>` and positioned via `getBoundingClientRect()`. See `program.js` (`_todoMenu`) for the pattern.
 
 ### Dialog — `.dialog`
 
@@ -523,14 +548,60 @@ document.addEventListener('click', () => {
   </div>
   <div><!-- content --></div>
   <div class="dialog__footer">
-    <button class="btn btn--outline" onclick="document.getElementById('my-dialog').close()">Annuler</button>
-    <button class="btn btn--default">Confirmer</button>
+    <button class="btn btn--secondary" data-dialog-close>Annuler</button>
+    <button class="btn btn--default" id="btn-confirm">Confirmer</button>
   </div>
 </dialog>
-<button onclick="document.getElementById('my-dialog').showModal()">Open</button>
+
+<button data-dialog-open="my-dialog">Open</button>
 ```
 
 Use `dialog--lg` for a wider dialog.
+
+**Required JS:** `<script src="../components/dialog/dialog.js" defer></script>`
+
+`dialog.js` wires `[data-dialog-open="id"]` → `showModal()` and `[data-dialog-close]` → `close()` at page load.
+
+> **Top-layer stacking:** Native `<dialog>` in modal mode occupies the browser top layer. Any `position:fixed` element appended to `<body>` will render **below** the dialog regardless of z-index. To display floating elements (dropdowns, datepickers) above a modal dialog, they must be appended **inside** the `<dialog>` element. See Datepicker for the automatic detection pattern.
+
+### Datepicker — `[data-datepicker]`
+
+Button trigger + floating calendar popup. Singleton popup (one open at a time). Automatically moves inside a `<dialog>` if the trigger lives within one (top-layer fix).
+
+```html
+<div class="field">
+  <label class="label">Date</label>
+  <div data-datepicker>
+    <button class="btn btn--outline btn--full datepicker__trigger" type="button" data-datepicker-trigger>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>
+      </svg>
+      <span class="datepicker__value">Sélectionner une date</span>
+    </button>
+  </div>
+</div>
+```
+
+**Required JS:** `<script src="../components/datepicker/datepicker.js" defer></script>`
+
+| Class / Attribute | Description |
+|-------------------|-------------|
+| `[data-datepicker]` | Instance root — scopes one picker |
+| `[data-datepicker-trigger]` | Clickable trigger button |
+| `.datepicker__trigger` | Modifier for `btn--outline btn--full` with left-aligned content |
+| `.datepicker__value` | Span showing the selected date (muted until set, then `is-set`) |
+| `.datepicker__popup` | Floating calendar container (managed by JS) |
+| `.datepicker__nav` | Month navigation row |
+| `.datepicker__month-label` | Current month/year label |
+| `.datepicker__weekdays` | Day-name header row (Lu Ma Me Je Ve Sa Di) |
+| `.datepicker__grid` | 7-column day button grid |
+
+**Behavior:**
+- Click trigger → popup opens below via `getBoundingClientRect()`
+- Prev/next arrows navigate months
+- Click a day → updates `.datepicker__value`, closes popup
+- Click outside → closes popup
+- Inside a `<dialog>` → popup is moved into the dialog DOM so it renders in the top layer
 
 ### Breadcrumb — `.breadcrumb`
 
@@ -558,11 +629,15 @@ Use `dialog--lg` for a wider dialog.
 
 ```html
 <div class="toaster" id="toaster" aria-live="polite" aria-atomic="false"></div>
+<script src="../components/toast/toast.js" defer></script>
+```
+
+```js
+showToast('success', 'Patient ajouté');
+showToast('error', 'Erreur', 'Description optionnelle');
 ```
 
 Variants: `toast--default` · `toast--success` · `toast--warning` · `toast--error` · `toast--info`
-
-Call via JS (see `components/toast/toast.html` for the full `showToast()` script).
 
 ### Header — `.header`
 
@@ -579,6 +654,8 @@ Call via JS (see `components/toast/toast.html` for the full `showToast()` script
   </div>
 </header>
 ```
+
+> Auth pages use the header **without** the "Mon Compte" button (only `header__start` with the logo).
 
 ### App Bar — `.page-app__bar`
 
@@ -719,7 +796,7 @@ chip.addEventListener('click', () =>
 
 ### Program — Kanban boards with modules
 
-Used in `screens/patient.html` for the therapeutic project view.
+Used in `Screens/patient.html` for the therapeutic project view.
 
 ```html
 <div class="boards">           <!-- horizontal scroll container -->
@@ -736,26 +813,38 @@ Used in `screens/patient.html` for the therapeutic project view.
           <div class="module__tags">
             <span class="training-tag training-tag--phonemix">Phonemix</span>
           </div>
-          <!-- dropdown with data-action="edit-module" | "complete-module" | "delete-module" -->
+          <!-- dropdown -->
         </div>
         <hr class="separator">
         <p class="module__meta">10 séances</p>
         <div class="module__dots">
           <span class="session-dot session-dot--success">01/03</span>
           <span class="session-dot session-dot--pending"></span>
+          <div data-todo-wrapper>
+            <button class="session-dot session-dot--todo" type="button"></button>
+          </div>
         </div>
+        <!-- "+ Ajouter une séance" added by program.js -->
       </div>
 
     </div>
     <div class="board__footer">
-      <button class="btn btn--outline btn--full" data-action="add-module">
-        + Nouveau
-      </button>
+      <button class="btn btn--dash btn--full">+ Nouveau module</button>
     </div>
   </div>
 
 </div>
 ```
+
+**Required JS:** `<script src="../components/program/program.js" defer></script>`
+
+`program.js` handles:
+- Board collapse/expand (`.board__toggle`)
+- Appending `btn--dash btn--full btn--sm` "+ Ajouter une séance" button to every `.module`
+- `session-dot--todo` click → fixed-position dropdown → "Convertir en test de niveau" → replaces dot with `session-dot--test`
+- `[data-action="add-session"]` click → appends a new `--todo` dot inside `[data-todo-wrapper]`
+
+> **Overflow fix:** `.boards` uses `overflow-x: auto` which implicitly clips `overflow-y`. The `--todo` dropdown uses a single `position:fixed` menu (`_todoMenu`) appended to `<body>` and positioned via `getBoundingClientRect()` to escape clipping.
 
 | Class | Description |
 |-------|-------------|
@@ -764,7 +853,7 @@ Used in `screens/patient.html` for the therapeutic project view.
 | `.board--disabled` | Faded, non-interactive board |
 | `.board__header` | Title + options dropdown |
 | `.board__content` | Flex column of module cards |
-| `.board__footer` | "Nouveau" action button area |
+| `.board__footer` | "Nouveau module" action button area |
 | `.module` | Individual module card |
 | `.module--disabled` | Faded module |
 | `.module__header` | Training tags + options dropdown |
@@ -772,21 +861,16 @@ Used in `screens/patient.html` for the therapeutic project view.
 | `.module__meta` | Session count label |
 | `.module__dots` | 5-column grid of session dots |
 | `.session-dot` | Single session indicator cell |
-| `.session-dot--success` | Green — completed |
-| `.session-dot--partial` | Amber — partially done |
-| `.session-dot--pending` | Grey — not started |
-| `.session-dot--test` | Yellow — level test |
+| `.session-dot--success` | Green — completed (tooltip: "Complété") |
+| `.session-dot--partial` | Amber — abandoned (tooltip: "Abandon") |
+| `.session-dot--pending` | Grey — not started (tooltip: "Non commencé") |
+| `.session-dot--test` | Yellow — level test (tooltip: "Test de niveau") |
+| `.session-dot--todo` | Dashed grey — placeholder; click opens dropdown to convert to `--test` |
+| `[data-todo-wrapper]` | Grid cell wrapper for `--todo` dots (sets `min-width:0; width:100%`) |
 
-**Board drag & drop**: modules support drag-and-drop reordering within and across boards via the HTML5 Drag-and-Drop API. See `screens/patient.html` for the full JS implementation.
+**CSS-only tooltips** on `--success`, `--partial`, `--pending`, `--test` use `::after` pseudo-elements with `content: "..."`. No `data-tooltip` attribute needed on session dots.
 
-**Board actions** (`data-action` on buttons):
-- `add-module` — opens the add/edit module dialog
-- `edit-module` — reopens the dialog pre-populated for editing
-- `complete-module` — toggles `module--disabled`
-- `delete-module` — opens the delete confirmation dialog
-- `complete-board` — toggles `board--disabled`
-- `delete-board` — opens the delete confirmation dialog
-- `add-module` on board footer — opens add-module dialog for that board
+**Board drag & drop**: modules support drag-and-drop reordering within and across boards via the HTML5 Drag-and-Drop API. See `Screens/patient.html` for the full JS implementation.
 
 ### Session Grid — `.session-grid`
 
@@ -853,10 +937,14 @@ Weekly session calendar for the "Calendrier des séances" tab.
   <link rel="stylesheet" href="auth.css" />
 </head>
 <body class="bg-muted">
-  <main class="page-centered">
-    <div class="auth-brand">
-      <img src="../components/_assets/logo.svg" alt="Lirion" />
+
+  <header class="header">
+    <div class="header__start">
+      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
     </div>
+  </header>
+
+  <main class="page-centered">
     <div class="card auth-card">
       <div class="card__header">
         <h1 class="card__title">Title</h1>
@@ -867,8 +955,20 @@ Weekly session calendar for the "Calendrier des séances" tab.
       </div>
     </div>
   </main>
+
 </body>
 </html>
+```
+
+For pages with a back button, replace `<div class="card auth-card">` with:
+
+```html
+<div class="auth-stack">
+  <a href="previous.html" class="btn btn--ghost btn--sm">
+    <svg ...arrow-left.../> Retour
+  </a>
+  <div class="card auth-card">...</div>
+</div>
 ```
 
 ### 5.3 Minimal structure — application page
@@ -923,9 +1023,9 @@ The system follows a **lightweight BEM** convention, inspired by shadcn/ui.
 | Component | `.component` | `.btn`, `.card`, `.badge` |
 | Element | `.component__element` | `.card__header`, `.header__nav` |
 | Modifier | `.component--modifier` | `.btn--default`, `.badge--success` |
-| JS state | `.is-state` | `.is-active`, `.is-open` |
+| JS state | `.is-state` | `.is-active`, `.is-open`, `.is-set` |
 | Utility | `.name-action` | `.flex-center`, `.text-muted`, `.bg-muted` |
-| Data hooks | `data-attribute` | `data-href`, `data-dropdown`, `data-tooltip` |
+| Data hooks | `data-attribute` | `data-href`, `data-dropdown`, `data-datepicker` |
 
 **Naming rules:**
 - All lowercase, hyphens as separators
@@ -1011,27 +1111,46 @@ border-radius: var(--radius-md);
 box-shadow: var(--shadow-sm);
 ```
 
+```js
+/* ❌ Using HTML `hidden` attribute to toggle visibility — can be overridden by CSS display rules */
+eyeOff.hidden = true;
+
+/* ✅ Use style.display which cannot be overridden */
+eyeOff.style.display = 'none';
+```
+
+```js
+/* ❌ position:fixed popup appended to <body> inside a modal dialog — renders below top layer */
+document.body.appendChild(popup);
+
+/* ✅ Detect dialog context and move popup inside it */
+const dlg = trigger.closest('dialog');
+(dlg ?? document.body).appendChild(popup);
+```
+
 ---
 
 ## 9 · Quick Reference — Most Used Classes
 
 ```
-Buttons      : btn btn--default | btn--secondary | btn--outline | btn--ghost | btn--sm | btn--icon | btn--full
+Buttons      : btn btn--default | btn--secondary | btn--outline | btn--dash | btn--ghost | btn--sm | btn--icon | btn--full
 Badges       : badge badge--success | badge--warning | badge--destructive | badge--default | badge--secondary
 Forms        : field > label + input/select/textarea + hint
                input-group input-group--icon-start | --icon-end
 Cards        : card > card__header > card__title + card__description
 App layout   : page-app > page-app__content > page-app__section--muted | --bg
-Auth layout  : page-centered + auth-brand + auth-card
+Auth layout  : page-centered + header (logo only) + auth-card | auth-stack
 Helpers      : section-row | filter-row | flex-center | text-muted | bg-muted | row | stack
-Tabs         : tabs-line + tabs-line__trigger (underline)
-               tabs__list + tabs__trigger (pill)
-Kanban       : boards > board > board__content > module > module__dots > session-dot
+Tabs         : tabs-line + tabs-line__trigger (underline)  [data-tabs] [data-value]
+               tabs__list + tabs__trigger (pill)            [data-tabs] [data-value]
+Table        : table > thead > th > table__sort-btn[data-sort] + table__sort-icon
+Datepicker   : [data-datepicker] > [data-datepicker-trigger] + .datepicker__value
+Kanban       : boards > board > board__content > module > module__dots > session-dot--{state}
 Calendar     : session-grid > session-grid__row > session-cell > session-module-bar
 Training     : training-tag--{type} | training-icon--{type}
-JS states    : is-active (tabs, nav) | is-open (dropdown) | is-dragging | is-over
+JS states    : is-active (tabs, nav) | is-open (dropdown) | is-dragging | is-over | is-set (datepicker)
 ```
 
 ---
 
-*Last updated: June 2026 — 32 components, 7 screens*
+*Last updated: June 2026 — 33 components, 6 screens*
