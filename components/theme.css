@@ -345,6 +345,9 @@ button { font-family: inherit; }
   padding: 2.5rem 1rem;
 }
 
+/* Behavioral-only wrapper (e.g. [data-tabs] scoping JS): transparent to layout */
+.page-app__content > [data-tabs] { display: contents; }
+
 .page-app__section--muted {
   width: 100%;
   max-width: 64rem;
