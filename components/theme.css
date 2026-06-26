@@ -83,9 +83,9 @@
   --training-memoson-200: oklch(0.769 0.158 166.764);
   --training-memoson-300: oklch(0.722 0.148 166.762);
 
-  --training-fusSeg-100: oklch(0.797 0.123 194.973);
-  --training-fusSeg-200: oklch(0.754 0.129 194.769);
-  --training-fusSeg-300: oklch(0.709 0.121 194.769);
+  --training-fus-seg-100: oklch(0.797 0.123 194.973);
+  --training-fus-seg-200: oklch(0.754 0.129 194.769);
+  --training-fus-seg-300: oklch(0.709 0.121 194.769);
 
   --training-phonemix-100: oklch(0.776 0.140 231.404);
   --training-phonemix-200: oklch(0.728 0.161 237.847);
@@ -111,9 +111,9 @@
   --training-elor-200: oklch(0.749 0.159 6.528);
   --training-elor-300: oklch(0.704 0.149 6.816);
 
-  --training-rechVisuelle-100: oklch(0.701 0.161 282.227);
-  --training-rechVisuelle-200: oklch(0.612 0.214 278.911);
-  --training-rechVisuelle-300: oklch(0.575 0.201 278.988);
+  --training-rech-visuelle-100: oklch(0.701 0.161 282.227);
+  --training-rech-visuelle-200: oklch(0.612 0.214 278.911);
+  --training-rech-visuelle-300: oklch(0.575 0.201 278.988);
 }
 
 .dark {
@@ -385,8 +385,4 @@ button { font-family: inherit; }
 .filter-row > .input-group { flex: 1; min-width: 0; }
 .filter-row > .select      { width: auto; flex-shrink: 0; }
 
-.page-back {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-}
+.flex-fill { flex: 1; min-width: 0; }

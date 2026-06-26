@@ -122,15 +122,15 @@ All tokens live in `components/theme.css`, available in light mode (`:root`) and
 |----------|---------------|
 | `--header` | `3.375rem` — fixed header height |
 
-### 2.6 Chart colors
+### 2.6 Data/accent colors
 
-`--chart-1` (blue-500) · `--chart-2` (blue-300) · `--chart-3` (blue-700) · `--chart-4` (blue-200) · `--chart-5` (blue-900)
+`--chart-1` (blue-500) · `--chart-2` (blue-300) · `--chart-3` (blue-700) · `--chart-4` (blue-200) · `--chart-5` (blue-900). The chart component is removed; these tokens remain and are used by toasts and avatar previews.
 
 ### 2.7 Training colors
 
 Each training type has a dedicated color token used by training tags, icons, and session bars:
 
-`--training-phonemix-200` · `--training-fusSeg-200` · `--training-memoson-200` · `--training-ran-200` · `--training-loh-200` · `--training-maeva-200` · `--training-switchipido-200` · `--training-elor-200` · `--training-rechVisuelle-200` · `--training-larma-200` · `--training-graphogame-200`
+`--training-phonemix-200` · `--training-fus-seg-200` · `--training-memoson-200` · `--training-ran-200` · `--training-loh-200` · `--training-maeva-200` · `--training-switchipido-200` · `--training-elor-200` · `--training-rech-visuelle-200` · `--training-larma-200` · `--training-graphogame-200`
 
 ---
 
@@ -216,6 +216,7 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 | `.field-row` | Flex `space-between` for label + link (e.g. "Forgot password") |
 | `.link` | Underlined text link |
 | `.link--sm` | Small size variant |
+| `.flex-fill` | `flex: 1; min-width: 0` — fills available space, safe with overflow |
 
 ---
 
@@ -247,6 +248,7 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 | `btn--lg` | Large size |
 | `btn--icon` | Square icon button (`aria-label` required) |
 | `btn--full` | `width: 100%` |
+| `btn--start` | `justify-content: flex-start` — left-aligns content inside a full-width button |
 
 ### Badge — `.badge`
 
@@ -295,9 +297,9 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 <!-- Input with trailing toggle (password) -->
 <div class="input-group input-group--icon-end">
   <input class="input" type="password" id="pwd" />
-  <button class="input-group__icon input-group__icon--end input-group__icon--btn" id="toggle-pwd">
-    <svg id="icon-eye-off" .../>
-    <svg id="icon-eye" style="display:none" .../>
+  <button class="input-group__icon input-group__icon--end input-group__icon--btn" data-password-toggle>
+    <svg .../>  <!-- eye-off, visible by default -->
+    <svg ... style="display:none" />  <!-- eye, shown when password is visible -->
   </button>
 </div>
 
@@ -310,15 +312,9 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 <textarea class="textarea"></textarea>
 ```
 
-Password toggle JS — use `style.display` (not the `hidden` attribute, which can be overridden by CSS):
-```js
-toggle.addEventListener('click', () => {
-  const show = input.type === 'password';
-  input.type           = show ? 'text' : 'password';
-  eyeOff.style.display = show ? 'none' : '';
-  eye.style.display    = show ? '' : 'none';
-});
-```
+Password toggle — add `data-password-toggle` to the button. `form.js` handles it via event delegation: walks up to `.input-group`, queries the `input` and both `svg` children, toggles `type` and `style.display`.
+
+**Required JS:** `<script src="../components/form/form.js" defer></script>`
 
 | Class | Description |
 |-------|-------------|
@@ -356,20 +352,6 @@ toggle.addEventListener('click', () => {
 </label>
 ```
 
-### Slider — `.slider`
-
-```html
-<input type="range" class="slider" min="0" max="100" value="50" />
-```
-
-### Progress — `.progress`
-
-```html
-<div class="progress" role="progressbar" aria-valuenow="60">
-  <div class="progress__bar" style="width: 60%"></div>
-</div>
-```
-
 ### Tabs (pill) — `.tabs__list` / `.tabs__trigger`
 
 Segmented pill style — tabs inside a muted container.
@@ -387,34 +369,7 @@ Segmented pill style — tabs inside a muted container.
 
 **Required JS:** `<script src="../components/tabs/tabs.js" defer></script>`
 
-### Tabs (underline) — `.tabs-line`
-
-Minimal underline style. Preferred for application-level navigation.
-
-```html
-<div data-tabs>
-  <div role="tablist" class="tabs-line">
-    <button role="tab" class="tabs-line__trigger" aria-selected="true" data-value="a">Tab 1</button>
-    <button role="tab" class="tabs-line__trigger" aria-selected="false" data-value="b">Tab 2</button>
-  </div>
-  <div data-value="a">Content A</div>
-  <div data-value="b" hidden>Content B</div>
-</div>
-```
-
-**Required JS:** `<script src="../components/tabs-line/tabs-line.js" defer></script>`
-
-> Both tab variants use `data-value` on triggers and panels (not `data-panel` / `id`). Wrap in `[data-tabs]` to scope multiple instances on the same page. Use `display: contents` on `[data-tabs]` if it must be transparent to flex/grid layout.
-
-### Alert — `.alert`
-
-```html
-<div class="alert" role="alert">
-  <p class="alert__title">Title</p>
-  <p class="alert__description">Message</p>
-</div>
-<div class="alert alert--destructive" role="alert">...</div>
-```
+> Use `data-value` on triggers and panels (not `data-panel` / `id`). Wrap in `[data-tabs]` to scope multiple instances on the same page. Use `display: contents` on `[data-tabs]` if it must be transparent to flex/grid layout.
 
 ### Avatar — `.avatar`
 
@@ -425,12 +380,6 @@ Minimal underline style. Preferred for application-level navigation.
   <span class="avatar avatar--sm">A</span>
   <span class="avatar avatar--sm">B</span>
 </div>
-```
-
-### Skeleton — `.skeleton`
-
-```html
-<div class="skeleton" style="height: 1rem; width: 12rem;"></div>
 ```
 
 ### Separator — `.separator`
@@ -474,17 +423,6 @@ Minimal underline style. Preferred for application-level navigation.
 | `.table__sort-btn` | Sortable header button (inherits `th` styles) |
 | `.table__sort-icon` | Icon wrapper inside the sort button |
 | `data-sort="none\|asc\|desc"` | Current sort state; controls icon opacity and `th` color |
-
-### Accordion — `.accordion`
-
-```html
-<div class="accordion">
-  <details class="accordion__item">
-    <summary class="accordion__trigger">Question</summary>
-    <div class="accordion__content">Answer</div>
-  </details>
-</div>
-```
 
 ### Tooltip — `data-tooltip`
 
@@ -603,16 +541,6 @@ Button trigger + floating calendar popup. Singleton popup (one open at a time). 
 - Click outside → closes popup
 - Inside a `<dialog>` → popup is moved into the dialog DOM so it renders in the top layer
 
-### Breadcrumb — `.breadcrumb`
-
-```html
-<ol class="breadcrumb">
-  <li><a href="dashboard.html">Dashboard</a></li>
-  <li class="breadcrumb__sep" aria-hidden="true">/</li>
-  <li aria-current="page">Patient</li>
-</ol>
-```
-
 ### Pagination — `.pagination`
 
 ```html
@@ -656,21 +584,6 @@ Variants: `toast--default` · `toast--success` · `toast--warning` · `toast--er
 ```
 
 > Auth pages use the header **without** the "Mon Compte" button (only `header__start` with the logo).
-
-### App Bar — `.page-app__bar`
-
-Sub-header bar placed directly below `.header`, inside `.page-app`. Used for back navigation and contextual actions.
-
-```html
-<div class="page-app__bar">
-  <div class="page-app__bar-start">
-    <button class="btn btn--ghost">← Retour</button>
-  </div>
-  <div class="page-app__bar-end">
-    <button class="btn btn--default btn--sm">Action</button>
-  </div>
-</div>
-```
 
 ### Stat — `.stat`
 
@@ -740,19 +653,20 @@ Use `sortable__item--sm` for compact items (e.g. inside a modal).
 
 ### Banner — `.banner`
 
-Full-width contextual strip, typically sticky below the header.
+Full-width contextual strip. Add `banner--sticky` to pin it below the fixed header.
 
 ```html
-<div class="banner banner--success" style="position:sticky; top:var(--header); z-index:90;">
+<div class="banner banner--success banner--sticky">
   Patient Actif • Prochain paiement le 06/08/26
 </div>
 ```
 
-| Modifier | Colors |
-|----------|--------|
+| Modifier | Description |
+|----------|-------------|
 | `banner--success` | `--success` / `--success-foreground` |
 | `banner--warning` | `--warning` / `--warning-foreground` |
 | `banner--info` | `--muted` / `--muted-foreground` |
+| `banner--sticky` | `position: sticky; top: var(--header); z-index: 90` |
 
 ### Training Tag — `.training-tag`
 
@@ -760,10 +674,10 @@ Colored pill label identifying a training type.
 
 ```html
 <span class="training-tag training-tag--phonemix">Phonemix - Identification</span>
-<span class="training-tag training-tag--fusSeg">Fusion</span>
+<span class="training-tag training-tag--fus-seg">Fusion</span>
 ```
 
-Available modifiers: `training-tag--phonemix` · `training-tag--fusSeg` · `training-tag--memoson` · `training-tag--ran` · `training-tag--loh` · `training-tag--maeva` · `training-tag--switchipido` · `training-tag--elor` · `training-tag--rechVisuelle` · `training-tag--larma` · `training-tag--graphogame`
+Available modifiers: `training-tag--phonemix` · `training-tag--fus-seg` · `training-tag--memoson` · `training-tag--ran` · `training-tag--loh` · `training-tag--maeva` · `training-tag--switchipido` · `training-tag--elor` · `training-tag--rech-visuelle` · `training-tag--larma` · `training-tag--graphogame`
 
 ### Training Icon — `.training-icon`
 
@@ -771,7 +685,12 @@ Circular avatar for training items in lists and modals. Same color modifiers as 
 
 ```html
 <span class="training-icon training-icon--phonemix">P</span>
+<span class="training-icon training-icon--sm training-icon--fus-seg">F</span>
 ```
+
+| Modifier | Description |
+|----------|-------------|
+| `training-icon--sm` | Compact size (`1.5rem`, `0.6875rem` font) |
 
 ### Chip Checkbox — `.chip-checkbox`
 
@@ -870,7 +789,21 @@ Used in `Screens/patient.html` for the therapeutic project view.
 
 **CSS-only tooltips** on `--success`, `--partial`, `--pending`, `--test` use `::after` pseudo-elements with `content: "..."`. No `data-tooltip` attribute needed on session dots.
 
-**Board drag & drop**: modules support drag-and-drop reordering within and across boards via the HTML5 Drag-and-Drop API. See `Screens/patient.html` for the full JS implementation.
+**Board drag & drop**: modules support drag-and-drop reordering within and across boards via the HTML5 Drag-and-Drop API. See `components/program/program.js` for the full implementation.
+
+**Page-level data injection**: `program.js` reads `window._PROGRAM_CATALOG` (an array of training entry objects) to populate the add-module dialog. Inject it from the host page in a plain (non-deferred) inline `<script>` **before** the deferred `program.js` tag:
+
+```html
+<script>
+  window._PROGRAM_CATALOG = [
+    { id: 'phonemix', label: 'Phonemix - Identification', type: 'phonemix' },
+    /* ... */
+  ];
+</script>
+<script src="../components/program/program.js" defer></script>
+```
+
+If `window._PROGRAM_CATALOG` is not set, `program.js` falls back to an empty array.
 
 ### Session Grid — `.session-grid`
 
@@ -1133,24 +1066,24 @@ const dlg = trigger.closest('dialog');
 ## 9 · Quick Reference — Most Used Classes
 
 ```
-Buttons      : btn btn--default | btn--secondary | btn--outline | btn--dash | btn--ghost | btn--sm | btn--icon | btn--full
+Buttons      : btn btn--default | btn--secondary | btn--outline | btn--dash | btn--ghost | btn--sm | btn--icon | btn--full | btn--start
 Badges       : badge badge--success | badge--warning | badge--destructive | badge--default | badge--secondary
 Forms        : field > label + input/select/textarea + hint
                input-group input-group--icon-start | --icon-end
+               [data-password-toggle] on toggle button → handled by form.js
 Cards        : card > card__header > card__title + card__description
 App layout   : page-app > page-app__content > page-app__section--muted | --bg
 Auth layout  : page-centered + header (logo only) + auth-card | auth-stack
-Helpers      : section-row | filter-row | flex-center | text-muted | bg-muted | row | stack
-Tabs         : tabs-line + tabs-line__trigger (underline)  [data-tabs] [data-value]
-               tabs__list + tabs__trigger (pill)            [data-tabs] [data-value]
+Helpers      : section-row | filter-row | flex-center | flex-fill | text-muted | bg-muted | row | stack
+Tabs         : tabs__list + tabs__trigger (pill)  [data-tabs] [data-value]
 Table        : table > thead > th > table__sort-btn[data-sort] + table__sort-icon
 Datepicker   : [data-datepicker] > [data-datepicker-trigger] + .datepicker__value
 Kanban       : boards > board > board__content > module > module__dots > session-dot--{state}
 Calendar     : session-grid > session-grid__row > session-cell > session-module-bar
-Training     : training-tag--{type} | training-icon--{type}
+Training     : training-tag--{type} | training-icon--{type} | training-icon--sm
 JS states    : is-active (tabs, nav) | is-open (dropdown) | is-dragging | is-over | is-set (datepicker)
 ```
 
 ---
 
-*Last updated: June 2026 — 33 components, 6 screens*
+*Last updated: June 2026 — 25 components, 6 screens*

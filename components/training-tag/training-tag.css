@@ -20,14 +20,14 @@
 .training-tag--larma        { background-color: var(--training-larma-200); }
 .training-tag--graphogame   { background-color: var(--training-graphogame-200); }
 .training-tag--memoson      { background-color: var(--training-memoson-200); }
-.training-tag--fusSeg       { background-color: var(--training-fusSeg-200); }
+.training-tag--fus-seg       { background-color: var(--training-fus-seg-200); }
 .training-tag--phonemix     { background-color: var(--training-phonemix-200); }
 .training-tag--ran          { background-color: var(--training-ran-200); }
 .training-tag--loh          { background-color: var(--training-loh-200); }
 .training-tag--maeva        { background-color: var(--training-maeva-200); }
 .training-tag--switchipido  { background-color: var(--training-switchipido-200); }
 .training-tag--elor         { background-color: var(--training-elor-200); }
-.training-tag--rechVisuelle { background-color: var(--training-rechVisuelle-200); }
+.training-tag--rech-visuelle { background-color: var(--training-rech-visuelle-200); }
 
 /* ----- Training icon ----- */
 
@@ -46,16 +46,18 @@
 
 .training-icon svg { width: 1rem; height: 1rem; }
 
+.training-icon--sm { width: 1.5rem; height: 1.5rem; font-size: 0.6875rem; }
+
 .training-icon--larma        { background-color: var(--training-larma-200); }
 .training-icon--graphogame   { background-color: var(--training-graphogame-200); }
 .training-icon--memoson      { background-color: var(--training-memoson-200); }
-.training-icon--fusSeg       { background-color: var(--training-fusSeg-200); }
+.training-icon--fus-seg       { background-color: var(--training-fus-seg-200); }
 .training-icon--phonemix     { background-color: var(--training-phonemix-200); }
 .training-icon--ran          { background-color: var(--training-ran-200); }
 .training-icon--loh          { background-color: var(--training-loh-200); }
 .training-icon--maeva        { background-color: var(--training-maeva-200); }
 .training-icon--switchipido  { background-color: var(--training-switchipido-200); }
 .training-icon--elor         { background-color: var(--training-elor-200); }
-.training-icon--rechVisuelle { background-color: var(--training-rechVisuelle-200); }
+.training-icon--rech-visuelle { background-color: var(--training-rech-visuelle-200); }
 
 

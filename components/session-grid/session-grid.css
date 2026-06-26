@@ -88,11 +88,11 @@
 .session-module-bar[data-training="larma"]        { background-color: var(--training-larma-200); }
 .session-module-bar[data-training="graphogame"]   { background-color: var(--training-graphogame-200); }
 .session-module-bar[data-training="memoson"]      { background-color: var(--training-memoson-200); }
-.session-module-bar[data-training="fusSeg"]       { background-color: var(--training-fusSeg-200); }
+.session-module-bar[data-training="fus-seg"]       { background-color: var(--training-fus-seg-200); }
 .session-module-bar[data-training="phonemix"]     { background-color: var(--training-phonemix-200); }
 .session-module-bar[data-training="ran"]          { background-color: var(--training-ran-200); }
 .session-module-bar[data-training="loh"]          { background-color: var(--training-loh-200); }
 .session-module-bar[data-training="maeva"]        { background-color: var(--training-maeva-200); }
 .session-module-bar[data-training="switchipido"]  { background-color: var(--training-switchipido-200); }
 .session-module-bar[data-training="elor"]         { background-color: var(--training-elor-200); }
-.session-module-bar[data-training="rechVisuelle"] { background-color: var(--training-rechVisuelle-200); }
+.session-module-bar[data-training="rech-visuelle"] { background-color: var(--training-rech-visuelle-200); }

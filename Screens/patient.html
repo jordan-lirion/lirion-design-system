@@ -25,7 +25,7 @@
   <div class="page-app">
 
     <!-- Banner -->
-    <div class="banner banner--success" style="position:sticky; top:var(--header); z-index:90;">
+    <div class="banner banner--success banner--sticky">
       Patient Actif • Prochain paiement le 06/08/26
     </div>
 
@@ -39,7 +39,7 @@
         </a>
         <div class="card">
           <div class="section-row">
-            <div style="flex:1; min-width:0;">
+            <div class="flex-fill">
               <div class="stack" style="gap:0.5rem;">
                 <h1>Louna Harrar</h1>
                 <div class="row" style="gap:0.5rem; flex-wrap:wrap;">
@@ -111,7 +111,7 @@
       </div>
 
       <!-- ======== TAB PANEL : PROJET THÉRAPEUTIQUE ======== -->
-      <div data-value="projet" class="tab-panel page-app__section--muted" style="padding-top:0.5rem;">
+      <div data-value="projet" class="page-app__section--muted" style="padding-top:0.5rem;">
         <div class="boards">
 
           <!-- ---- BOARD : Audio-phonologique ---- -->
@@ -137,7 +137,7 @@
                 <div class="module__header">
                   <div class="module__tags">
                     <span class="training-tag training-tag--phonemix">Phonemix - Identification</span>
-                    <span class="training-tag training-tag--fusSeg">Fusion</span>
+                    <span class="training-tag training-tag--fus-seg">Fusion</span>
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
@@ -166,8 +166,8 @@
                 <div class="module__header">
                   <div class="module__tags">
                     <span class="training-tag training-tag--memoson">Memoson - Différences</span>
-                    <span class="training-tag training-tag--fusSeg">Fusion</span>
-                    <span class="training-tag training-tag--fusSeg">Segmentation</span>
+                    <span class="training-tag training-tag--fus-seg">Fusion</span>
+                    <span class="training-tag training-tag--fus-seg">Segmentation</span>
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
@@ -211,7 +211,7 @@
                 <div class="module__header">
                   <div class="module__tags">
                     <span class="training-tag training-tag--ran">RAN</span>
-                    <span class="training-tag training-tag--fusSeg">Segmentation</span>
+                    <span class="training-tag training-tag--fus-seg">Segmentation</span>
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
@@ -238,7 +238,7 @@
             </div>
 
             <div class="board__footer">
-              <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
+              <button class="btn btn--outline btn--full btn--start" data-action="add-module">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
                 Nouveau module
               </button>
@@ -393,7 +393,7 @@
             </div>
 
             <div class="board__footer">
-              <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
+              <button class="btn btn--outline btn--full btn--start" data-action="add-module">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
                 Nouveau module
               </button>
@@ -422,7 +422,7 @@
               <div class="module">
                 <div class="module__header">
                   <div class="module__tags">
-                    <span class="training-tag training-tag--rechVisuelle">Rech. Visuelle</span>
+                    <span class="training-tag training-tag--rech-visuelle">Rech. Visuelle</span>
                     <span class="training-tag training-tag--loh">LOH</span>
                   </div>
                   <div class="dropdown" data-dropdown="">
@@ -508,7 +508,7 @@
             </div>
 
             <div class="board__footer">
-              <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
+              <button class="btn btn--outline btn--full btn--start" data-action="add-module">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
                 Nouveau module
               </button>
@@ -520,7 +520,7 @@
 
 
       <!-- ======== TAB PANEL : CALENDRIER DES SÉANCES ======== -->
-      <div data-value="calendrier" class="tab-panel page-app__section--muted" hidden>
+      <div data-value="calendrier" class="page-app__section--muted" hidden>
 
         <!-- Session grid -->
         <div class="session-grid">
@@ -541,7 +541,7 @@
                 <span class="session-cell__duration">15min</span>
                 <div class="session-cell__modules">
                   <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fusSeg" data-tooltip="Fusion / Seg."></span>
+                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
                   <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
                 </div>
               </div>
@@ -551,7 +551,7 @@
                 <span class="session-cell__duration">15min</span>
                 <div class="session-cell__modules">
                   <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fusSeg" data-tooltip="Fusion / Seg."></span>
+                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
                   <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
                 </div>
               </div>
@@ -571,7 +571,7 @@
                 <span class="session-cell__duration">15min</span>
                 <div class="session-cell__modules">
                   <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fusSeg" data-tooltip="Fusion / Seg."></span>
+                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
                   <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
                 </div>
               </div>
@@ -581,7 +581,7 @@
                 <span class="session-cell__duration">15min</span>
                 <div class="session-cell__modules">
                   <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fusSeg" data-tooltip="Fusion / Seg."></span>
+                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
                   <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
                 </div>
               </div>
@@ -595,7 +595,7 @@
                 <span class="session-cell__duration">15min</span>
                 <div class="session-cell__modules">
                   <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fusSeg" data-tooltip="Fusion / Seg."></span>
+                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
                   <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
                 </div>
               </div>
@@ -605,7 +605,7 @@
                 <span class="session-cell__duration">15min</span>
                 <div class="session-cell__modules">
                   <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fusSeg" data-tooltip="Fusion / Seg."></span>
+                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
                   <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
                 </div>
               </div>
@@ -638,7 +638,7 @@
                 <span class="session-cell__duration">15min</span>
                 <div class="session-cell__modules">
                   <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fusSeg" data-tooltip="Fusion / Seg."></span>
+                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
                   <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
                 </div>
               </div>
@@ -652,7 +652,7 @@
                 <span class="session-cell__duration">15min</span>
                 <div class="session-cell__modules">
                   <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fusSeg" data-tooltip="Fusion / Seg."></span>
+                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
                   <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
                 </div>
               </div>
@@ -672,7 +672,7 @@
                 <span class="session-cell__duration">15min</span>
                 <div class="session-cell__modules">
                   <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fusSeg" data-tooltip="Fusion / Seg."></span>
+                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
                   <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
                 </div>
               </div>
@@ -853,461 +853,22 @@
 
 
   <!-- ======== SCRIPTS ======== -->
-  <script src="../components/dropdown/dropdown.js" defer></script>
-  <script src="../components/tabs/tabs.js" defer></script>
-  <script src="../components/chip-checkbox/chip-checkbox.js" defer></script>
-  <script src="../components/program/program.js" defer></script>
   <script>
-    /* ---- BOARD & MODULE ACTIONS (event delegation) ---- */
-    let deleteTarget = null;
-    let currentBoard  = null;
-    const deleteDialog = document.getElementById('dialog-delete');
-    const addModuleDialog = document.getElementById('dialog-add-module');
-
-    document.addEventListener('click', e => {
-      const btn = e.target.closest('[data-action]');
-      if (!btn) return;
-      const action = btn.dataset.action;
-
-      if (action === 'complete-board') {
-        const board = btn.closest('.board');
-        board.classList.toggle('board--disabled');
-      }
-
-      if (action === 'delete-board') {
-        deleteTarget = btn.closest('.board');
-        deleteDialog.showModal();
-      }
-
-      if (action === 'complete-module') {
-        const module = btn.closest('.module');
-        module.classList.toggle('module--disabled');
-      }
-
-      if (action === 'delete-module') {
-        deleteTarget = btn.closest('.module');
-        deleteDialog.showModal();
-      }
-
-      if (action === 'add-module') {
-        currentBoard = btn.closest('.board');
-        addModuleDialog.showModal();
-      }
-
-      if (action === 'remove-training') {
-        btn.closest('.sortable__item').remove();
-      }
-    });
-
-    /* ---- DELETE DIALOG ---- */
-    document.getElementById('btn-cancel-delete').addEventListener('click', () => {
-      deleteDialog.close();
-      deleteTarget = null;
-    });
-    document.getElementById('btn-confirm-delete').addEventListener('click', () => {
-      if (deleteTarget) {
-        deleteTarget.remove();
-        deleteTarget = null;
-      }
-      deleteDialog.close();
-    });
-    deleteDialog.addEventListener('click', e => {
-      if (e.target === deleteDialog) deleteDialog.close();
-    });
-
-    /* ---- ADD MODULE DIALOG ---- */
-
-    const CATALOG = [
+    /* Training catalog for this patient — consumed by program.js via window._PROGRAM_CATALOG */
+    window._PROGRAM_CATALOG = [
       { id: 'phonemix-id',   name: 'Phonemix - Identification', cls: 'training-icon--phonemix', tagCls: 'training-tag--phonemix', letter: 'P' },
       { id: 'phonemix-disc', name: 'Phonemix - Discrimination', cls: 'training-icon--phonemix', tagCls: 'training-tag--phonemix', letter: 'P' },
-      { id: 'fusion',        name: 'Fusion',                    cls: 'training-icon--fusSeg',   tagCls: 'training-tag--fusSeg',   letter: 'F' },
-      { id: 'segmentation',  name: 'Segmentation',              cls: 'training-icon--fusSeg',   tagCls: 'training-tag--fusSeg',   letter: 'S' },
+      { id: 'fusion',        name: 'Fusion',                    cls: 'training-icon--fus-seg',  tagCls: 'training-tag--fus-seg',  letter: 'F' },
+      { id: 'segmentation',  name: 'Segmentation',              cls: 'training-icon--fus-seg',  tagCls: 'training-tag--fus-seg',  letter: 'S' },
       { id: 'memoson-diff',  name: 'Mémoson - Différents',      cls: 'training-icon--memoson',  tagCls: 'training-tag--memoson',  letter: 'M' },
       { id: 'memoson-cache', name: 'Mémoson - Cache Cache',     cls: 'training-icon--memoson',  tagCls: 'training-tag--memoson',  letter: 'M' },
       { id: 'ran',           name: 'RAN',                       cls: 'training-icon--ran',      tagCls: 'training-tag--ran',      letter: 'R' },
     ];
-
-    const trainingSearch = document.getElementById('training-search');
-    const trainingDrop   = document.getElementById('training-dropdown');
-    const modalSortable  = document.getElementById('modal-sortable');
-    let selectedIds  = [];
-    let expandedId   = null;
-    let modalDragSrc = null;
-    let dropPending  = false;
-
-    const _HANDLE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>`;
-    const _TRASH  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>`;
-    const _DOTS   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>`;
-
-    function subLabel(min, sec, niveau) {
-      let s = `${min} min`;
-      if (+sec > 0) s += ` ${sec} s`;
-      if (niveau) s += ` • ${niveau.split('•')[0].trim()}`;
-      return s;
-    }
-
-    function collapsedHTML(t, min, sec, niveau) {
-      return `
-        <button class="sortable__handle" type="button" aria-label="Réordonner">${_HANDLE}</button>
-        <span class="training-icon ${t.cls}" style="width:1.5rem;height:1.5rem;font-size:0.6875rem;">${t.letter}</span>
-        <div class="sortable__body" style="flex:1;min-width:0;">
-          <span class="sortable__title">${t.name}</span>
-          <span class="sortable__sub">${subLabel(min, sec, niveau)}</span>
-        </div>
-        <button class="btn btn--ghost btn--icon btn--sm" type="button" aria-label="Supprimer" data-action="remove-training">${_TRASH}</button>`;
-    }
-
-    function expandedHTML(t, min, sec, niveau) {
-      const minOpts = [0,1,2,3,4,5,10,15,20,30].map(v => `<option${+v===+min?' selected':''}>${v}</option>`).join('');
-      const secOpts = [0,10,15,20,30,45].map(v => `<option${+v===+sec?' selected':''}>${v}</option>`).join('');
-      const levels  = ['','Niveau 1','Niveau 2','Niveau 3 • /bu pu/ • BOT -30','Niveau 4','Niveau 5'];
-      const nivOpts = levels.map(n => `<option value="${n}"${n===niveau?' selected':''}>${n||'— Aucun niveau —'}</option>`).join('');
-      return `
-        <div style="display:flex;align-items:center;gap:0.5rem;width:100%;">
-          <button class="sortable__handle" type="button" aria-label="Réordonner">${_HANDLE}</button>
-          <span class="training-icon ${t.cls}" style="width:1.5rem;height:1.5rem;font-size:0.6875rem;">${t.letter}</span>
-          <div style="flex:1;min-width:0;"><span class="sortable__title">${t.name}</span></div>
-          <button class="btn btn--ghost btn--icon btn--sm" type="button" aria-label="Supprimer" data-action="remove-training">${_TRASH}</button>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;width:100%;margin-top:0.625rem;">
-          <div>
-            <p class="label" style="margin-bottom:0.25rem;">Durée (minutes)</p>
-            <select class="select" data-field="min">${minOpts}</select>
-          </div>
-          <div>
-            <p class="label" style="margin-bottom:0.25rem;">Durée (secondes)</p>
-            <select class="select" data-field="sec">${secOpts}</select>
-          </div>
-          <div style="grid-column:1/-1;">
-            <p class="label" style="margin-bottom:0.25rem;">Niveau</p>
-            <select class="select" data-field="niveau">${nivOpts}</select>
-          </div>
-        </div>`;
-    }
-
-    /* Autocomplete dropdown */
-    function renderDrop() {
-      const q = trainingSearch.value.toLowerCase();
-      const avail = CATALOG.filter(t => !selectedIds.includes(t.id) && t.name.toLowerCase().includes(q));
-      trainingDrop.innerHTML = avail.length
-        ? avail.map(t => `<button type="button" class="dropdown__item" data-add-training="${t.id}" style="display:flex;align-items:center;gap:0.5rem;"><span class="training-icon ${t.cls}" style="width:1.5rem;height:1.5rem;font-size:0.6875rem;">${t.letter}</span>${t.name}</button>`).join('')
-        : `<p style="padding:0.4375rem 0.625rem;font-size:0.875rem;color:var(--muted-foreground);margin:0;">Aucun résultat</p>`;
-      const r = trainingSearch.getBoundingClientRect();
-      trainingDrop.style.top   = (r.bottom + 6) + 'px';
-      trainingDrop.style.left  = r.left + 'px';
-      trainingDrop.style.width = r.width + 'px';
-      trainingDrop.style.display = 'block';
-    }
-
-    trainingSearch.addEventListener('focus', renderDrop);
-    trainingSearch.addEventListener('input', renderDrop);
-    trainingSearch.addEventListener('blur', () => {
-      if (dropPending) return;
-      setTimeout(() => { trainingDrop.style.display = 'none'; }, 200);
-    });
-
-    trainingDrop.addEventListener('mousedown', e => {
-      if (e.target.closest('[data-add-training]')) { dropPending = true; e.preventDefault(); }
-    });
-    trainingDrop.addEventListener('click', e => {
-      const btn = e.target.closest('[data-add-training]');
-      if (!btn) return;
-      e.stopPropagation();
-      dropPending = false;
-      if (expandedId) {
-        const expLi = modalSortable.querySelector(`[data-training-id="${expandedId}"]`);
-        if (expLi) collapseTraining(expLi);
-      }
-      addTrainingToModal(btn.dataset.addTraining);
-      trainingSearch.value = '';
-      trainingDrop.style.display = 'none'; // fermer le dropdown après sélection
-      trainingSearch.focus();
-    });
-
-    /* Training list management */
-    function addTrainingToModal(id) {
-      const t = CATALOG.find(x => x.id === id);
-      if (!t || selectedIds.includes(id)) return;
-      selectedIds.push(id);
-      const li = document.createElement('li');
-      li.className = 'sortable__item sortable__item--sm';
-      li.draggable = true;
-      li.dataset.trainingId = id;
-      li.dataset.min = '5';
-      li.dataset.sec = '0';
-      li.dataset.niveau = '';
-      li.style.cssText = 'flex-wrap:wrap;align-items:center;cursor:pointer;';
-      li.innerHTML = collapsedHTML(t, 5, 0, '');
-      modalSortable.appendChild(li);
-      setupModalDrag(li);
-    }
-
-    function expandTraining(li) {
-      const t = CATALOG.find(x => x.id === li.dataset.trainingId);
-      if (!t) return;
-      expandedId = li.dataset.trainingId;
-      li.innerHTML = expandedHTML(t, +li.dataset.min, +li.dataset.sec, li.dataset.niveau);
-      li.draggable = false;
-      li.style.cursor = 'default';
-      li.style.backgroundColor = 'var(--secondary)';
-    }
-
-    function collapseTraining(li) {
-      const t = CATALOG.find(x => x.id === li.dataset.trainingId);
-      if (!t) return;
-      const minSel = li.querySelector('[data-field="min"]');
-      const secSel = li.querySelector('[data-field="sec"]');
-      const nivSel = li.querySelector('[data-field="niveau"]');
-      if (minSel) li.dataset.min = minSel.value;
-      if (secSel) li.dataset.sec = secSel.value;
-      if (nivSel) li.dataset.niveau = nivSel.value;
-      if (expandedId === li.dataset.trainingId) expandedId = null;
-      li.innerHTML = collapsedHTML(t, +li.dataset.min, +li.dataset.sec, li.dataset.niveau);
-      li.draggable = true;
-      li.style.cursor = 'pointer';
-      li.style.backgroundColor = '';
-    }
-
-    /* Event delegation: clicks inside the sortable */
-    modalSortable.addEventListener('click', e => {
-      if (e.target.closest('[data-action="remove-training"]')) {
-        const li = e.target.closest('[data-training-id]');
-        const id = li.dataset.trainingId;
-        selectedIds = selectedIds.filter(x => x !== id);
-        if (expandedId === id) expandedId = null;
-        li.remove();
-        if (trainingDrop.style.display !== 'none') renderDrop();
-        return;
-      }
-      const li = e.target.closest('[data-training-id]');
-      if (!li) return;
-      // Stop propagation for button/select clicks inside an expanded card so the dialog handler
-      // doesn't collapse it — selects and the handle button need to remain usable
-      if (e.target.closest('button, select')) { e.stopPropagation(); return; }
-      // stopPropagation empêche addModuleDialog.click de re-effondrer juste après expansion
-      e.stopPropagation();
-      const id = li.dataset.trainingId;
-      if (expandedId === id) {
-        collapseTraining(li);
-      } else {
-        if (expandedId) {
-          const prev = modalSortable.querySelector(`[data-training-id="${expandedId}"]`);
-          if (prev) collapseTraining(prev);
-        }
-        expandTraining(li);
-      }
-    });
-
-    /* Effondrer training sur clic en dehors (dans le dialog) */
-    addModuleDialog.addEventListener('click', e => {
-      if (expandedId) {
-        const expLi = modalSortable.querySelector(`[data-training-id="${expandedId}"]`);
-        if (expLi) collapseTraining(expLi);
-      }
-    });
-
-    /* Créer — build module and append to current board */
-    const _MODULE_DOTS_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>`;
-    const _PLUS_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>`;
-
-    function buildModuleHTML() {
-      const count = +document.getElementById('modal-seances').value;
-      const tags = selectedIds.map(id => {
-        const t = CATALOG.find(x => x.id === id);
-        return t ? `<span class="training-tag ${t.tagCls}" data-training-id="${id}">${t.name}</span>` : '';
-      }).join('');
-      const dots = Array.from({length: count}, () => `<span class="session-dot session-dot--pending"></span>`).join('');
-      return `
-        <div class="module__header">
-          <div class="module__tags">${tags}</div>
-          <div class="dropdown" data-dropdown="">
-            <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">${_MODULE_DOTS_SVG}</button>
-            <div class="dropdown__menu dropdown__menu--end" role="menu">
-              <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
-              <hr class="dropdown__separator">
-              <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
-            </div>
-          </div>
-        </div>
-        <hr class="separator">
-        <p class="module__meta">${count} séances</p>
-        <div class="module__dots">${dots}</div>
-        <button type="button" class="btn btn--dash btn--full btn--sm" data-action="add-session" style="justify-content:flex-start;">${_PLUS_SVG} Ajouter une séance</button>`;
-    }
-
-    document.getElementById('btn-create-module').addEventListener('click', () => {
-      if (currentBoard) {
-        const moduleDiv = document.createElement('div');
-        moduleDiv.className = 'module';
-        moduleDiv.innerHTML = buildModuleHTML();
-        const boardContent = currentBoard.querySelector('.board__content');
-        boardContent.appendChild(moduleDiv);
-        setupModuleDrag(moduleDiv);
-      }
-      addModuleDialog.close();
-      resetModal();
-      currentBoard = null;
-    });
-
-    document.getElementById('btn-close-add-module').addEventListener('click', () => {
-      addModuleDialog.close(); resetModal(); currentBoard = null;
-    });
-    addModuleDialog.addEventListener('cancel', () => { resetModal(); currentBoard = null; });
-
-    function resetModal() {
-      selectedIds = []; expandedId = null; modalDragSrc = null; dropPending = false;
-      modalSortable.innerHTML = '';
-      trainingSearch.value = '';
-      trainingDrop.style.display = 'none';
-    }
-
-    /* ---- ADD PROGRAM ---- */
-    document.querySelectorAll('[data-add-program]').forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.stopPropagation();
-        const title = btn.dataset.addProgram;
-        const board = document.createElement('div');
-        board.className = 'board';
-        board.innerHTML = `
-          <div class="board__header">
-            <span class="board__title">${title}</span>
-            <div class="dropdown" data-dropdown="">
-              <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du programme">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-              </button>
-              <div class="dropdown__menu dropdown__menu--end" role="menu">
-                <button class="dropdown__item" role="menuitem" data-action="complete-board">Marqué comme complété</button>
-                <hr class="dropdown__separator">
-                <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-board">Supprimer</button>
-              </div>
-            </div>
-          </div>
-          <div class="board__content"></div>
-          <div class="board__footer">
-            <button class="btn btn--outline btn--full" data-action="add-module" style="justify-content:flex-start;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-              Nouveau module
-            </button>
-          </div>
-        `;
-        document.querySelector('.boards').appendChild(board);
-        setupBoardDrop(board.querySelector('.board__content'));
-        document.getElementById('dd-new-program').classList.remove('is-open');
-        document.querySelector('#dd-new-program [data-dropdown-trigger]').setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    /* ---- MODULE DRAG & DROP ---- */
-    let dragSrcMod = null;
-
-    function clearModDragStates() {
-      document.querySelectorAll('.module').forEach(m => m.classList.remove('drag-over-top', 'drag-over-bottom'));
-    }
-
-    function setupModuleDrag(mod) {
-      mod.draggable = true;
-
-      mod.addEventListener('dragstart', e => {
-        if (e.target !== mod && e.target.closest('button, a, [data-dropdown-trigger]')) { e.preventDefault(); return; }
-        dragSrcMod = mod;
-        e.dataTransfer.effectAllowed = 'move';
-        setTimeout(() => mod.classList.add('is-dragging'), 0);
-      });
-
-      mod.addEventListener('dragend', () => {
-        mod.classList.remove('is-dragging');
-        clearModDragStates();
-        dragSrcMod = null;
-      });
-
-      mod.addEventListener('dragover', e => {
-        if (!dragSrcMod || dragSrcMod === mod) return;
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'move';
-        clearModDragStates();
-        const rect = mod.getBoundingClientRect();
-        mod.classList.add(e.clientY < rect.top + rect.height / 2 ? 'drag-over-top' : 'drag-over-bottom');
-      });
-
-      mod.addEventListener('dragleave', e => {
-        if (!mod.contains(e.relatedTarget)) mod.classList.remove('drag-over-top', 'drag-over-bottom');
-      });
-
-      mod.addEventListener('drop', e => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (!dragSrcMod || dragSrcMod === mod) return;
-        const rect = mod.getBoundingClientRect();
-        const before = e.clientY < rect.top + rect.height / 2;
-        mod.parentNode.insertBefore(dragSrcMod, before ? mod : mod.nextSibling);
-        clearModDragStates();
-        dragSrcMod = null;
-      });
-    }
-
-    function setupBoardDrop(content) {
-      content.addEventListener('dragover', e => {
-        if (e.target.closest('.module') || !dragSrcMod) return;
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'move';
-        clearModDragStates();
-      });
-
-      content.addEventListener('drop', e => {
-        if (e.target.closest('.module') || !dragSrcMod) return;
-        e.preventDefault();
-        content.appendChild(dragSrcMod);
-        setupModuleDrag(dragSrcMod);
-        clearModDragStates();
-        dragSrcMod = null;
-      });
-    }
-
-    document.querySelectorAll('.board__content .module').forEach(setupModuleDrag);
-    document.querySelectorAll('.board__content').forEach(setupBoardDrop);
-
-    /* ---- SORTABLE DRAG & DROP (modal) ---- */
-
-    function clearModalOver() {
-      modalSortable.querySelectorAll('.is-over').forEach(i => i.classList.remove('is-over'));
-    }
-
-    function setupModalDrag(li) {
-      li.addEventListener('dragstart', e => {
-        if (!li.draggable) { e.preventDefault(); return; }
-        modalDragSrc = li;
-        li.classList.add('is-dragging');
-        e.dataTransfer.effectAllowed = 'move';
-      });
-      li.addEventListener('dragend', () => {
-        li.classList.remove('is-dragging');
-        clearModalOver();
-        modalDragSrc = null;
-      });
-      li.addEventListener('dragover', e => {
-        if (!modalDragSrc || modalDragSrc === li) return;
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'move';
-        clearModalOver();
-        li.classList.add('is-over');
-      });
-      li.addEventListener('dragleave', e => {
-        if (!li.contains(e.relatedTarget)) li.classList.remove('is-over');
-      });
-      li.addEventListener('drop', e => {
-        e.preventDefault();
-        clearModalOver();
-        if (!modalDragSrc || modalDragSrc === li) return;
-        const items = [...modalSortable.querySelectorAll('.sortable__item')];
-        const si = items.indexOf(modalDragSrc);
-        const ti = items.indexOf(li);
-        const [moved] = selectedIds.splice(si, 1);
-        selectedIds.splice(ti, 0, moved);
-        if (si < ti) modalSortable.insertBefore(modalDragSrc, li.nextSibling);
-        else modalSortable.insertBefore(modalDragSrc, li);
-      });
-    }
   </script>
+  <script src="../components/dropdown/dropdown.js" defer></script>
+  <script src="../components/tabs/tabs.js" defer></script>
+  <script src="../components/chip-checkbox/chip-checkbox.js" defer></script>
+  <script src="../components/program/program.js" defer></script>
 
 </body>
 </html>

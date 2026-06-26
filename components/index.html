@@ -32,30 +32,23 @@
         <a href="#input-group" class="ds-nav-item">Input Group</a>
         <a href="#checkbox" class="ds-nav-item">Checkbox &amp; Radio</a>
         <a href="#switch" class="ds-nav-item">Switch</a>
-        <a href="#slider" class="ds-nav-item">Slider</a>
+        <a href="#datepicker" class="ds-nav-item">Datepicker</a>
       </div>
       <div class="ds-nav-group">
         <p class="ds-nav-label">Display</p>
         <a href="#badge" class="ds-nav-item">Badge</a>
         <a href="#avatar" class="ds-nav-item">Avatar</a>
-        <a href="#alert" class="ds-nav-item">Alert</a>
-        <a href="#progress" class="ds-nav-item">Progress</a>
-        <a href="#skeleton" class="ds-nav-item">Skeleton</a>
         <a href="#separator" class="ds-nav-item">Separator</a>
       </div>
       <div class="ds-nav-group">
         <p class="ds-nav-label">Layout</p>
         <a href="#header" class="ds-nav-item">Header</a>
-        <a href="#app-bar" class="ds-nav-item">App Bar</a>
         <a href="#card" class="ds-nav-item">Card</a>
         <a href="#table" class="ds-nav-item">Table</a>
-        <a href="#chart" class="ds-nav-item">Chart</a>
       </div>
       <div class="ds-nav-group">
         <p class="ds-nav-label">Navigation</p>
         <a href="#tabs" class="ds-nav-item">Tabs</a>
-        <a href="#accordion" class="ds-nav-item">Accordion</a>
-        <a href="#breadcrumb" class="ds-nav-item">Breadcrumb</a>
         <a href="#pagination" class="ds-nav-item">Pagination</a>
         <a href="#dropdown" class="ds-nav-item">Dropdown</a>
       </div>
@@ -68,14 +61,12 @@
       <div class="ds-nav-group">
         <p class="ds-nav-label">Application</p>
         <a href="#stat" class="ds-nav-item">Stat</a>
-        <a href="#tabs-line" class="ds-nav-item">Tabs Line</a>
         <a href="#banner" class="ds-nav-item">Banner</a>
         <a href="#training-tag" class="ds-nav-item">Training Tag</a>
         <a href="#chip-checkbox" class="ds-nav-item">Chip Checkbox</a>
         <a href="#program" class="ds-nav-item">Program</a>
         <a href="#session-grid" class="ds-nav-item">Session Grid</a>
         <a href="#sortable" class="ds-nav-item">Sortable</a>
-        <a href="#calendar" class="ds-nav-item">Calendar</a>
       </div>
     </nav>
   </aside>
@@ -268,7 +259,7 @@
         <div class="ds-preview">
           <div class="input-group input-group--icon-end" style="width:100%;">
             <input class="input" type="password" id="ig-password" placeholder="Enter password" />
-            <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" id="toggle-password" aria-label="Toggle password visibility">
+            <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" data-password-toggle aria-label="Toggle password visibility">
               <svg id="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
               <svg id="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             </button>
@@ -391,45 +382,20 @@
       </div>
     </section>
 
-    <!-- ======== SLIDER ======== -->
-    <section data-page="slider">
+    <!-- ======== DATEPICKER ======== -->
+    <section data-page="datepicker">
       <div class="ds-page-header">
-        <h1 class="ds-page-title">Slider</h1>
-        <p class="ds-page-desc">Native range input with a dual-tone track. Set <code>--slider-progress</code> via JS to update the fill.</p>
+        <h1 class="ds-page-title">Datepicker</h1>
+        <p class="ds-page-desc">Button trigger opening a floating monthly calendar popup. Singleton popup shared by all instances. Requires <code>data-datepicker</code> and <code>data-datepicker-trigger</code>.</p>
       </div>
       <div class="ds-block">
         <h2 class="ds-block-title">Preview</h2>
         <div class="ds-preview">
-          <div class="field" style="width:100%;">
-            <label class="label">Volume — <span id="slider-preview-value">50</span>%</label>
-            <input type="range" class="slider" id="slider-preview" min="0" max="100" value="50" />
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Variants</h2>
-        <p class="ds-sub-label">Different values</p>
-        <div class="ds-preview ds-preview--stack">
-          <div class="stack" style="gap:1rem;width:100%;">
-            <div class="field">
-              <label class="label">0%</label>
-              <input type="range" class="slider" min="0" max="100" value="0" style="--slider-progress:0%;" />
-            </div>
-            <div class="field">
-              <label class="label">40%</label>
-              <input type="range" class="slider" min="0" max="100" value="40" style="--slider-progress:40%;" />
-            </div>
-            <div class="field">
-              <label class="label">100%</label>
-              <input type="range" class="slider" min="0" max="100" value="100" style="--slider-progress:100%;" />
-            </div>
-          </div>
-        </div>
-        <p class="ds-sub-label">Disabled</p>
-        <div class="ds-preview">
-          <div class="field" style="width:100%;">
-            <label class="label">Volume (disabled)</label>
-            <input type="range" class="slider" min="0" max="100" value="60" style="--slider-progress:60%;" disabled />
+          <div data-datepicker style="width:16rem;">
+            <button class="btn btn--outline btn--full datepicker__trigger" type="button" data-datepicker-trigger>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+              <span class="datepicker__value">Sélectionner une date</span>
+            </button>
           </div>
         </div>
       </div>
@@ -437,13 +403,13 @@
         <h2 class="ds-block-title">Properties</h2>
         <div class="ds-props-wrap">
           <table class="ds-props">
-            <thead><tr><th>Class / Variable</th><th>Type</th><th>Description</th></tr></thead>
+            <thead><tr><th>Class / Attribute</th><th>Type</th><th>Description</th></tr></thead>
             <tbody>
-              <tr><td><code>.slider</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Range input. 0.375rem track height with thumb.</td></tr>
-              <tr><td><code>--slider-progress</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Fill percentage set via JS. E.g. <code>element.style.setProperty('--slider-progress', value + '%')</code>.</td></tr>
-              <tr><td><code>--primary</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Filled track and thumb border color.</td></tr>
-              <tr><td><code>--secondary</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Unfilled track color.</td></tr>
-              <tr><td><code>--background</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Thumb fill color.</td></tr>
+              <tr><td><code>[data-datepicker]</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Root wrapper. JS attaches instance state to <code>el._dp</code>.</td></tr>
+              <tr><td><code>[data-datepicker-trigger]</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Button that opens the popup.</td></tr>
+              <tr><td><code>.datepicker__trigger</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Left-aligned button layout (use with <code>.btn--outline.btn--full</code>).</td></tr>
+              <tr><td><code>.datepicker__value</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Placeholder span. Gets <code>.is-set</code> and the formatted date after selection.</td></tr>
+              <tr><td><code>.datepicker__popup</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Singleton floating panel (appended to <code>&lt;body&gt;</code> or the nearest <code>&lt;dialog&gt;</code>).</td></tr>
             </tbody>
           </table>
         </div>
@@ -538,147 +504,6 @@
               <tr><td><code>--muted</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Background color.</td></tr>
               <tr><td><code>--muted-foreground</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Text color.</td></tr>
               <tr><td><code>--background</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Overlap border color in groups.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======== ALERT ======== -->
-    <section data-page="alert">
-      <div class="ds-page-header">
-        <h1 class="ds-page-title">Alert</h1>
-        <p class="ds-page-desc">Contextual message with icon, title, and description. Default and destructive variants.</p>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Preview</h2>
-        <div class="ds-preview">
-          <div class="alert" style="width:100%;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-            <p class="alert__title">Update available</p>
-            <p class="alert__description">A new version of the design system is ready to install.</p>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Variants</h2>
-        <div class="ds-preview ds-preview--stack">
-          <div class="alert">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-            <p class="alert__title">Update available</p>
-            <p class="alert__description">A new version of the design system is ready to install.</p>
-          </div>
-          <div class="alert alert--success">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <p class="alert__title">Changes saved</p>
-            <p class="alert__description">Your profile has been updated successfully.</p>
-          </div>
-          <div class="alert alert--destructive">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg>
-            <p class="alert__title">Sync failed</p>
-            <p class="alert__description">Check your connection and try syncing again.</p>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Properties</h2>
-        <div class="ds-props-wrap">
-          <table class="ds-props">
-            <thead><tr><th>Class / Variable</th><th>Type</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>.alert</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Grid layout: icon spans 2 rows beside title and description.</td></tr>
-              <tr><td><code>.alert--success</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Green border and text via <code>--success</code>.</td></tr>
-              <tr><td><code>.alert--destructive</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Red border and text via <code>--destructive</code>.</td></tr>
-              <tr><td><code>.alert__title</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Bold 0.875rem heading.</td></tr>
-              <tr><td><code>.alert__description</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Muted body text below title.</td></tr>
-              <tr><td><code>--card</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Alert background.</td></tr>
-              <tr><td><code>--destructive</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Destructive border and text color.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======== PROGRESS ======== -->
-    <section data-page="progress">
-      <div class="ds-page-header">
-        <h1 class="ds-page-title">Progress</h1>
-        <p class="ds-page-desc">Horizontal bar showing task completion. Set fill width via inline style on <code>.progress__bar</code>.</p>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Preview</h2>
-        <div class="ds-preview">
-          <div class="progress" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
-            <div class="progress__bar" style="width:66%;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Variants</h2>
-        <div class="ds-preview ds-preview--stack">
-          <div class="stack" style="gap:1rem;width:100%;">
-            <div>
-              <p class="hint" style="margin-bottom:0.5rem;">25%</p>
-              <div class="progress" role="progressbar" aria-valuenow="25"><div class="progress__bar" style="width:25%;"></div></div>
-            </div>
-            <div>
-              <p class="hint" style="margin-bottom:0.5rem;">66%</p>
-              <div class="progress" role="progressbar" aria-valuenow="66"><div class="progress__bar" style="width:66%;"></div></div>
-            </div>
-            <div>
-              <p class="hint" style="margin-bottom:0.5rem;">100%</p>
-              <div class="progress" role="progressbar" aria-valuenow="100"><div class="progress__bar" style="width:100%;"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Properties</h2>
-        <div class="ds-props-wrap">
-          <table class="ds-props">
-            <thead><tr><th>Class / Variable</th><th>Type</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>.progress</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Track container. Add <code>role="progressbar"</code> and <code>aria-valuenow</code>.</td></tr>
-              <tr><td><code>.progress__bar</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Fill bar. Set <code>style="width: N%"</code> inline.</td></tr>
-              <tr><td><code>--primary</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Bar fill color.</td></tr>
-              <tr><td><code>--secondary</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Track (unfilled) background.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======== SKELETON ======== -->
-    <section data-page="skeleton">
-      <div class="ds-page-header">
-        <h1 class="ds-page-title">Skeleton</h1>
-        <p class="ds-page-desc">Pulsing placeholder for loading states. Size and shape set via inline styles to match content.</p>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Preview</h2>
-        <div class="ds-preview">
-          <div style="width:100%;display:flex;flex-direction:column;gap:0.75rem;">
-            <div style="display:flex;align-items:center;gap:0.75rem;">
-              <div class="skeleton" style="width:2.5rem;height:2.5rem;border-radius:50%;flex-shrink:0;"></div>
-              <div style="flex:1;display:flex;flex-direction:column;gap:0.5rem;">
-                <div class="skeleton" style="height:0.75rem;width:60%;"></div>
-                <div class="skeleton" style="height:0.75rem;width:40%;"></div>
-              </div>
-            </div>
-            <div class="skeleton" style="height:5rem;"></div>
-            <div class="skeleton" style="height:0.75rem;width:90%;"></div>
-            <div class="skeleton" style="height:0.75rem;width:75%;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Properties</h2>
-        <div class="ds-props-wrap">
-          <table class="ds-props">
-            <thead><tr><th>Class / Variable</th><th>Type</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>.skeleton</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Animated pulse placeholder. Set <code>width</code>, <code>height</code>, and <code>border-radius</code> inline to mirror real content.</td></tr>
-              <tr><td><code>--muted</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Skeleton background color.</td></tr>
             </tbody>
           </table>
         </div>
@@ -809,86 +634,6 @@
       </div>
     </section>
 
-    <!-- ======== APP BAR ======== -->
-    <section data-page="app-bar">
-      <div class="ds-page-header">
-        <h1 class="ds-page-title">App Bar</h1>
-        <p class="ds-page-desc">Sub-header bar placed directly below <code>.header</code>, inside <code>.page-app</code>. Used for back navigation, breadcrumbs, and contextual actions.</p>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Preview</h2>
-        <div class="ds-preview ds-preview--stack" style="padding:0;">
-          <div class="page-app__bar" style="position:relative;width:100%;">
-            <div class="page-app__bar-start">
-              <button class="btn btn--ghost btn--sm">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-                Retour
-              </button>
-              <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                  <li><a href="#">Dashboard</a></li>
-                  <li class="breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Patient</li>
-                </ol>
-              </nav>
-            </div>
-            <div class="page-app__bar-end">
-              <button class="btn btn--default btn--sm">Save</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Variants</h2>
-        <p class="ds-sub-label">Back button only</p>
-        <div class="ds-preview ds-preview--stack" style="padding:0;">
-          <div class="page-app__bar" style="position:relative;width:100%;">
-            <div class="page-app__bar-start">
-              <button class="btn btn--ghost btn--sm">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-                Retour
-              </button>
-            </div>
-          </div>
-        </div>
-        <p class="ds-sub-label">Breadcrumb + actions</p>
-        <div class="ds-preview ds-preview--stack" style="padding:0;">
-          <div class="page-app__bar" style="position:relative;width:100%;">
-            <div class="page-app__bar-start">
-              <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                  <li><a href="#">Dashboard</a></li>
-                  <li class="breadcrumb__sep" aria-hidden="true">/</li>
-                  <li><a href="#">Patients</a></li>
-                  <li class="breadcrumb__sep" aria-hidden="true">/</li>
-                  <li aria-current="page">Jean Dupont</li>
-                </ol>
-              </nav>
-            </div>
-            <div class="page-app__bar-end">
-              <button class="btn btn--outline btn--sm">Export</button>
-              <button class="btn btn--default btn--sm">Save</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Properties</h2>
-        <div class="ds-props-wrap">
-          <table class="ds-props">
-            <thead><tr><th>Class / Variable</th><th>Type</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>.page-app__bar</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Full-width bar, height 3.5rem, bottom border, white background.</td></tr>
-              <tr><td><code>.page-app__bar-start</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Left slot — flex, gap 0.5rem, padding 0 0.75rem.</td></tr>
-              <tr><td><code>.page-app__bar-end</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Right slot — flex, gap 0.25rem, padding 0 0.75rem.</td></tr>
-              <tr><td><code>--border</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Bottom border color.</td></tr>
-              <tr><td><code>--background</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Bar background color.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
     <!-- ======== CARD ======== -->
     <section data-page="card">
       <div class="ds-page-header">
@@ -982,52 +727,6 @@
       </div>
     </section>
 
-    <!-- ======== CHART ======== -->
-    <section data-page="chart">
-      <div class="ds-page-header">
-        <h1 class="ds-page-title">Chart</h1>
-        <p class="ds-page-desc">Decorative static bar chart. Uses five chart color variables on a blue scale.</p>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Preview</h2>
-        <div class="ds-preview ds-preview--stack">
-          <div class="minichart" aria-hidden="true">
-            <div class="minichart__bar" style="height:45%;"></div>
-            <div class="minichart__bar" style="height:70%;"></div>
-            <div class="minichart__bar" style="height:55%;"></div>
-            <div class="minichart__bar" style="height:90%;"></div>
-            <div class="minichart__bar" style="height:65%;"></div>
-            <div class="minichart__bar" style="height:80%;"></div>
-            <div class="minichart__bar" style="height:50%;"></div>
-            <div class="minichart__bar" style="height:95%;"></div>
-          </div>
-          <div class="legend">
-            <span><span class="legend__dot" style="background:var(--chart-1);"></span>Sessions</span>
-            <span><span class="legend__dot" style="background:var(--chart-2);"></span>Completed</span>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Properties</h2>
-        <div class="ds-props-wrap">
-          <table class="ds-props">
-            <thead><tr><th>Class / Variable</th><th>Type</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>.minichart</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Flex row, 7rem height, bottom-aligned bars.</td></tr>
-              <tr><td><code>.minichart__bar</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Individual bar. Set <code>height</code> inline as %. Even-indexed bars use <code>--chart-2</code>.</td></tr>
-              <tr><td><code>.legend</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Flex row of legend entries.</td></tr>
-              <tr><td><code>.legend__dot</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Small color swatch. Set <code>background</code> inline to the chart variable.</td></tr>
-              <tr><td><code>--chart-1</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Blue-500 — primary bar.</td></tr>
-              <tr><td><code>--chart-2</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Blue-300 — alternating bar.</td></tr>
-              <tr><td><code>--chart-3</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Blue-700.</td></tr>
-              <tr><td><code>--chart-4</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Blue-200.</td></tr>
-              <tr><td><code>--chart-5</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Blue-900.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
     <!-- ======== TABS ======== -->
     <section data-page="tabs">
       <div class="ds-page-header">
@@ -1068,87 +767,6 @@
               <tr><td><code>[aria-selected="true"]</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Active tab — white background, shadow, foreground text.</td></tr>
               <tr><td><code>--muted</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Tab strip background.</td></tr>
               <tr><td><code>--background</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Active tab background.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======== ACCORDION ======== -->
-    <section data-page="accordion">
-      <div class="ds-page-header">
-        <h1 class="ds-page-title">Accordion</h1>
-        <p class="ds-page-desc">Collapsible content built on the native <code>&lt;details&gt;</code> element. No JavaScript required.</p>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Preview</h2>
-        <div class="ds-preview ds-preview--stack">
-          <div class="accordion">
-            <details class="accordion__item" open>
-              <summary class="accordion__trigger">Is the theme customizable?</summary>
-              <div class="accordion__content">Yes. Replace the variables in <code>:root</code> and <code>.dark</code> in theme.css with the export from your shadcn preset.</div>
-            </details>
-            <details class="accordion__item">
-              <summary class="accordion__trigger">Are the components accessible?</summary>
-              <div class="accordion__content">Components use native elements with appropriate ARIA attributes and visible focus rings.</div>
-            </details>
-            <details class="accordion__item">
-              <summary class="accordion__trigger">Is JavaScript required?</summary>
-              <div class="accordion__content">Only for tabs, dialog, dropdown, and toast. The accordion uses the native <code>&lt;details&gt;</code> element.</div>
-            </details>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Properties</h2>
-        <div class="ds-props-wrap">
-          <table class="ds-props">
-            <thead><tr><th>Class / Variable</th><th>Type</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>.accordion</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Column flex container wrapping all items.</td></tr>
-              <tr><td><code>.accordion__item</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Native <code>&lt;details&gt;</code>. Bottom border separates items.</td></tr>
-              <tr><td><code>.accordion__trigger</code></td><td><span class="ds-type ds-type--part">Part</span></td><td><code>&lt;summary&gt;</code>. Shows a rotating chevron via <code>::after</code>.</td></tr>
-              <tr><td><code>.accordion__content</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Body text, visible when item is open.</td></tr>
-              <tr><td><code>[open]</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Expanded item — chevron rotates 180°.</td></tr>
-              <tr><td><code>--border</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Item separator color.</td></tr>
-              <tr><td><code>--muted-foreground</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Content text and chevron color.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======== BREADCRUMB ======== -->
-    <section data-page="breadcrumb">
-      <div class="ds-page-header">
-        <h1 class="ds-page-title">Breadcrumb</h1>
-        <p class="ds-page-desc">Navigation trail showing the current page location. Uses a native <code>&lt;ol&gt;</code> with <code>aria-current</code>.</p>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Preview</h2>
-        <div class="ds-preview">
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
-              <li class="breadcrumb__sep" aria-hidden="true">/</li>
-              <li><a href="#">Components</a></li>
-              <li class="breadcrumb__sep" aria-hidden="true">/</li>
-              <li aria-current="page">Breadcrumb</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Properties</h2>
-        <div class="ds-props-wrap">
-          <table class="ds-props">
-            <thead><tr><th>Class / Variable</th><th>Type</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>.breadcrumb</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Flex row <code>&lt;ol&gt;</code>, muted text for ancestors.</td></tr>
-              <tr><td><code>.breadcrumb__sep</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Visual separator. Mark <code>aria-hidden="true"</code>.</td></tr>
-              <tr><td><code>[aria-current="page"]</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Current item — foreground color, medium weight.</td></tr>
-              <tr><td><code>--muted-foreground</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Ancestor link and separator color.</td></tr>
-              <tr><td><code>--foreground</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Current page text color.</td></tr>
             </tbody>
           </table>
         </div>
@@ -1527,43 +1145,6 @@
       </div>
     </section>
 
-    <!-- ======== TABS LINE ======== -->
-    <section data-page="tabs-line">
-      <div class="ds-page-header">
-        <h1 class="ds-page-title">Tabs Line</h1>
-        <p class="ds-page-desc">Underline-style tab navigation. Scoped to a <code>[data-tabs]</code> ancestor; triggers and panels share <code>data-value</code>.</p>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Preview</h2>
-        <div class="ds-preview ds-preview--stack" style="padding:1.5rem;align-items:flex-start;">
-          <div data-tabs style="width:100%;display:flex;flex-direction:column;gap:1rem;">
-            <div class="tabs-line" role="tablist">
-              <button class="tabs-line__trigger" role="tab" aria-selected="true" data-value="programme">Programme</button>
-              <button class="tabs-line__trigger" role="tab" aria-selected="false" data-value="seances">Séances</button>
-              <button class="tabs-line__trigger" role="tab" aria-selected="false" data-value="bilan">Bilan</button>
-            </div>
-            <div data-value="programme" class="card" role="tabpanel" style="font-size:0.875rem;color:var(--muted-foreground);">Contenu Programme</div>
-            <div data-value="seances" class="card" role="tabpanel" style="font-size:0.875rem;color:var(--muted-foreground);" hidden>Contenu Séances</div>
-            <div data-value="bilan" class="card" role="tabpanel" style="font-size:0.875rem;color:var(--muted-foreground);" hidden>Contenu Bilan</div>
-          </div>
-        </div>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Properties</h2>
-        <div class="ds-props-wrap">
-          <table class="ds-props">
-            <thead><tr><th>Class / Attribute</th><th>Type</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>[data-tabs]</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Scope container — JS finds triggers and panels within it.</td></tr>
-              <tr><td><code>.tabs-line</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Trigger row container, <code>role="tablist"</code>.</td></tr>
-              <tr><td><code>.tabs-line__trigger</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Individual tab button. Add <code>aria-selected="true"</code> for default active.</td></tr>
-              <tr><td><code>data-value="x"</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Shared key between trigger and panel. JS toggles panels based on this.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
     <!-- ======== BANNER ======== -->
     <section data-page="banner">
       <div class="ds-page-header">
@@ -1616,14 +1197,14 @@
           <span class="training-tag training-tag--larma">Larma</span>
           <span class="training-tag training-tag--graphogame">Graphogame</span>
           <span class="training-tag training-tag--memoson">Memoson</span>
-          <span class="training-tag training-tag--fusSeg">FusSeg</span>
+          <span class="training-tag training-tag--fus-seg">FusSeg</span>
           <span class="training-tag training-tag--phonemix">Phonemix</span>
           <span class="training-tag training-tag--ran">RAN</span>
           <span class="training-tag training-tag--loh">LOH</span>
           <span class="training-tag training-tag--maeva">Maeva</span>
           <span class="training-tag training-tag--switchipido">Switchipido</span>
           <span class="training-tag training-tag--elor">Elor</span>
-          <span class="training-tag training-tag--rechVisuelle">Rech. Visuelle</span>
+          <span class="training-tag training-tag--rech-visuelle">Rech. Visuelle</span>
         </div>
       </div>
       <div class="ds-block">
@@ -1632,14 +1213,14 @@
           <div class="training-icon training-icon--larma" title="Larma">La</div>
           <div class="training-icon training-icon--graphogame" title="Graphogame">Gg</div>
           <div class="training-icon training-icon--memoson" title="Memoson">Ms</div>
-          <div class="training-icon training-icon--fusSeg" title="FusSeg">Fs</div>
+          <div class="training-icon training-icon--fus-seg" title="FusSeg">Fs</div>
           <div class="training-icon training-icon--phonemix" title="Phonemix">Pm</div>
           <div class="training-icon training-icon--ran" title="RAN">Rn</div>
           <div class="training-icon training-icon--loh" title="LOH">Lo</div>
           <div class="training-icon training-icon--maeva" title="Maeva">Ma</div>
           <div class="training-icon training-icon--switchipido" title="Switchipido">Sw</div>
           <div class="training-icon training-icon--elor" title="Elor">El</div>
-          <div class="training-icon training-icon--rechVisuelle" title="Rech. Visuelle">Rv</div>
+          <div class="training-icon training-icon--rech-visuelle" title="Rech. Visuelle">Rv</div>
         </div>
       </div>
       <div class="ds-block">
@@ -1776,32 +1357,6 @@
       </div>
     </section>
 
-    <!-- ======== CALENDAR ======== -->
-    <section data-page="calendar">
-      <div class="ds-page-header">
-        <h1 class="ds-page-title">Calendar</h1>
-        <p class="ds-page-desc">Monthly view calendar grid. Decorative only — no date-picker JS. Cells can carry badges or dots.</p>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Preview</h2>
-        <a href="calendar/calendar.html" class="btn btn--outline btn--sm">Open full preview →</a>
-      </div>
-      <div class="ds-block">
-        <h2 class="ds-block-title">Properties</h2>
-        <div class="ds-props-wrap">
-          <table class="ds-props">
-            <thead><tr><th>Class</th><th>Type</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>.calendar</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Grid container, 7 columns, full width.</td></tr>
-              <tr><td><code>.calendar__head</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Day-of-week header row.</td></tr>
-              <tr><td><code>.calendar__cell</code></td><td><span class="ds-type ds-type--element">Element</span></td><td>Individual day cell. Add <code>.is-today</code> or <code>.is-selected</code>.</td></tr>
-              <tr><td><code>.calendar__cell--outside</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Muted text for days outside the current month.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- Live toaster container -->
@@ -1828,28 +1383,6 @@
       const isDark = document.documentElement.classList.toggle('dark');
       themeToggle.setAttribute('aria-pressed', String(isDark));
       themeToggle.lastChild.textContent = isDark ? ' Light mode' : ' Dark mode';
-    });
-
-    /* ---- SLIDER ---- */
-    const sliderEl  = document.getElementById('slider-preview');
-    const sliderVal = document.getElementById('slider-preview-value');
-    function updateSlider() {
-      sliderEl.style.setProperty('--slider-progress', sliderEl.value + '%');
-      sliderVal.textContent = sliderEl.value;
-    }
-    sliderEl.addEventListener('input', updateSlider);
-    updateSlider();
-
-    /* ---- PASSWORD TOGGLE ---- */
-    const pwToggle = document.getElementById('toggle-password');
-    const pwInput  = document.getElementById('ig-password');
-    const eyeOff   = document.getElementById('icon-eye-off');
-    const eyeOn    = document.getElementById('icon-eye');
-    pwToggle.addEventListener('click', () => {
-      const show = pwInput.type === 'password';
-      pwInput.type         = show ? 'text'     : 'password';
-      eyeOff.style.display = show ? 'none'     : '';
-      eyeOn.style.display  = show ? ''         : 'none';
     });
 
     /* ---- COPY BUTTONS ---- */
@@ -1905,10 +1438,11 @@
 
   <script src="dropdown/dropdown.js" defer></script>
   <script src="tabs/tabs.js" defer></script>
-  <script src="tabs-line/tabs-line.js" defer></script>
+  <script src="form/form.js" defer></script>
   <script src="dialog/dialog.js" defer></script>
   <script src="toast/toast.js" defer></script>
   <script src="chip-checkbox/chip-checkbox.js" defer></script>
+  <script src="datepicker/datepicker.js" defer></script>
 
 </body>
 </html>
