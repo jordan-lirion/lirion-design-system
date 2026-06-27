@@ -130,17 +130,20 @@
 }
 
 .input-group .input,
-.input-group .textarea {
+.input-group .textarea,
+.input-group .select {
   flex: 1;
   min-width: 0;
   border: none;
   border-radius: 0;
 }
 
-.input-group .input { height: 2.25rem; }
+.input-group .input,
+.input-group .select { height: 2.25rem; }
 
 .input-group .input:focus-visible,
-.input-group .textarea:focus-visible {
+.input-group .textarea:focus-visible,
+.input-group .select:focus-visible {
   outline: none;
   box-shadow: none;
 }
@@ -173,8 +176,10 @@
 
 .input-group__icon--btn:hover { color: var(--foreground); }
 
-.input-group--icon-start .input { padding-left:  2.5rem; }
-.input-group--icon-end   .input { padding-right: 2.5rem; }
+.input-group--icon-start .input,
+.input-group--icon-start .select { padding-left:  2.5rem; }
+.input-group--icon-end   .input,
+.input-group--icon-end   .select { padding-right: 2.5rem; }
 
 /* Hide native browser password reveal/clear buttons (Edge, IE) */
 input[type="password"]::-ms-reveal,

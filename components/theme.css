@@ -397,8 +397,9 @@ button { font-family: inherit; }
   gap: 0.75rem;
 }
 
-.filter-row > .input-group { flex: 1; min-width: 0; }
-.filter-row > .select      { width: auto; flex-shrink: 0; }
+.filter-row > .input-group              { flex: 1; min-width: 0; }
+.filter-row > .input-group:has(.select) { flex: 0 0 auto; }
+.filter-row > .select                   { width: auto; flex-shrink: 0; }
 
 .flex-fill { flex: 1; min-width: 0; }
 

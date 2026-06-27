@@ -339,11 +339,11 @@ Password toggle — add `data-password-toggle` to the button. `form.js` handles 
 | `.hint` | Helper text below the field |
 | `.hint--error` | Red hint text (`var(--destructive)`) |
 | `.hint--success` | Green hint text (`var(--success-muted-foreground)`) |
-| `.input-group` | Wrapper for input with icon/button |
+| `.input-group` | Wrapper for input **or select** with icon/button |
 | `.input-group--error` | Red border on the group wrapper |
 | `.input-group--success` | Green border on the group wrapper |
-| `.input-group--icon-start` | Leading icon |
-| `.input-group--icon-end` | Trailing icon/button |
+| `.input-group--icon-start` | Leading icon — works with `.input` and `.select` |
+| `.input-group--icon-end` | Trailing icon/button — works with `.input` and `.select` |
 | `.input-group__icon` | Decorative icon |
 | `.input-group__icon--end` | Positioned on the right |
 | `.input-group__icon--btn` | Clickable icon (`<button>`) |

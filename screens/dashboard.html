@@ -29,7 +29,7 @@
       <div class="page-app__section--muted">
         <div class="section-row">
           <h1>Liste des patients</h1>
-          <button class="btn btn--outline" data-dialog-open="dialog-add-patient">
+          <button class="btn btn--default" data-dialog-open="dialog-add-patient">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
             Ajouter un patient
           </button>
@@ -43,18 +43,16 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             </span>
           </div>
-          <div class="dropdown" data-dropdown>
-            <button class="btn btn--outline" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-filter-icon lucide-list-filter"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
-              Filtrer par praticien
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="dropdown__menu" role="menu">
-              <p class="dropdown__label">Praticien</p>
-              <button class="dropdown__item" role="menuitem">Karine Eskinazi</button>
-              <button class="dropdown__item" role="menuitem">Eugen Gossen</button>
-              <button class="dropdown__item" role="menuitem">Jordan Gerard</button>
-            </div>
+          <div class="input-group input-group--icon-start">
+            <span class="input-group__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
+            </span>
+            <select class="select" id="filter-praticien" aria-label="Filtrer par praticien">
+              <option value="">Tous les praticiens</option>
+              <option>Karine Eskinazi</option>
+              <option>Eugen Gossen</option>
+              <option>Jordan Gerard</option>
+            </select>
           </div>
         </div>
       </div>
@@ -241,7 +239,6 @@
 
   <script src="../components/tooltip/tooltip.js" defer></script>
   <script src="../components/table/table.js" defer></script>
-  <script src="../components/dropdown/dropdown.js" defer></script>
   <script src="../components/dialog/dialog.js" defer></script>
   <script src="../components/toast/toast.js" defer></script>
   <script src="../components/datepicker/datepicker.js" defer></script>
