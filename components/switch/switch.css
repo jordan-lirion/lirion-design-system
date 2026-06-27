@@ -9,7 +9,7 @@
   width: 2.25rem;
   height: 1.25rem;
   border-radius: 9999px;
-  background-color: var(--input);
+  background-color: var(--border);
   border: 1px solid transparent;
   cursor: pointer;
   flex-shrink: 0;

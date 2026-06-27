@@ -11,13 +11,13 @@
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="header__start">
-      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+      <a href="dashboard.html"><img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" /></a>
     </div>
     <div class="header__end">
-      <button class="btn btn--outline btn--sm">
+      <a href="account.html" class="btn btn--outline btn--sm">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Mon compte
-      </button>
+      </a>
     </div>
   </header>
 
@@ -83,7 +83,7 @@
               <td><span class="avatar avatar--sm">ML</span></td>
               <td>--</td>
               <td>--</td>
-              <td class="num"><button class="btn btn--default btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg> Créer une séance</button></td>
+              <td class="num"><button class="btn btn--default btn--icon btn--sm" data-tooltip="Créer une séance"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button></td>
             </tr>
             <tr data-href="patient.html">
               <td><span class="badge badge--default">Nouveau</span></td>
@@ -95,7 +95,7 @@
               <td><span class="avatar avatar--sm">PA</span></td>
               <td>--</td>
               <td>--</td>
-              <td class="num"><button class="btn btn--default btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg> Envoyer une invitation</button></td>
+              <td class="num"><button class="btn btn--default btn--icon btn--sm" data-tooltip="Envoyer une invitation"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg></button></td>
             </tr>
             <tr data-href="patient.html">
               <td><span class="badge badge--secondary">En attente</span></td>
@@ -107,7 +107,7 @@
               <td><span class="avatar avatar--sm">KE</span></td>
               <td>--</td>
               <td>--</td>
-              <td class="num"><button class="btn btn--outline btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg> Renvoyer l’invitation</button></td>
+              <td class="num"><button class="btn btn--outline btn--icon btn--sm" data-tooltip="Renvoyer l’invitation"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg></button></td>
             </tr>
             <tr data-href="patient.html">
               <td><span class="badge badge--secondary">Inactif</span></td>
@@ -119,7 +119,7 @@
               <td><span class="avatar avatar--sm">GI</span></td>
               <td>--</td>
               <td>--</td>
-              <td class="num"><button class="btn btn--outline btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-euro-icon lucide-euro"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg> Renvoyer le paiement</button></td>
+              <td class="num"><button class="btn btn--outline btn--icon btn--sm" data-tooltip="Renvoyer le paiement"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-euro-icon lucide-euro"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg></button></td>
             </tr>
             <tr data-href="patient.html">
               <td>
@@ -163,7 +163,7 @@
               <td>9</td>
               <td><span class="avatar avatar--sm">CA</span></td>
               <td>15 semaines</td>
-              <td>2</td>
+              <td><span class="value-row">2<span class="tooltip-icon tooltip-icon--warning" data-tooltip="&lt; 4 séances/semaine"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span></span></td>
               <td class="num"></td>
             </tr>
             <tr data-href="patient.html">
@@ -175,8 +175,8 @@
               <td>10</td>
               <td><span class="avatar avatar--sm">KE</span></td>
               <td>25 semaines</td>
-              <td>0</td>
-              <td class="num"><button class="btn btn--outline btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-euro-icon lucide-euro"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg> Renvoyer le paiement</button></td>
+              <td><span class="value-row">0<span class="tooltip-icon tooltip-icon--destructive" data-tooltip="0 séance cette semaine"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span></span></td>
+              <td class="num"><button class="btn btn--outline btn--icon btn--sm" data-tooltip="Renvoyer le paiement"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-euro-icon lucide-euro"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg></button></td>
             </tr>
           </tbody>
         </table>
@@ -204,7 +204,7 @@
     <div class="dialog__header">
       <h2 class="dialog__title">Ajouter un patient</h2>
     </div>
-    <div style="display:flex;flex-direction:column;gap:1rem;">
+    <div class="dialog__fields">
       <div class="field">
         <label class="label" for="patient-firstname">Prénom</label>
         <input class="input" type="text" id="patient-firstname" placeholder="Prénom" />
@@ -239,6 +239,7 @@
 
   <div class="toaster" id="toaster" aria-live="polite" aria-atomic="false"></div>
 
+  <script src="../components/tooltip/tooltip.js" defer></script>
   <script src="../components/table/table.js" defer></script>
   <script src="../components/dropdown/dropdown.js" defer></script>
   <script src="../components/dialog/dialog.js" defer></script>

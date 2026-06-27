@@ -10,7 +10,7 @@
 
 1. **Never write a hardcoded color value.** All colors go through CSS custom properties (`var(--...)`). Variables are defined in `components/theme.css`.
 2. **Never create a new component without first verifying it doesn't already exist** in the existing library (see §4).
-3. **Never duplicate CSS.** If a class is reusable, it belongs in `theme.css`. Per-screen CSS files (`screens/auth.css`) only contain overrides specific to that screen.
+3. **Never duplicate CSS.** If a class is reusable, it belongs in `theme.css`. Never add `style="..."` attributes to HTML — every override must become a named CSS class.
 4. **Never invent a class name.** Naming follows the BEM-shadcn convention (see §6).
 5. **Ask for functional requirements before any development.** If the request is vague or incomplete, ask the questions listed in §7 before writing a single line of code.
 
@@ -30,14 +30,14 @@
 │       ├── {component}.css ← component styles
 │       └── {component}.html← standalone preview page
 │
-└── Screens/                ← application screens
-    ├── auth.css            ← shared overrides for auth screens
+└── screens/                ← application screens
     ├── login.html
     ├── firstLogin.html
     ├── password.html
     ├── forgotPassword.html
     ├── dashboard.html
-    └── patient.html        ← patient detail view (Kanban + session grid)
+    ├── patient.html        ← patient detail view (Kanban + session grid)
+    └── account.html        ← user account page
 ```
 
 ### Import rules
@@ -45,7 +45,7 @@
 | File | Imports |
 |------|---------|
 | Application screen | `../components/main.css` |
-| Auth screen | `../components/main.css` + `auth.css` |
+| Auth screen | `../components/main.css` |
 | Component preview page | `../main.css` |
 | index.html (docs SPA) | `main.css` + `docs.css` |
 
@@ -61,38 +61,37 @@ All tokens live in `components/theme.css`, available in light mode (`:root`) and
 
 | Variable | Usage |
 |----------|-------|
-| `--background` | Page background |
+| `--background` | Page background, card / popover / menu surfaces |
 | `--foreground` | Primary text |
-| `--card` | Card / surface background |
-| `--card-foreground` | Text on card |
-| `--popover` | Popover / menu background |
-| `--popover-foreground` | Text on popover |
-| `--primary` | Main accent color (yellow/gold) |
-| `--primary-foreground` | Text on `--primary` background |
-| `--secondary` | Secondary surface (light grey) |
-| `--secondary-foreground` | Text on secondary background |
-| `--muted` | Muted surface (same value as secondary) |
+| `--muted` | Quiet surface — page bg, hover states, secondary button |
 | `--muted-foreground` | Supporting text / placeholder |
-| `--accent` | Light accent surface (hover, active states) |
-| `--accent-foreground` | Text on accent background |
-| `--destructive` | Error / delete red |
-| `--destructive-foreground` | Text on destructive background |
-| `--border` | Border color |
-| `--input` | Input field border color |
+| `--primary` | Lirion yellow/gold |
+| `--primary-foreground` | Text on `--primary` background |
+| `--border` | Border color (also used for input field borders) |
 | `--ring` | Focus ring color |
 
-### 2.2 Semantic colors (tinted surfaces)
+### 2.2 Semantic surfaces
 
-| Variable | Usage |
-|----------|-------|
-| `--success` | Light green background (success) |
-| `--success-foreground` | Text on success background |
-| `--warning` | Light amber background (warning) |
-| `--warning-foreground` | Text on warning background |
-| `--destructive-surface` | Light red background (surface error) |
-| `--destructive-surface-foreground` | Text on destructive-surface |
-| `--badge-default` | "New" badge background (light amber) |
-| `--badge-default-foreground` | Default badge text |
+All semantic colors follow the same **4-variable pattern**: solid pair (for buttons) + muted pair (for surface chips: badges, banners, dots). This makes the system fully consistent across brand, success, warning, and destructive.
+
+| Variable | Value | Usage |
+|----------|-------|-------|
+| `--brand` | amber-500 | Solid button background |
+| `--brand-foreground` | dark | Text on solid brand button |
+| `--brand-muted` | amber-100 | Surface chip background (badge--default, banner--brand, chip-checkbox, session-dot--test) |
+| `--brand-muted-foreground` | amber-700 | Text / icon on brand surface |
+| `--success` | green-600 | Solid button background |
+| `--success-foreground` | white | Text on solid success button |
+| `--success-muted` | green-100 | Surface chip background (badge, banner, session dot) |
+| `--success-muted-foreground` | green-700 | Text / icon on success surface |
+| `--warning` | orange-600 | Solid button background |
+| `--warning-foreground` | white | Text on solid warning button |
+| `--warning-muted` | orange-100 | Surface chip background (badge--warning, toast icon) |
+| `--warning-muted-foreground` | orange-700 | Text / icon on warning surface |
+| `--destructive` | red-600 | Solid button background |
+| `--destructive-foreground` | white | Text on solid destructive button |
+| `--destructive-muted` | red-100 | Surface chip background (badge--destructive, session dot--partial) |
+| `--destructive-muted-foreground` | red-700 | Text / icon on destructive surface |
 
 ### 2.3 States
 
@@ -122,9 +121,9 @@ All tokens live in `components/theme.css`, available in light mode (`:root`) and
 |----------|---------------|
 | `--header` | `3.375rem` — fixed header height |
 
-### 2.6 Data/accent colors
+### 2.6 Data visualization colors
 
-`--chart-1` (blue-500) · `--chart-2` (blue-300) · `--chart-3` (blue-700) · `--chart-4` (blue-200) · `--chart-5` (blue-900). The chart component is removed; these tokens remain and are used by toasts and avatar previews.
+`--chart-1` (blue-500) · `--chart-2` (blue-300) · `--chart-3` (blue-700) · `--chart-4` (blue-200) · `--chart-5` (blue-900). Used by toasts and avatar previews.
 
 ### 2.7 Training colors
 
@@ -140,7 +139,7 @@ These classes are global and reusable across all screens.
 
 ### Centered pages (auth, onboarding)
 
-Auth pages now use the standard app header (no "Mon compte" button) combined with `.page-centered`. The `auth.css` file overrides `padding-top` to account for the fixed header.
+Auth pages use the standard app header (no "Mon compte" button) combined with `.page-centered`. The `padding-top: calc(var(--header) + 1.5rem)` is baked directly into `.page-centered` in `theme.css` — no extra CSS file needed.
 
 ```html
 <body class="bg-muted">
@@ -170,11 +169,9 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 | Class | Description |
 |-------|-------------|
 | `.bg-muted` | `background-color: var(--muted)` on `<body>` |
-| `.page-centered` | Flex column, vertically centered, `min-height: 100vh` |
+| `.page-centered` | Flex column, vertically centered, `min-height: 100vh`, `padding-top: calc(var(--header) + 1.5rem)` |
 | `.auth-stack` | Flex column `max-width: 28rem`, `align-items: flex-start` — stacks back button above card |
 | `.auth-card` | `width: 100%`, `max-width: 28rem`, `padding: 3rem` |
-
-> **Note:** `auth.css` overrides `.page-centered { padding-top: calc(var(--header) + 1.5rem) }` to push content below the fixed header. It also hides the native browser password reveal button via `input[type="password"]::-ms-reveal`.
 
 ### Application pages (with header)
 
@@ -202,6 +199,9 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 | `.page-app__section--bg` | Section `max-width: 64rem`, white background, `border-radius-xl` |
 | `.page-app__section--sm` | Fixed height `6rem` |
 | `.page-app__section--fill` | Fills remaining vertical space |
+| `.page-app__section--pt-sm` | Adds `padding-top: 0.5rem` — combine with `--muted` or `--bg` |
+| `.page-app__section--pt-md` | Adds `padding-top: 1.5rem` |
+| `.page-app__section--pt-xl` | Adds `padding-top: 5rem` |
 
 ### Composition helpers
 
@@ -210,13 +210,19 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 | `.section-row` | Flex, `space-between`, gap `1rem` — section title + action button |
 | `.filter-row` | Flex, gap `0.75rem` — filter toolbar (input + selects) |
 | `.row` | Flex wrap, centered, gap `0.75rem` |
+| `.row--sm` | Flex, gap `0.5rem` (compact row) |
 | `.stack` | Flex column, gap `0.75rem` |
+| `.stack--sm` | Flex column, gap `0.5rem` (compact stack) |
+| `.value-row` | `display: inline-flex; align-items: center; gap: 0.375rem` — number + icon pairs |
 | `.flex-center` | `display:flex; justify-content:center` |
 | `.text-muted` | Supporting text (muted color, `0.8125rem`) |
 | `.field-row` | Flex `space-between` for label + link (e.g. "Forgot password") |
 | `.link` | Underlined text link |
 | `.link--sm` | Small size variant |
 | `.flex-fill` | `flex: 1; min-width: 0` — fills available space, safe with overflow |
+| `.mb-sm` | `margin-bottom: 0.5rem` |
+| `.relative` | `position: relative` — wrapper for absolutely-positioned children |
+| `.is-hidden` | `display: none` — use `classList.toggle('is-hidden', bool)` from JS instead of `style.display` |
 
 ---
 
@@ -238,8 +244,9 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 | Modifier | Description |
 |----------|-------------|
 | `btn--default` | Primary background (yellow), dark text |
-| `btn--secondary` | Light grey background |
-| `btn--destructive` | Red |
+| `btn--secondary` | Light grey background (`--muted`) |
+| `btn--success` | Solid green (`--success`), white text — same style as `btn--destructive` |
+| `btn--destructive` | Solid red (`--destructive`), white text |
 | `btn--outline` | Border, transparent background |
 | `btn--dash` | Dashed border, transparent background (same hover as `btn--outline`) |
 | `btn--ghost` | Transparent, no border |
@@ -250,6 +257,8 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 | `btn--full` | `width: 100%` |
 | `btn--start` | `justify-content: flex-start` — left-aligns content inside a full-width button |
 
+> **`<a>` as button:** `.btn` includes `text-decoration: none`, so `<a class="btn btn--outline ...">` renders identically to `<button>`. Use `<a>` when the action is navigation, `<button>` otherwise.
+
 ### Badge — `.badge`
 
 ```html
@@ -258,12 +267,12 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 
 | Modifier | Usage |
 |----------|-------|
-| `badge--default` | Amber (new, highlight) |
-| `badge--secondary` | Neutral grey |
+| `badge--default` | Amber brand surface (`--brand`) |
+| `badge--secondary` | Neutral grey (`--muted`) |
 | `badge--outline` | Border only |
-| `badge--success` | Green |
-| `badge--warning` | Dark amber |
-| `badge--destructive` | Red |
+| `badge--success` | Light green surface (`--success-muted`) |
+| `badge--warning` | Orange surface (`--warning`) |
+| `badge--destructive` | Light red surface (`--destructive-muted`) |
 
 ### Card — `.card`
 
@@ -299,7 +308,7 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
   <input class="input" type="password" id="pwd" />
   <button class="input-group__icon input-group__icon--end input-group__icon--btn" data-password-toggle>
     <svg .../>  <!-- eye-off, visible by default -->
-    <svg ... style="display:none" />  <!-- eye, shown when password is visible -->
+    <svg class="is-hidden" .../>  <!-- eye, shown when password is visible -->
   </button>
 </div>
 
@@ -312,7 +321,7 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 <textarea class="textarea"></textarea>
 ```
 
-Password toggle — add `data-password-toggle` to the button. `form.js` handles it via event delegation: walks up to `.input-group`, queries the `input` and both `svg` children, toggles `type` and `style.display`.
+Password toggle — add `data-password-toggle` to the button. `form.js` handles it via event delegation: walks up to `.input-group`, queries the `input` and both `svg` children, toggles `type` and `is-hidden` class via `classList.toggle`.
 
 **Required JS:** `<script src="../components/form/form.js" defer></script>`
 
@@ -321,10 +330,18 @@ Password toggle — add `data-password-toggle` to the button. `form.js` handles 
 | `.field` | Field wrapper (stacks label + input + hint) |
 | `.label` | Styled `<label>` |
 | `.input` | Text, email, password, search input |
+| `.input--error` | Red border — invalid field |
+| `.input--success` | Green border — valid field |
 | `.textarea` | Multi-line text area |
+| `.textarea--error` / `.textarea--success` | Same border states as `.input` |
 | `.select` | Styled native select |
+| `.select--error` / `.select--success` | Same border states as `.input` |
 | `.hint` | Helper text below the field |
+| `.hint--error` | Red hint text (`var(--destructive)`) |
+| `.hint--success` | Green hint text (`var(--success-muted-foreground)`) |
 | `.input-group` | Wrapper for input with icon/button |
+| `.input-group--error` | Red border on the group wrapper |
+| `.input-group--success` | Green border on the group wrapper |
 | `.input-group--icon-start` | Leading icon |
 | `.input-group--icon-end` | Trailing icon/button |
 | `.input-group__icon` | Decorative icon |
@@ -432,7 +449,11 @@ Segmented pill style — tabs inside a muted container.
 </button>
 ```
 
-Pure CSS tooltip via the `data-tooltip` attribute. No JavaScript required.
+CSS tooltip via the `data-tooltip` attribute — `::after` pseudo-element, no JS required.
+
+> **Overflow clipping:** If the element with `data-tooltip` is inside a container with `overflow: auto/hidden` (e.g. `.table-wrapper`), the CSS `::after` tooltip will be clipped. Load `tooltip.js` to activate a `position:fixed` JS tooltip instead. When `tooltip.js` is present it adds `js-tooltips` to `<html>`, which disables the CSS pseudo-element via `:not(.js-tooltips) [data-tooltip]::after`.
+
+**Optional JS (for overflow containers):** `<script src="../components/tooltip/tooltip.js" defer></script>`
 
 #### Tooltip icon — `.tooltip-icon`
 
@@ -484,7 +505,7 @@ Use `dropdown__menu--end` to right-align the menu.
     <h2 class="dialog__title">Title</h2>
     <p class="dialog__description">Description</p>
   </div>
-  <div><!-- content --></div>
+  <div class="dialog__fields"><!-- stacked fields --></div>
   <div class="dialog__footer">
     <button class="btn btn--secondary" data-dialog-close>Annuler</button>
     <button class="btn btn--default" id="btn-confirm">Confirmer</button>
@@ -494,7 +515,26 @@ Use `dropdown__menu--end` to right-align the menu.
 <button data-dialog-open="my-dialog">Open</button>
 ```
 
-Use `dialog--lg` for a wider dialog.
+Use `dialog--lg` for a wider dialog. Use `dialog__header--row` on the header when the title and a close/action button sit side by side:
+
+```html
+<div class="dialog__header dialog__header--row">
+  <h2 class="dialog__title">Title</h2>
+  <button class="btn btn--ghost btn--icon btn--sm" data-dialog-close aria-label="Fermer">...</button>
+</div>
+```
+
+Use `dialog__separator` for a visual divider between sections:
+
+```html
+<hr class="dialog__separator" />
+```
+
+| Extra class | Description |
+|-------------|-------------|
+| `.dialog__header--row` | Header as a flex row (`space-between`) — title + button on the same line |
+| `.dialog__fields` | `display: flex; flex-direction: column; gap: 1rem` — stacks form fields |
+| `.dialog__separator` | Borderless `<hr>` with a top border, no margin on sides |
 
 **Required JS:** `<script src="../components/dialog/dialog.js" defer></script>`
 
@@ -569,21 +609,33 @@ Variants: `toast--default` · `toast--success` · `toast--warning` · `toast--er
 
 ### Header — `.header`
 
+**Application pages** (`dashboard.html`, `patient.html`, `account.html`) — logo links to dashboard, "Mon compte" links to account:
+
 ```html
 <header class="header">
   <div class="header__start">
-    <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
-    <nav class="header__nav">
-      <a href="..." class="header__nav-link is-active">Patients</a>
-    </nav>
+    <a href="dashboard.html">
+      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+    </a>
   </div>
   <div class="header__end">
-    <button class="btn btn--outline btn--sm">Mon Compte</button>
+    <a href="account.html" class="btn btn--outline btn--sm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Mon compte
+    </a>
   </div>
 </header>
 ```
 
-> Auth pages use the header **without** the "Mon Compte" button (only `header__start` with the logo).
+**Auth pages** (`login.html`, `forgotPassword.html`, etc.) — logo only, no link, no "Mon compte" button:
+
+```html
+<header class="header">
+  <div class="header__start">
+    <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+  </div>
+</header>
+```
 
 ### Stat — `.stat`
 
@@ -635,11 +687,12 @@ Drag-and-drop reorderable list. Items with `draggable="true"` can be reordered; 
 </ul>
 ```
 
-Use `sortable__item--sm` for compact items (e.g. inside a modal).
+Use `sortable__item--sm` for compact items (e.g. inside a modal). Use `sortable--modal` when the list is inside a dialog (removes top margin and collapses min-height).
 
 | Class | Description |
 |-------|-------------|
 | `.sortable` | List container (`flex-column`, `gap: 0.5rem`) |
+| `.sortable--modal` | Variant for use inside a dialog (`margin-top: 0.75rem`, `min-height: 0`) |
 | `.sortable__item` | Row with card styling |
 | `.sortable__item--sm` | Compact padding variant |
 | `.sortable__handle` | Grip icon button (sets `cursor: grab`) |
@@ -663,10 +716,26 @@ Full-width contextual strip. Add `banner--sticky` to pin it below the fixed head
 
 | Modifier | Description |
 |----------|-------------|
-| `banner--success` | `--success` / `--success-foreground` |
-| `banner--warning` | `--warning` / `--warning-foreground` |
-| `banner--info` | `--muted` / `--muted-foreground` |
+| `banner--success` | Light green surface (`--success-muted` / `--success-muted-foreground`) |
+| `banner--brand` | Amber brand surface (`--brand` / `--brand-foreground`), bouton `btn--default` |
+| `banner--info` | Muted grey surface (`--muted` / `--muted-foreground`), bouton `btn--outline` |
+| `banner--destructive` | Red surface (`--destructive-muted` / `--destructive-muted-foreground`) |
 | `banner--sticky` | `position: sticky; top: var(--header); z-index: 90` |
+
+> SVG icons inside `.banner` are automatically capped at `1rem × 1rem` by the component CSS — no need for size classes or inline styles.
+
+Pour une banner avec un bouton d'action, ajouter un `<button class="btn btn--{variant} btn--sm">` directement dans le texte — le gap est géré par le composant.
+
+```html
+<div class="banner banner--success">
+  Programme enregistré.
+  <button class="btn btn--success btn--sm">Voir</button>
+</div>
+<div class="banner banner--brand">
+  Nouveautés disponibles.
+  <button class="btn btn--default btn--sm">Découvrir</button>
+</div>
+```
 
 ### Training Tag — `.training-tag`
 
@@ -786,6 +855,7 @@ Used in `Screens/patient.html` for the therapeutic project view.
 | `.session-dot--test` | Yellow — level test (tooltip: "Test de niveau") |
 | `.session-dot--todo` | Dashed grey — placeholder; click opens dropdown to convert to `--test` |
 | `[data-todo-wrapper]` | Grid cell wrapper for `--todo` dots (sets `min-width:0; width:100%`) |
+| `.training-dropdown` | `position:fixed` floating list used by the add-module search — appended to `<body>` and positioned via `getBoundingClientRect()` to escape `.boards` overflow clipping |
 
 **CSS-only tooltips** on `--success`, `--partial`, `--pending`, `--test` use `::after` pseudo-elements with `content: "..."`. No `data-tooltip` attribute needed on session dots.
 
@@ -804,6 +874,59 @@ Used in `Screens/patient.html` for the therapeutic project view.
 ```
 
 If `window._PROGRAM_CATALOG` is not set, `program.js` falls back to an empty array.
+
+### Item — `.item`
+
+Action row component — navigable list item with optional icon, a title, an optional description, and a right-pointing arrow. Same border/color/font as `btn--outline`. Use `<a>` for navigation, `<button>` for in-page actions.
+
+```html
+<!-- Title only -->
+<a href="#" class="item">
+  <div class="item__content">
+    <div class="item__title">Mon profil</div>
+  </div>
+  <div class="item__actions">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </div>
+</a>
+
+<!-- With icon + description -->
+<a href="#" class="item">
+  <div class="item__media">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+  </div>
+  <div class="item__content">
+    <div class="item__title">Mon profil</div>
+    <div class="item__description">Nom, prénom, email et photo</div>
+  </div>
+  <div class="item__actions">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </div>
+</a>
+
+<!-- Non-clickable (informational only) — use <div>, omit item__actions -->
+<div class="item item--static">
+  <div class="item__media"><svg .../></div>
+  <div class="item__content">
+    <div class="item__title">Version</div>
+    <div class="item__description">1.0.0</div>
+  </div>
+</div>
+```
+
+| Slot | Required | Description |
+|------|----------|-------------|
+| `.item__media` | No | Left icon (`1.125rem` SVG) — auto-aligns to top when description is present |
+| `.item__content` | Yes | Flex column wrapping title + description |
+| `.item__title` | Yes | Primary label |
+| `.item__description` | No | Supporting muted text (`0.8125rem`) |
+| `.item__actions` | No | Right side — chevron-right icon; omit for static items |
+
+| Modifier | Description |
+|----------|-------------|
+| `.item--static` | Non-clickable variant — `cursor: default`, no hover background |
+
+> Stack multiple `.item` elements in a `.stack` (gap `0.75rem`) or a `flex-direction:column` container.
 
 ### Session Grid — `.session-grid`
 
@@ -855,7 +978,7 @@ Weekly session calendar for the "Calendrier des séances" tab.
 - [ ] Identify the page type: **centered** (auth) or **application** (with header)?
 - [ ] List required components — do all of them exist in the library?
 - [ ] Check whether a new component is needed → follow §7 before continuing
-- [ ] Decide which CSS to import: `main.css` alone, or `main.css` + `auth.css`?
+- [ ] All screens import only `main.css` — no per-screen CSS files
 
 ### 5.2 Minimal structure — centered page (auth)
 
@@ -867,7 +990,6 @@ Weekly session calendar for the "Calendrier des séances" tab.
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Title</title>
   <link rel="stylesheet" href="../components/main.css" />
-  <link rel="stylesheet" href="auth.css" />
 </head>
 <body class="bg-muted">
 
@@ -918,10 +1040,15 @@ For pages with a back button, replace `<div class="card auth-card">` with:
 <body>
   <header class="header">
     <div class="header__start">
-      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+      <a href="dashboard.html">
+        <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+      </a>
     </div>
     <div class="header__end">
-      <button class="btn btn--outline btn--sm">Mon Compte</button>
+      <a href="account.html" class="btn btn--outline btn--sm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Mon compte
+      </a>
     </div>
   </header>
 
@@ -1045,11 +1172,16 @@ box-shadow: var(--shadow-sm);
 ```
 
 ```js
-/* ❌ Using HTML `hidden` attribute to toggle visibility — can be overridden by CSS display rules */
-eyeOff.hidden = true;
-
-/* ✅ Use style.display which cannot be overridden */
+/* ❌ Inline style for visibility — bypasses the CSS system, leaves style attributes in the DOM */
 eyeOff.style.display = 'none';
+eyeOn.style.display = '';
+
+/* ✅ Use the .is-hidden utility class — clean DOM, CSS-controlled */
+eyeOff.classList.toggle('is-hidden', true);
+eyeOn.classList.toggle('is-hidden', false);
+// or the concise form:
+eyeOff.classList.toggle('is-hidden', isVisible);
+eyeOn.classList.toggle('is-hidden', !isVisible);
 ```
 
 ```js
@@ -1066,24 +1198,34 @@ const dlg = trigger.closest('dialog');
 ## 9 · Quick Reference — Most Used Classes
 
 ```
-Buttons      : btn btn--default | btn--secondary | btn--outline | btn--dash | btn--ghost | btn--sm | btn--icon | btn--full | btn--start
-Badges       : badge badge--success | badge--warning | badge--destructive | badge--default | badge--secondary
-Forms        : field > label + input/select/textarea + hint
-               input-group input-group--icon-start | --icon-end
-               [data-password-toggle] on toggle button → handled by form.js
+Buttons      : btn btn--default | btn--secondary | btn--success | btn--destructive | btn--outline | btn--dash | btn--ghost | btn--sm | btn--icon | btn--full | btn--start
+               <a class="btn ..."> works natively (text-decoration:none in base)
+Badges       : badge badge--default(amber) | badge--success(green) | badge--warning(orange) | badge--destructive(red) | badge--secondary(grey) | badge--outline
+Forms        : field > label + input/select/textarea + hint | hint--error | hint--success
+               input--error | input--success | textarea--error/success | select--error/success
+               input-group input-group--icon-start | --icon-end | --error | --success
+               [data-password-toggle] on toggle button → handled by form.js (uses classList.toggle('is-hidden'))
 Cards        : card > card__header > card__title + card__description
+Item         : item > item__media? + item__content > item__title + item__description? + item__actions?
+               item--static for non-clickable display rows (no chevron, no hover)
+Banners      : banner--success | --brand | --info | --destructive | --sticky
+               SVGs auto-sized to 1rem by component CSS
 App layout   : page-app > page-app__content > page-app__section--muted | --bg
-Auth layout  : page-centered + header (logo only) + auth-card | auth-stack
-Helpers      : section-row | filter-row | flex-center | flex-fill | text-muted | bg-muted | row | stack
+               add --pt-sm | --pt-md | --pt-xl for padding-top overrides
+Auth layout  : page-centered + header (logo only, no link) + auth-card | auth-stack
+               padding-top baked into .page-centered — no extra CSS file needed
+Helpers      : section-row | filter-row | flex-center | flex-fill | text-muted | bg-muted
+               row | row--sm | stack | stack--sm | value-row | mb-sm | relative | is-hidden
 Tabs         : tabs__list + tabs__trigger (pill)  [data-tabs] [data-value]
 Table        : table > thead > th > table__sort-btn[data-sort] + table__sort-icon
 Datepicker   : [data-datepicker] > [data-datepicker-trigger] + .datepicker__value
+Dialog       : dialog__header | dialog__header--row | dialog__title | dialog__fields | dialog__separator | dialog__footer
 Kanban       : boards > board > board__content > module > module__dots > session-dot--{state}
 Calendar     : session-grid > session-grid__row > session-cell > session-module-bar
 Training     : training-tag--{type} | training-icon--{type} | training-icon--sm
-JS states    : is-active (tabs, nav) | is-open (dropdown) | is-dragging | is-over | is-set (datepicker)
+JS states    : is-active (tabs, nav) | is-open (dropdown) | is-dragging | is-over | is-set (datepicker) | is-hidden (JS toggle)
 ```
 
 ---
 
-*Last updated: June 2026 — 25 components, 6 screens*
+*Last updated: June 2026 — 27 components, 7 screens*

@@ -1,76 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 /* ==========================================================================
-   THEME — shadcn/ui static edition
-   --------------------------------------------------------------------------
-   To apply your preset from https://ui.shadcn.com/create:
-   replace the :root and .dark blocks below with the CSS export of your preset.
-   All components exclusively consume these variables.
+   THEME
    ========================================================================== */
 
 :root {
   --radius: 0.625rem;
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.852 0.199 91.936);
-  --primary-foreground: oklch(0.286 0.066 53.813);
-  /* secondary / muted / accent share the same value intentionally — each has a distinct
-     semantic role (interactive surface / quiet background / highlight) and must remain
-     independently overridable when switching to a custom shadcn preset. */
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  /* ── Backgrounds ──────────────────────────────────────────────────────── */
+  --background:             oklch(1 0 0);
+  --muted:                  oklch(0.97 0 0);
 
-  /* Semantic colors — tinted surfaces */
-  --success:                        oklch(0.962 0.063 149.558); /* green-100  */
-  --success-foreground:             oklch(0.548 0.166 150.069); /* green-700  */
-  --warning:                        oklch(0.962 0.059 95.617);  /* amber-100  */
-  --warning-foreground:             oklch(0.555 0.163 48.998);  /* amber-700  */
-  --destructive-surface:            oklch(0.936 0.032 17.717);  /* red-100    */
-  --destructive-surface-foreground: oklch(0.505 0.213 27.518);  /* red-700    */
-  --badge-default:                  oklch(0.962 0.059 95.617);  /* amber-100  */
-  --badge-default-foreground:       oklch(0.666 0.179 58.318);  /* amber-600  */
+  /* ── Foregrounds ──────────────────────────────────────────────────────── */
+  --foreground:             oklch(0.145 0 0);
+  --muted-foreground:       oklch(0.556 0 0);
 
-  /* State */
+  /* ── Primary (Lirion yellow) ──────────────────────────────────────────── */
+  --primary:                oklch(0.852 0.199 91.936);
+  --primary-foreground:     oklch(0.286 0.066 53.813);
+
+  /* ── Border / Focus ───────────────────────────────────────────────────── */
+  --border:                 oklch(0.922 0 0);
+  --ring:                   oklch(0.708 0 0);
+
+  /* ── Semantic surfaces ────────────────────────────────────────────────── */
+  --brand:                      oklch(0.769 0.188 70.080);  /* amber-500 */
+  --brand-foreground:           oklch(0.145 0 0);           /* dark text on amber */
+  --brand-muted:                oklch(0.962 0.059 95.617);  /* amber-100 */
+  --brand-muted-foreground:     oklch(0.555 0.163 48.998);  /* amber-700 */
+
+  --success:                    oklch(0.627 0.194 149.558); /* green-600 */
+  --success-foreground:         oklch(0.985 0 0);
+  --success-muted:              oklch(0.962 0.063 149.558); /* green-100 */
+  --success-muted-foreground:   oklch(0.548 0.166 150.069); /* green-700 */
+
+  --warning:                    oklch(0.646 0.222 41.116);  /* orange-600 */
+  --warning-foreground:         oklch(0.985 0 0);           /* white on orange */
+  --warning-muted:              oklch(0.954 0.038 75.164);  /* orange-100 */
+  --warning-muted-foreground:   oklch(0.553 0.195 38.402);  /* orange-700 */
+
+  --destructive:                oklch(0.577 0.245 27.325);  /* red-600   */
+  --destructive-foreground:     oklch(0.985 0 0);
+  --destructive-muted:          oklch(0.936 0.032 17.717);  /* red-100   */
+  --destructive-muted-foreground: oklch(0.505 0.213 27.518); /* red-700  */
+
+  /* ── States ───────────────────────────────────────────────────────────── */
   --disabled-bg: oklch(0.985 0 0);
   --disabled-fg: oklch(0.87 0 0);
   --overlay:     oklch(0 0 0 / 0.5);
 
+  /* ── Data visualization ───────────────────────────────────────────────── */
   --chart-1: oklch(0.623 0.214 259.815); /* blue-500 */
   --chart-2: oklch(0.809 0.105 251.813); /* blue-300 */
   --chart-3: oklch(0.488 0.243 264.376); /* blue-700 */
   --chart-4: oklch(0.882 0.059 254.128); /* blue-200 */
   --chart-5: oklch(0.379 0.146 265.522); /* blue-900 */
 
+  /* ── Typography ───────────────────────────────────────────────────────── */
   --font-sans: "Lexend", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
+  /* ── Radii ────────────────────────────────────────────────────────────── */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
+  /* ── Shadows ──────────────────────────────────────────────────────────── */
   --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.08), 0 2px 4px -2px oklch(0 0 0 / 0.08);
   --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
 
-  /* Application layout */
+  /* ── Application layout ───────────────────────────────────────────────── */
   --header: 3.375rem;
 
-  /* Training colors */
+  /* ── Training colors ──────────────────────────────────────────────────── */
   --training-larma-100: oklch(0.782 0.133 42.140);
   --training-larma-200: oklch(0.727 0.176 41.204);
   --training-larma-300: oklch(0.683 0.165 41.206);
@@ -117,41 +121,49 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  /* ── Backgrounds ──────────────────────────────────────────────────────── */
+  --background:             oklch(0.145 0 0);
+  --muted:                  oklch(0.269 0 0);
 
-  /* Semantic colors — tinted surfaces (dark) */
-  --success:                        oklch(0.205 0.056 151);   /* dark green surface */
-  --success-foreground:             oklch(0.74 0.155 150);    /* bright green text */
-  --warning:                        oklch(0.205 0.05 90);     /* dark amber surface */
-  --warning-foreground:             oklch(0.83 0.14 85);      /* bright amber text */
-  --destructive-surface:            oklch(0.205 0.035 17);    /* dark red surface */
-  --destructive-surface-foreground: oklch(0.77 0.17 22);      /* bright red text */
-  --badge-default:                  oklch(0.205 0.05 90);     /* same as warning surface */
-  --badge-default-foreground:       oklch(0.83 0.14 58);      /* bright amber text */
-  --overlay:                        oklch(0 0 0 / 0.7);
+  /* ── Foregrounds ──────────────────────────────────────────────────────── */
+  --foreground:             oklch(0.985 0 0);
+  --muted-foreground:       oklch(0.708 0 0);
 
-  /* State */
+  /* ── Primary ──────────────────────────────────────────────────────────── */
+  --primary:                oklch(0.922 0 0);
+  --primary-foreground:     oklch(0.205 0 0);
+
+  /* ── Border / Focus ───────────────────────────────────────────────────── */
+  --border:                 oklch(1 0 0 / 10%);
+  --ring:                   oklch(0.556 0 0);
+
+  /* ── Semantic surfaces ────────────────────────────────────────────────── */
+  --brand:                      oklch(0.700 0.175 72);    /* vivid amber */
+  --brand-foreground:           oklch(0.985 0 0);         /* white on dark amber */
+  --brand-muted:                oklch(0.205 0.05 90);     /* dark amber surface */
+  --brand-muted-foreground:     oklch(0.83 0.14 85);      /* bright amber text  */
+
+  --success:                    oklch(0.696 0.17 151);    /* vivid green */
+  --success-foreground:         oklch(0.985 0 0);
+  --success-muted:              oklch(0.205 0.056 151);   /* dark green surface */
+  --success-muted-foreground:   oklch(0.74 0.155 150);    /* bright green text  */
+
+  --warning:                    oklch(0.700 0.200 47);    /* vivid orange */
+  --warning-foreground:         oklch(0.985 0 0);         /* white on dark orange */
+  --warning-muted:              oklch(0.205 0.04 47);     /* dark orange surface */
+  --warning-muted-foreground:   oklch(0.78 0.16 47);      /* bright orange text  */
+
+  --destructive:                oklch(0.704 0.191 22.216);
+  --destructive-foreground:     oklch(0.985 0 0);
+  --destructive-muted:          oklch(0.205 0.035 17);   /* dark red surface   */
+  --destructive-muted-foreground: oklch(0.77 0.17 22);   /* bright red text    */
+
+  /* ── States ───────────────────────────────────────────────────────────── */
   --disabled-bg: oklch(0.205 0 0);
   --disabled-fg: oklch(0.439 0 0);
+  --overlay:     oklch(0 0 0 / 0.7);
 
+  /* ── Data visualization ───────────────────────────────────────────────── */
   --chart-1: oklch(0.707 0.165 254.624); /* blue-400 */
   --chart-2: oklch(0.882 0.059 254.128); /* blue-200 */
   --chart-3: oklch(0.546 0.245 262.881); /* blue-600 */
@@ -252,8 +264,8 @@ button { font-family: inherit; }
   grid-column: span 12;
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  background-color: var(--card);
-  color: var(--card-foreground);
+  background-color: var(--background);
+  color: var(--foreground);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -301,7 +313,7 @@ button { font-family: inherit; }
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  padding: 2rem 1rem;
+  padding: calc(var(--header) + 1.5rem) 1rem 2rem;
 }
 
 .link {
@@ -350,7 +362,7 @@ button { font-family: inherit; }
 
 .page-app__section--muted {
   width: 100%;
-  max-width: 64rem;
+  max-width: 72rem;
   margin-left: auto;
   margin-right: auto;
   padding: 1rem 0 0 0;
@@ -358,7 +370,7 @@ button { font-family: inherit; }
 
 .page-app__section--bg {
   width: 100%;
-  max-width: 64rem;
+  max-width: 72rem;
   margin-left: auto;
   margin-right: auto;
   border-radius: var(--radius-xl);
@@ -368,6 +380,9 @@ button { font-family: inherit; }
 
 .page-app__section--sm   { height: 6rem; }
 .page-app__section--fill { flex: 1; min-height: 20rem; }
+.page-app__section--pt-sm { padding-top: 0.5rem; }
+.page-app__section--pt-md { padding-top: 1.5rem; }
+.page-app__section--pt-xl { padding-top: 5rem; }
 
 .section-row {
   display: flex;
@@ -386,3 +401,28 @@ button { font-family: inherit; }
 .filter-row > .select      { width: auto; flex-shrink: 0; }
 
 .flex-fill { flex: 1; min-width: 0; }
+
+.stack--sm { gap: 0.5rem; }
+.row--sm   { gap: 0.5rem; }
+
+.value-row { display: inline-flex; align-items: center; gap: 0.375rem; }
+.mb-sm     { margin-bottom: 0.5rem; }
+.relative  { position: relative; }
+.is-hidden { display: none; }
+
+/* ===== AUTH ===== */
+
+.auth-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 28rem;
+  align-items: flex-start;
+}
+
+.auth-card { width: 100%; max-width: 28rem; padding: 3rem; }
+.auth-card .card__header { text-align: left; }
+.auth-card .card__title { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.025em; }
+
+.auth-footer { font-size: 0.875rem; text-align: center; color: var(--muted-foreground); }

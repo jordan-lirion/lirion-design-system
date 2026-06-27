@@ -22,7 +22,7 @@
   align-items: flex-start;
   gap: 0.75rem;
   position: relative;
-  background-color: var(--card);
+  background-color: var(--background);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1rem 2.5rem 1rem 1rem;
@@ -62,7 +62,7 @@
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.4;
-  color: var(--card-foreground);
+  color: var(--foreground);
 }
 
 .toast__description {
@@ -89,7 +89,7 @@
   transition: background-color 0.15s ease;
 }
 
-.toast__action:hover { background-color: var(--secondary); }
+.toast__action:hover { background-color: var(--muted); }
 
 /* Close button */
 .toast__close {
@@ -111,7 +111,7 @@
 }
 
 .toast__close:hover {
-  background-color: var(--secondary);
+  background-color: var(--muted);
   color: var(--foreground);
 }
 
@@ -119,7 +119,7 @@
 
 /* Variant icon colors */
 .toast--default .toast__icon { color: var(--muted-foreground); }
-.toast--success .toast__icon { color: var(--success-foreground); }
-.toast--warning .toast__icon { color: var(--warning-foreground); }
-.toast--error   .toast__icon { color: var(--destructive-surface-foreground); }
+.toast--success .toast__icon { color: var(--success-muted-foreground); }
+.toast--warning .toast__icon { color: var(--warning-muted-foreground); }
+.toast--error   .toast__icon { color: var(--destructive-muted-foreground); }
 .toast--info    .toast__icon { color: var(--chart-3); }

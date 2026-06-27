@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Item — design-system</title>
+  <link rel="stylesheet" href="../main.css" />
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="preview-header__title">design-system <span>/ Item</span></div>
+    <a href="../index.html" style="font-size:0.875rem;color:var(--muted-foreground);text-decoration:none;">← Back</a>
+  </header>
+
+  <main class="preview-main">
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Titre seul</h2>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;max-width:24rem;">
+        <a href="#" class="item">
+          <div class="item__content">
+            <div class="item__title">Mon profil</div>
+          </div>
+          <div class="item__actions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Avec icône</h2>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;max-width:24rem;">
+        <a href="#" class="item">
+          <div class="item__media">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="item__content">
+            <div class="item__title">Mon profil</div>
+          </div>
+          <div class="item__actions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+        <a href="#" class="item">
+          <div class="item__media">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+          <div class="item__content">
+            <div class="item__title">Facturation</div>
+          </div>
+          <div class="item__actions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Avec icône + description</h2>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;max-width:24rem;">
+        <a href="#" class="item">
+          <div class="item__media">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="item__content">
+            <div class="item__title">Mon profil</div>
+            <div class="item__description">Nom, prénom, email et photo</div>
+          </div>
+          <div class="item__actions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+        <a href="#" class="item">
+          <div class="item__media">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+          <div class="item__content">
+            <div class="item__title">Facturation</div>
+            <div class="item__description">Abonnement, paiements et factures</div>
+          </div>
+          <div class="item__actions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+        <a href="#" class="item">
+          <div class="item__media">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="item__content">
+            <div class="item__title">Préférences</div>
+            <div class="item__description">Langue, notifications et sécurité</div>
+          </div>
+          <div class="item__actions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h2 class="preview-section__title">Avec icône + description (non cliquable)</h2>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;max-width:24rem;">
+        <div class="item item--static">
+          <div class="item__media">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="item__content">
+            <div class="item__title">Mon profil</div>
+            <div class="item__description">Nom, prénom, email et photo</div>
+          </div>
+        </div>
+        <div class="item item--static">
+          <div class="item__media">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+          <div class="item__content">
+            <div class="item__title">Facturation</div>
+            <div class="item__description">Abonnement, paiements et factures</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const themeToggle = document.createElement("button");
+    themeToggle.className = "btn btn--outline btn--sm";
+    themeToggle.style.cssText = "position:fixed;bottom:1.5rem;right:1.5rem;";
+    themeToggle.textContent = "Dark mode";
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+    });
+    document.body.appendChild(themeToggle);
+  </script>
+
+</body>
+</html>

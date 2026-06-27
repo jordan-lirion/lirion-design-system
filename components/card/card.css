@@ -7,9 +7,9 @@
   flex-direction: column;
   gap: 1.5rem;
   border-radius: var(--radius-xl);
-  background-color: var(--card);
+  background-color: var(--background);
   border: 1px solid var(--border);
-  color: var(--card-foreground);
+  color: var(--foreground);
   padding: 1.5rem;
 }
 

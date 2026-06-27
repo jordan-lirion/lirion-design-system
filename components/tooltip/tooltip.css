@@ -4,7 +4,8 @@
 
 [data-tooltip] { position: relative; }
 
-[data-tooltip]::after {
+/* CSS pseudo-element tooltips — disabled when tooltip.js is loaded */
+:not(.js-tooltips) [data-tooltip]::after {
   content: attr(data-tooltip);
   position: absolute;
   bottom: calc(100% + 0.5rem);
@@ -23,10 +24,34 @@
   z-index: 50;
 }
 
-[data-tooltip]:hover::after,
-[data-tooltip]:focus-visible::after {
+:not(.js-tooltips) [data-tooltip]:hover::after,
+:not(.js-tooltips) [data-tooltip]:focus-visible::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* JS-powered tooltip — position: fixed, works inside overflow containers */
+.tooltip-float {
+  position: fixed;
+  left: var(--tip-x, 0);
+  top: var(--tip-y, 0);
+  transform: translateX(-50%) translateY(calc(-100% + 2px));
+  z-index: 9999;
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.tooltip-float.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-100%);
 }
 
 /* Tooltip icon — inline info icon with hover tooltip, not interactive */
@@ -49,6 +74,6 @@
 }
 
 .tooltip-icon--destructive { color: var(--destructive); }
-.tooltip-icon--success     { color: var(--success-foreground); }
-.tooltip-icon--warning     { color: var(--warning-foreground); }
+.tooltip-icon--success     { color: var(--success-muted-foreground); }
+.tooltip-icon--warning     { color: var(--warning-muted-foreground); }
 

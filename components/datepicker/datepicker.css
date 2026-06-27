@@ -13,8 +13,8 @@
 
 .datepicker__popup {
   width: 17rem;
-  background-color: var(--popover);
-  color: var(--popover-foreground);
+  background-color: var(--background);
+  color: var(--foreground);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);

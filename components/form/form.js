@@ -25,6 +25,6 @@ document.addEventListener('click', e => {
   const svgs = btn.querySelectorAll('svg');
   const show = input.type === 'password';
   input.type = show ? 'text' : 'password';
-  if (svgs[0]) svgs[0].style.display = show ? 'none' : '';
-  if (svgs[1]) svgs[1].style.display = show ? '' : 'none';
+  if (svgs[0]) svgs[0].classList.toggle('is-hidden', show);
+  if (svgs[1]) svgs[1].classList.toggle('is-hidden', !show);
 });

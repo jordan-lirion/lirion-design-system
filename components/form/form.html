@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +25,7 @@
         <div class="field">
           <label class="label" for="input-hint">With hint</label>
           <input class="input" type="email" id="input-hint" placeholder="name@example.com" />
-          <p class="hint">We'll never send you spam.</p>
+          <p class="hint">Nous ne vous enverrons jamais de spam.</p>
         </div>
         <div class="field">
           <label class="label" for="input-disabled">Disabled</label>
@@ -35,11 +35,37 @@
     </section>
 
     <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Input — États</h2>
+      <div class="stack">
+        <div class="field">
+          <label class="label" for="input-error">Error</label>
+          <input class="input input--error" type="email" id="input-error" value="pas-un-email" />
+          <p class="hint hint--error">Adresse email invalide.</p>
+        </div>
+        <div class="field">
+          <label class="label" for="input-success">Success</label>
+          <input class="input input--success" type="email" id="input-success" value="jordan@lirion.app" />
+          <p class="hint hint--success">Email disponible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section preview-section--6">
       <h2 class="preview-section__title">Textarea</h2>
       <div class="stack">
         <div class="field">
           <label class="label" for="textarea-default">Message</label>
-          <textarea class="textarea" id="textarea-default" placeholder="Write your message…"></textarea>
+          <textarea class="textarea" id="textarea-default" placeholder="Écris ton message…"></textarea>
+        </div>
+        <div class="field">
+          <label class="label" for="textarea-error">Error</label>
+          <textarea class="textarea textarea--error" id="textarea-error" placeholder="Écris ton message…"></textarea>
+          <p class="hint hint--error">Ce champ est requis.</p>
+        </div>
+        <div class="field">
+          <label class="label" for="textarea-success">Success</label>
+          <textarea class="textarea textarea--success" id="textarea-success">Super message !</textarea>
+          <p class="hint hint--success">Contenu validé.</p>
         </div>
         <div class="field">
           <label class="label" for="textarea-disabled">Disabled</label>
@@ -52,13 +78,27 @@
       <h2 class="preview-section__title">Select</h2>
       <div class="stack">
         <div class="field">
-          <label class="label" for="select-default">Role</label>
+          <label class="label" for="select-default">Rôle</label>
           <select class="select" id="select-default">
             <option>Product Designer</option>
             <option>Developer</option>
-            <option>Speech therapist</option>
+            <option>Orthophoniste</option>
             <option>Parent</option>
           </select>
+        </div>
+        <div class="field">
+          <label class="label" for="select-error">Error</label>
+          <select class="select select--error" id="select-error">
+            <option>Sélectionner…</option>
+          </select>
+          <p class="hint hint--error">Veuillez sélectionner une option.</p>
+        </div>
+        <div class="field">
+          <label class="label" for="select-success">Success</label>
+          <select class="select select--success" id="select-success">
+            <option>Orthophoniste</option>
+          </select>
+          <p class="hint hint--success">Sélection valide.</p>
         </div>
         <div class="field">
           <label class="label" for="select-disabled">Disabled</label>
@@ -70,12 +110,50 @@
     </section>
 
     <section class="preview-section preview-section--6">
+      <h2 class="preview-section__title">Password</h2>
+      <div class="stack">
+        <div class="field">
+          <label class="label" for="ig-password-default">Default</label>
+          <div class="input-group input-group--icon-end">
+            <input class="input" type="password" id="ig-password-default" placeholder="Mot de passe" />
+            <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" data-password-toggle aria-label="Afficher le mot de passe">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              <svg class="is-hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="ig-password-error">Error</label>
+          <div class="input-group input-group--icon-end input-group--error">
+            <input class="input" type="password" id="ig-password-error" value="abc" />
+            <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" data-password-toggle aria-label="Afficher le mot de passe">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              <svg class="is-hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <p class="hint hint--error">Le mot de passe doit contenir au moins 8 caractères.</p>
+        </div>
+        <div class="field">
+          <label class="label" for="ig-password-success">Success</label>
+          <div class="input-group input-group--icon-end input-group--success">
+            <input class="input" type="password" id="ig-password-success" value="monSuperMotDePasse1!" />
+            <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" data-password-toggle aria-label="Afficher le mot de passe">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              <svg class="is-hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <p class="hint hint--success">Mot de passe valide.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section preview-section--6">
       <h2 class="preview-section__title">Inline icon</h2>
       <div class="stack">
         <div class="field">
           <label class="label" for="ig-search">Search</label>
           <div class="input-group input-group--icon-start">
-            <input class="input" type="search" id="ig-search" placeholder="Search…" />
+            <input class="input" type="search" id="ig-search" placeholder="Rechercher…" />
             <span class="input-group__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             </span>
@@ -90,32 +168,12 @@
             </span>
           </div>
         </div>
-        <div class="field">
-          <label class="label" for="ig-password">Password</label>
-          <div class="input-group input-group--icon-end">
-            <input class="input" type="password" id="ig-password" placeholder="Enter password" />
-            <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" id="toggle-password" aria-label="Toggle password visibility">
-              <svg id="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-              <svg id="icon-eye" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-          </div>
-        </div>
       </div>
     </section>
 
   </main>
 
-  <script>
-    const toggle = document.getElementById('toggle-password');
-    const input  = document.getElementById('ig-password');
-    const eyeOff = document.getElementById('icon-eye-off');
-    const eye    = document.getElementById('icon-eye');
-    toggle.addEventListener('click', () => {
-      const show = input.type === 'password';
-      input.type        = show ? 'text' : 'password';
-      eyeOff.style.display = show ? 'none' : '';
-      eye.style.display    = show ? ''     : 'none';
-    });
-  </script>
+  <script src="form.js" defer></script>
+
 </body>
 </html>

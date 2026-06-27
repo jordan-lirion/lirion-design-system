@@ -15,12 +15,12 @@
   width: fit-content;
 }
 
-.badge--default    { background-color: var(--badge-default);     color: var(--badge-default-foreground); }
-.badge--secondary  { background-color: var(--secondary);         color: var(--secondary-foreground); }
-.badge--destructive{ background-color: var(--destructive-surface); color: var(--destructive-surface-foreground); }
-.badge--outline    { border-color: var(--border);                color: var(--foreground); }
-.badge--success    { background-color: var(--success);           color: var(--success-foreground); }
-.badge--warning    { background-color: var(--warning);           color: var(--warning-foreground); }
+.badge--default    { background-color: var(--brand-muted);             color: var(--brand-muted-foreground); }
+.badge--secondary  { background-color: var(--muted);                   color: var(--foreground); }
+.badge--destructive{ background-color: var(--destructive-muted);       color: var(--destructive-muted-foreground); }
+.badge--outline    { border-color: var(--border);                      color: var(--foreground); }
+.badge--success    { background-color: var(--success-muted);           color: var(--success-muted-foreground); }
+.badge--warning    { background-color: var(--warning-muted);           color: var(--warning-muted-foreground); }
 
 /* Icon inside badge — drop any SVG directly, no extra class needed */
 .badge svg {

@@ -18,7 +18,7 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1.5rem;
-  background: var(--card);
+  background: var(--background);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   transition: box-shadow 0.15s ease, opacity 0.15s ease;
@@ -95,3 +95,5 @@
 .sortable__item.is-over {
   box-shadow: 0 0 0 2px var(--ring);
 }
+
+.sortable--modal { margin-top: 0.75rem; min-height: 0; }

@@ -37,14 +37,14 @@
 }
 
 .chip-checkbox[aria-pressed="true"] {
-  background-color: var(--badge-default);
-  border-color: var(--badge-default-foreground);
-  color: var(--badge-default-foreground);
+  background-color: var(--brand-muted);
+  border-color: var(--brand-muted-foreground);
+  color: var(--brand-muted-foreground);
 }
 
 .chip-checkbox[aria-pressed="true"] .chip-checkbox__box {
-  background-color: var(--badge-default-foreground);
-  border-color: var(--badge-default-foreground);
+  background-color: var(--brand-muted-foreground);
+  border-color: var(--brand-muted-foreground);
 }
 
 .chip-checkbox[aria-pressed="true"] .chip-checkbox__box svg {

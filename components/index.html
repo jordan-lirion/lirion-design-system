@@ -44,6 +44,7 @@
         <p class="ds-nav-label">Layout</p>
         <a href="#header" class="ds-nav-item">Header</a>
         <a href="#card" class="ds-nav-item">Card</a>
+        <a href="#item" class="ds-nav-item">Item</a>
         <a href="#table" class="ds-nav-item">Table</a>
       </div>
       <div class="ds-nav-group">
@@ -94,6 +95,7 @@
           <button class="btn btn--default">Default</button>
           <button class="btn btn--secondary">Secondary</button>
           <button class="btn btn--destructive">Destructive</button>
+          <button class="btn btn--success">Success</button>
           <button class="btn btn--outline">Outline</button>
           <button class="btn btn--ghost">Ghost</button>
           <button class="btn btn--link">Link</button>
@@ -130,6 +132,7 @@
               <tr><td><code>.btn--default</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Primary filled style using <code>--primary</code>.</td></tr>
               <tr><td><code>.btn--secondary</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Muted fill using <code>--secondary</code>.</td></tr>
               <tr><td><code>.btn--destructive</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Red fill using <code>--destructive</code>.</td></tr>
+              <tr><td><code>.btn--success</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Green fill using <code>--success</code>, white text.</td></tr>
               <tr><td><code>.btn--outline</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Transparent background with <code>--border</code> border.</td></tr>
               <tr><td><code>.btn--ghost</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Transparent, no border. Hover shows accent background.</td></tr>
               <tr><td><code>.btn--link</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Text underline on hover, no border or padding.</td></tr>
@@ -173,6 +176,16 @@
             <input class="input" id="v-input" placeholder="Placeholder text" />
           </div>
           <div class="field">
+            <label class="label" for="v-input-error">Error</label>
+            <input class="input input--error" id="v-input-error" value="valeur-invalide" />
+            <p class="hint hint--error">Ce champ contient une erreur.</p>
+          </div>
+          <div class="field">
+            <label class="label" for="v-input-success">Success</label>
+            <input class="input input--success" id="v-input-success" value="jordan@lirion.app" />
+            <p class="hint hint--success">Email disponible.</p>
+          </div>
+          <div class="field">
             <label class="label" for="v-input-dis">Disabled</label>
             <input class="input" id="v-input-dis" placeholder="Disabled" disabled />
           </div>
@@ -208,8 +221,12 @@
               <tr><td><code>.label</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Block label, 0.875rem, 0.5rem bottom margin.</td></tr>
               <tr><td><code>.field</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Column flex container grouping label + input + hint.</td></tr>
               <tr><td><code>.hint</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Muted helper text below the input.</td></tr>
+              <tr><td><code>.input--error</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Bordure rouge — <code>--destructive</code>.</td></tr>
+              <tr><td><code>.input--success</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Bordure verte — <code>--success-muted-foreground</code>.</td></tr>
+              <tr><td><code>.hint--error</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Texte d'aide en rouge.</td></tr>
+              <tr><td><code>.hint--success</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Texte d'aide en vert.</td></tr>
               <tr><td><code>[disabled]</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Dimmed, <code>cursor: not-allowed</code>.</td></tr>
-              <tr><td><code>--input</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Border color for all controls.</td></tr>
+              <tr><td><code>--border</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Border color for all controls.</td></tr>
               <tr><td><code>--ring</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Focus ring and border-color on focus.</td></tr>
               <tr><td><code>--muted-foreground</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Placeholder and hint text color.</td></tr>
             </tbody>
@@ -261,7 +278,7 @@
             <input class="input" type="password" id="ig-password" placeholder="Enter password" />
             <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" data-password-toggle aria-label="Toggle password visibility">
               <svg id="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-              <svg id="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg id="icon-eye" class="is-hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             </button>
           </div>
         </div>
@@ -278,7 +295,7 @@
               <tr><td><code>.input-group__icon</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Absolutely positioned icon. Left-aligned, pointer-events none.</td></tr>
               <tr><td><code>.input-group__icon--end</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Moves icon to the right side.</td></tr>
               <tr><td><code>.input-group__icon--btn</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Makes the icon a clickable <code>&lt;button&gt;</code>.</td></tr>
-              <tr><td><code>--input</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Outer border color.</td></tr>
+              <tr><td><code>--border</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Outer border color.</td></tr>
               <tr><td><code>--ring</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Focus-within ring color.</td></tr>
               <tr><td><code>--muted-foreground</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Default icon color.</td></tr>
             </tbody>
@@ -333,7 +350,7 @@
               <tr><td><code>.choice</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Flex wrapper aligning input + label with 0.5rem gap.</td></tr>
               <tr><td><code>[checked]</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Dark background with white checkmark or dot.</td></tr>
               <tr><td><code>[disabled]</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Dimmed, <code>cursor: not-allowed</code>.</td></tr>
-              <tr><td><code>--input</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Unchecked border color.</td></tr>
+              <tr><td><code>--border</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Unchecked border color.</td></tr>
               <tr><td><code>--background</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Checkmark / dot color.</td></tr>
             </tbody>
           </table>
@@ -374,7 +391,7 @@
               <tr><td><code>.choice</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Flex wrapper for switch + label.</td></tr>
               <tr><td><code>[checked]</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Dark track, thumb slides right.</td></tr>
               <tr><td><code>[disabled]</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Dimmed, <code>cursor: not-allowed</code>.</td></tr>
-              <tr><td><code>--input</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Off-state track color.</td></tr>
+              <tr><td><code>--border</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Off-state track color.</td></tr>
               <tr><td><code>--background</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Thumb fill color.</td></tr>
             </tbody>
           </table>
@@ -449,12 +466,12 @@
             <thead><tr><th>Class / Variable</th><th>Type</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>.badge</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Required. Inline-flex pill, 0.75rem text, full border-radius.</td></tr>
-              <tr><td><code>.badge--default</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Primary fill — <code>--primary</code>.</td></tr>
-              <tr><td><code>.badge--secondary</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Muted fill — <code>--secondary</code>.</td></tr>
+              <tr><td><code>.badge--default</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Soft amber surface — <code>--brand-muted</code> bg, <code>--brand-muted-foreground</code> text.</td></tr>
+              <tr><td><code>.badge--secondary</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Muted fill — <code>--muted</code>.</td></tr>
               <tr><td><code>.badge--outline</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Border only, transparent background.</td></tr>
-              <tr><td><code>.badge--destructive</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Soft red — red-100 bg, red-700 text.</td></tr>
-              <tr><td><code>.badge--success</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Soft green — green-100 bg, green-700 text.</td></tr>
-              <tr><td><code>.badge--warning</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Soft amber — amber-100 bg, amber-700 text.</td></tr>
+              <tr><td><code>.badge--destructive</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Soft red surface — <code>--destructive-muted</code> bg, <code>--destructive-muted-foreground</code> text.</td></tr>
+              <tr><td><code>.badge--success</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Soft green surface — <code>--success-muted</code> bg, <code>--success-muted-foreground</code> text.</td></tr>
+              <tr><td><code>.badge--warning</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Soft orange surface — <code>--warning-muted</code> bg, <code>--warning-muted-foreground</code> text.</td></tr>
               <tr><td><code>--primary</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Default variant background.</td></tr>
             </tbody>
           </table>
@@ -955,7 +972,7 @@
               <tr><td><code>.toast</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Individual notification card.</td></tr>
               <tr><td><code>.toast--default</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Neutral — muted-foreground icon.</td></tr>
               <tr><td><code>.toast--success</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Green icon (green-700).</td></tr>
-              <tr><td><code>.toast--warning</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Amber icon (amber-700).</td></tr>
+              <tr><td><code>.toast--warning</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Orange icon — <code>--warning-muted-foreground</code>.</td></tr>
               <tr><td><code>.toast--error</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Red icon (red-700).</td></tr>
               <tr><td><code>.toast--info</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Blue icon (blue-700).</td></tr>
               <tr><td><code>.toast__body</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Text area — title, description, optional action.</td></tr>
@@ -981,7 +998,7 @@
       <div class="ds-block">
         <h2 class="ds-block-title">Preview</h2>
         <div class="ds-preview">
-          <div style="border:1px solid var(--border);border-radius:var(--radius-xl);background:var(--card);padding:1.5rem;box-shadow:var(--shadow-lg);width:100%;">
+          <div style="border:1px solid var(--border);border-radius:var(--radius-xl);background:var(--background);padding:1.5rem;box-shadow:var(--shadow-lg);width:100%;">
             <div class="dialog__header">
               <h3 class="dialog__title">Delete project?</h3>
               <p class="dialog__description">This action is permanent. The project and all its data will be deleted.</p>
@@ -1149,23 +1166,27 @@
     <section data-page="banner">
       <div class="ds-page-header">
         <h1 class="ds-page-title">Banner</h1>
-        <p class="ds-page-desc">Full-width contextual strip for page-level alerts. Supports success, warning, destructive, and default variants.</p>
+        <p class="ds-page-desc">Full-width contextual strip for page-level alerts. Supports success, brand, info, and destructive variants.</p>
       </div>
       <div class="ds-block">
         <h2 class="ds-block-title">Preview</h2>
-        <a href="banner/banner.html" class="btn btn--outline btn--sm" style="margin-bottom:1rem;">Open full preview →</a>
-        <div class="ds-preview ds-preview--stack" style="padding:0;gap:0.5rem;align-items:stretch;">
+        <a href="banner/banner.html" class="btn btn--outline btn--sm mb-sm">Open full preview →</a>
+        <div class="ds-preview ds-preview--stack ds-preview--no-pad">
           <div class="banner banner--success">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             Votre abonnement a été renouvelé avec succès.
           </div>
-          <div class="banner banner--warning">
+          <div class="banner banner--brand">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg>
-            Votre abonnement expire dans 7 jours.
+            Découvrez les nouvelles fonctionnalités Lirion.
           </div>
           <div class="banner banner--destructive">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
             Paiement échoué — veuillez mettre à jour vos informations.
+          </div>
+          <div class="banner banner--info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Mise à jour disponible. Rechargez la page pour en bénéficier.
           </div>
         </div>
       </div>
@@ -1175,10 +1196,102 @@
           <table class="ds-props">
             <thead><tr><th>Class</th><th>Type</th><th>Description</th></tr></thead>
             <tbody>
-              <tr><td><code>.banner</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Full-width flex strip, default (muted) variant.</td></tr>
-              <tr><td><code>.banner--success</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Green tinted background + foreground.</td></tr>
-              <tr><td><code>.banner--warning</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Amber tinted background + foreground.</td></tr>
-              <tr><td><code>.banner--destructive</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Red tinted background + foreground.</td></tr>
+              <tr><td><code>.banner</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Full-width flex strip, centré, avec gap pour icône + bouton.</td></tr>
+              <tr><td><code>.banner--success</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Fond vert clair — <code>--success-muted</code>.</td></tr>
+              <tr><td><code>.banner--brand</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Fond ambre — <code>--brand-muted</code>. Identité Lirion.</td></tr>
+              <tr><td><code>.banner--destructive</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Fond rouge clair — <code>--destructive-muted</code>.</td></tr>
+              <tr><td><code>.banner--info</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Fond neutre — <code>--muted</code>.</td></tr>
+              <tr><td><code>.banner--sticky</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Collé sous le header fixe via <code>top: var(--header)</code>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== ITEM ======== -->
+    <section data-page="item">
+      <div class="ds-page-header">
+        <h1 class="ds-page-title">Item</h1>
+        <p class="ds-page-desc">Action list row — clickable or static. Combine an optional icon, a title, an optional description and an optional trailing action.</p>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Preview</h2>
+        <div class="ds-preview ds-preview--stack ds-preview--start ds-preview--pad-sm">
+          <a href="#" class="item">
+            <div class="item__media">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="item__content">
+              <div class="item__title">Mon profil</div>
+              <div class="item__description">Nom, prénom, email et photo</div>
+            </div>
+            <div class="item__actions">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+          </a>
+          <div class="item item--static">
+            <div class="item__media">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>
+            </div>
+            <div class="item__content">
+              <div class="item__title">Facturation</div>
+              <div class="item__description">Abonnement, paiements et factures</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Variants</h2>
+        <p class="ds-sub-label">Title only</p>
+        <div class="ds-preview ds-preview--start ds-preview--pad-sm">
+          <a href="#" class="item">
+            <div class="item__content"><div class="item__title">Mon profil</div></div>
+            <div class="item__actions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+          </a>
+        </div>
+        <p class="ds-sub-label">With icon</p>
+        <div class="ds-preview ds-preview--start ds-preview--pad-sm">
+          <a href="#" class="item">
+            <div class="item__media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div class="item__content"><div class="item__title">Sécurité</div></div>
+            <div class="item__actions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+          </a>
+        </div>
+        <p class="ds-sub-label">With icon + description</p>
+        <div class="ds-preview ds-preview--start ds-preview--pad-sm">
+          <a href="#" class="item">
+            <div class="item__media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="item__content">
+              <div class="item__title">Mon profil</div>
+              <div class="item__description">Nom, prénom, email et photo</div>
+            </div>
+            <div class="item__actions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+          </a>
+        </div>
+        <p class="ds-sub-label">Static (non-cliquable)</p>
+        <div class="ds-preview ds-preview--start ds-preview--pad-sm">
+          <div class="item item--static">
+            <div class="item__media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg></div>
+            <div class="item__content">
+              <div class="item__title">Facturation</div>
+              <div class="item__description">Abonnement, paiements et factures</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h2 class="ds-block-title">Properties</h2>
+        <div class="ds-props-wrap">
+          <table class="ds-props">
+            <thead><tr><th>Class</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>.item</code></td><td><span class="ds-type ds-type--base">Base</span></td><td>Row flex container. Rendre comme <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code> ou <code>&lt;div&gt;</code>.</td></tr>
+              <tr><td><code>.item--static</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Non-cliquable — supprime hover et cursor pointer.</td></tr>
+              <tr><td><code>.item__media</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Icône gauche (optionnel). S'aligne en haut si description présente.</td></tr>
+              <tr><td><code>.item__content</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Zone centrale flex-1 — contient title et description.</td></tr>
+              <tr><td><code>.item__title</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Texte principal, 0.875rem, font-weight 500.</td></tr>
+              <tr><td><code>.item__description</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Texte secondaire muted, 0.8125rem.</td></tr>
+              <tr><td><code>.item__actions</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Zone droite pour chevron ou icône action.</td></tr>
             </tbody>
           </table>
         </div>

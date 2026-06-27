@@ -52,7 +52,7 @@
   margin-left: var(--ds-sidebar);
   padding: 2.5rem 3rem 6rem;
   min-height: calc(100vh - var(--ds-header));
-  background-color: var(--secondary);
+  background-color: var(--muted);
 }
 
 /* ===== NAV ===== */
@@ -83,12 +83,12 @@
 }
 
 .ds-nav-item:hover {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
+  background-color: var(--muted);
+  color: var(--foreground);
 }
 
 .ds-nav-item.is-active {
-  background-color: var(--accent);
+  background-color: var(--muted);
   color: var(--foreground);
   font-weight: 500;
 }
@@ -189,12 +189,12 @@
 }
 .ds-copy svg { flex-shrink: 0; }
 .ds-preview:hover .ds-copy { opacity: 1; }
-.ds-copy:hover { color: var(--foreground); background-color: var(--accent); }
+.ds-copy:hover { color: var(--foreground); background-color: var(--muted); }
 .ds-copy:focus-visible { opacity: 1; }
 
 .ds-copy--copied {
-  color: var(--success-foreground) !important;
-  border-color: var(--success-foreground) !important;
+  color: var(--success) !important;
+  border-color: var(--success) !important;
   opacity: 1 !important;
 }
 
@@ -209,6 +209,7 @@
 }
 
 .ds-preview--pad-sm { padding: 1.5rem; }
+.ds-preview--no-pad { padding: 0; gap: 0.5rem; }
 
 /* ===== PROPS TABLE ===== */
 
@@ -250,7 +251,7 @@
 .ds-props code {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  background-color: var(--secondary);
+  background-color: var(--muted);
   color: var(--foreground);
   padding: 0.125rem 0.375rem;
   border-radius: var(--radius-sm);
@@ -270,7 +271,7 @@
   white-space: nowrap;
 }
 
-.ds-type--base     { background: var(--secondary); color: var(--secondary-foreground); }
+.ds-type--base     { background: var(--muted); color: var(--foreground); }
 .ds-type--modifier { background: oklch(0.93 0.025 258 / 1); color: oklch(0.42 0.13 258); }
 .ds-type--size     { background: oklch(0.93 0.022 302 / 1); color: oklch(0.42 0.10 302); }
 .ds-type--state    { background: oklch(0.93 0.040 150 / 1); color: oklch(0.42 0.12 150); }

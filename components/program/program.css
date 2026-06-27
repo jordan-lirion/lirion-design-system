@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  background-color: var(--card);
+  background-color: var(--background);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   padding: 1rem;
@@ -131,13 +131,13 @@
 }
 
 .session-dot--success {
-  background-color: var(--success);
-  color: var(--success-foreground);
+  background-color: var(--success-muted);
+  color: var(--success-muted-foreground);
 }
 
 .session-dot--partial {
-  background-color: var(--destructive-surface);
-  color: var(--destructive-surface-foreground);
+  background-color: var(--destructive-muted);
+  color: var(--destructive-muted-foreground);
 }
 
 .session-dot--pending {
@@ -146,8 +146,8 @@
 }
 
 .session-dot--test {
-  background-color: var(--warning);
-  color: var(--warning-foreground);
+  background-color: var(--brand-muted);
+  color: var(--brand-muted-foreground);
 }
 
 .session-dot--todo {
@@ -195,3 +195,18 @@
 /* --todo wrapper in the grid */
 [data-todo-wrapper] { min-width: 0; }
 [data-todo-wrapper] .session-dot--todo { width: 100%; }
+
+/* Training search autocomplete — fixed dropdown in "add module" dialog */
+.training-dropdown {
+  position: fixed;
+  background-color: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 0.25rem;
+  z-index: 200;
+  display: none;
+  max-height: 15rem;
+  overflow-y: auto;
+}

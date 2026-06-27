@@ -35,7 +35,7 @@
 
 .header__nav-link:hover {
   color: var(--foreground);
-  background-color: var(--accent);
+  background-color: var(--muted);
 }
 
 .header__nav-link.is-active { color: var(--foreground); font-weight: 500; }

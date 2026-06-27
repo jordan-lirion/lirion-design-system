@@ -9,8 +9,8 @@
   top: calc(100% + 0.375rem);
   left: 0;
   min-width: 11rem;
-  background-color: var(--popover);
-  color: var(--popover-foreground);
+  background-color: var(--background);
+  color: var(--foreground);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
@@ -43,7 +43,7 @@
   cursor: pointer;
 }
 
-.dropdown__item:hover { background-color: var(--accent); color: var(--accent-foreground); }
+.dropdown__item:hover { background-color: var(--muted); color: var(--foreground); }
 .dropdown__item--destructive { color: var(--destructive); }
 .dropdown__item--destructive:hover { background-color: color-mix(in oklab, var(--destructive) 12%, transparent); color: var(--destructive); }
 
