@@ -6,6 +6,7 @@
   <title>Dropdown — design-system</title>
   <link rel="stylesheet" href="../main.css" />
   <link rel="stylesheet" href="../button/button.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
         <div class="dropdown" data-dropdown>
           <button class="btn btn--outline" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false">
             My account
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <i data-lucide="chevron-down"></i>
           </button>
           <div class="dropdown__menu" role="menu">
             <p class="dropdown__label">My account</p>
@@ -41,7 +42,7 @@
       <div class="row">
         <div class="dropdown" data-dropdown>
           <button class="btn btn--outline btn--icon" data-dropdown-trigger aria-haspopup="menu" aria-expanded="false" aria-label="More actions">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+            <i data-lucide="ellipsis-vertical"></i>
           </button>
           <div class="dropdown__menu" role="menu">
             <button class="dropdown__item" role="menuitem">Edit</button>
@@ -57,6 +58,7 @@
   </main>
 
   <script src="../dropdown/dropdown.js" defer></script>
+  <script>lucide.createIcons();</script>
 
 </body>
 </html>

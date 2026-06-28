@@ -24,7 +24,7 @@ function _closeTodoMenu() {
 }
 
 /* Add "+ Ajouter une séance" button to every existing .module */
-const _ADD_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>';
+const _ADD_SVG = '<i data-lucide="plus"></i>';
 
 function addSessionButton(module) {
   const btn = document.createElement('button');
@@ -36,6 +36,7 @@ function addSessionButton(module) {
 }
 
 document.querySelectorAll('.module').forEach(addSessionButton);
+if (typeof lucide !== 'undefined') lucide.createIcons();
 
 document.addEventListener('click', e => {
   /* Toggle --todo menu */
@@ -85,10 +86,10 @@ document.addEventListener('click', e => {
    BOARD & MODULE ACTIONS
    ============================================================ */
 
-const _DOTS_SVG   = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>';
-const _PLUS_SVG   = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>';
-const _HANDLE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>';
-const _TRASH_SVG  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>';
+const _DOTS_SVG   = '<i data-lucide="ellipsis-vertical"></i>';
+const _PLUS_SVG   = '<i data-lucide="plus"></i>';
+const _HANDLE_SVG = '<i data-lucide="grip-vertical"></i>';
+const _TRASH_SVG  = '<i data-lucide="trash-2"></i>';
 
 let _deleteTarget  = null;
 let _currentBoard  = null;
@@ -260,6 +261,7 @@ function _addTrainingToModal(id) {
   li.innerHTML = _collapsedHTML(t, 5, 0, '');
   _modalSortable.appendChild(li);
   _setupModalDrag(li);
+  if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
 function _expandTraining(li) {
@@ -354,6 +356,7 @@ document.getElementById('btn-create-module')?.addEventListener('click', () => {
     moduleDiv.innerHTML = _buildModuleHTML();
     _currentBoard.querySelector('.board__content').appendChild(moduleDiv);
     _setupModuleDrag(moduleDiv);
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   }
   _addModuleDialog.close();
   _resetModal();
@@ -399,6 +402,7 @@ document.querySelectorAll('[data-add-program]').forEach(btn => {
         </button>
       </div>`;
     document.querySelector('.boards').appendChild(board);
+    if (typeof lucide !== 'undefined') lucide.createIcons();
     _setupBoardDrop(board.querySelector('.board__content'));
     const ddNewProgram = document.getElementById('dd-new-program');
     ddNewProgram?.classList.remove('is-open');

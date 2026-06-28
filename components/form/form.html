@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Form — design-system</title>
   <link rel="stylesheet" href="../main.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -117,8 +118,8 @@
           <div class="input-group input-group--icon-end">
             <input class="input" type="password" id="ig-password-default" placeholder="Mot de passe" />
             <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" data-password-toggle aria-label="Afficher le mot de passe">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-              <svg class="is-hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+              <i data-lucide="eye-off"></i>
+              <i data-lucide="eye" class="is-hidden"></i>
             </button>
           </div>
         </div>
@@ -127,8 +128,8 @@
           <div class="input-group input-group--icon-end input-group--error">
             <input class="input" type="password" id="ig-password-error" value="abc" />
             <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" data-password-toggle aria-label="Afficher le mot de passe">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-              <svg class="is-hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+              <i data-lucide="eye-off"></i>
+              <i data-lucide="eye" class="is-hidden"></i>
             </button>
           </div>
           <p class="hint hint--error">Le mot de passe doit contenir au moins 8 caractères.</p>
@@ -138,8 +139,8 @@
           <div class="input-group input-group--icon-end input-group--success">
             <input class="input" type="password" id="ig-password-success" value="monSuperMotDePasse1!" />
             <button type="button" class="input-group__icon input-group__icon--end input-group__icon--btn" data-password-toggle aria-label="Afficher le mot de passe">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-              <svg class="is-hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+              <i data-lucide="eye-off"></i>
+              <i data-lucide="eye" class="is-hidden"></i>
             </button>
           </div>
           <p class="hint hint--success">Mot de passe valide.</p>
@@ -155,7 +156,7 @@
           <div class="input-group input-group--icon-start">
             <input class="input" type="search" id="ig-search" placeholder="Rechercher…" />
             <span class="input-group__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              <i data-lucide="search"></i>
             </span>
           </div>
         </div>
@@ -164,7 +165,7 @@
           <div class="input-group input-group--icon-start">
             <input class="input" type="email" id="ig-email" placeholder="name@example.com" />
             <span class="input-group__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+              <i data-lucide="mail"></i>
             </span>
           </div>
         </div>
@@ -174,6 +175,7 @@
   </main>
 
   <script src="form.js" defer></script>
+  <script>lucide.createIcons();</script>
 
 </body>
 </html>

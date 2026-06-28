@@ -8,9 +8,9 @@ document.querySelectorAll('tbody tr[data-href]').forEach(tr => {
 /* ----- Sortable columns ----- */
 
 const _SORT_ICON = {
-  none: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg>',
-  asc:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>',
-  desc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 12-7 7-7-7"/><path d="M12 5v14"/></svg>',
+  none: '<i data-lucide="arrow-up-down"></i>',
+  asc:  '<i data-lucide="arrow-up"></i>',
+  desc: '<i data-lucide="arrow-down"></i>',
 };
 
 document.querySelectorAll('table.table').forEach(table => {
@@ -31,9 +31,11 @@ document.querySelectorAll('table.table').forEach(table => {
         b.dataset.sort = 'none';
         b.querySelector('.table__sort-icon').innerHTML = _SORT_ICON.none;
       });
+      if (typeof lucide !== 'undefined') lucide.createIcons();
 
       btn.dataset.sort = next;
       btn.querySelector('.table__sort-icon').innerHTML = _SORT_ICON[next];
+      if (typeof lucide !== 'undefined') lucide.createIcons();
 
       if (next === 'none') {
         originalOrder.forEach(row => tbody.appendChild(row));

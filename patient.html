@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Louna Harrar — Lirion</title>
   <link rel="stylesheet" href="components/main.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -15,7 +16,7 @@
     </div>
     <div class="header__end">
       <a href="account.html" class="btn btn--outline btn--sm">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <i data-lucide="user"></i>
         Mon compte
       </a>
     </div>
@@ -34,7 +35,7 @@
       <!-- Back + Patient card -->
       <div class="page-app__section--muted page-app__section--pt-md">
         <a href="dashboard.html" class="btn btn--ghost btn--sm mb-sm">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          <i data-lucide="arrow-left"></i>
           Retour
         </a>
         <div class="card">
@@ -46,7 +47,7 @@
             </div>
             <div class="dropdown" data-dropdown="">
               <button class="btn btn--ghost btn--icon" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du patient">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                <i data-lucide="ellipsis-vertical"></i>
               </button>
               <div class="dropdown__menu dropdown__menu--end" role="menu">
                 <button class="dropdown__item" role="menuitem">Modifier</button>
@@ -58,7 +59,8 @@
           <div class="section-row">
             <div class="item item--static">
               <div class="item__media">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>            </div>
+                <i data-lucide="mail"></i>
+              </div>
               <div class="item__content">
                 <div class="item__title">Email</div>
                 <div class="item__description">louna.harrar@gmail.com</div>
@@ -66,7 +68,8 @@
             </div>
             <div class="item item--static">
               <div class="item__media">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>            </div>
+                <i data-lucide="calendar"></i>
+              </div>
               <div class="item__content">
                 <div class="item__title">Date de naissance</div>
                 <div class="item__description">05/01/2008</div>
@@ -74,7 +77,8 @@
             </div>
             <div class="item item--static">
               <div class="item__media">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap-icon lucide-graduation-cap"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>            </div>
+                <i data-lucide="graduation-cap"></i>
+              </div>
               <div class="item__content">
                 <div class="item__title">Niveau scolaire</div>
                 <div class="item__description">CE1</div>
@@ -82,7 +86,8 @@
             </div>
             <div class="item item--static">
               <div class="item__media">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house-heart-icon lucide-house-heart"><path d="M8.62 13.8A2.25 2.25 0 1 1 12 10.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>            </div>
+                <i data-lucide="house-heart"></i>
+              </div>
               <div class="item__content">
                 <div class="item__title">Praticien</div>
                 <div class="item__description">Karine Eskinazi</div>
@@ -107,9 +112,9 @@
           <div data-value="projet">
             <div class="dropdown" data-dropdown="" id="dd-new-program">
               <button class="btn btn--default" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                <i data-lucide="plus"></i>
                 Nouveau programme
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                <i data-lucide="chevron-down"></i>
               </button>
               <div class="dropdown__menu dropdown__menu--end" role="menu">
                 <button class="dropdown__item" role="menuitem" data-add-program="Audio-phonologique">Audio-phonologique</button>
@@ -121,9 +126,9 @@
           <div data-value="calendrier" hidden>
             <div class="dropdown" data-dropdown="" id="dd-month">
               <button class="btn btn--outline" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                <i data-lucide="calendar"></i>
                 Mars 2026
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                <i data-lucide="chevron-down"></i>
               </button>
               <div class="dropdown__menu dropdown__menu--end" role="menu">
                 <button class="dropdown__item" role="menuitem">Mars 2026</button>
@@ -145,7 +150,7 @@
               <span class="board__title">Audio-phonologique</span>
               <div class="dropdown" data-dropdown="">
                 <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du programme">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                  <i data-lucide="ellipsis-vertical"></i>
                 </button>
                 <div class="dropdown__menu dropdown__menu--end" role="menu">
                   <button class="dropdown__item" role="menuitem" data-action="complete-board">Marqué comme complété</button>
@@ -166,7 +171,7 @@
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                      <i data-lucide="ellipsis-vertical"></i>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
@@ -196,7 +201,7 @@
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                      <i data-lucide="ellipsis-vertical"></i>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
@@ -240,7 +245,7 @@
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                      <i data-lucide="ellipsis-vertical"></i>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
@@ -264,7 +269,7 @@
 
             <div class="board__footer">
               <button class="btn btn--outline btn--full btn--start" data-action="add-module">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                <i data-lucide="plus"></i>
                 Nouveau module
               </button>
             </div>
@@ -276,7 +281,7 @@
               <span class="board__title">Visuo-attentionnel</span>
               <div class="dropdown" data-dropdown="">
                 <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du programme">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                  <i data-lucide="ellipsis-vertical"></i>
                 </button>
                 <div class="dropdown__menu dropdown__menu--end" role="menu">
                   <button class="dropdown__item" role="menuitem" data-action="complete-board">Marqué comme complété</button>
@@ -297,7 +302,7 @@
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                      <i data-lucide="ellipsis-vertical"></i>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
@@ -341,7 +346,7 @@
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                      <i data-lucide="ellipsis-vertical"></i>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
@@ -380,7 +385,7 @@
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                      <i data-lucide="ellipsis-vertical"></i>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
@@ -419,7 +424,7 @@
 
             <div class="board__footer">
               <button class="btn btn--outline btn--full btn--start" data-action="add-module">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                <i data-lucide="plus"></i>
                 Nouveau module
               </button>
             </div>
@@ -431,7 +436,7 @@
               <span class="board__title">Audio-visuel</span>
               <div class="dropdown" data-dropdown="">
                 <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du programme">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                  <i data-lucide="ellipsis-vertical"></i>
                 </button>
                 <div class="dropdown__menu dropdown__menu--end" role="menu">
                   <button class="dropdown__item" role="menuitem" data-action="complete-board">Marqué comme complété</button>
@@ -452,7 +457,7 @@
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                      <i data-lucide="ellipsis-vertical"></i>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
@@ -495,7 +500,7 @@
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                      <i data-lucide="ellipsis-vertical"></i>
                     </button>
                     <div class="dropdown__menu dropdown__menu--end" role="menu">
                       <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
@@ -534,7 +539,7 @@
 
             <div class="board__footer">
               <button class="btn btn--outline btn--full btn--start" data-action="add-module">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                <i data-lucide="plus"></i>
                 Nouveau module
               </button>
             </div>
@@ -637,7 +642,7 @@
               <div class="session-cell">
                 <span class="session-cell__day">Mer 10</span>
                 <span class="badge badge--default">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  <i data-lucide="check"></i>
                   Test de niveau
                 </span>
                 <span class="session-cell__duration">15min</span>
@@ -836,7 +841,7 @@
     <div class="dialog__header dialog__header--row">
       <h2 class="dialog__title">Nouveau module</h2>
       <button class="btn btn--ghost btn--icon btn--sm" id="btn-close-add-module" aria-label="Fermer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        <i data-lucide="x"></i>
       </button>
     </div>
 
@@ -844,7 +849,7 @@
     <div class="relative">
       <div class="input-group input-group--icon-start">
         <span class="input-group__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <i data-lucide="search"></i>
         </span>
         <input type="text" class="input" id="training-search" placeholder="Chercher un entrainement ..." autocomplete="off">
       </div>
@@ -894,6 +899,7 @@
   <script src="components/tabs/tabs.js" defer></script>
   <script src="components/chip-checkbox/chip-checkbox.js" defer></script>
   <script src="components/program/program.js" defer></script>
+  <script>lucide.createIcons();</script>
 
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chip Checkbox — design-system</title>
   <link rel="stylesheet" href="../main.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -20,13 +21,13 @@
       <div class="row" style="flex-wrap:wrap;">
         <button class="chip-checkbox" aria-pressed="false" type="button">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <i data-lucide="check"></i>
           </span>
           <span>Non sélectionné</span>
         </button>
         <button class="chip-checkbox" aria-pressed="true" type="button">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <i data-lucide="check"></i>
           </span>
           <span>Sélectionné</span>
         </button>
@@ -38,31 +39,31 @@
       <div class="row" style="flex-wrap:wrap;">
         <button class="chip-checkbox" aria-pressed="true" type="button">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <i data-lucide="check"></i>
           </span>
           <span>Phonemix - Identification</span>
         </button>
         <button class="chip-checkbox" aria-pressed="false" type="button">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <i data-lucide="check"></i>
           </span>
           <span>Phonemix - Discrimination</span>
         </button>
         <button class="chip-checkbox" aria-pressed="false" type="button">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <i data-lucide="check"></i>
           </span>
           <span>Larma</span>
         </button>
         <button class="chip-checkbox" aria-pressed="true" type="button">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <i data-lucide="check"></i>
           </span>
           <span>Graphogame</span>
         </button>
         <button class="chip-checkbox" aria-pressed="false" type="button">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <i data-lucide="check"></i>
           </span>
           <span>RAN</span>
         </button>
@@ -72,6 +73,7 @@
   </main>
 
   <script src="../chip-checkbox/chip-checkbox.js" defer></script>
+  <script>lucide.createIcons();</script>
 
 </body>
 </html>

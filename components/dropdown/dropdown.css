@@ -41,6 +41,7 @@
   padding: 0.4375rem 0.625rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .dropdown__item:hover { background-color: var(--muted); color: var(--foreground); }

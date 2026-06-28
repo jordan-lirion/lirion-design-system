@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Training Tag — design-system</title>
   <link rel="stylesheet" href="../main.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -55,9 +56,7 @@
         <!-- Unchecked -->
         <button class="chip-checkbox" aria-pressed="false">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 11 11" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="1.5 5.5 4.5 8.5 9.5 2.5"/>
-            </svg>
+            <i data-lucide="check"></i>
           </span>
           Phonemix
         </button>
@@ -65,36 +64,28 @@
         <!-- Checked -->
         <button class="chip-checkbox" aria-pressed="true">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 11 11" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="1.5 5.5 4.5 8.5 9.5 2.5"/>
-            </svg>
+            <i data-lucide="check"></i>
           </span>
           Larma
         </button>
 
         <button class="chip-checkbox" aria-pressed="false">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 11 11" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="1.5 5.5 4.5 8.5 9.5 2.5"/>
-            </svg>
+            <i data-lucide="check"></i>
           </span>
           Graphogame
         </button>
 
         <button class="chip-checkbox" aria-pressed="true">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 11 11" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="1.5 5.5 4.5 8.5 9.5 2.5"/>
-            </svg>
+            <i data-lucide="check"></i>
           </span>
           Memoson
         </button>
 
         <button class="chip-checkbox" aria-pressed="false">
           <span class="chip-checkbox__box">
-            <svg viewBox="0 0 11 11" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="1.5 5.5 4.5 8.5 9.5 2.5"/>
-            </svg>
+            <i data-lucide="check"></i>
           </span>
           RAN
         </button>
@@ -104,6 +95,7 @@
   </main>
 
   <script src="../chip-checkbox/chip-checkbox.js" defer></script>
+  <script>lucide.createIcons();</script>
 
 </body>
 </html>

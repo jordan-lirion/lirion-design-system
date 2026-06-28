@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Datepicker — design-system</title>
   <link rel="stylesheet" href="../main.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -19,7 +20,7 @@
       <h2 class="preview-section__title">Default</h2>
       <div data-datepicker style="width:16rem;">
         <button class="btn btn--outline btn--full datepicker__trigger" type="button" data-datepicker-trigger>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+          <i data-lucide="calendar"></i>
           <span class="datepicker__value">Sélectionner une date</span>
         </button>
       </div>
@@ -31,7 +32,7 @@
         <label class="label">Date de naissance</label>
         <div data-datepicker>
           <button class="btn btn--outline btn--full datepicker__trigger" type="button" data-datepicker-trigger>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+            <i data-lucide="calendar"></i>
             <span class="datepicker__value">Sélectionner une date</span>
           </button>
         </div>
@@ -41,6 +42,7 @@
   </main>
 
   <script src="../datepicker/datepicker.js" defer></script>
+  <script>lucide.createIcons();</script>
 
 </body>
 </html>
