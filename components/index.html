@@ -895,60 +895,44 @@
     <section data-page="toast">
       <div class="ds-page-header">
         <h1 class="ds-page-title">Toast</h1>
-        <p class="ds-page-desc">Timed notification in a fixed <code>.toaster</code> container. Five semantic variants, optional inline action.</p>
+        <p class="ds-page-desc">Timed notification in a fixed <code>.toaster</code> container. Five semantic variants.</p>
       </div>
       <div class="ds-block">
         <h2 class="ds-block-title">Preview</h2>
         <div class="ds-preview">
           <div class="toast toast--success" style="width:100%;">
             <i data-lucide="circle-check" class="toast__icon"></i>
-            <div class="toast__body">
-              <p class="toast__title">Changes saved</p>
-              <p class="toast__description">Your profile has been updated successfully.</p>
-            </div>
+            <p class="toast__text">Modifications enregistrées avec succès.</p>
             <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
           </div>
         </div>
       </div>
       <div class="ds-block">
         <h2 class="ds-block-title">Variants</h2>
-        <p class="ds-sub-label">All variants</p>
         <div class="ds-preview ds-preview--stack">
           <div class="toast toast--default">
             <i data-lucide="bell" class="toast__icon"></i>
-            <div class="toast__body"><p class="toast__title">Default</p><p class="toast__description">Event created on Tuesday.</p></div>
+            <p class="toast__text">Événement créé le mardi 14 janvier à 9h00.</p>
             <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
           </div>
           <div class="toast toast--success">
             <i data-lucide="circle-check" class="toast__icon"></i>
-            <div class="toast__body"><p class="toast__title">Success</p><p class="toast__description">Changes saved successfully.</p></div>
+            <p class="toast__text">Modifications enregistrées avec succès.</p>
             <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
           </div>
           <div class="toast toast--warning">
             <i data-lucide="triangle-alert" class="toast__icon"></i>
-            <div class="toast__body"><p class="toast__title">Warning</p><p class="toast__description">Storage is almost full.</p></div>
+            <p class="toast__text">Espace de stockage presque plein (90% utilisé).</p>
             <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
           </div>
           <div class="toast toast--error">
             <i data-lucide="circle-x" class="toast__icon"></i>
-            <div class="toast__body"><p class="toast__title">Error</p><p class="toast__description">Upload failed. Please try again.</p></div>
+            <p class="toast__text">Échec de l'envoi. Veuillez réessayer.</p>
             <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
           </div>
           <div class="toast toast--info">
             <i data-lucide="info" class="toast__icon"></i>
-            <div class="toast__body"><p class="toast__title">Info</p><p class="toast__description">Version 2.5.0 is ready to install.</p></div>
-            <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
-          </div>
-        </div>
-        <p class="ds-sub-label">With action</p>
-        <div class="ds-preview">
-          <div class="toast toast--default" style="width:100%;">
-            <i data-lucide="trash-2" class="toast__icon"></i>
-            <div class="toast__body">
-              <p class="toast__title">Draft deleted</p>
-              <p class="toast__description">Your draft has been moved to the bin.</p>
-              <button class="toast__action" type="button">Undo</button>
-            </div>
+            <p class="toast__text">Nouvelle mise à jour disponible — version 2.5.0.</p>
             <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
           </div>
         </div>
@@ -956,11 +940,11 @@
       <div class="ds-block">
         <h2 class="ds-block-title">Interactive — auto-dismiss after 4s</h2>
         <div class="ds-preview">
-          <button class="btn btn--outline btn--sm" onclick="showToast('default','Event created','Tuesday, January 14 at 9:00 AM')">Default</button>
-          <button class="btn btn--outline btn--sm" onclick="showToast('success','Changes saved','Your profile has been updated.')">Success</button>
-          <button class="btn btn--outline btn--sm" onclick="showToast('warning','Storage almost full','You have used 90% of your quota.')">Warning</button>
-          <button class="btn btn--outline btn--sm" onclick="showToast('error','Upload failed','Please try again later.')">Error</button>
-          <button class="btn btn--outline btn--sm" onclick="showToast('info','Update available','Version 2.5.0 is ready.')">Info</button>
+          <button class="btn btn--outline btn--sm" onclick="showToast('default','Événement créé le mardi 14 janvier à 9h00.')">Default</button>
+          <button class="btn btn--outline btn--sm" onclick="showToast('success','Modifications enregistrées avec succès.')">Success</button>
+          <button class="btn btn--outline btn--sm" onclick="showToast('warning','Espace de stockage presque plein (90% utilisé).')">Warning</button>
+          <button class="btn btn--outline btn--sm" onclick="showToast('error','Échec de l\'envoi. Veuillez réessayer.')">Error</button>
+          <button class="btn btn--outline btn--sm" onclick="showToast('info','Nouvelle mise à jour disponible — version 2.5.0.')">Info</button>
         </div>
       </div>
       <div class="ds-block">
@@ -976,11 +960,9 @@
               <tr><td><code>.toast--warning</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Orange icon — <code>--warning-muted-foreground</code>.</td></tr>
               <tr><td><code>.toast--error</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Red icon (red-700).</td></tr>
               <tr><td><code>.toast--info</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Blue icon (blue-700).</td></tr>
-              <tr><td><code>.toast__body</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Text area — title, description, optional action.</td></tr>
-              <tr><td><code>.toast__title</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Bold 0.875rem heading.</td></tr>
-              <tr><td><code>.toast__description</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Muted body text.</td></tr>
-              <tr><td><code>.toast__action</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Inline action button — outline style, 0.75rem text.</td></tr>
-              <tr><td><code>.toast__close</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Absolute X button in the top-right corner.</td></tr>
+              <tr><td><code>.toast__icon</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Lucide icon, 1.125rem, colored by variant.</td></tr>
+              <tr><td><code>.toast__text</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Single-line message, flex: 1, 0.875rem, foreground color.</td></tr>
+              <tr><td><code>.toast__close</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Flex X button, 1.5rem, right-aligned.</td></tr>
               <tr><td><code>.is-dismissing</code></td><td><span class="ds-type ds-type--state">State</span></td><td>Triggers exit animation. Remove element on <code>animationend</code>.</td></tr>
               <tr><td><code>--card</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Toast background.</td></tr>
               <tr><td><code>--shadow-lg</code></td><td><span class="ds-type ds-type--variable">Variable</span></td><td>Toast box shadow.</td></tr>

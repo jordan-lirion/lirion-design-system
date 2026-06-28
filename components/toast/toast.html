@@ -23,101 +23,45 @@
 
         <div class="toast toast--default">
           <i data-lucide="bell" class="toast__icon"></i>
-          <div class="toast__body">
-            <p class="toast__title">Event has been created</p>
-            <p class="toast__description">Tuesday, January 14 at 9:00 AM</p>
-          </div>
-          <button class="toast__close" aria-label="Close">
-            <i data-lucide="x"></i>
-          </button>
+          <p class="toast__text">Événement créé le mardi 14 janvier à 9h00.</p>
+          <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
         </div>
 
         <div class="toast toast--success">
           <i data-lucide="circle-check" class="toast__icon"></i>
-          <div class="toast__body">
-            <p class="toast__title">Changes saved</p>
-            <p class="toast__description">Your profile has been updated successfully.</p>
-          </div>
-          <button class="toast__close" aria-label="Close">
-            <i data-lucide="x"></i>
-          </button>
+          <p class="toast__text">Modifications enregistrées avec succès.</p>
+          <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
         </div>
 
         <div class="toast toast--warning">
           <i data-lucide="triangle-alert" class="toast__icon"></i>
-          <div class="toast__body">
-            <p class="toast__title">Storage almost full</p>
-            <p class="toast__description">You have used 90% of your storage quota.</p>
-          </div>
-          <button class="toast__close" aria-label="Close">
-            <i data-lucide="x"></i>
-          </button>
+          <p class="toast__text">Espace de stockage presque plein (90% utilisé).</p>
+          <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
         </div>
 
         <div class="toast toast--error">
           <i data-lucide="circle-x" class="toast__icon"></i>
-          <div class="toast__body">
-            <p class="toast__title">Upload failed</p>
-            <p class="toast__description">The file could not be uploaded. Please try again.</p>
-          </div>
-          <button class="toast__close" aria-label="Close">
-            <i data-lucide="x"></i>
-          </button>
+          <p class="toast__text">Échec de l'envoi. Veuillez réessayer.</p>
+          <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
         </div>
 
         <div class="toast toast--info">
           <i data-lucide="info" class="toast__icon"></i>
-          <div class="toast__body">
-            <p class="toast__title">New update available</p>
-            <p class="toast__description">Version 2.5.0 is ready to install.</p>
-          </div>
-          <button class="toast__close" aria-label="Close">
-            <i data-lucide="x"></i>
-          </button>
+          <p class="toast__text">Nouvelle mise à jour disponible — version 2.5.0.</p>
+          <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
         </div>
 
       </div>
     </section>
 
     <section class="preview-section preview-section--6">
-      <h2 class="preview-section__title">With action</h2>
-      <div class="stack">
-
-        <div class="toast toast--default">
-          <i data-lucide="trash-2" class="toast__icon"></i>
-          <div class="toast__body">
-            <p class="toast__title">Draft deleted</p>
-            <p class="toast__description">Your draft has been moved to the bin.</p>
-            <button class="toast__action" type="button">Undo</button>
-          </div>
-          <button class="toast__close" aria-label="Close">
-            <i data-lucide="x"></i>
-          </button>
-        </div>
-
-        <div class="toast toast--success">
-          <i data-lucide="circle-check" class="toast__icon"></i>
-          <div class="toast__body">
-            <p class="toast__title">Exercise published</p>
-            <p class="toast__description">Your exercise is now visible to assigned patients.</p>
-            <button class="toast__action" type="button">View exercise</button>
-          </div>
-          <button class="toast__close" aria-label="Close">
-            <i data-lucide="x"></i>
-          </button>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="preview-section">
       <h2 class="preview-section__title">Interactive — auto-dismiss after 4 s</h2>
       <div class="row">
-        <button class="btn btn--outline btn--sm" onclick="showToast('default', 'Event created', 'Tuesday, January 14 at 9:00 AM')">Default</button>
-        <button class="btn btn--outline btn--sm" onclick="showToast('success', 'Changes saved', 'Your profile has been updated.')">Success</button>
-        <button class="btn btn--outline btn--sm" onclick="showToast('warning', 'Storage almost full', 'You have used 90% of your quota.')">Warning</button>
-        <button class="btn btn--outline btn--sm" onclick="showToast('error', 'Upload failed', 'Please try again later.')">Error</button>
-        <button class="btn btn--outline btn--sm" onclick="showToast('info', 'Update available', 'Version 2.5.0 is ready to install.')">Info</button>
+        <button class="btn btn--outline btn--sm" onclick="showToast('default', 'Événement créé le mardi 14 janvier à 9h00.')">Default</button>
+        <button class="btn btn--outline btn--sm" onclick="showToast('success', 'Modifications enregistrées avec succès.')">Success</button>
+        <button class="btn btn--outline btn--sm" onclick="showToast('warning', 'Espace de stockage presque plein (90% utilisé).')">Warning</button>
+        <button class="btn btn--outline btn--sm" onclick="showToast('error', 'Échec de l\'envoi. Veuillez réessayer.')">Error</button>
+        <button class="btn btn--outline btn--sm" onclick="showToast('info', 'Nouvelle mise à jour disponible — version 2.5.0.')">Info</button>
       </div>
     </section>
 

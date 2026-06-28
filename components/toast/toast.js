@@ -1,4 +1,4 @@
-/* toast: expose window.showToast(variant, title, description?) */
+/* toast: expose window.showToast(variant, text) */
 const _TOAST_ICONS = {
   default: 'bell',
   success: 'circle-check',
@@ -7,26 +7,23 @@ const _TOAST_ICONS = {
   info:    'info',
 };
 
-window.showToast = function(variant, title, description) {
+window.showToast = function(variant, text) {
   const toaster = document.getElementById('toaster');
   if (!toaster) return;
   const el = document.createElement('div');
   el.className = `toast toast--${variant}`;
   el.innerHTML = `
     <i data-lucide="${_TOAST_ICONS[variant] || _TOAST_ICONS.default}" class="toast__icon"></i>
-    <div class="toast__body">
-      <p class="toast__title">${title}</p>
-      ${description ? `<p class="toast__description">${description}</p>` : ''}
-    </div>
+    <p class="toast__text">${text}</p>
     <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
   `;
-  if (typeof lucide !== 'undefined') lucide.createIcons();
   const dismiss = () => {
     el.classList.add('is-dismissing');
     el.addEventListener('animationend', () => el.remove(), { once: true });
   };
   el.querySelector('.toast__close').addEventListener('click', dismiss);
   toaster.appendChild(el);
+  if (typeof lucide !== 'undefined') lucide.createIcons();
   setTimeout(dismiss, 4000);
 };
 
