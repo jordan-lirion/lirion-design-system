@@ -930,11 +930,6 @@
             <p class="toast__text">Échec de l'envoi. Veuillez réessayer.</p>
             <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
           </div>
-          <div class="toast toast--info">
-            <i data-lucide="info" class="toast__icon"></i>
-            <p class="toast__text">Nouvelle mise à jour disponible — version 2.5.0.</p>
-            <button class="toast__close" aria-label="Close"><i data-lucide="x"></i></button>
-          </div>
         </div>
       </div>
       <div class="ds-block">
@@ -944,7 +939,6 @@
           <button class="btn btn--outline btn--sm" onclick="showToast('success','Modifications enregistrées avec succès.')">Success</button>
           <button class="btn btn--outline btn--sm" onclick="showToast('warning','Espace de stockage presque plein (90% utilisé).')">Warning</button>
           <button class="btn btn--outline btn--sm" onclick="showToast('error','Échec de l\'envoi. Veuillez réessayer.')">Error</button>
-          <button class="btn btn--outline btn--sm" onclick="showToast('info','Nouvelle mise à jour disponible — version 2.5.0.')">Info</button>
         </div>
       </div>
       <div class="ds-block">
@@ -959,7 +953,7 @@
               <tr><td><code>.toast--success</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Green icon (green-700).</td></tr>
               <tr><td><code>.toast--warning</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Orange icon — <code>--warning-muted-foreground</code>.</td></tr>
               <tr><td><code>.toast--error</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Red icon (red-700).</td></tr>
-              <tr><td><code>.toast--info</code></td><td><span class="ds-type ds-type--modifier">Modifier</span></td><td>Blue icon (blue-700).</td></tr>
+
               <tr><td><code>.toast__icon</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Lucide icon, 1.125rem, colored by variant.</td></tr>
               <tr><td><code>.toast__text</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Single-line message, flex: 1, 0.875rem, foreground color.</td></tr>
               <tr><td><code>.toast__close</code></td><td><span class="ds-type ds-type--part">Part</span></td><td>Flex X button, 1.5rem, right-aligned.</td></tr>

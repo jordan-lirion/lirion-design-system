@@ -91,4 +91,3 @@
 .toast--success .toast__icon { color: var(--success-muted-foreground); }
 .toast--warning .toast__icon { color: var(--warning-muted-foreground); }
 .toast--error   .toast__icon { color: var(--destructive-muted-foreground); }
-.toast--info    .toast__icon { color: var(--chart-3); }

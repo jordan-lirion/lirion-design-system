@@ -4,7 +4,6 @@ const _TOAST_ICONS = {
   success: 'circle-check',
   warning: 'triangle-alert',
   error:   'circle-x',
-  info:    'info',
 };
 
 window.showToast = function(variant, text) {
