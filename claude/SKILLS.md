@@ -12,7 +12,8 @@
 2. **Never create a new component without first verifying it doesn't already exist** in the existing library (see §4).
 3. **Never duplicate CSS.** If a class is reusable, it belongs in `theme.css`. Never add `style="..."` attributes to HTML — every override must become a named CSS class.
 4. **Never invent a class name.** Naming follows the BEM-shadcn convention (see §6).
-5. **Ask for functional requirements before any development.** If the request is vague or incomplete, ask the questions listed in §7 before writing a single line of code.
+5. **Never write hand-crafted `<svg>` icons in HTML or JS.** All UI icons use Lucide via CDN (see §4 Icons). The only exceptions are `assets/logo.svg` and `assets/trainings/*.svg` which are `<img>`-based.
+6. **Ask for functional requirements before any development.** If the request is vague or incomplete, ask the questions listed in §7 before writing a single line of code.
 
 ---
 
@@ -234,13 +235,51 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 > **For each component**, an interactive preview page is available at `components/{component}/{component}.html`.
 > Open these pages (via a local server) to see all states before using a component.
 
+### Icons — Lucide
+
+All UI icons use the [Lucide](https://lucide.dev/icons/) library via CDN. Replace every `<svg>` icon with `<i data-lucide="name">`.
+
+**Setup — every HTML file that displays icons:**
+
+```html
+<!-- In <head> -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<!-- Before </body> -->
+<script>lucide.createIcons();</script>
+```
+
+**Usage in HTML:**
+
+```html
+<i data-lucide="x"></i>
+<i data-lucide="plus" class="some-css-class"></i>
+```
+
+Lucide replaces `<i data-lucide="name">` with the generated `<svg>`. CSS classes on the `<i>` are transferred to the `<svg>`. Size is controlled by CSS — Lucide's default `width/height="24"` presentation attributes are overridden by any class rule.
+
+**Usage in JS (dynamic DOM)** — call `lucide.createIcons()` *after* appending to the DOM:
+
+```js
+container.appendChild(el);
+if (typeof lucide !== 'undefined') lucide.createIcons();
+```
+
+**Icon names used in this project:**
+
+`x` · `plus` · `search` · `user` · `chevron-down` · `chevron-right` · `arrow-left` · `ellipsis-vertical` · `lock` · `eye` · `eye-off` · `calendar` · `list-filter` · `arrow-up-down` · `send` · `euro` · `triangle-alert` · `bell` · `circle-check` · `check` · `trash-2` · `download` · `settings` · `mail` · `graduation-cap` · `house-heart` · `pencil` · `grip-vertical` · `circle-x`
+
+> **Exceptions — do NOT replace with Lucide:** `assets/logo.svg` (used via `<img src="assets/logo.svg">`) and `assets/trainings/*.svg` (training icons, also `<img>`-based).
+
+---
+
 ### Button — `.btn`
 
 ```html
 <button class="btn btn--default">Label</button>
 <button class="btn btn--outline btn--sm">Small</button>
 <button class="btn btn--ghost btn--icon" aria-label="...">
-  <svg .../>
+  <i data-lucide="settings"></i>
 </button>
 ```
 
@@ -554,9 +593,7 @@ Button trigger + floating calendar popup. Singleton popup (one open at a time). 
   <label class="label">Date</label>
   <div data-datepicker>
     <button class="btn btn--outline btn--full datepicker__trigger" type="button" data-datepicker-trigger>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>
-      </svg>
+      <i data-lucide="calendar"></i>
       <span class="datepicker__value">Sélectionner une date</span>
     </button>
   </div>
@@ -598,17 +635,34 @@ Button trigger + floating calendar popup. Singleton popup (one open at a time). 
 
 ### Toast — `.toast` / `.toaster`
 
+Structure: **icon + single text + close button**.
+
 ```html
+<!-- Container (empty — toasts are injected by JS) -->
 <div class="toaster" id="toaster" aria-live="polite" aria-atomic="false"></div>
 <script src="components/toast/toast.js" defer></script>
 ```
 
 ```js
-showToast('success', 'Patient ajouté');
-showToast('error', 'Erreur', 'Description optionnelle');
+// API: showToast(variant, text)
+showToast('success', 'Modifications enregistrées avec succès.');
+showToast('error',   'Échec de l\'envoi. Veuillez réessayer.');
+showToast('warning', 'Espace de stockage presque plein (90% utilisé).');
+showToast('default', 'Événement créé le mardi 14 janvier à 9h00.');
 ```
 
-Variants: `toast--default` · `toast--success` · `toast--warning` · `toast--error` · `toast--info`
+Variants: `toast--default` · `toast--success` · `toast--warning` · `toast--error`
+
+| Class | Description |
+|-------|-------------|
+| `.toaster` | Fixed container, bottom-right, `column-reverse` flex — newest toast on top |
+| `.toast` | Notification card: flex row, `align-items: center` |
+| `.toast__icon` | Lucide icon, 1.125rem, colored by variant |
+| `.toast__text` | Single-line message, `flex: 1`, 0.875rem, `var(--foreground)` |
+| `.toast__close` | Flex X button, 1.5rem, right-aligned |
+| `.is-dismissing` | Triggers exit animation — element removed on `animationend` |
+
+**Requires Lucide CDN** — `lucide.createIcons()` is called inside `toast.js` after each toast is appended. Auto-dismisses after 4 s.
 
 ### Header — `.header`
 
@@ -623,7 +677,7 @@ Variants: `toast--default` · `toast--success` · `toast--warning` · `toast--er
   </div>
   <div class="header__end">
     <a href="account.html" class="btn btn--outline btn--sm">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <i data-lucide="user"></i>
       Mon compte
     </a>
   </div>
@@ -905,27 +959,27 @@ Action row component — navigable list item with optional icon, a title, an opt
     <div class="item__title">Mon profil</div>
   </div>
   <div class="item__actions">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+    <i data-lucide="chevron-right"></i>
   </div>
 </a>
 
 <!-- With icon + description -->
 <a href="#" class="item">
   <div class="item__media">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <i data-lucide="user"></i>
   </div>
   <div class="item__content">
     <div class="item__title">Mon profil</div>
     <div class="item__description">Nom, prénom, email et photo</div>
   </div>
   <div class="item__actions">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+    <i data-lucide="chevron-right"></i>
   </div>
 </a>
 
 <!-- Non-clickable (informational only) — use <div>, omit item__actions -->
 <div class="item item--static">
-  <div class="item__media"><svg .../></div>
+  <div class="item__media"><i data-lucide="lock"></i></div>
   <div class="item__content">
     <div class="item__title">Version</div>
     <div class="item__description">1.0.0</div>
@@ -1039,7 +1093,7 @@ For pages with a back button, replace `<div class="card auth-card">` with:
 ```html
 <div class="auth-stack">
   <a href="previous.html" class="btn btn--ghost btn--sm">
-    <svg ...arrow-left.../> Retour
+    <i data-lucide="arrow-left"></i> Retour
   </a>
   <div class="card auth-card">...</div>
 </div>
@@ -1065,7 +1119,7 @@ For pages with a back button, replace `<div class="card auth-card">` with:
     </div>
     <div class="header__end">
       <a href="account.html" class="btn btn--outline btn--sm">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <i data-lucide="user"></i>
         Mon compte
       </a>
     </div>
@@ -1235,6 +1289,10 @@ Auth layout  : page-centered + header (logo only, no link) + auth-card | auth-st
                padding-top baked into .page-centered — no extra CSS file needed
 Helpers      : section-row | filter-row | flex-center | flex-fill | text-muted | bg-muted
                row | row--sm | stack | stack--sm | value-row | mb-sm | relative | is-hidden
+Icons        : <i data-lucide="name" class="..."> → lucide.createIcons() on load + after dynamic DOM inserts
+               Exception: logo + training icons use <img src="assets/...svg">
+Toast        : showToast(variant, text) — variants: default | success | warning | error
+               toaster container + toast.js + Lucide CDN required
 Tabs         : tabs__list + tabs__trigger (pill)  [data-tabs] [data-value]
 Table        : table > thead > th > table__sort-btn[data-sort] + table__sort-icon
 Datepicker   : [data-datepicker] > [data-datepicker-trigger] + .datepicker__value
