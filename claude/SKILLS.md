@@ -28,6 +28,8 @@
 ├── dashboard.html
 ├── patient.html            ← patient detail view (Kanban + session grid)
 ├── patientNew.html         ← new patient creation flow
+├── session.html            ← session detail view (training stats + detail dialogs)
+├── test.html               ← niveau test session detail view
 ├── account.html            ← user account page
 ├── assets/
 │   ├── logo.svg
@@ -220,11 +222,14 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 | `.value-row` | `display: inline-flex; align-items: center; gap: 0.375rem` — number + icon pairs |
 | `.flex-center` | `display:flex; justify-content:center` |
 | `.text-muted` | Supporting text (muted color, `0.8125rem`) |
+| `.text-success` | `color: var(--success)` — green text / icon color |
+| `.text-destructive` | `color: var(--destructive)` — red text / icon color |
 | `.field-row` | Flex `space-between` for label + link (e.g. "Forgot password") |
 | `.link` | Underlined text link |
 | `.link--sm` | Small size variant |
 | `.flex-fill` | `flex: 1; min-width: 0` — fills available space, safe with overflow |
 | `.mb-sm` | `margin-bottom: 0.5rem` |
+| `.mb-md` | `margin-bottom: 1.25rem` |
 | `.relative` | `position: relative` — wrapper for absolutely-positioned children |
 | `.is-hidden` | `display: none` — use `classList.toggle('is-hidden', bool)` from JS instead of `style.display` |
 
@@ -267,7 +272,7 @@ if (typeof lucide !== 'undefined') lucide.createIcons();
 
 **Icon names used in this project:**
 
-`x` · `plus` · `search` · `user` · `chevron-down` · `chevron-right` · `arrow-left` · `ellipsis-vertical` · `lock` · `eye` · `eye-off` · `calendar` · `list-filter` · `arrow-up-down` · `send` · `euro` · `triangle-alert` · `bell` · `circle-check` · `check` · `trash-2` · `download` · `settings` · `mail` · `graduation-cap` · `house-heart` · `pencil` · `grip-vertical` · `circle-x`
+`x` · `plus` · `search` · `user` · `chevron-down` · `chevron-right` · `chevron-left` · `arrow-left` · `ellipsis-vertical` · `lock` · `eye` · `eye-off` · `calendar` · `list-filter` · `arrow-up-down` · `send` · `euro` · `triangle-alert` · `bell` · `circle-check` · `circle-x` · `check` · `trash-2` · `download` · `settings` · `mail` · `graduation-cap` · `house-heart` · `pencil` · `grip-vertical` · `info`
 
 > **Exceptions — do NOT replace with Lucide:** `assets/logo.svg` (used via `<img src="assets/logo.svg">`) and `assets/trainings/*.svg` (training icons, also `<img>`-based).
 
@@ -786,7 +791,7 @@ Full-width contextual strip. Add `banner--sticky` to pin it below the fixed head
 
 > SVG icons inside `.banner` are automatically capped at `1rem × 1rem` by the component CSS — no need for size classes or inline styles.
 
-Pour une banner avec un bouton d'action, ajouter un `<button class="btn btn--{variant} btn--sm">` directement dans le texte — le gap est géré par le composant.
+Pour une banner avec un bouton d'action, ajouter un `<button class="btn btn--{variant} btn--sm">` directement dans le texte — le gap est géré par le composant. **Les boutons dans une banner doivent toujours avoir `btn--sm`.**
 
 ```html
 <div class="banner banner--success">
@@ -919,10 +924,10 @@ Used in `Screens/patient.html` for the therapeutic project view.
 | `.module__meta` | Session count label |
 | `.module__dots` | 5-column grid of session dots |
 | `.session-dot` | Single session indicator cell |
-| `.session-dot--success` | Green — completed (tooltip: "Complété") |
+| `.session-dot--success` | Green — completed (tooltip: "Complété") — use `<a href="session.html">` to make it navigable |
 | `.session-dot--partial` | Amber — abandoned (tooltip: "Abandon") |
 | `.session-dot--pending` | Grey — not started (tooltip: "Non commencé") |
-| `.session-dot--test` | Yellow — level test (tooltip: "Test de niveau") |
+| `.session-dot--test` | Yellow — level test (tooltip: "Test de niveau") — use `<a href="test.html">` to make it navigable |
 | `.session-dot--todo` | Dashed grey — placeholder; click opens dropdown to convert to `--test` |
 | `[data-todo-wrapper]` | Grid cell wrapper for `--todo` dots (sets `min-width:0; width:100%`) |
 | `.training-dropdown` | `position:fixed` floating list used by the add-module search — appended to `<body>` and positioned via `getBoundingClientRect()` to escape `.boards` overflow clipping |
@@ -1287,8 +1292,8 @@ App layout   : page-app > page-app__content > page-app__section--muted | --bg
                add --pt-sm | --pt-md | --pt-xl for padding-top overrides
 Auth layout  : page-centered + header (logo only, no link) + auth-card | auth-stack
                padding-top baked into .page-centered — no extra CSS file needed
-Helpers      : section-row | filter-row | flex-center | flex-fill | text-muted | bg-muted
-               row | row--sm | stack | stack--sm | value-row | mb-sm | relative | is-hidden
+Helpers      : section-row | filter-row | flex-center | flex-fill | text-muted | text-success | text-destructive | bg-muted
+               row | row--sm | stack | stack--sm | value-row | mb-sm | mb-md | relative | is-hidden
 Icons        : <i data-lucide="name" class="..."> → lucide.createIcons() on load + after dynamic DOM inserts
                Exception: logo + training icons use <img src="assets/...svg">
 Toast        : showToast(variant, text) — variants: default | success | warning | error
@@ -1305,4 +1310,4 @@ JS states    : is-active (tabs, nav) | is-open (dropdown) | is-dragging | is-ove
 
 ---
 
-*Last updated: June 2026 — 27 components, 8 screens (index, firstLogin, password, forgotPassword, dashboard, patient, patientNew, account)*
+*Last updated: June 2026 — 27 components, 10 screens (index, firstLogin, password, forgotPassword, dashboard, patient, patientNew, session, test, account)*
