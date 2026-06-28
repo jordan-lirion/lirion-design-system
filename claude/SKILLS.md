@@ -20,32 +20,33 @@
 
 ```
 /
-├── components/             ← component library
-│   ├── main.css            ← single entry point (imports everything)
-│   ├── theme.css           ← CSS variables + base styles + layout utilities
-│   ├── docs.css            ← SPA documentation shell (index.html only)
-│   ├── index.html          ← interactive SPA documentation
-│   ├── _assets/            ← logo, static icons
-│   └── {component}/
-│       ├── {component}.css ← component styles
-│       └── {component}.html← standalone preview page
-│
-└── screens/                ← application screens
-    ├── login.html
-    ├── firstLogin.html
-    ├── password.html
-    ├── forgotPassword.html
-    ├── dashboard.html
-    ├── patient.html        ← patient detail view (Kanban + session grid)
-    └── account.html        ← user account page
+├── index.html              ← login / point d'entrée
+├── firstLogin.html
+├── password.html
+├── forgotPassword.html
+├── dashboard.html
+├── patient.html            ← patient detail view (Kanban + session grid)
+├── account.html            ← user account page
+├── assets/                 ← logo, static icons
+│   └── logo.svg
+├── claude/                 ← AI guide
+│   └── SKILLS.md
+└── components/             ← component library
+    ├── main.css            ← single entry point (imports everything)
+    ├── theme.css           ← CSS variables + base styles + layout utilities
+    ├── docs.css            ← SPA documentation shell (index.html only)
+    ├── index.html          ← interactive SPA documentation
+    └── {component}/
+        ├── {component}.css ← component styles
+        └── {component}.html← standalone preview page
 ```
 
 ### Import rules
 
 | File | Imports |
 |------|---------|
-| Application screen | `../components/main.css` |
-| Auth screen | `../components/main.css` |
+| Application screen | `components/main.css` |
+| Auth screen | `components/main.css` |
 | Component preview page | `../main.css` |
 | index.html (docs SPA) | `main.css` + `docs.css` |
 
@@ -145,7 +146,7 @@ Auth pages use the standard app header (no "Mon compte" button) combined with `.
 <body class="bg-muted">
   <header class="header">
     <div class="header__start">
-      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+      <img src="assets/logo.svg" alt="Lirion" class="header__logo" />
     </div>
   </header>
 
@@ -160,7 +161,7 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 ```html
 <main class="page-centered">
   <div class="auth-stack">
-    <a href="login.html" class="btn btn--ghost btn--sm">← Retour</a>
+    <a href="index.html" class="btn btn--ghost btn--sm">← Retour</a>
     <div class="card auth-card">...</div>
   </div>
 </main>
@@ -323,7 +324,7 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 
 Password toggle — add `data-password-toggle` to the button. `form.js` handles it via event delegation: walks up to `.input-group`, queries the `input` and both `svg` children, toggles `type` and `is-hidden` class via `classList.toggle`.
 
-**Required JS:** `<script src="../components/form/form.js" defer></script>`
+**Required JS:** `<script src="components/form/form.js" defer></script>`
 
 | Class | Description |
 |-------|-------------|
@@ -384,7 +385,7 @@ Segmented pill style — tabs inside a muted container.
 </div>
 ```
 
-**Required JS:** `<script src="../components/tabs/tabs.js" defer></script>`
+**Required JS:** `<script src="components/tabs/tabs.js" defer></script>`
 
 > Use `data-value` on triggers and panels (not `data-panel` / `id`). Wrap in `[data-tabs]` to scope multiple instances on the same page. Use `display: contents` on `[data-tabs]` if it must be transparent to flex/grid layout.
 
@@ -429,7 +430,7 @@ Segmented pill style — tabs inside a muted container.
 </div>
 ```
 
-**Required JS:** `<script src="../components/table/table.js" defer></script>`
+**Required JS:** `<script src="components/table/table.js" defer></script>`
 
 `table.js` handles two behaviors:
 1. **Clickable rows** — `data-href` on `<tr>` navigates to the URL unless a `<button>` or `<a>` was clicked
@@ -453,7 +454,7 @@ CSS tooltip via the `data-tooltip` attribute — `::after` pseudo-element, no JS
 
 > **Overflow clipping:** If the element with `data-tooltip` is inside a container with `overflow: auto/hidden` (e.g. `.table-wrapper`), the CSS `::after` tooltip will be clipped. Load `tooltip.js` to activate a `position:fixed` JS tooltip instead. When `tooltip.js` is present it adds `js-tooltips` to `<html>`, which disables the CSS pseudo-element via `:not(.js-tooltips) [data-tooltip]::after`.
 
-**Optional JS (for overflow containers):** `<script src="../components/tooltip/tooltip.js" defer></script>`
+**Optional JS (for overflow containers):** `<script src="components/tooltip/tooltip.js" defer></script>`
 
 #### Tooltip icon — `.tooltip-icon`
 
@@ -491,7 +492,7 @@ CSS tooltip via the `data-tooltip` attribute — `::after` pseudo-element, no JS
 
 Use `dropdown__menu--end` to right-align the menu.
 
-**Required JS:** `<script src="../components/dropdown/dropdown.js" defer></script>`
+**Required JS:** `<script src="components/dropdown/dropdown.js" defer></script>`
 
 `dropdown.js` uses **event delegation** — works for both static and dynamically injected dropdowns. No `initDropdowns()` call needed.
 
@@ -536,7 +537,7 @@ Use `dialog__separator` for a visual divider between sections:
 | `.dialog__fields` | `display: flex; flex-direction: column; gap: 1rem` — stacks form fields |
 | `.dialog__separator` | Borderless `<hr>` with a top border, no margin on sides |
 
-**Required JS:** `<script src="../components/dialog/dialog.js" defer></script>`
+**Required JS:** `<script src="components/dialog/dialog.js" defer></script>`
 
 `dialog.js` wires `[data-dialog-open="id"]` → `showModal()` and `[data-dialog-close]` → `close()` at page load.
 
@@ -560,7 +561,7 @@ Button trigger + floating calendar popup. Singleton popup (one open at a time). 
 </div>
 ```
 
-**Required JS:** `<script src="../components/datepicker/datepicker.js" defer></script>`
+**Required JS:** `<script src="components/datepicker/datepicker.js" defer></script>`
 
 | Class / Attribute | Description |
 |-------------------|-------------|
@@ -597,7 +598,7 @@ Button trigger + floating calendar popup. Singleton popup (one open at a time). 
 
 ```html
 <div class="toaster" id="toaster" aria-live="polite" aria-atomic="false"></div>
-<script src="../components/toast/toast.js" defer></script>
+<script src="components/toast/toast.js" defer></script>
 ```
 
 ```js
@@ -615,7 +616,7 @@ Variants: `toast--default` · `toast--success` · `toast--warning` · `toast--er
 <header class="header">
   <div class="header__start">
     <a href="dashboard.html">
-      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+      <img src="assets/logo.svg" alt="Lirion" class="header__logo" />
     </a>
   </div>
   <div class="header__end">
@@ -627,12 +628,12 @@ Variants: `toast--default` · `toast--success` · `toast--warning` · `toast--er
 </header>
 ```
 
-**Auth pages** (`login.html`, `forgotPassword.html`, etc.) — logo only, no link, no "Mon compte" button:
+**Auth pages** (`index.html`, `forgotPassword.html`, etc.) — logo only, no link, no "Mon compte" button:
 
 ```html
 <header class="header">
   <div class="header__start">
-    <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+    <img src="assets/logo.svg" alt="Lirion" class="header__logo" />
   </div>
 </header>
 ```
@@ -824,7 +825,7 @@ Used in `Screens/patient.html` for the therapeutic project view.
 </div>
 ```
 
-**Required JS:** `<script src="../components/program/program.js" defer></script>`
+**Required JS:** `<script src="components/program/program.js" defer></script>`
 
 `program.js` handles:
 - Board collapse/expand (`.board__toggle`)
@@ -870,7 +871,7 @@ Used in `Screens/patient.html` for the therapeutic project view.
     /* ... */
   ];
 </script>
-<script src="../components/program/program.js" defer></script>
+<script src="components/program/program.js" defer></script>
 ```
 
 If `window._PROGRAM_CATALOG` is not set, `program.js` falls back to an empty array.
@@ -989,13 +990,13 @@ Weekly session calendar for the "Calendrier des séances" tab.
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Title</title>
-  <link rel="stylesheet" href="../components/main.css" />
+  <link rel="stylesheet" href="components/main.css" />
 </head>
 <body class="bg-muted">
 
   <header class="header">
     <div class="header__start">
-      <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+      <img src="assets/logo.svg" alt="Lirion" class="header__logo" />
     </div>
   </header>
 
@@ -1035,13 +1036,13 @@ For pages with a back button, replace `<div class="card auth-card">` with:
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Title</title>
-  <link rel="stylesheet" href="../components/main.css" />
+  <link rel="stylesheet" href="components/main.css" />
 </head>
 <body>
   <header class="header">
     <div class="header__start">
       <a href="dashboard.html">
-        <img src="../components/_assets/logo.svg" alt="Lirion" class="header__logo" />
+        <img src="assets/logo.svg" alt="Lirion" class="header__logo" />
       </a>
     </div>
     <div class="header__end">
@@ -1157,8 +1158,8 @@ background-color: var(--muted);
 <img src="../design-system/_assets/logo.svg" />
 
 <!-- ✅ Correct path -->
-<link rel="stylesheet" href="../components/main.css" />
-<img src="../components/_assets/logo.svg" />
+<link rel="stylesheet" href="components/main.css" />
+<img src="assets/logo.svg" />
 ```
 
 ```css
@@ -1228,4 +1229,4 @@ JS states    : is-active (tabs, nav) | is-open (dropdown) | is-dragging | is-ove
 
 ---
 
-*Last updated: June 2026 — 27 components, 7 screens*
+*Last updated: June 2026 — 27 components, 7 screens (index, firstLogin, password, forgotPassword, dashboard, patient, account)*
