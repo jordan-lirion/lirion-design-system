@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Louna Harrar — Lirion</title>
+  <link rel="stylesheet" href="components/main.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- ======== HEADER ======== -->
+  <header class="header">
+    <div class="header__start">
+      <a href="dashboard.html"><img src="assets/logo.svg" alt="Lirion" class="header__logo" /></a>
+    </div>
+    <div class="header__end">
+      <a href="account.html" class="btn btn--outline btn--sm">
+        <i data-lucide="user"></i>
+        Mon compte
+      </a>
+    </div>
+  </header>
+
+  <!-- ======== PAGE ======== -->
+  <div class="page-app">
+
+    <div class="page-app__content">
+
+      <!-- Back + Patient card -->
+      <div class="page-app__section--muted page-app__section--pt-md">
+        <a href="patient.html" class="btn btn--ghost btn--sm mb-sm">
+          <i data-lucide="arrow-left"></i>
+          Retour
+        </a>
+        <div class="card">
+          <div class="section-row">
+              <button class="btn btn--ghost btn--icon btn--lg" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du patient">
+                <i data-lucide="chevron-left"></i>
+              </button>
+              <div class="stack stack--sm">
+                <h1>Séance du 02/04/2026</h1>
+                <div class="row flex-center">
+                  <span class="badge badge--success">Complété</span>
+                  <span class="text-muted">15 minutes</span>
+                </div>
+              </div>
+              <button class="btn btn--ghost btn--icon btn--lg" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du patient">
+                <i data-lucide="chevron-right"></i>
+              </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-app__section--muted page-app__section--pt-md">
+        <div class="card">
+        <div class="stack">
+          <div class="section-row">
+            <div class="value-row">
+              <img class="training-icon" src="assets/trainings/memoson.svg" alt="Memoson">
+              <h3>Mémoson A</h3>
+            </div>
+            <button class="btn btn--link" data-dialog-open="dialog-detail-memoson">
+              <i data-lucide="info"></i>
+              Voir le détail
+            </button>
+          </div>
+          <div class="row">
+            <div class="card flex-fill">
+              <div class="stat">
+                <div class="stat__top">
+                  <span class="stat__value">5</span>
+                </div>
+                <span class="stat__label">Minutes</span>
+              </div>
+            </div>
+            <div class="card flex-fill">
+              <div class="stat">
+                <div class="stat__top">
+                  <span class="stat__value">12</span>
+                  <i data-lucide="circle-check" class="text-success"></i>
+                </div>
+                <span class="stat__label">Bonnes réponses</span>
+              </div>
+            </div>
+            <div class="card flex-fill">
+              <div class="stat">
+                <div class="stat__top">
+                  <span class="stat__value">8</span>
+                  <i data-lucide="circle-x" class="text-destructive"></i>
+                </div>
+                <span class="stat__label">Mauvaises réponses</span>
+              </div>
+            </div>
+            <div class="card flex-fill">
+              <div class="stat">
+                <div class="stat__top">
+                  <span class="stat__value">43</span>
+                </div>
+                <span class="stat__label">Niveau atteint</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="page-app__section--muted page-app__section--pt-md">
+        <div class="card">
+        <div class="stack">
+          <div class="section-row">
+            <div class="value-row">
+              <img class="training-icon" src="assets/trainings/phonemix.svg" alt="Phonemix">
+              <h3>Phonemix identification</h3>
+            </div>
+            <button class="btn btn--link" data-dialog-open="dialog-detail-phonemix">
+              <i data-lucide="info"></i>
+              Voir le détail
+            </button>
+          </div>
+          <div class="row">
+            <div class="card flex-fill">
+              <div class="stat">
+                <div class="stat__top">
+                  <span class="stat__value">5</span>
+                </div>
+                <span class="stat__label">Minutes</span>
+              </div>
+            </div>
+            <div class="card flex-fill">
+              <div class="stat">
+                <div class="stat__top">
+                  <span class="stat__value">42</span>
+                  <i data-lucide="circle-check" class="text-success"></i>
+                </div>
+                <span class="stat__label">Bonnes réponses</span>
+              </div>
+            </div>
+            <div class="card flex-fill">
+              <div class="stat">
+                <div class="stat__top">
+                  <span class="stat__value">16</span>
+                  <i data-lucide="circle-x" class="text-destructive"></i>
+                </div>
+                <span class="stat__label">Mauvaises réponses</span>
+              </div>
+            </div>
+            <div class="card flex-fill">
+              <div class="stat">
+                <div class="stat__top">
+                  <span class="stat__value">72</span>
+                </div>
+                <span class="stat__label">Niveau atteint</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div><!-- /.page-app__content -->
+  </div><!-- /.page-app -->
+
+
+
+
+  <!-- Dialog — Mémoson A -->
+  <dialog class="dialog dialog--lg" id="dialog-detail-memoson">
+    <div class="dialog__header dialog__header--row">
+      <h3 class="dialog__title">Détail de l'entraînement</h3>
+      <button class="btn btn--ghost btn--icon btn--sm" data-dialog-close aria-label="Fermer">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="mb-md">
+      <button class="btn btn--outline">
+        <i data-lucide="download"></i>
+        Exporter en CSV
+      </button>
+    </div>
+    <div class="table-wrapper">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Stimulus</th>
+            <th>Réponse</th>
+            <th>Attendu</th>
+            <th>Résultat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Ché, nu, dou → ma, nu, dou</td>
+            <td>nu</td>
+            <td>ma</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Cho, da, ne → ta, da, ne</td>
+            <td>ta</td>
+            <td>ta</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>bi, fé, ro → bi, la, ro</td>
+            <td>la</td>
+            <td>la</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>vu, sé, pi → vu, sé, mo</td>
+            <td>pi</td>
+            <td>mo</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>ga, li, to → na, li, to</td>
+            <td>na</td>
+            <td>na</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>pré, do, ku → pré, do, si</td>
+            <td>ku</td>
+            <td>si</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>mi, ché, bé → mi, ché, lo</td>
+            <td>lo</td>
+            <td>lo</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>tu, ra, fé → tu, vi, fé</td>
+            <td>ra</td>
+            <td>vi</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>so, la, né → bo, la, né</td>
+            <td>bo</td>
+            <td>bo</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>dé, po, su → dé, po, ku</td>
+            <td>su</td>
+            <td>ku</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>ko, ri, fa → ko, mi, fa</td>
+            <td>mi</td>
+            <td>mi</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>né, bu, chè → né, bu, to</td>
+            <td>to</td>
+            <td>to</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>sa, vo, li → sa, vo, pé</td>
+            <td>li</td>
+            <td>pé</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>po, ché, nu → po, ché, da</td>
+            <td>da</td>
+            <td>da</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>fi, ro, bé → fi, sé, bé</td>
+            <td>sé</td>
+            <td>sé</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </dialog>
+
+  <!-- Dialog — Phonemix identification -->
+  <dialog class="dialog dialog--lg" id="dialog-detail-phonemix">
+    <div class="dialog__header dialog__header--row">
+      <h3 class="dialog__title">Détail de l'entraînement</h3>
+      <button class="btn btn--ghost btn--icon btn--sm" data-dialog-close aria-label="Fermer">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="mb-md">
+      <button class="btn btn--outline">
+        <i data-lucide="download"></i>
+        Exporter en CSV
+      </button>
+    </div>
+    <div class="table-wrapper">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Stimulus</th>
+            <th>Réponse</th>
+            <th>Attendu</th>
+            <th>Résultat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>/p/ — peau, beau, faux</td>
+            <td>peau</td>
+            <td>peau</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>/b/ — bal, pal, val</td>
+            <td>pal</td>
+            <td>bal</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>/f/ — fin, vin, lin</td>
+            <td>fin</td>
+            <td>fin</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>/v/ — vent, banc, lent</td>
+            <td>banc</td>
+            <td>vent</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>/s/ — sou, cou, fou</td>
+            <td>sou</td>
+            <td>sou</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>/z/ — zoo, seau, beau</td>
+            <td>zoo</td>
+            <td>zoo</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>/ch/ — chat, tas, bas</td>
+            <td>tas</td>
+            <td>chat</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>/j/ — joue, cou, doux</td>
+            <td>joue</td>
+            <td>joue</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>/t/ — toit, bois, fois</td>
+            <td>bois</td>
+            <td>toit</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>/d/ — don, ton, long</td>
+            <td>don</td>
+            <td>don</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>/k/ — coup, sou, doux</td>
+            <td>coup</td>
+            <td>coup</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>/g/ — gant, banc, lent</td>
+            <td>banc</td>
+            <td>gant</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>/m/ — mot, beau, faux</td>
+            <td>mot</td>
+            <td>mot</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>/n/ — nœud, jeux, bleu</td>
+            <td>nœud</td>
+            <td>nœud</td>
+            <td><i data-lucide="circle-check" class="text-success"></i></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>/l/ — loup, pou, tout</td>
+            <td>pou</td>
+            <td>loup</td>
+            <td><i data-lucide="circle-x" class="text-destructive"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </dialog>
+
+  <script>lucide.createIcons();</script>
+  <script src="components/dialog/dialog.js" defer></script>
+
+</body>
+</html>
