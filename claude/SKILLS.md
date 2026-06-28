@@ -166,7 +166,7 @@ For pages with a back button (e.g. `password.html`, `forgotPassword.html`), wrap
 ```html
 <main class="page-centered">
   <div class="auth-stack">
-    <a href="index.html" class="btn btn--ghost btn--sm">← Retour</a>
+    <a href="index.html" class="btn btn--secondary btn--sm">← Retour</a>
     <div class="card auth-card">...</div>
   </div>
 </main>
@@ -1097,7 +1097,7 @@ For pages with a back button, replace `<div class="card auth-card">` with:
 
 ```html
 <div class="auth-stack">
-  <a href="previous.html" class="btn btn--ghost btn--sm">
+  <a href="previous.html" class="btn btn--secondary btn--sm">
     <i data-lucide="arrow-left"></i> Retour
   </a>
   <div class="card auth-card">...</div>
