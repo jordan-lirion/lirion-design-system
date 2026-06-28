@@ -26,9 +26,11 @@
 ├── forgotPassword.html
 ├── dashboard.html
 ├── patient.html            ← patient detail view (Kanban + session grid)
+├── patientNew.html         ← new patient creation flow
 ├── account.html            ← user account page
-├── assets/                 ← logo, static icons
-│   └── logo.svg
+├── assets/
+│   ├── logo.svg
+│   └── trainings/          ← SVG icons per training type (11 files)
 ├── claude/                 ← AI guide
 │   └── SKILLS.md
 └── components/             ← component library
@@ -490,13 +492,13 @@ CSS tooltip via the `data-tooltip` attribute — `::after` pseudo-element, no JS
 </div>
 ```
 
-Use `dropdown__menu--end` to right-align the menu.
+Use `dropdown__menu--end` to right-align the menu. Use `dropdown__menu--fixed` for a menu that must escape `overflow` clipping — it sets `position: fixed; z-index: 200` and must be positioned via `getBoundingClientRect()` in JS.
 
 **Required JS:** `<script src="components/dropdown/dropdown.js" defer></script>`
 
 `dropdown.js` uses **event delegation** — works for both static and dynamically injected dropdowns. No `initDropdowns()` call needed.
 
-> **Overflow clipping warning:** If the dropdown is inside a container with `overflow: auto/hidden` (e.g. `.boards`), the menu will be clipped. In that case, use a shared `position:fixed` menu appended to `<body>` and positioned via `getBoundingClientRect()`. See `program.js` (`_todoMenu`) for the pattern.
+> **Overflow clipping warning:** If the dropdown is inside a container with `overflow: auto/hidden` (e.g. `.boards`), the menu will be clipped. In that case, use `dropdown__menu--fixed` on a menu appended to `<body>` and positioned via `getBoundingClientRect()`. See `program.js` (`_todoMenu`) for the pattern.
 
 ### Dialog — `.dialog`
 
@@ -688,14 +690,19 @@ Drag-and-drop reorderable list. Items with `draggable="true"` can be reordered; 
 </ul>
 ```
 
-Use `sortable__item--sm` for compact items (e.g. inside a modal). Use `sortable--modal` when the list is inside a dialog (removes top margin and collapses min-height).
+Use `sortable__item--sm` for compact items (e.g. inside a modal). Use `sortable--modal` when the list is inside a dialog (removes top margin and collapses min-height). Add `sortable__item--expandable` for items that toggle between a collapsed row and an inline edit form when clicked.
 
 | Class | Description |
 |-------|-------------|
 | `.sortable` | List container (`flex-column`, `gap: 0.5rem`) |
-| `.sortable--modal` | Variant for use inside a dialog (`margin-top: 0.75rem`, `min-height: 0`) |
+| `.sortable--modal` | Variant for use inside a dialog (`margin: 0.75rem 0`, `min-height: 0`) |
 | `.sortable__item` | Row with card styling |
 | `.sortable__item--sm` | Compact padding variant |
+| `.sortable__item--expandable` | Clickable item that can expand to show an inline form (`flex-wrap`, `cursor: pointer`) |
+| `.sortable__item--expandable.is-expanded` | Expanded state: `cursor: default`, `background: var(--secondary)` |
+| `.sortable__row` | Flex row inside an expanded item (handle + icon + title + action) |
+| `.sortable__fields` | 2-column grid inside an expanded item for form fields |
+| `.sortable__field--full` | `grid-column: 1 / -1` — spans both columns of `.sortable__fields` |
 | `.sortable__handle` | Grip icon button (sets `cursor: grab`) |
 | `.sortable__body` | Flex column: title + subtitle |
 | `.sortable__title` | Primary text |
@@ -751,16 +758,24 @@ Available modifiers: `training-tag--phonemix` · `training-tag--fus-seg` · `tra
 
 ### Training Icon — `.training-icon`
 
-Circular avatar for training items in lists and modals. Same color modifiers as training-tag.
+Circular icon for training items in lists and modals. Each icon is an `<img>` pointing to the corresponding SVG in `assets/trainings/`. The SVGs are self-contained (they include their own colored circular background).
 
 ```html
-<span class="training-icon training-icon--phonemix">P</span>
-<span class="training-icon training-icon--sm training-icon--fus-seg">F</span>
+<!-- Static HTML (application screens at root) -->
+<img class="training-icon" src="assets/trainings/phonemix.svg" alt="Phonemix">
+<img class="training-icon training-icon--sm" src="assets/trainings/fus-seg.svg" alt="FusSeg">
+
+<!-- Static HTML (component preview pages in components/) -->
+<img class="training-icon" src="../assets/trainings/phonemix.svg" alt="Phonemix">
 ```
+
+Available SVG filenames: `phonemix` · `fus-seg` · `memoson` · `ran` · `loh` · `maeva` · `switchipido` · `elor` · `rech-visuelle` · `larma` · `graphogame`
 
 | Modifier | Description |
 |----------|-------------|
-| `training-icon--sm` | Compact size (`1.5rem`, `0.6875rem` font) |
+| `training-icon--sm` | Compact size (`1.5rem × 1.5rem`) |
+
+> The `training-icon--{name}` color modifiers still exist in CSS as a graceful fallback (shown if the image fails to load) but are no longer needed in markup — the SVG provides its own background.
 
 ### Chip Checkbox — `.chip-checkbox`
 
@@ -867,14 +882,17 @@ Used in `Screens/patient.html` for the therapeutic project view.
 ```html
 <script>
   window._PROGRAM_CATALOG = [
-    { id: 'phonemix', label: 'Phonemix - Identification', type: 'phonemix' },
+    { id: 'phonemix-id',  name: 'Phonemix - Identification', cls: 'training-icon--phonemix', tagCls: 'training-tag--phonemix' },
+    { id: 'fusion',       name: 'Fusion',                    cls: 'training-icon--fus-seg',  tagCls: 'training-tag--fus-seg'  },
     /* ... */
   ];
 </script>
 <script src="components/program/program.js" defer></script>
 ```
 
-If `window._PROGRAM_CATALOG` is not set, `program.js` falls back to an empty array.
+Fields: `id` (unique string), `name` (display label), `cls` (training-icon modifier — used to derive the SVG filename: `cls.replace('training-icon--', '')`), `tagCls` (training-tag modifier). If `window._PROGRAM_CATALOG` is not set, `program.js` falls back to an empty array.
+
+The training search autocomplete renders a `.training-dropdown__empty` paragraph when no results match the query.
 
 ### Item — `.item`
 
@@ -1223,10 +1241,10 @@ Datepicker   : [data-datepicker] > [data-datepicker-trigger] + .datepicker__valu
 Dialog       : dialog__header | dialog__header--row | dialog__title | dialog__fields | dialog__separator | dialog__footer
 Kanban       : boards > board > board__content > module > module__dots > session-dot--{state}
 Calendar     : session-grid > session-grid__row > session-cell > session-module-bar
-Training     : training-tag--{type} | training-icon--{type} | training-icon--sm
+Training     : training-tag--{type} | training-icon (img-based, src="assets/trainings/{name}.svg") | training-icon--sm
 JS states    : is-active (tabs, nav) | is-open (dropdown) | is-dragging | is-over | is-set (datepicker) | is-hidden (JS toggle)
 ```
 
 ---
 
-*Last updated: June 2026 — 27 components, 7 screens (index, firstLogin, password, forgotPassword, dashboard, patient, account)*
+*Last updated: June 2026 — 27 components, 8 screens (index, firstLogin, password, forgotPassword, dashboard, patient, patientNew, account)*

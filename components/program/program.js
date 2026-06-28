@@ -11,9 +11,8 @@ document.querySelectorAll('.board__toggle').forEach(btn => {
 
 /* Shared fixed-position menu for --todo dots (avoids overflow clipping from .boards) */
 const _todoMenu = document.createElement('div');
-_todoMenu.className = 'dropdown__menu';
+_todoMenu.className = 'dropdown__menu dropdown__menu--fixed';
 _todoMenu.setAttribute('role', 'menu');
-_todoMenu.style.cssText = 'position:fixed; display:none; z-index:200;';
 _todoMenu.innerHTML = '<button class="dropdown__item" role="menuitem" data-action="to-test">Convertir en test de niveau</button>';
 document.body.appendChild(_todoMenu);
 
@@ -77,7 +76,6 @@ document.addEventListener('click', e => {
     if (!dots) return;
     const wrapper = document.createElement('div');
     wrapper.setAttribute('data-todo-wrapper', '');
-    wrapper.style.cssText = 'min-width:0;';
     wrapper.innerHTML = '<button class="session-dot session-dot--todo" type="button"></button>';
     dots.appendChild(wrapper);
   }
@@ -163,9 +161,10 @@ function _subLabel(min, sec, niveau) {
 }
 
 function _collapsedHTML(t, min, sec, niveau) {
+  const _icon = t.cls.replace('training-icon--', '');
   return `
     <button class="sortable__handle" type="button" aria-label="Réordonner">${_HANDLE_SVG}</button>
-    <span class="training-icon training-icon--sm ${t.cls}">${t.letter}</span>
+    <img class="training-icon training-icon--sm" src="assets/trainings/${_icon}.svg" alt="${t.name}">
     <div class="sortable__body flex-fill">
       <span class="sortable__title">${t.name}</span>
       <span class="sortable__sub">${_subLabel(min, sec, niveau)}</span>
@@ -174,28 +173,29 @@ function _collapsedHTML(t, min, sec, niveau) {
 }
 
 function _expandedHTML(t, min, sec, niveau) {
+  const _icon = t.cls.replace('training-icon--', '');
   const minOpts = [0,1,2,3,4,5,10,15,20,30].map(v => `<option${+v===+min?' selected':''}>${v}</option>`).join('');
   const secOpts = [0,10,15,20,30,45].map(v => `<option${+v===+sec?' selected':''}>${v}</option>`).join('');
   const levels  = ['','Niveau 1','Niveau 2','Niveau 3 • /bu pu/ • BOT -30','Niveau 4','Niveau 5'];
   const nivOpts = levels.map(n => `<option value="${n}"${n===niveau?' selected':''}>${n||'— Aucun niveau —'}</option>`).join('');
   return `
-    <div style="display:flex;align-items:center;gap:0.5rem;width:100%;">
+    <div class="sortable__row">
       <button class="sortable__handle" type="button" aria-label="Réordonner">${_HANDLE_SVG}</button>
-      <span class="training-icon training-icon--sm ${t.cls}">${t.letter}</span>
+      <img class="training-icon training-icon--sm" src="assets/trainings/${_icon}.svg" alt="${t.name}">
       <div class="flex-fill"><span class="sortable__title">${t.name}</span></div>
       <button class="btn btn--ghost btn--icon btn--sm" type="button" aria-label="Supprimer" data-action="remove-training">${_TRASH_SVG}</button>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;width:100%;margin-top:0.625rem;">
+    <div class="sortable__fields">
       <div>
-        <p class="label" style="margin-bottom:0.25rem;">Durée (minutes)</p>
+        <p class="label">Durée (minutes)</p>
         <select class="select" data-field="min">${minOpts}</select>
       </div>
       <div>
-        <p class="label" style="margin-bottom:0.25rem;">Durée (secondes)</p>
+        <p class="label">Durée (secondes)</p>
         <select class="select" data-field="sec">${secOpts}</select>
       </div>
-      <div style="grid-column:1/-1;">
-        <p class="label" style="margin-bottom:0.25rem;">Niveau</p>
+      <div class="sortable__field--full">
+        <p class="label">Niveau</p>
         <select class="select" data-field="niveau">${nivOpts}</select>
       </div>
     </div>`;
@@ -207,8 +207,8 @@ function _renderDrop() {
   const q = _trainingSearch.value.toLowerCase();
   const avail = CATALOG.filter(t => !_selectedIds.includes(t.id) && t.name.toLowerCase().includes(q));
   _trainingDrop.innerHTML = avail.length
-    ? avail.map(t => `<button type="button" class="dropdown__item" data-add-training="${t.id}" style="display:flex;align-items:center;gap:0.5rem;"><span class="training-icon training-icon--sm ${t.cls}">${t.letter}</span>${t.name}</button>`).join('')
-    : `<p style="padding:0.4375rem 0.625rem;font-size:0.875rem;color:var(--muted-foreground);margin:0;">Aucun résultat</p>`;
+    ? avail.map(t => `<button type="button" class="dropdown__item" data-add-training="${t.id}"><img class="training-icon training-icon--sm" src="assets/trainings/${t.cls.replace('training-icon--', '')}.svg" alt="${t.name}">${t.name}</button>`).join('')
+    : `<p class="training-dropdown__empty">Aucun résultat</p>`;
   const r = _trainingSearch.getBoundingClientRect();
   _trainingDrop.style.top   = (r.bottom + 6) + 'px';
   _trainingDrop.style.left  = r.left + 'px';
@@ -251,13 +251,12 @@ function _addTrainingToModal(id) {
   if (!t || _selectedIds.includes(id) || !_modalSortable) return;
   _selectedIds.push(id);
   const li = document.createElement('li');
-  li.className = 'sortable__item sortable__item--sm';
+  li.className = 'sortable__item sortable__item--sm sortable__item--expandable';
   li.draggable = true;
   li.dataset.trainingId = id;
   li.dataset.min = '5';
   li.dataset.sec = '0';
   li.dataset.niveau = '';
-  li.style.cssText = 'flex-wrap:wrap;align-items:center;cursor:pointer;';
   li.innerHTML = _collapsedHTML(t, 5, 0, '');
   _modalSortable.appendChild(li);
   _setupModalDrag(li);
@@ -269,8 +268,7 @@ function _expandTraining(li) {
   _expandedId = li.dataset.trainingId;
   li.innerHTML = _expandedHTML(t, +li.dataset.min, +li.dataset.sec, li.dataset.niveau);
   li.draggable = false;
-  li.style.cursor = 'default';
-  li.style.backgroundColor = 'var(--secondary)';
+  li.classList.add('is-expanded');
 }
 
 function _collapseTraining(li) {
@@ -285,8 +283,7 @@ function _collapseTraining(li) {
   if (_expandedId === li.dataset.trainingId) _expandedId = null;
   li.innerHTML = _collapsedHTML(t, +li.dataset.min, +li.dataset.sec, li.dataset.niveau);
   li.draggable = true;
-  li.style.cursor = 'pointer';
-  li.style.backgroundColor = '';
+  li.classList.remove('is-expanded');
 }
 
 if (_modalSortable) {

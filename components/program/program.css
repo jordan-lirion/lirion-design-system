@@ -197,6 +197,8 @@
 [data-todo-wrapper] .session-dot--todo { width: 100%; }
 
 /* Training search autocomplete — fixed dropdown in "add module" dialog */
+.training-dropdown__empty { padding: 0.4375rem 0.625rem; font-size: 0.875rem; color: var(--muted-foreground); margin: 0; }
+
 .training-dropdown {
   position: fixed;
   background-color: var(--background);

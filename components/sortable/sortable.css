@@ -96,4 +96,14 @@
   box-shadow: 0 0 0 2px var(--ring);
 }
 
-.sortable--modal { margin-top: 0.75rem; min-height: 0; }
+.sortable--modal { margin-top: 0.75rem; margin-bottom: 0.75rem; min-height: 0; }
+
+/* Expandable item — used in "Nouveau module" modal */
+.sortable__item--expandable { flex-wrap: wrap; align-items: center; cursor: pointer; }
+.sortable__item--expandable.is-expanded { cursor: default; background-color: var(--secondary); }
+
+/* Layout helpers for the expanded form inside an item */
+.sortable__row { display: flex; align-items: center; gap: 0.5rem; width: 100%; }
+.sortable__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; width: 100%; margin-top: 0.625rem; }
+.sortable__fields .label { margin-bottom: 0.25rem; }
+.sortable__field--full { grid-column: 1 / -1; }
