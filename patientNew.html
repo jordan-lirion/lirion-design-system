@@ -101,190 +101,31 @@
         </div>
       </div>
 
-      <!-- ======== TABS + TOOLBAR ======== -->
-      <div data-tabs>
+      <!-- ======== TOOLBAR ======== -->
       <div class="page-app__section--muted page-app__section--pt-xl">
         <div class="section-row">
-          <div class="tabs__list" role="tablist">
-            <button class="tabs__trigger" role="tab" aria-selected="true" data-value="projet">
-              Projet thérapeutique
+          <h3>Projet thérapeutique</h3>
+          <div class="dropdown" data-dropdown="" id="dd-new-program">
+            <button class="btn btn--default" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
+              <i data-lucide="plus"></i>
+              Nouveau programme
+              <i data-lucide="chevron-down"></i>
             </button>
-            <button class="tabs__trigger" role="tab" aria-selected="false" data-value="calendrier">
-              Calendrier des séances
-            </button>
-          </div>
-          <div data-value="projet">
-            <div class="dropdown" data-dropdown="" id="dd-new-program">
-              <button class="btn btn--default" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
-                <i data-lucide="plus"></i>
-                Nouveau programme
-                <i data-lucide="chevron-down"></i>
-              </button>
-              <div class="dropdown__menu dropdown__menu--end" role="menu">
-                <button class="dropdown__item" role="menuitem" data-add-program="Audio-phonologique">Audio-phonologique</button>
-                <button class="dropdown__item" role="menuitem" data-add-program="Visuo-attentionnel">Visuo-attentionnel</button>
-                <button class="dropdown__item" role="menuitem" data-add-program="Audio-visuel">Audio-visuel</button>
-              </div>
-            </div>
-          </div>
-          <div data-value="calendrier" hidden>
-            <div class="dropdown" data-dropdown="" id="dd-month">
-              <button class="btn btn--outline" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
-                <i data-lucide="calendar"></i>
-                Mars 2026
-                <i data-lucide="chevron-down"></i>
-              </button>
-              <div class="dropdown__menu dropdown__menu--end" role="menu">
-                <button class="dropdown__item" role="menuitem">Mars 2026</button>
-                <button class="dropdown__item" role="menuitem">Février 2026</button>
-                <button class="dropdown__item" role="menuitem">Janvier 2026</button>
-              </div>
+            <div class="dropdown__menu dropdown__menu--end" role="menu">
+              <button class="dropdown__item" role="menuitem" data-add-program="Audio-phonologique">Audio-phonologique</button>
+              <button class="dropdown__item" role="menuitem" data-add-program="Visuo-attentionnel">Visuo-attentionnel</button>
+              <button class="dropdown__item" role="menuitem" data-add-program="Audio-visuel">Audio-visuel</button>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ======== TAB PANEL : PROJET THÉRAPEUTIQUE ======== -->
-      <div data-value="projet" class="page-app__section--muted page-app__section--pt-sm">
+      <div class="page-app__section--muted page-app__section--pt-sm">
         <div class="boards">
         </div><!-- /.boards -->
-      </div><!-- /[data-value="projet"] -->
+      </div>
 
-
-      <!-- ======== TAB PANEL : CALENDRIER DES SÉANCES ======== -->
-      <div data-value="calendrier" class="page-app__section--muted" hidden>
-
-        <!-- Session grid -->
-        <div class="session-grid">
-          <div class="session-grid__head">
-            <div class="session-grid__col-title">Séance 1</div>
-            <div class="session-grid__col-title">Séance 2</div>
-            <div class="session-grid__col-title">Séance 3</div>
-            <div class="session-grid__col-title">Séance 4</div>
-            <div class="session-grid__col-title">Séance 5</div>
-          </div>
-          <div class="session-grid__body">
-
-            <!-- Row 1 -->
-            <div class="session-grid__row">
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="session-grid__row">
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="session-grid__row">
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-            </div>
-
-            <!-- Row 4 -->
-            <div class="session-grid__row">
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-            </div>
-
-            <!-- Row 5 -->
-            <div class="session-grid__row">
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-              </div>
-              <div class="session-cell session-cell--empty"></div>
-              <div class="session-cell session-cell--empty"></div>
-            </div>
-
-          </div>
-        </div>
-
-      </div><!-- /[data-value="calendrier"] -->
-
-      </div><!-- /[data-tabs] -->
 
     </div><!-- /.page-app__content -->
   </div><!-- /.page-app -->
@@ -314,16 +155,12 @@
       </button>
     </div>
 
-    <!-- Autocomplete search -->
-    <div class="relative">
-      <div class="input-group input-group--icon-start">
-        <span class="input-group__icon">
-          <i data-lucide="search"></i>
-        </span>
-        <input type="text" class="input" id="training-search" placeholder="Chercher un entrainement ..." autocomplete="off">
-      </div>
-      <div id="training-dropdown" class="training-dropdown"></div>
-    </div>
+    <!-- Add training button -->
+    <button type="button" class="btn btn--outline btn--full btn--start" id="btn-add-training">
+      <i data-lucide="plus"></i>
+      Nouvel entrainement
+    </button>
+    <div id="training-dropdown" class="training-dropdown"></div>
 
     <!-- Selected trainings list (populated by JS) -->
     <ul class="sortable sortable--modal" id="modal-sortable"></ul>
@@ -355,17 +192,23 @@
   <script>
     /* Training catalog for this patient — consumed by program.js via window._PROGRAM_CATALOG */
     window._PROGRAM_CATALOG = [
-      { id: 'phonemix-id',   name: 'Phonemix - Identification', cls: 'training-icon--phonemix', tagCls: 'training-tag--phonemix', letter: 'P' },
-      { id: 'phonemix-disc', name: 'Phonemix - Discrimination', cls: 'training-icon--phonemix', tagCls: 'training-tag--phonemix', letter: 'P' },
-      { id: 'fusion',        name: 'Fusion',                    cls: 'training-icon--fus-seg',  tagCls: 'training-tag--fus-seg',  letter: 'F' },
-      { id: 'segmentation',  name: 'Segmentation',              cls: 'training-icon--fus-seg',  tagCls: 'training-tag--fus-seg',  letter: 'S' },
-      { id: 'memoson-diff',  name: 'Mémoson - Différents',      cls: 'training-icon--memoson',  tagCls: 'training-tag--memoson',  letter: 'M' },
-      { id: 'memoson-cache', name: 'Mémoson - Cache Cache',     cls: 'training-icon--memoson',  tagCls: 'training-tag--memoson',  letter: 'M' },
-      { id: 'ran',           name: 'RAN',                       cls: 'training-icon--ran',      tagCls: 'training-tag--ran',      letter: 'R' },
+      { id: 'phonemix-id',   name: 'Phonemix - Identification', cls: 'training-icon--phonemix',      tagCls: 'training-tag--phonemix',      programs: ['Audio-phonologique'] },
+      { id: 'phonemix-disc', name: 'Phonemix - Discrimination',  cls: 'training-icon--phonemix',      tagCls: 'training-tag--phonemix',      programs: ['Audio-phonologique'] },
+      { id: 'memoson-diff',  name: 'Memoson - Différences',      cls: 'training-icon--memoson',       tagCls: 'training-tag--memoson',       programs: ['Audio-phonologique'] },
+      { id: 'memoson-cache', name: 'Memoson - Cache Cache',       cls: 'training-icon--memoson',       tagCls: 'training-tag--memoson',       programs: ['Audio-phonologique'] },
+      { id: 'fusion',        name: 'Fusion',                      cls: 'training-icon--fus-seg',       tagCls: 'training-tag--fus-seg',       programs: ['Audio-phonologique'] },
+      { id: 'segmentation',  name: 'Segmentation',                cls: 'training-icon--fus-seg',       tagCls: 'training-tag--fus-seg',       programs: ['Audio-phonologique'] },
+      { id: 'ran',           name: 'RAN',                         cls: 'training-icon--ran',           tagCls: 'training-tag--ran',           programs: ['Audio-phonologique'] },
+      { id: 'loh',           name: 'LOH',                         cls: 'training-icon--loh',           tagCls: 'training-tag--loh',           programs: ['Visuo-attentionnel'] },
+      { id: 'elor',          name: 'ELOR',                        cls: 'training-icon--elor',          tagCls: 'training-tag--elor',          programs: ['Visuo-attentionnel'] },
+      { id: 'switchpido',    name: 'Switchpido',                  cls: 'training-icon--switchipido',   tagCls: 'training-tag--switchipido',   programs: ['Visuo-attentionnel'] },
+      { id: 'maeva',         name: 'Maeva',                       cls: 'training-icon--maeva',         tagCls: 'training-tag--maeva',         programs: ['Visuo-attentionnel'] },
+      { id: 'rech-visuelle', name: 'Rech. Visuelle',              cls: 'training-icon--rech-visuelle', tagCls: 'training-tag--rech-visuelle', programs: ['Audio-visuel'] },
+      { id: 'larma',         name: 'Larma',                       cls: 'training-icon--larma',         tagCls: 'training-tag--larma',         programs: ['Audio-visuel'] },
+      { id: 'graphogame',    name: 'Graphogame',                  cls: 'training-icon--graphogame',    tagCls: 'training-tag--graphogame',    programs: ['Audio-visuel'] },
     ];
   </script>
   <script src="components/dropdown/dropdown.js" defer></script>
-  <script src="components/tabs/tabs.js" defer></script>
   <script src="components/chip-checkbox/chip-checkbox.js" defer></script>
   <script src="components/program/program.js" defer></script>
   <script>lucide.createIcons();</script>

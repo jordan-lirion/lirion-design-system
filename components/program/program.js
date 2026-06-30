@@ -103,14 +103,32 @@ document.addEventListener('click', e => {
   const action = btn.dataset.action;
 
   if (action === 'complete-board') {
-    btn.closest('.board')?.classList.toggle('board--disabled');
+    const board = btn.closest('.board');
+    if (!board) return;
+    board.classList.add('board--completed');
+    const dropdown = btn.closest('.dropdown');
+    const checkBtn = document.createElement('button');
+    checkBtn.className = 'btn btn--ghost btn--icon btn--sm';
+    checkBtn.setAttribute('aria-label', 'Complété');
+    checkBtn.innerHTML = '<i data-lucide="check"></i>';
+    dropdown.replaceWith(checkBtn);
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   }
   if (action === 'delete-board') {
     _deleteTarget = btn.closest('.board');
     _deleteDialog?.showModal();
   }
   if (action === 'complete-module') {
-    btn.closest('.module')?.classList.toggle('module--disabled');
+    const module = btn.closest('.module');
+    if (!module) return;
+    module.classList.add('module--completed');
+    const dropdown = btn.closest('.dropdown');
+    const checkBtn = document.createElement('button');
+    checkBtn.className = 'btn btn--ghost btn--icon btn--sm';
+    checkBtn.setAttribute('aria-label', 'Complété');
+    checkBtn.innerHTML = '<i data-lucide="check"></i>';
+    dropdown.replaceWith(checkBtn);
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   }
   if (action === 'delete-module') {
     _deleteTarget = btn.closest('.module');
@@ -145,14 +163,13 @@ _deleteDialog?.addEventListener('click', e => {
 /* CATALOG — injected by the page via window._PROGRAM_CATALOG before this script runs */
 const CATALOG = window._PROGRAM_CATALOG || [];
 
-const _trainingSearch = document.getElementById('training-search');
+const _btnAddTraining = document.getElementById('btn-add-training');
 const _trainingDrop   = document.getElementById('training-dropdown');
 const _modalSortable  = document.getElementById('modal-sortable');
 
 let _selectedIds  = [];
 let _expandedId   = null;
 let _modalDragSrc = null;
-let _dropPending  = false;
 
 function _subLabel(min, sec, niveau) {
   let s = `${min} min`;
@@ -202,47 +219,43 @@ function _expandedHTML(t, min, sec, niveau) {
     </div>`;
 }
 
-/* Autocomplete dropdown */
+/* Training dropdown */
 function _renderDrop() {
-  if (!_trainingSearch || !_trainingDrop) return;
-  const q = _trainingSearch.value.toLowerCase();
-  const avail = CATALOG.filter(t => !_selectedIds.includes(t.id) && t.name.toLowerCase().includes(q));
+  if (!_btnAddTraining || !_trainingDrop) return;
+  const program = _currentBoard?.querySelector('.board__title')?.textContent.trim() || '';
+  const avail = CATALOG.filter(t => !_selectedIds.includes(t.id) && (!t.programs || t.programs.includes(program)));
   _trainingDrop.innerHTML = avail.length
     ? avail.map(t => `<button type="button" class="dropdown__item" data-add-training="${t.id}"><img class="training-icon training-icon--sm" src="assets/trainings/${t.cls.replace('training-icon--', '')}.svg" alt="${t.name}">${t.name}</button>`).join('')
     : `<p class="training-dropdown__empty">Aucun résultat</p>`;
-  const r = _trainingSearch.getBoundingClientRect();
+  const r = _btnAddTraining.getBoundingClientRect();
   _trainingDrop.style.top   = (r.bottom + 6) + 'px';
   _trainingDrop.style.left  = r.left + 'px';
   _trainingDrop.style.width = r.width + 'px';
   _trainingDrop.style.display = 'block';
 }
 
-if (_trainingSearch) {
-  _trainingSearch.addEventListener('focus', _renderDrop);
-  _trainingSearch.addEventListener('input', _renderDrop);
-  _trainingSearch.addEventListener('blur', () => {
-    if (_dropPending) return;
-    setTimeout(() => { _trainingDrop.style.display = 'none'; }, 200);
+if (_btnAddTraining) {
+  _btnAddTraining.addEventListener('click', e => {
+    e.stopPropagation();
+    if (_trainingDrop?.style.display !== 'none') {
+      _trainingDrop.style.display = 'none';
+    } else {
+      _renderDrop();
+    }
   });
 }
 
 if (_trainingDrop) {
-  _trainingDrop.addEventListener('mousedown', e => {
-    if (e.target.closest('[data-add-training]')) { _dropPending = true; e.preventDefault(); }
-  });
   _trainingDrop.addEventListener('click', e => {
     const btn = e.target.closest('[data-add-training]');
     if (!btn) return;
     e.stopPropagation();
-    _dropPending = false;
     if (_expandedId) {
       const expLi = _modalSortable?.querySelector(`[data-training-id="${_expandedId}"]`);
       if (expLi) _collapseTraining(expLi);
     }
     _addTrainingToModal(btn.dataset.addTraining);
-    _trainingSearch.value = '';
     _trainingDrop.style.display = 'none';
-    _trainingSearch.focus();
   });
 }
 
@@ -317,6 +330,9 @@ if (_modalSortable) {
 }
 
 _addModuleDialog?.addEventListener('click', e => {
+  if (!e.target.closest('#btn-add-training') && !e.target.closest('#training-dropdown')) {
+    if (_trainingDrop) _trainingDrop.style.display = 'none';
+  }
   if (_expandedId) {
     const expLi = _modalSortable?.querySelector(`[data-training-id="${_expandedId}"]`);
     if (expLi) _collapseTraining(expLi);
@@ -330,7 +346,7 @@ function _buildModuleHTML() {
     const t = CATALOG.find(x => x.id === id);
     return t ? `<span class="training-tag ${t.tagCls}" data-training-id="${id}">${t.name}</span>` : '';
   }).join('');
-  const dots = Array.from({length: count}, () => `<span class="session-dot session-dot--pending"></span>`).join('');
+  const dots = Array.from({length: count}, () => `<span class="session-dot session-dot--todo"></span>`).join('');
   return `
     <div class="module__header">
       <div class="module__tags">${tags}</div>
@@ -369,9 +385,8 @@ document.getElementById('btn-close-add-module')?.addEventListener('click', () =>
 _addModuleDialog?.addEventListener('cancel', () => { _resetModal(); _currentBoard = null; });
 
 function _resetModal() {
-  _selectedIds = []; _expandedId = null; _modalDragSrc = null; _dropPending = false;
+  _selectedIds = []; _expandedId = null; _modalDragSrc = null;
   if (_modalSortable) _modalSortable.innerHTML = '';
-  if (_trainingSearch) _trainingSearch.value = '';
   if (_trainingDrop) _trainingDrop.style.display = 'none';
 }
 

@@ -97,51 +97,27 @@
         </div>
       </div>
 
-      <!-- ======== TABS + TOOLBAR ======== -->
-      <div data-tabs>
+      <!-- ======== TOOLBAR ======== -->
       <div class="page-app__section--muted page-app__section--pt-xl">
         <div class="section-row">
-          <div class="tabs__list" role="tablist">
-            <button class="tabs__trigger" role="tab" aria-selected="true" data-value="projet">
-              Projet thérapeutique
+          <h3>Projet thérapeutique</h3>
+          <div class="dropdown" data-dropdown="" id="dd-new-program">
+            <button class="btn btn--default" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
+              <i data-lucide="plus"></i>
+              Nouveau programme
+              <i data-lucide="chevron-down"></i>
             </button>
-            <button class="tabs__trigger" role="tab" aria-selected="false" data-value="calendrier">
-              Calendrier des séances
-            </button>
-          </div>
-          <div data-value="projet">
-            <div class="dropdown" data-dropdown="" id="dd-new-program">
-              <button class="btn btn--default" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
-                <i data-lucide="plus"></i>
-                Nouveau programme
-                <i data-lucide="chevron-down"></i>
-              </button>
-              <div class="dropdown__menu dropdown__menu--end" role="menu">
-                <button class="dropdown__item" role="menuitem" data-add-program="Audio-phonologique">Audio-phonologique</button>
-                <button class="dropdown__item" role="menuitem" data-add-program="Visuo-attentionnel">Visuo-attentionnel</button>
-                <button class="dropdown__item" role="menuitem" data-add-program="Audio-visuel">Audio-visuel</button>
-              </div>
-            </div>
-          </div>
-          <div data-value="calendrier" hidden>
-            <div class="dropdown" data-dropdown="" id="dd-month">
-              <button class="btn btn--outline" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false">
-                <i data-lucide="calendar"></i>
-                Mars 2026
-                <i data-lucide="chevron-down"></i>
-              </button>
-              <div class="dropdown__menu dropdown__menu--end" role="menu">
-                <button class="dropdown__item" role="menuitem">Mars 2026</button>
-                <button class="dropdown__item" role="menuitem">Février 2026</button>
-                <button class="dropdown__item" role="menuitem">Janvier 2026</button>
-              </div>
+            <div class="dropdown__menu dropdown__menu--end" role="menu">
+              <button class="dropdown__item" role="menuitem" data-add-program="Audio-phonologique">Audio-phonologique</button>
+              <button class="dropdown__item" role="menuitem" data-add-program="Visuo-attentionnel">Visuo-attentionnel</button>
+              <button class="dropdown__item" role="menuitem" data-add-program="Audio-visuel">Audio-visuel</button>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ======== TAB PANEL : PROJET THÉRAPEUTIQUE ======== -->
-      <div data-value="projet" class="page-app__section--muted page-app__section--pt-sm">
+      <div class="page-app__section--muted page-app__section--pt-sm">
         <div class="boards">
 
           <!-- ---- BOARD : Audio-phonologique ---- -->
@@ -163,31 +139,43 @@
             <div class="board__content">
 
               <!-- Module 1 -->
-              <div class="module">
+              <div class="module module--completed">
                 <div class="module__header">
                   <div class="module__tags">
                     <span class="training-tag training-tag--phonemix">Phonemix - Identification</span>
                     <span class="training-tag training-tag--fus-seg">Fusion</span>
                   </div>
-                  <div class="dropdown" data-dropdown="">
-                    <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
-                      <i data-lucide="ellipsis-vertical"></i>
-                    </button>
-                    <div class="dropdown__menu dropdown__menu--end" role="menu">
-                      <button class="dropdown__item" role="menuitem" data-action="complete-module">Marqué comme complété</button>
-                      <hr class="dropdown__separator">
-                      <button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-module">Supprimer</button>
-                    </div>
-                  </div>
+                  <button class="btn btn--ghost btn--icon btn--sm" aria-label="Complété">
+                    <i data-lucide="check"></i>
+                  </button>
                 </div>
                 <hr class="separator">
-                <p class="module__meta">5 séances</p>
+                <p class="module__meta">15 séances</p>
                 <div class="module__dots">
-                  <a href="session.html" class="session-dot session-dot--success">01/03</a>
-                  <a href="session.html" class="session-dot session-dot--success">02/03</a>
-                  <a href="session.html" class="session-dot session-dot--success">04/03</a>
-                  <span class="session-dot session-dot--partial">06/03</span>
-                  <a href="session.html" class="session-dot session-dot--success">07/03</a>
+                  <a href="session.html" class="session-dot session-dot--test">02/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">03/03</a>
+                  <a href="session.html" class="session-dot session-dot--partial">05/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">06/03</a>
+                  <span class="session-dot session-dot--pending"><i data-lucide="x"></i></span>
+                  <a href="session.html" class="session-dot session-dot--success">09/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">10/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">11/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">12/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">13/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">16/03</a>
+                  <a href="session.html" class="session-dot session-dot--partial">17/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">18/03</a>
+                  <span class="session-dot session-dot--pending"><i data-lucide="x"></i></span>
+                  <span class="session-dot session-dot--pending"><i data-lucide="x"></i></span>
+                  <a href="session.html" class="session-dot session-dot--partial">23/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">24/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">26/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">27/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">28/03</a>
+                  <a href="session.html" class="session-dot session-dot--partial">30/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">31/03</a>
+                  <a href="session.html" class="session-dot session-dot--success">01/04</a>
+                  <a href="session.html" class="session-dot session-dot--test">02/04</a>
                 </div>
               </div>
 
@@ -197,7 +185,6 @@
                   <div class="module__tags">
                     <span class="training-tag training-tag--memoson">Memoson - Différences</span>
                     <span class="training-tag training-tag--fus-seg">Fusion</span>
-                    <span class="training-tag training-tag--fus-seg">Segmentation</span>
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
@@ -211,20 +198,18 @@
                   </div>
                 </div>
                 <hr class="separator">
-                <p class="module__meta">20 séances</p>
+                <p class="module__meta">15 séances</p>
                 <div class="module__dots">
-                  <a href="session.html" class="session-dot session-dot--success">10/03</a>
-                  <a href="session.html" class="session-dot session-dot--success">11/03</a>
-                  <a href="session.html" class="session-dot session-dot--success">12/03</a>
-                  <a href="test.html" class="session-dot session-dot--test">13/03</a>
-                  <a href="session.html" class="session-dot session-dot--success">15/03</a>
-                  <a href="session.html" class="session-dot session-dot--success">17/03</a>
-                  <span class="session-dot session-dot--partial">18/03</span>
-                  <span class="session-dot session-dot--pending"></span>
-                  <a href="session.html" class="session-dot session-dot--success">20/03</a>
-                  <a href="session.html" class="session-dot session-dot--success">21/03</a>
-                  <a href="session.html" class="session-dot session-dot--success">23/03</a>
-                  <span class="session-dot session-dot--todo"></span>
+                  <a href="session.html" class="session-dot session-dot--success">07/04</a>
+                  <a href="session.html" class="session-dot session-dot--partial">08/04</a>
+                  <a href="session.html" class="session-dot session-dot--success">10/04</a>
+                  <a href="session.html" class="session-dot session-dot--success">11/04</a>
+                  <span class="session-dot session-dot--pending"><i data-lucide="x"></i></span>
+                  <a href="session.html" class="session-dot session-dot--success">13/04</a>
+                  <a href="session.html" class="session-dot session-dot--partial">14/04</a>
+                  <a href="session.html" class="session-dot session-dot--success">15/04</a>
+                  <a href="session.html" class="session-dot session-dot--success">16/04</a>
+                  <a href="session.html" class="session-dot session-dot--success">17/04</a>
                   <span class="session-dot session-dot--todo"></span>
                   <span class="session-dot session-dot--todo"></span>
                   <span class="session-dot session-dot--todo"></span>
@@ -255,8 +240,18 @@
                   </div>
                 </div>
                 <hr class="separator">
-                <p class="module__meta">5 séances</p>
+                <p class="module__meta">15 séances</p>
                 <div class="module__dots">
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
+                  <span class="session-dot session-dot--todo"></span>
                   <span class="session-dot session-dot--todo"></span>
                   <span class="session-dot session-dot--todo"></span>
                   <span class="session-dot session-dot--todo"></span>
@@ -356,13 +351,8 @@
                   </div>
                 </div>
                 <hr class="separator">
-                <p class="module__meta">15 séances</p>
+                <p class="module__meta">10 séances</p>
                 <div class="module__dots">
-                  <span class="session-dot session-dot--todo"></span>
-                  <span class="session-dot session-dot--todo"></span>
-                  <span class="session-dot session-dot--todo"></span>
-                  <span class="session-dot session-dot--todo"></span>
-                  <span class="session-dot session-dot--todo"></span>
                   <span class="session-dot session-dot--todo"></span>
                   <span class="session-dot session-dot--todo"></span>
                   <span class="session-dot session-dot--todo"></span>
@@ -453,7 +443,7 @@
                 <div class="module__header">
                   <div class="module__tags">
                     <span class="training-tag training-tag--rech-visuelle">Rech. Visuelle</span>
-                    <span class="training-tag training-tag--loh">LOH</span>
+                    <span class="training-tag training-tag--larma">Larma</span>
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
@@ -496,7 +486,8 @@
               <div class="module">
                 <div class="module__header">
                   <div class="module__tags">
-                    <span class="training-tag training-tag--graphogame">GRAPHOGAME</span>
+                    <span class="training-tag training-tag--graphogame">Graphogame</span>
+                    <span class="training-tag training-tag--larma">Larma</span>
                   </div>
                   <div class="dropdown" data-dropdown="">
                     <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">
@@ -546,276 +537,8 @@
           </div>
 
         </div><!-- /.boards -->
-      </div><!-- /[data-value="projet"] -->
+      </div>
 
-
-      <!-- ======== TAB PANEL : CALENDRIER DES SÉANCES ======== -->
-      <div data-value="calendrier" class="page-app__section--muted" hidden>
-
-        <!-- Session grid -->
-        <div class="session-grid">
-          <div class="session-grid__head">
-            <div class="session-grid__col-title">Séance 1</div>
-            <div class="session-grid__col-title">Séance 2</div>
-            <div class="session-grid__col-title">Séance 3</div>
-            <div class="session-grid__col-title">Séance 4</div>
-            <div class="session-grid__col-title">Séance 5</div>
-          </div>
-          <div class="session-grid__body">
-
-            <!-- Row 1 -->
-            <div class="session-grid__row">
-              <div class="session-cell">
-                <span class="session-cell__day">Lun 01</span>
-                <span class="badge badge--success">Complété</span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
-                  <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day">Mar 02</span>
-                <span class="badge badge--success">Complété</span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
-                  <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day">Mer 03</span>
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day">Jeu 04</span>
-                <span class="badge badge--success">Complété</span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
-                  <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day">Ven 05</span>
-                <span class="badge badge--success">Complété</span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
-                  <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="session-grid__row">
-              <div class="session-cell">
-                <span class="session-cell__day">Lun 08</span>
-                <span class="badge badge--success">Complété</span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
-                  <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day">Mar 09</span>
-                <span class="badge badge--success">Complété</span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
-                  <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day">Mer 10</span>
-                <span class="badge badge--default">
-                  <i data-lucide="check"></i>
-                  Test de niveau
-                </span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day">Jeu 11</span>
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day">Sam 12</span>
-                <span class="badge badge--success">Complété</span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
-                  <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="session-grid__row">
-              <div class="session-cell">
-                <span class="session-cell__day">Lun 15</span>
-                <span class="badge badge--success">Complété</span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
-                  <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day">Mar 16</span>
-                <span class="badge badge--destructive">Abandon</span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day">Jeu 17</span>
-                <span class="badge badge--success">Complété</span>
-                <span class="session-cell__duration">15min</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar" data-training="phonemix" data-tooltip="Phonemix"></span>
-                  <span class="session-module-bar" data-training="fus-seg" data-tooltip="Fusion / Seg."></span>
-                  <span class="session-module-bar" data-training="memoson" data-tooltip="Memoson"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day"></span>
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__day"></span>
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 4 -->
-            <div class="session-grid__row">
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 5 -->
-            <div class="session-grid__row">
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell">
-                <span class="session-cell__status">Non commencé</span>
-                <span class="session-cell__duration">--</span>
-                <div class="session-cell__modules">
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                  <span class="session-module-bar"></span>
-                </div>
-              </div>
-              <div class="session-cell session-cell--empty"></div>
-              <div class="session-cell session-cell--empty"></div>
-            </div>
-
-          </div>
-        </div>
-
-      </div><!-- /[data-value="calendrier"] -->
-
-      </div><!-- /[data-tabs] -->
 
     </div><!-- /.page-app__content -->
   </div><!-- /.page-app -->
@@ -845,16 +568,12 @@
       </button>
     </div>
 
-    <!-- Autocomplete search -->
-    <div class="relative">
-      <div class="input-group input-group--icon-start">
-        <span class="input-group__icon">
-          <i data-lucide="search"></i>
-        </span>
-        <input type="text" class="input" id="training-search" placeholder="Chercher un entrainement ..." autocomplete="off">
-      </div>
-      <div id="training-dropdown" class="training-dropdown"></div>
-    </div>
+    <!-- Add training button -->
+    <button type="button" class="btn btn--outline btn--full btn--start" id="btn-add-training">
+      <i data-lucide="plus"></i>
+      Nouvel entrainement
+    </button>
+    <div id="training-dropdown" class="training-dropdown"></div>
 
     <!-- Selected trainings list (populated by JS) -->
     <ul class="sortable sortable--modal" id="modal-sortable"></ul>
@@ -886,17 +605,23 @@
   <script>
     /* Training catalog for this patient — consumed by program.js via window._PROGRAM_CATALOG */
     window._PROGRAM_CATALOG = [
-      { id: 'phonemix-id',   name: 'Phonemix - Identification', cls: 'training-icon--phonemix', tagCls: 'training-tag--phonemix', letter: 'P' },
-      { id: 'phonemix-disc', name: 'Phonemix - Discrimination', cls: 'training-icon--phonemix', tagCls: 'training-tag--phonemix', letter: 'P' },
-      { id: 'fusion',        name: 'Fusion',                    cls: 'training-icon--fus-seg',  tagCls: 'training-tag--fus-seg',  letter: 'F' },
-      { id: 'segmentation',  name: 'Segmentation',              cls: 'training-icon--fus-seg',  tagCls: 'training-tag--fus-seg',  letter: 'S' },
-      { id: 'memoson-diff',  name: 'Mémoson - Différents',      cls: 'training-icon--memoson',  tagCls: 'training-tag--memoson',  letter: 'M' },
-      { id: 'memoson-cache', name: 'Mémoson - Cache Cache',     cls: 'training-icon--memoson',  tagCls: 'training-tag--memoson',  letter: 'M' },
-      { id: 'ran',           name: 'RAN',                       cls: 'training-icon--ran',      tagCls: 'training-tag--ran',      letter: 'R' },
+      { id: 'phonemix-id',   name: 'Phonemix - Identification', cls: 'training-icon--phonemix',      tagCls: 'training-tag--phonemix',      programs: ['Audio-phonologique'] },
+      { id: 'phonemix-disc', name: 'Phonemix - Discrimination',  cls: 'training-icon--phonemix',      tagCls: 'training-tag--phonemix',      programs: ['Audio-phonologique'] },
+      { id: 'memoson-diff',  name: 'Memoson - Différences',      cls: 'training-icon--memoson',       tagCls: 'training-tag--memoson',       programs: ['Audio-phonologique'] },
+      { id: 'memoson-cache', name: 'Memoson - Cache Cache',       cls: 'training-icon--memoson',       tagCls: 'training-tag--memoson',       programs: ['Audio-phonologique'] },
+      { id: 'fusion',        name: 'Fusion',                      cls: 'training-icon--fus-seg',       tagCls: 'training-tag--fus-seg',       programs: ['Audio-phonologique'] },
+      { id: 'segmentation',  name: 'Segmentation',                cls: 'training-icon--fus-seg',       tagCls: 'training-tag--fus-seg',       programs: ['Audio-phonologique'] },
+      { id: 'ran',           name: 'RAN',                         cls: 'training-icon--ran',           tagCls: 'training-tag--ran',           programs: ['Audio-phonologique'] },
+      { id: 'loh',           name: 'LOH',                         cls: 'training-icon--loh',           tagCls: 'training-tag--loh',           programs: ['Visuo-attentionnel'] },
+      { id: 'elor',          name: 'ELOR',                        cls: 'training-icon--elor',          tagCls: 'training-tag--elor',          programs: ['Visuo-attentionnel'] },
+      { id: 'switchpido',    name: 'Switchpido',                  cls: 'training-icon--switchipido',   tagCls: 'training-tag--switchipido',   programs: ['Visuo-attentionnel'] },
+      { id: 'maeva',         name: 'Maeva',                       cls: 'training-icon--maeva',         tagCls: 'training-tag--maeva',         programs: ['Visuo-attentionnel'] },
+      { id: 'rech-visuelle', name: 'Rech. Visuelle',              cls: 'training-icon--rech-visuelle', tagCls: 'training-tag--rech-visuelle', programs: ['Audio-visuel'] },
+      { id: 'larma',         name: 'Larma',                       cls: 'training-icon--larma',         tagCls: 'training-tag--larma',         programs: ['Audio-visuel'] },
+      { id: 'graphogame',    name: 'Graphogame',                  cls: 'training-icon--graphogame',    tagCls: 'training-tag--graphogame',    programs: ['Audio-visuel'] },
     ];
   </script>
   <script src="components/dropdown/dropdown.js" defer></script>
-  <script src="components/tabs/tabs.js" defer></script>
   <script src="components/chip-checkbox/chip-checkbox.js" defer></script>
   <script src="components/program/program.js" defer></script>
   <script>lucide.createIcons();</script>

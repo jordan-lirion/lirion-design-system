@@ -881,13 +881,26 @@ Used in `Screens/patient.html` for the therapeutic project view.
         <hr class="separator">
         <p class="module__meta">10 séances</p>
         <div class="module__dots">
-          <span class="session-dot session-dot--success">01/03</span>
-          <span class="session-dot session-dot--pending"></span>
+          <a href="session.html" class="session-dot session-dot--success">01/03</a>
+          <span class="session-dot session-dot--pending"><i data-lucide="x"></i></span>
           <div data-todo-wrapper>
             <button class="session-dot session-dot--todo" type="button"></button>
           </div>
         </div>
         <!-- "+ Ajouter une séance" added by program.js -->
+      </div>
+
+      <!-- Completed module — dropdown replaced by check icon, add-session btn hidden -->
+      <div class="module module--completed">
+        <div class="module__header">
+          <div class="module__tags">...</div>
+          <button class="btn btn--ghost btn--icon btn--sm" aria-label="Complété">
+            <i data-lucide="check"></i>
+          </button>
+        </div>
+        <hr class="separator">
+        <p class="module__meta">15 séances</p>
+        <div class="module__dots">...</div>
       </div>
 
     </div>
@@ -903,9 +916,13 @@ Used in `Screens/patient.html` for the therapeutic project view.
 
 `program.js` handles:
 - Board collapse/expand (`.board__toggle`)
-- Appending `btn--dash btn--full btn--sm` "+ Ajouter une séance" button to every `.module`
+- Appending `btn--dash btn--full btn--sm` "+ Ajouter une séance" button to every `.module` (skipped on `.module--completed`)
 - `session-dot--todo` click → fixed-position dropdown → "Convertir en test de niveau" → replaces dot with `session-dot--test`
 - `[data-action="add-session"]` click → appends a new `--todo` dot inside `[data-todo-wrapper]`
+- `[data-action="complete-board"]` → **irreversible**: adds `board--completed`, replaces the `<div class="dropdown">` in the board header with a plain `<button>` displaying `<i data-lucide="check">`. No undo.
+- `[data-action="complete-module"]` → same pattern: adds `module--completed`, swaps dropdown for check button.
+- New module dialog: clicking "+ Nouvel entrainement" (`btn--outline btn--full btn--start`, `id="btn-add-training"`) opens a `position:fixed` training dropdown filtered to the current board's program type (read from `.board__title`). Selecting an item adds it to the sortable list; clicking outside the button/dropdown closes it.
+- New modules are created with `session-dot--todo` dots (not `--pending`).
 
 > **Overflow fix:** `.boards` uses `overflow-x: auto` which implicitly clips `overflow-y`. The `--todo` dropdown uses a single `position:fixed` menu (`_todoMenu`) appended to `<body>` and positioned via `getBoundingClientRect()` to escape clipping.
 
@@ -913,24 +930,26 @@ Used in `Screens/patient.html` for the therapeutic project view.
 |-------|-------------|
 | `.boards` | Horizontal scroll container for boards |
 | `.board` | Kanban column (`width: 20rem`, card styling) |
-| `.board--disabled` | Faded, non-interactive board |
+| `.board--disabled` | Faded, non-interactive board (legacy) |
+| `.board--completed` | Dims `board__header` (opacity 0.45, no pointer-events), hides `board__footer`; modules inside stay fully interactive |
 | `.board__header` | Title + options dropdown |
 | `.board__content` | Flex column of module cards |
 | `.board__footer` | "Nouveau module" action button area |
 | `.module` | Individual module card |
-| `.module--disabled` | Faded module |
-| `.module__header` | Training tags + options dropdown |
+| `.module--disabled` | Faded module (legacy) |
+| `.module--completed` | Dims `module__header`, `.separator`, `.module__meta` (opacity 0.45, no pointer-events); hides `[data-action="add-session"]`; session-dots stay fully visible and interactive |
+| `.module__header` | Training tags + options dropdown (or check button when completed) |
 | `.module__tags` | Flex wrap of `.training-tag` elements |
 | `.module__meta` | Session count label |
 | `.module__dots` | 5-column grid of session dots |
 | `.session-dot` | Single session indicator cell |
 | `.session-dot--success` | Green — completed (tooltip: "Complété") — use `<a href="session.html">` to make it navigable |
 | `.session-dot--partial` | Amber — abandoned (tooltip: "Abandon") |
-| `.session-dot--pending` | Grey — not started (tooltip: "Non commencé") |
+| `.session-dot--pending` | Grey — not started (tooltip: "Non commencé") — always contains `<i data-lucide="x"></i>` (svg sized to 0.875rem, muted color) |
 | `.session-dot--test` | Yellow — level test (tooltip: "Test de niveau") — use `<a href="test.html">` to make it navigable |
 | `.session-dot--todo` | Dashed grey — placeholder; click opens dropdown to convert to `--test` |
 | `[data-todo-wrapper]` | Grid cell wrapper for `--todo` dots (sets `min-width:0; width:100%`) |
-| `.training-dropdown` | `position:fixed` floating list used by the add-module search — appended to `<body>` and positioned via `getBoundingClientRect()` to escape `.boards` overflow clipping |
+| `.training-dropdown` | `position:fixed` floating list used by the add-training button — appended to `<body>`, positioned via `getBoundingClientRect()`; filtered by current board's program type |
 
 **CSS-only tooltips** on `--success`, `--partial`, `--pending`, `--test` use `::after` pseudo-elements with `content: "..."`. No `data-tooltip` attribute needed on session dots.
 
@@ -941,17 +960,38 @@ Used in `Screens/patient.html` for the therapeutic project view.
 ```html
 <script>
   window._PROGRAM_CATALOG = [
-    { id: 'phonemix-id',  name: 'Phonemix - Identification', cls: 'training-icon--phonemix', tagCls: 'training-tag--phonemix' },
-    { id: 'fusion',       name: 'Fusion',                    cls: 'training-icon--fus-seg',  tagCls: 'training-tag--fus-seg'  },
+    { id: 'phonemix-id',   name: 'Phonemix - Identification', cls: 'training-icon--phonemix',      tagCls: 'training-tag--phonemix',      programs: ['Audio-phonologique'] },
+    { id: 'fusion',        name: 'Fusion',                    cls: 'training-icon--fus-seg',       tagCls: 'training-tag--fus-seg',       programs: ['Audio-phonologique'] },
+    { id: 'loh',           name: 'LOH',                       cls: 'training-icon--loh',           tagCls: 'training-tag--loh',           programs: ['Visuo-attentionnel'] },
+    { id: 'rech-visuelle', name: 'Rech. Visuelle',            cls: 'training-icon--rech-visuelle', tagCls: 'training-tag--rech-visuelle', programs: ['Audio-visuel'] },
     /* ... */
   ];
 </script>
 <script src="components/program/program.js" defer></script>
 ```
 
-Fields: `id` (unique string), `name` (display label), `cls` (training-icon modifier — used to derive the SVG filename: `cls.replace('training-icon--', '')`), `tagCls` (training-tag modifier). If `window._PROGRAM_CATALOG` is not set, `program.js` falls back to an empty array.
+Fields: `id` (unique string), `name` (display label), `cls` (training-icon modifier — used to derive the SVG filename: `cls.replace('training-icon--', '')`), `tagCls` (training-tag modifier), `programs` (array of program names — the training is only shown in the dropdown when the current board's `.board__title` text matches one of these values).
 
-The training search autocomplete renders a `.training-dropdown__empty` paragraph when no results match the query.
+The training dropdown renders a `.training-dropdown__empty` paragraph when no trainings are available (all already selected, or none match the board type).
+
+**Full catalog** (14 trainings across 3 programs):
+
+| Program | id | name | icon / tag suffix |
+|---------|----|------|-------------------|
+| Audio-phonologique | `phonemix-id` | Phonemix - Identification | `phonemix` |
+| Audio-phonologique | `phonemix-disc` | Phonemix - Discrimination | `phonemix` |
+| Audio-phonologique | `memoson-diff` | Memoson - Différences | `memoson` |
+| Audio-phonologique | `memoson-cache` | Memoson - Cache Cache | `memoson` |
+| Audio-phonologique | `fusion` | Fusion | `fus-seg` |
+| Audio-phonologique | `segmentation` | Segmentation | `fus-seg` |
+| Audio-phonologique | `ran` | RAN | `ran` |
+| Visuo-attentionnel | `loh` | LOH | `loh` |
+| Visuo-attentionnel | `elor` | ELOR | `elor` |
+| Visuo-attentionnel | `switchpido` | Switchpido | `switchipido` |
+| Visuo-attentionnel | `maeva` | Maeva | `maeva` |
+| Audio-visuel | `rech-visuelle` | Rech. Visuelle | `rech-visuelle` |
+| Audio-visuel | `larma` | Larma | `larma` |
+| Audio-visuel | `graphogame` | Graphogame | `graphogame` |
 
 ### Item — `.item`
 
@@ -1307,6 +1347,12 @@ Calendar     : session-grid > session-grid__row > session-cell > session-module-
 Training     : training-tag--{type} | training-icon (img-based, src="assets/trainings/{name}.svg") | training-icon--sm
 JS states    : is-active (tabs, nav) | is-open (dropdown) | is-dragging | is-over | is-set (datepicker) | is-hidden (JS toggle)
 ```
+
+---
+
+### patient.html / patientNew.html — toolbar layout
+
+These pages no longer use tabs. The toolbar is a simple `.section-row` with an `<h3>Projet thérapeutique</h3>` on the left and the "Nouveau programme" dropdown on the right. The "Calendrier des séances" tab and its panel have been removed.
 
 ---
 
