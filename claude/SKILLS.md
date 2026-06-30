@@ -923,11 +923,11 @@ Used in `Screens/patient.html` for the therapeutic project view.
 `program.js` handles:
 - Board collapse/expand (`.board__toggle`)
 - Appending `btn--dash btn--full btn--sm` "+ Ajouter une séance" button to every `.module` (skipped on `.module--completed`)
-- `session-dot--todo` click → fixed-position dropdown → "Convertir en test de niveau" → replaces dot with `session-dot--test`
+- `session-dot--todo` click → fixed-position dropdown with two items: "Convertir en test de niveau" (replaces dot with `session-dot--test`) and a `dropdown__item--destructive` "Supprimer" (removes the dot and its `[data-todo-wrapper]`)
 - `[data-action="add-session"]` click → appends a new `--todo` dot inside `[data-todo-wrapper]`
 - `[data-action="complete-board"]` → **irreversible**: adds `board--completed`, replaces the `<div class="dropdown">` in the board header with a plain `<button>` displaying `<i data-lucide="check">`. No undo.
 - `[data-action="complete-module"]` → same pattern: adds `module--completed`, swaps dropdown for check button.
-- New module dialog: clicking "+ Nouvel entrainement" (`btn--outline btn--full btn--start`, `id="btn-add-training"`) opens a `position:fixed` training dropdown filtered to the current board's program type (read from `.board__title`). Selecting an item adds it to the sortable list; clicking outside the button/dropdown closes it.
+- New module dialog: the sortable list (`#modal-sortable`) sits **above** the "Nouvel entrainement" button so newly added trainings stack above it. The button (`btn--outline btn--full btn--start mb-sm`, `id="btn-add-training"`) opens a `position:fixed` training dropdown filtered to the current board's program type (read from `.board__title`). Selecting an item prepends it to the sortable list; clicking outside the button/dropdown closes it. `mb-sm` on the button provides spacing before the `dialog__separator` below it.
 - New modules are created with `session-dot--todo` dots (not `--pending`).
 - Module numbering: at page load, `_renumberModules` runs on every `.board` — it creates a `.module__info` wrapper around `.module__tags` (if absent), injects a `<p class="module__meta" data-module-label>` as the first child, and sets the text to `Module 1`, `Module 2`… in DOM order. The label is also updated after any drag-and-drop reorder and after a module is deleted.
 

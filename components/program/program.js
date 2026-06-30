@@ -13,7 +13,7 @@ document.querySelectorAll('.board__toggle').forEach(btn => {
 const _todoMenu = document.createElement('div');
 _todoMenu.className = 'dropdown__menu dropdown__menu--fixed';
 _todoMenu.setAttribute('role', 'menu');
-_todoMenu.innerHTML = '<button class="dropdown__item" role="menuitem" data-action="to-test">Convertir en test de niveau</button>';
+_todoMenu.innerHTML = '<button class="dropdown__item" role="menuitem" data-action="to-test">Convertir en test de niveau</button><hr class="dropdown__separator"><button class="dropdown__item dropdown__item--destructive" role="menuitem" data-action="delete-todo">Supprimer</button>';
 document.body.appendChild(_todoMenu);
 
 let _activeTodo = null;
@@ -62,6 +62,16 @@ document.addEventListener('click', e => {
       dot.className = 'session-dot session-dot--test';
       const wrapper = _activeTodo.closest('[data-todo-wrapper]');
       (wrapper || _activeTodo).replaceWith(dot);
+    }
+    _closeTodoMenu();
+    return;
+  }
+
+  /* Delete --todo dot */
+  if (e.target.closest('[data-action="delete-todo"]')) {
+    if (_activeTodo) {
+      const wrapper = _activeTodo.closest('[data-todo-wrapper]');
+      (wrapper || _activeTodo).remove();
     }
     _closeTodoMenu();
     return;
