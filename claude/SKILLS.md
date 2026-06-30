@@ -873,8 +873,11 @@ Used in `Screens/patient.html` for the therapeutic project view.
 
       <div class="module">
         <div class="module__header">
-          <div class="module__tags">
-            <span class="training-tag training-tag--phonemix">Phonemix</span>
+          <div class="module__info">
+            <p class="module__meta" data-module-label>Module 1</p>
+            <div class="module__tags">
+              <span class="training-tag training-tag--phonemix">Phonemix</span>
+            </div>
           </div>
           <!-- dropdown -->
         </div>
@@ -893,7 +896,10 @@ Used in `Screens/patient.html` for the therapeutic project view.
       <!-- Completed module — dropdown replaced by check icon, add-session btn hidden -->
       <div class="module module--completed">
         <div class="module__header">
-          <div class="module__tags">...</div>
+          <div class="module__info">
+            <p class="module__meta" data-module-label>Module 1</p>
+            <div class="module__tags">...</div>
+          </div>
           <button class="btn btn--ghost btn--icon btn--sm" aria-label="Complété">
             <i data-lucide="check"></i>
           </button>
@@ -923,6 +929,7 @@ Used in `Screens/patient.html` for the therapeutic project view.
 - `[data-action="complete-module"]` → same pattern: adds `module--completed`, swaps dropdown for check button.
 - New module dialog: clicking "+ Nouvel entrainement" (`btn--outline btn--full btn--start`, `id="btn-add-training"`) opens a `position:fixed` training dropdown filtered to the current board's program type (read from `.board__title`). Selecting an item adds it to the sortable list; clicking outside the button/dropdown closes it.
 - New modules are created with `session-dot--todo` dots (not `--pending`).
+- Module numbering: at page load, `_renumberModules` runs on every `.board` — it creates a `.module__info` wrapper around `.module__tags` (if absent), injects a `<p class="module__meta" data-module-label>` as the first child, and sets the text to `Module 1`, `Module 2`… in DOM order. The label is also updated after any drag-and-drop reorder and after a module is deleted.
 
 > **Overflow fix:** `.boards` uses `overflow-x: auto` which implicitly clips `overflow-y`. The `--todo` dropdown uses a single `position:fixed` menu (`_todoMenu`) appended to `<body>` and positioned via `getBoundingClientRect()` to escape clipping.
 
@@ -938,9 +945,11 @@ Used in `Screens/patient.html` for the therapeutic project view.
 | `.module` | Individual module card |
 | `.module--disabled` | Faded module (legacy) |
 | `.module--completed` | Dims `module__header`, `.separator`, `.module__meta` (opacity 0.45, no pointer-events); hides `[data-action="add-session"]`; session-dots stay fully visible and interactive |
-| `.module__header` | Training tags + options dropdown (or check button when completed) |
+| `.module__header` | Flex row: `.module__info` on the left + dropdown (or check button) on the right |
+| `.module__info` | Flex column wrapper (`gap: 0.375rem`, `flex: 1`) — stacks `[data-module-label]` above `.module__tags` |
+| `[data-module-label]` | `<p class="module__meta">` injected/updated by `_renumberModules`; identifies the module number label |
 | `.module__tags` | Flex wrap of `.training-tag` elements |
-| `.module__meta` | Session count label |
+| `.module__meta` | Session count label (also reused by `[data-module-label]`) |
 | `.module__dots` | 5-column grid of session dots |
 | `.session-dot` | Single session indicator cell |
 | `.session-dot--success` | Green — completed (tooltip: "Complété") — use `<a href="session.html">` to make it navigable |

@@ -143,13 +143,41 @@ document.addEventListener('click', e => {
   }
 });
 
+/* ---- MODULE NUMBERING ---- */
+function _renumberModules(board) {
+  board.querySelectorAll('.board__content > .module').forEach((mod, i) => {
+    const header = mod.querySelector('.module__header');
+    let info = header.querySelector('.module__info');
+    if (!info) {
+      const tags = header.querySelector('.module__tags');
+      info = document.createElement('div');
+      info.className = 'module__info';
+      header.insertBefore(info, tags);
+      info.appendChild(tags);
+    }
+    let label = info.querySelector('[data-module-label]');
+    if (!label) {
+      label = document.createElement('p');
+      label.className = 'module__meta';
+      label.setAttribute('data-module-label', '');
+      info.prepend(label);
+    }
+    label.textContent = `Module ${i + 1}`;
+  });
+}
+
 /* ---- DELETE DIALOG ---- */
 document.getElementById('btn-cancel-delete')?.addEventListener('click', () => {
   _deleteDialog.close();
   _deleteTarget = null;
 });
 document.getElementById('btn-confirm-delete')?.addEventListener('click', () => {
-  if (_deleteTarget) { _deleteTarget.remove(); _deleteTarget = null; }
+  if (_deleteTarget) {
+    const _board = _deleteTarget.closest('.board');
+    _deleteTarget.remove();
+    _deleteTarget = null;
+    if (_board) _renumberModules(_board);
+  }
   _deleteDialog.close();
 });
 _deleteDialog?.addEventListener('click', e => {
@@ -349,7 +377,10 @@ function _buildModuleHTML() {
   const dots = Array.from({length: count}, () => `<span class="session-dot session-dot--todo"></span>`).join('');
   return `
     <div class="module__header">
-      <div class="module__tags">${tags}</div>
+      <div class="module__info">
+        <p class="module__meta" data-module-label></p>
+        <div class="module__tags">${tags}</div>
+      </div>
       <div class="dropdown" data-dropdown="">
         <button class="btn btn--ghost btn--icon btn--sm" data-dropdown-trigger="" aria-haspopup="menu" aria-expanded="false" aria-label="Options du module">${_DOTS_SVG}</button>
         <div class="dropdown__menu dropdown__menu--end" role="menu">
@@ -373,6 +404,7 @@ document.getElementById('btn-create-module')?.addEventListener('click', () => {
     _currentBoard.querySelector('.board__content').appendChild(moduleDiv);
     _setupModuleDrag(moduleDiv);
     if (typeof lucide !== 'undefined') lucide.createIcons();
+    _renumberModules(_currentBoard);
   }
   _addModuleDialog.close();
   _resetModal();
@@ -465,6 +497,7 @@ function _setupModuleDrag(mod) {
     const before = e.clientY < rect.top + rect.height / 2;
     mod.parentNode.insertBefore(_dragSrcMod, before ? mod : mod.nextSibling);
     _clearModDragStates();
+    _renumberModules(mod.closest('.board'));
     _dragSrcMod = null;
   });
 }
@@ -482,12 +515,14 @@ function _setupBoardDrop(content) {
     content.appendChild(_dragSrcMod);
     _setupModuleDrag(_dragSrcMod);
     _clearModDragStates();
+    _renumberModules(content.closest('.board'));
     _dragSrcMod = null;
   });
 }
 
 document.querySelectorAll('.board__content .module').forEach(_setupModuleDrag);
 document.querySelectorAll('.board__content').forEach(_setupBoardDrop);
+document.querySelectorAll('.board').forEach(_renumberModules);
 
 /* ---- SORTABLE DRAG & DROP (modal) ---- */
 
